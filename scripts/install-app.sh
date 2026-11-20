@@ -1,5 +1,7 @@
 #!/bin/zsh -f
 set -eu
+# Run the outer cleanup trap even if a nested command fails under errexit.
+setopt POSIX_TRAPS
 
 fail() { print -u2 -r -- "$*"; exit 1; }
 if (( $# != 1 )); then

@@ -2,7 +2,7 @@
 
 ## Çalışma ortamı
 
-Kendi Mac’ine uygulamayı ve indirme araçlarını kurmak için proje klasöründe `./scripts/install.sh` çalıştır. Geliştirme ve test için Apple Silicon üzerinde macOS 27 veya üstü ve Swift 6 ile macOS 27 SDK’sını içeren tam Xcode kurulumu gerekir. SwiftUI görünümleri Xcode ile gelen makro eklentilerini kullanır. Proje kökünden SwiftPM komutlarını çalıştırabilirsin. [GitHub’dan kurulum](README.md#githubdan-kurulum)
+Güncel kaynak kodu ve medya araçlarını kurmak için proje klasöründe `./scripts/install.sh` çalıştır. `./scripts/install.sh --release` ise GitHub’daki hazır sürümü indirir, beklenen SHA-256 değerini denetler ve tam Xcode kurulumu olmadan yükler. Geliştirme ve test için Apple Silicon üzerinde macOS 27 veya üstü ve Swift 6 ile macOS 27 SDK’sını içeren tam Xcode kurulumu gerekir. SwiftUI görünümleri Xcode ile gelen makro eklentilerini kullanır. Proje kökünden SwiftPM komutlarını çalıştırabilirsin. [GitHub’dan kurulum](README.md#githubdan-kurulum)
 
 ```sh
 swift build
@@ -18,7 +18,7 @@ Menü çubuğundaki davranışı denemek için aşağıdaki paketleme komutunu �
 - `Sources/BStoeqRuntime` ve `Sources/MenuBarBridge` menü çubuğuyla sistem düzeyindeki etkileşimi sağlar.
 - `Sources/ArchiveCore` arşiv biçimlerini, 7-Zip süreçlerini ve dosya işlemlerini yönetir. `Sources/ArchiveWorkspace` arşiv penceresini ve dosya gezginini içerir.
 - `Tests` birim ve regresyon testlerini barındırır. `Resources` paket bilgilerini, araçları ve lisans metinlerini içerir.
-- `scripts/install.sh` derleme araçlarını, Homebrew’u ve indirme araçlarını denetler, uygulamayı paketleyip Uygulamalar klasörüne kurar.
+- `BStoeq Kur.command`, Finder’dan hazır sürüm kurulumunu başlatır. `scripts/install.sh` kurulum türüne göre gereken bağımlılıkları sağlar. `scripts/install-app.sh` uygulama kimliğini ve imzasını denetleyip paketi Uygulamalar klasörüne taşır.
 - `scripts/build.sh` dağıtım paketini oluşturur ve `scripts/icon.swift` simgelerini üretir. Elle test için `scripts/TestFixture.swift` geçici bir menü çubuğu simgesi oluşturur. `scripts/engine-probe.m` menü çubuğu sistem arayüzünün etkinleştirilip serbest bırakılabildiğini denetler.
 
 ## Değişiklikleri doğrulama

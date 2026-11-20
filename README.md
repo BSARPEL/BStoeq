@@ -2,7 +2,7 @@
 
 BStoeq 2.0, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
 
-[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Kaynaktan otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik)
+[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -23,15 +23,15 @@ Bu paket yerel (*ad hoc*) imzalıdır ve Apple noter onayı taşımaz. İlk aç�
 
 ### Otomatik kurulum
 
-GitHub’daki kaynak kodu Mac’ine indirip proje klasöründe `./scripts/install.sh` çalıştır. Betik Homebrew’u, tam Xcode uygulamasını ve indirmelerde kullanılan `yt-dlp` ile `ffmpeg` araçlarını kontrol eder ve eksikleri kurar. Ardından BStoeq’i yerel (*ad hoc*) imzayla paketler ve doğruladığı uygulamayı `/Applications/BStoeq.app` konumuna kurar. Paket indirmek için internet bağlantısı gerekir.
+**Hazır uygulamayı ve indirme araçlarını birlikte kurmak için** bu deponun **Code → Download ZIP** seçeneğiyle kaynak arşivini indir. Finder’da arşivi aç, çıkan `BStoeq-main` klasöründeki **BStoeq Kur.command** dosyasına çift tıkla. Kurulum Terminal’de çalışır. Yayımlanmış `v2.0.0` ZIP’ini indirir, SHA-256 özetini denetler, eksik medya araçlarını kurar ve uygulamayı **Uygulamalar** klasörüne yerleştirir. Tam Xcode gerekmez. [Kurucu dosyalarını indir (ana dal ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
 
-**Git kurulu değilse** GitHub’da **Code → Download ZIP** seçeneğini kullan. İndirdiğin ZIP’i Finder’da çift tıklayarak aç. Terminal’de `cd` yazıp bir boşluk bırak, açılan `BStoeq-main` klasörünü Terminal’e sürükle ve Return’e bas. Ardından şu komutu çalıştır.
+Aynı işlemi Terminal’den başlatmak için `cd` yazıp bir boşluk bırak, proje klasörünü Terminal’e sürükle, Return’e bas ve aşağıdaki komutu çalıştır.
 
 ```sh
-./scripts/install.sh
+./scripts/install.sh --release
 ```
 
-**Git kuruluysa** Terminal’de şu üç komutu çalıştır.
+**Ana daldaki en yeni düzeltmelerle kurmak için** proje klasöründe `./scripts/install.sh` çalıştır. Bu seçenek uygun Xcode sürümünü bulur veya kurar, uygulamayı bu klasördeki kaynak koddan derler ve yerel imzayla yükler. Git kullanıyorsan baştan sona şu komutları çalıştırabilirsin.
 
 ```sh
 git clone https://github.com/BSARPEL/BStoeq.git
@@ -41,8 +41,8 @@ cd BStoeq
 
 Betiği kendi kullanıcı hesabından çalıştır ve kurulum sırasında Terminal’i açık tut. Mevcut bir BStoeq kopyasını güncelliyorsan önce menü çubuğundaki simgeden uygulamadan çık.
 
-- **Homebrew ilk kez kuruluyorsa** resmî yükleyici gerekli komut satırı araçlarını da indirir. Terminal’de onay veya yönetici parolası istenebilir. [Homebrew’un kurulum belgeleri](https://docs.brew.sh/Installation)
-- **Uygun Xcode kurulu değilse** betik Homebrew üzerinden `mas` aracını yükler ve Mac App Store’dan Xcode’u edinmeyi veya güncellemeyi dener. App Store açılırsa Apple hesabınla orada oturum aç, Xcode’un indirilmesini tamamla ve proje klasöründe `./scripts/install.sh` komutunu tekrarla. Xcode ilk kullanım bileşenleri veya lisans onayı istiyorsa açılan Xcode penceresindeki adımları tamamla. [mas ile App Store kurulumu](https://github.com/mas-cli/mas#commands)
+- **Homebrew** yalnızca eksik bir paketi kurmak için gerekir. Mac’inde yoksa betik resmî Homebrew kurucusunu indirir. Bu kurucu gerekli Apple Komut Satırı Araçlarını da yükler. Terminal’de onay veya yönetici parolası istenebilir. [Homebrew’un kurulum belgeleri](https://docs.brew.sh/Installation)
+- **Kaynaktan kurulumda uygun Xcode bulunamazsa** betik Homebrew üzerinden `mas` aracını yükler ve Mac App Store’dan Xcode’u edinmeyi veya güncellemeyi dener. App Store açılırsa Apple hesabınla orada oturum aç, Xcode’un indirilmesini tamamla ve proje klasöründe `./scripts/install.sh` komutunu tekrarla. Xcode ilk kullanım bileşenleri veya lisans onayı istiyorsa açılan Xcode penceresindeki adımları tamamla. [mas ile App Store kurulumu](https://github.com/mas-cli/mas#commands)
 - **Medya indirmeleri için** kurucu, uygulamanın erişebildiği mevcut araçları kullanır. Eksikse YouTube bağlantıları için `yt-dlp` ve JavaScript çalışma ortamı `deno`, ses ve video işlemleri için `ffmpeg` ile `ffprobe` kurulur. [Homebrew yt-dlp paketi](https://formulae.brew.sh/formula/yt-dlp)
 
 Kurulum tamamlandığında **Uygulamalar → BStoeq**’i aç veya Terminal’de şu komutu çalıştır.
@@ -78,6 +78,12 @@ Yerel imza için geliştirici sertifikası gerekmez. macOS internetten indirdiğ
 ## Menü çubuğu
 
 **Ayarlar → Menü çubuğu** bölümünde hangi uygulama simgelerinin görünür, gizli veya sürekli gizli kalacağını seç. Gizli öğeleri menü çubuğunda, alt panelde veya aramalı listede açabilirsin. Başka uygulamaların simgelerini sürükleyerek sıralamak veya panelden menülerini açmak istiyorsan **Sistem Ayarları → Gizlilik ve Güvenlik → Erişilebilirlik** bölümünde **BStoeq**’i etkinleştir.
+
+### Klavye kısayolları
+
+`⌥⌘B` gizli simgeleri gösterir veya gizler. `⌥⌘K` ayarları açıp uygulama aramasına geçer. Bu iki tuş birleşimini **Ayarlar → Kısayollar** bölümünden değiştirebilirsin. Menü çubuğunda bir simgeyi bulamadığında `⌥⌘0` tüm simgeleri geri getirir.
+
+![BStoeq’in varsayılan klavye kısayolları ve tüm simgeleri geri getirme seçeneği](docs/images/shortcut-settings.png)
 
 ## Arşivler
 
