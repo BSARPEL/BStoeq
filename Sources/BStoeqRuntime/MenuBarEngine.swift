@@ -58,9 +58,8 @@ public enum EngineFailure: Equatable, Sendable {
         let token = backend.activate(allowed: allowed) { [weak self] error in
             // Supports both synchronous and asynchronous backend completions.
             DispatchQueue.main.async {
-                guard !box.completed else { return }
-                box.completed = true
                 guard let lease = box.lease else { return }
+                box.lease = nil
                 guard let self, self.generation == request else { lease.invalidate(); return }
                 self.timeout?.cancel(); self.timeout = nil
                 if let error {
@@ -93,16 +92,17 @@ public enum EngineFailure: Equatable, Sendable {
 }
 
 @MainActor private final class Lease {
-    let token: AnyObject
-    let backend: MenuBarBackend
-    private var invalidated = false
-    init(token: AnyObject, backend: MenuBarBackend) { self.token = token; self.backend = backend }
+    private var activation: (token: AnyObject, backend: MenuBarBackend)?
+    init(token: AnyObject, backend: MenuBarBackend) {
+        activation = (token, backend)
+    }
     func invalidate() {
-        guard !invalidated else { return }
-        invalidated = true; backend.invalidate(token)
+        guard let current = activation else { return }
+        // A backend may keep the completion after cancellation. Release both owners first.
+        activation = nil
+        current.backend.invalidate(current.token)
     }
 }
 @MainActor private final class CompletionBox {
     var lease: Lease?
-    var completed = false
 }

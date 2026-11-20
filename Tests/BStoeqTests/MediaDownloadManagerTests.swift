@@ -80,6 +80,37 @@ final class MediaDownloadManagerTests: XCTestCase {
 
     // MARK: Single downloads
 
+    func testEquivalentActiveDownloadsShareAQueueEntry() async throws {
+        let fake = try tool("yt-dlp", "exec sleep 30")
+        let manager = await MainActor.run {
+            let manager = makeManager(fake, maxConcurrent: 1)
+            let sameVideo = "https://www.youtube.com/watch?v=vid00000001"
+            XCTAssertNil(add(sameVideo, to: manager))
+            let duplicate = manager.enqueue("https://music.youtube.com/watch?v=vid00000001", kind: .audio,
+                quality: .p480, audioFormat: .mp3, destination: destination)
+            XCTAssertEqual(duplicate, UserMessage("Bu bağlantı zaten indiriliyor."))
+            XCTAssertNil(add(sameVideo, to: manager, kind: .video))
+            XCTAssertEqual(manager.items.count, 2)
+            let cancelled = manager.items[0].id
+            manager.cancel(cancelled)
+            XCTAssertNil(add(sameVideo, to: manager, kind: .video))
+            manager.retry(cancelled)
+            XCTAssertEqual(manager.activeCount, 2)
+            XCTAssertEqual(manager.notice, UserMessage("Bu bağlantı zaten indiriliyor."))
+            manager.cancelAll()
+            return manager
+        }
+        try await wait(manager) { $0.activeCount == 0 }
+    }
+
+    func testToolDiscoverySkipsDirectoriesNamedLikeExecutables() throws {
+        let shadow = directory.appendingPathComponent("shadow", isDirectory: true)
+        try FileManager.default.createDirectory(at: shadow.appendingPathComponent("yt-dlp"), withIntermediateDirectories: true)
+        let binary = try tool("yt-dlp", "exit 0")
+        let tools = MediaTools.locate(in: [shadow.path, directory.path])
+        XCTAssertEqual(tools.ytDlp?.standardizedFileURL.path, binary.standardizedFileURL.path)
+    }
+
     func testSuccessfulDownloadIsMovedToTheDestinationAndMarked() async throws {
         // Echo the option terminator and link back so the test proves how they were passed.
         let fake = try tool("yt-dlp", #"""

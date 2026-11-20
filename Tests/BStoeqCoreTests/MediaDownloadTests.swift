@@ -200,6 +200,16 @@ final class MediaDownloadTests: XCTestCase {
         }
     }
 
+    func testUnicodePlaylistTitlesCreateUsableFolderNames() throws {
+        let temporary = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: true)
+        defer { try? FileManager.default.removeItem(at: temporary) }
+        let title = String(repeating: "👩🏽‍🎤", count: 100)
+        let name = MediaLink.folderName(for: title, fallback: "PLexample")
+        XCTAssertTrue(name.hasPrefix("👩🏽‍🎤"))
+        XCTAssertNoThrow(try FileManager.default.createDirectory(at: temporary.appendingPathComponent(name), withIntermediateDirectories: true))
+        XCTAssertEqual(MediaLink.folderName(for: ".  .Hidden", fallback: "PLexample"), "Hidden")
+    }
+
     func testFilesAreNamedAfterTheTitleAndFolderNamesAreSafe() throws {
         XCTAssertEqual(PlaylistPosition(index: 7, count: 90).label, "07")
         XCTAssertEqual(PlaylistPosition(index: 7, count: 5).label, "07")

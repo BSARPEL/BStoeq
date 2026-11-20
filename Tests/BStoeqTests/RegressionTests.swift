@@ -58,6 +58,29 @@ final class RegressionTests: XCTestCase {
         }
     }
 
+    func testClosingSettingsRestoresHotkeysWhileARecorderHasFocus() async {
+        await MainActor.run {
+            _ = NSApplication.shared
+            let window = NSWindow(contentRect: .zero, styleMask: [.titled, .closable], backing: .buffered, defer: true)
+            window.isReleasedWhenClosed = false
+            let recorder = RecorderButton()
+            window.contentView?.addSubview(recorder)
+            var changes: [Bool] = []
+            let observer = NotificationCenter.default.addObserver(forName: .barletRecordingChanged, object: nil, queue: nil) {
+                if let recording = $0.object as? Bool { changes.append(recording) }
+            }
+            defer { NotificationCenter.default.removeObserver(observer) }
+            recorder.performClick(nil)
+            XCTAssertTrue(recorder.recording)
+            NotificationCenter.default.post(name: NSWindow.didResignKeyNotification, object: window)
+            XCTAssertFalse(recorder.recording)
+            recorder.performClick(nil)
+            window.close()
+            XCTAssertFalse(recorder.recording)
+            XCTAssertEqual(changes, [true, false, true, false])
+        }
+    }
+
     func testFunctionAndNavigationKeysGetReadableLabels() async {
         await MainActor.run {
             XCTAssertEqual(RecorderButton.keyLabel(keyCode: 122, characters: "\u{F704}", space: "Boşluk"), "F1")

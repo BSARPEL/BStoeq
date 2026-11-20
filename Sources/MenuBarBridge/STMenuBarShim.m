@@ -37,10 +37,7 @@ static NSString *const kFrameworkPath =
     SEL initSel = NSSelectorFromString(@"initWithAllowedSystemItems:allowedBundleIdentifiers:");
     if (![configClass instancesRespondToSelector:initSel]) { return nil; }
 
-    // performSelector:withObject:withObject: instead of NSInvocation: this exact form
-    // was proven working on this machine on 2026-09-22. The NSInvocation approach with
-    // an __unsafe_unretained return value read off an -init method is ARC-fragile and
-    // was never actually verified.
+    // This initializer returns the retained configuration that the activation call receives.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     id builtConfig = [[configClass alloc]

@@ -127,13 +127,20 @@ public enum MediaLink {
 
     /// A playlist title as a folder name: no path separators, no hidden or empty names.
     public static func folderName(for title: String, fallback: String) -> String {
-        var name = String(title.unicodeScalars.map { scalar -> Character in
-            "/:\\".unicodeScalars.contains(scalar) || CharacterSet.controlCharacters.contains(scalar)
+        let cleaned = String(title.unicodeScalars.map { scalar -> Character in
+            let joiner = scalar == "\u{200C}" || scalar == "\u{200D}"
+            return "/:\\".unicodeScalars.contains(scalar) || (CharacterSet.controlCharacters.contains(scalar) && !joiner)
                 || CharacterSet.newlines.contains(scalar) ? "-" : Character(scalar)
         })
+        var name = ""
+        var bytes = 0
+        for character in cleaned.drop(while: { $0 == "." || $0.isWhitespace }).prefix(100) {
+            let width = character.utf8.count
+            guard bytes + width <= 255 else { break }
+            name.append(character)
+            bytes += width
+        }
         name = name.trimmingCharacters(in: .whitespaces)
-        while name.hasPrefix(".") { name.removeFirst() }
-        name = String(name.prefix(100)).trimmingCharacters(in: .whitespaces)
         return name.isEmpty ? fallback : name
     }
 

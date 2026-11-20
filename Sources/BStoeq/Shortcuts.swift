@@ -105,9 +105,19 @@ struct ShortcutRecorder: NSViewRepresentable {
     }
     private func setRecording(_ value: Bool) {
         guard value != recording else { return }
+        let center = NotificationCenter.default
+        if value {
+            guard let window else { return }
+            center.addObserver(self, selector: #selector(endRecording), name: NSWindow.didResignKeyNotification, object: window)
+            center.addObserver(self, selector: #selector(endRecording), name: NSWindow.willCloseNotification, object: window)
+        } else {
+            center.removeObserver(self, name: NSWindow.didResignKeyNotification, object: window)
+            center.removeObserver(self, name: NSWindow.willCloseNotification, object: window)
+        }
         recording = value
-        NotificationCenter.default.post(name: .barletRecordingChanged, object: value)
+        center.post(name: .barletRecordingChanged, object: value)
     }
+    @objc private func endRecording(_: Notification) { setRecording(false); refreshTitle() }
     // Take focus first: another recorder that is still recording announces its end
     // while resigning, and that must not re-enable the hotkeys after our own start.
     @objc private func begin() { window?.makeFirstResponder(self); setRecording(true); refreshTitle() }
@@ -115,7 +125,7 @@ struct ShortcutRecorder: NSViewRepresentable {
         setRecording(false); refreshTitle(); return super.resignFirstResponder()
     }
     override func viewWillMove(toWindow newWindow: NSWindow?) {
-        if newWindow == nil { setRecording(false) }
+        if newWindow !== window { setRecording(false) }
         super.viewWillMove(toWindow: newWindow)
     }
     override func keyDown(with event: NSEvent) {

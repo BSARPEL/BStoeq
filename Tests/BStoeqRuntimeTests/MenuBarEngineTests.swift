@@ -25,6 +25,19 @@ import XCTest
             DispatchQueue.main.async { continuation.resume() }
         }
     }
+    func testClearingAPendingRequestReleasesTheBackendBeforeItsCallbackArrives() {
+        weak var releasedBackend: FakeBackend?
+        do {
+            let backend = FakeBackend()
+            releasedBackend = backend
+            let engine = MenuBarEngine(backend: backend)
+            engine.apply(allowed: ["org.example.Menu"])
+            engine.clear()
+            XCTAssertEqual(backend.invalidations[0], 1)
+        }
+        XCTAssertNil(releasedBackend)
+    }
+
     func testReturningToActivePlanCancelsPendingPlan() async {
         let backend = FakeBackend(); let engine = MenuBarEngine(backend: backend)
         engine.apply(allowed: ["A"]); backend.completions[0](nil); await flush()

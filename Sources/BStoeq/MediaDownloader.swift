@@ -18,7 +18,10 @@ struct MediaTools: Equatable, Sendable {
     static func locate(in directories: [String] = defaultDirectories(), fileManager: FileManager = .default) -> MediaTools {
         func find(_ name: String) -> URL? {
             directories.lazy.map { URL(fileURLWithPath: $0).appendingPathComponent(name) }
-                .first { fileManager.isExecutableFile(atPath: $0.path) }
+                .first { url in
+                    fileManager.isExecutableFile(atPath: url.path) &&
+                        (try? url.resolvingSymlinksInPath().resourceValues(forKeys: [.isRegularFileKey]).isRegularFile) == true
+                }
         }
         return MediaTools(ytDlp: find("yt-dlp"), ffmpeg: find("ffmpeg"))
     }
@@ -166,7 +169,7 @@ enum FileOrigin {
         }
         guard let url = target.video else { return UserMessage("Bu geçerli bir YouTube bağlantısı değil.") }
         let request = MediaDownloadRequest(url: url, kind: kind, quality: quality, audioFormat: audioFormat, destination: destination)
-        guard !items.contains(where: { $0.isActive && $0.request == request }) else {
+        guard !isQueuedOrRunning(request) else {
             return UserMessage("Bu bağlantı zaten indiriliyor.")
         }
         var item = DownloadItem(request: request)
@@ -174,6 +177,17 @@ enum FileOrigin {
         items.insert(item, at: 0)
         pump()
         return nil
+    }
+
+    private func isQueuedOrRunning(_ request: MediaDownloadRequest) -> Bool {
+        let destination = request.destination.standardizedFileURL.path
+        let hasFFmpeg = tools.ffmpeg != nil
+        let key = request.originKey(hasFFmpeg: hasFFmpeg)
+        return items.contains { item in
+            guard item.isActive, item.request.destination.standardizedFileURL.path == destination else { return false }
+            let activeKey = item.isRunning ? item.originKey : item.request.originKey(hasFFmpeg: hasFFmpeg)
+            return activeKey == key
+        }
     }
 
     func cancel(_ id: UUID) {
@@ -201,6 +215,10 @@ enum FileOrigin {
 
     private func requeue(_ index: Int) {
         guard !items[index].isActive, items[index].state != .finished else { return }
+        guard !isQueuedOrRunning(items[index].request) else {
+            notice = UserMessage("Bu bağlantı zaten indiriliyor.")
+            return
+        }
         items[index].state = .queued; items[index].fraction = 0; items[index].attempts = 0
         items[index].speed = nil; items[index].eta = nil; items[index].cancelRequested = false
         items[index].file = nil
@@ -324,7 +342,7 @@ enum FileOrigin {
             guard let url = URL(string: "https://\(site)/watch?v=\(entry.id)") else { continue }
             let request = MediaDownloadRequest(url: url, kind: plan.kind, quality: plan.quality, audioFormat: plan.audioFormat,
                 destination: folder, position: PlaylistPosition(index: offset + 1, count: plan.entries.count))
-            guard !items.contains(where: { $0.isActive && $0.request == request }) else { continue }
+            guard !isQueuedOrRunning(request) else { continue }
             var item = DownloadItem(request: request)
             item.title = entry.title; item.playlistTitle = title
             item.order = nextOrder; nextOrder += 1
