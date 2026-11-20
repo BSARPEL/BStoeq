@@ -325,6 +325,63 @@ final class DiskScanManagerTests: XCTestCase {
         XCTAssertFalse(manager.rows.contains { $0.name == "film-kopya.mkv" })
     }
 
+    @MainActor func testAtomicSaveAfterSelectionLeavesNewFileInPlace() async throws {
+        let manager = makeManager()
+        manager.scan(target)
+        try await settled(manager)
+        manager.toggle(try row(manager, "kucuk.txt"))
+        let approved = manager.selectedRows
+        let replacement = Data("New revision".utf8)
+        let file = root.appendingPathComponent("kucuk.txt")
+        try replacement.write(to: file, options: .atomic)
+
+        manager.trash(approved)
+        try await settled(manager)
+        XCTAssertEqual(try Data(contentsOf: file), replacement)
+        XCTAssertTrue(manager.selection.isEmpty)
+        XCTAssertEqual(manager.trashed, 0)
+        XCTAssertEqual(manager.problem?.key, "Taramadan sonra değiştiği için taşınmadı: %@")
+    }
+
+    @MainActor func testReplacementFolderDoesNotInheritAnEarlierSize() async throws {
+        let manager = makeManager()
+        manager.scan(target)
+        try await settled(manager)
+        let projects = try row(manager, "projeler")
+        manager.toggle(projects)
+        try FileManager.default.moveItem(atPath: projects.path, toPath: directory.appendingPathComponent("previous").path)
+        try write("projeler/new.txt", bytes: 50)
+        manager.reload()
+        try await settled(manager)
+
+        let replacement = try row(manager, "projeler")
+        XCTAssertNil(replacement.size)
+        XCTAssertEqual(manager.lock(for: replacement), .unmeasured)
+        XCTAssertTrue(manager.selection.isEmpty)
+        manager.trash([projects])
+        try await settled(manager)
+        XCTAssertTrue(exists("projeler/new.txt"))
+    }
+
+    @MainActor func testUnreadableFolderIsNotADeletionCandidate() async throws {
+        let folder = root.appendingPathComponent("projeler/eski")
+        try XCTSkipIf(getuid() == 0)
+        XCTAssertEqual(chmod(folder.path, 0), 0)
+        defer { _ = chmod(folder.path, 0o700) }
+        let manager = makeManager()
+        manager.scan(target)
+        try await settled(manager)
+        let parent = try row(manager, "projeler")
+        XCTAssertFalse(parent.unreadable)
+        XCTAssertEqual(manager.lock(for: parent), .unmeasured)
+        manager.open(parent)
+        try await settled(manager)
+        XCTAssertNil(manager.lock(for: try row(manager, "notlar.txt")))
+        let unreadable = try row(manager, "eski")
+        XCTAssertTrue(unreadable.unreadable)
+        XCTAssertEqual(manager.lock(for: unreadable), .unmeasured)
+    }
+
     @MainActor func testStoppingAndClosingReturnToTheStart() async throws {
         let manager = makeManager()
         manager.scan(target)

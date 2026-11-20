@@ -1,5 +1,27 @@
 import Foundation
 
+private struct DiskFileIdentity: Hashable, Sendable {
+    let device: dev_t
+    let inode: ino_t
+
+    init(_ status: stat) {
+        device = status.st_dev
+        inode = status.st_ino
+    }
+}
+
+private struct DiskEntryVersion: Equatable, Sendable {
+    let identity: DiskFileIdentity
+    let changeSeconds: Int
+    let changeNanoseconds: Int
+
+    init(_ status: stat) {
+        identity = DiskFileIdentity(status)
+        changeSeconds = status.st_ctimespec.tv_sec
+        changeNanoseconds = status.st_ctimespec.tv_nsec
+    }
+}
+
 /// One scanned folder. Files are not kept: a full disk holds millions of them, so a
 /// folder's own files are read again when it is opened (see `DiskListing`).
 ///
@@ -7,12 +29,14 @@ import Foundation
 /// touched by its one owner only.
 public final class DiskNode: @unchecked Sendable {
     public let name: String
+    fileprivate var identity: DiskFileIdentity?
     /// Allocated bytes of everything below; a file with several hard links counts once.
     public internal(set) var size: Int64
     /// Files and links below, at any depth.
     public internal(set) var fileCount: Int
     /// The folder could not be opened: its size is unknown, not zero.
     public internal(set) var unreadable = false
+    fileprivate var containsUnmeasuredItems = false
     public internal(set) var children: [DiskNode]
 
     public init(name: String, size: Int64 = 0, fileCount: Int = 0, children: [DiskNode] = []) {
@@ -37,8 +61,6 @@ public struct DiskScanResult: Sendable {
 }
 
 public enum DiskScanner {
-    private struct FileIdentity: Hashable { let device: dev_t; let inode: ino_t }
-
     /// The startup disk's data volume shows its folders a second time under this name.
     static let dataVolume = "/System/Volumes/Data"
 
@@ -105,7 +127,7 @@ public enum DiskScanner {
             mounts.insert(mount.hasPrefix(aliasPrefix) ? String(mount.dropFirst(dataVolume.count)) : dataVolume + mount)
         }
         let mountLengths = Set(mounts.map(\.utf8.count))
-        var linked = Set<FileIdentity>()
+        var linked = Set<DiskFileIdentity>()
         var state = DiskScanProgress()
         var unreadable = 0, skipped = 0
         var visited = 0
@@ -123,6 +145,7 @@ public enum DiskScanner {
                     }
                     if leaveOut {
                         skipped += 1
+                        stack.last?.containsUnmeasuredItems = true
                         entry.pointee.fts_number = leftOut
                         fts_set(stream, entry, FTS_SKIP)
                         continue
@@ -130,24 +153,32 @@ public enum DiskScanner {
                 }
                 let node = DiskNode(name: entry.pointee.fts_level == 0 ? root : name(of: entry),
                                     size: Int64(status.st_blocks) * 512)
+                node.identity = DiskFileIdentity(status)
                 state.bytes += node.size
                 entry.pointee.fts_number = entered
                 if let parent = stack.last { parent.children.append(node) } else { rootNode = node }
                 stack.append(node)
             case FTS_DP, FTS_DNR, FTS_ERR, FTS_DC:
                 guard entry.pointee.fts_number == entered else {
-                    if info == FTS_ERR { unreadable += 1 }
+                    if info == FTS_ERR {
+                        unreadable += 1
+                        stack.last?.containsUnmeasuredItems = true
+                    }
                     continue
                 }
                 guard let node = stack.popLast() else { continue }
                 if info != FTS_DP, !node.unreadable { node.unreadable = true; unreadable += 1 }
-                if let parent = stack.last { parent.size += node.size; parent.fileCount += node.fileCount }
+                if let parent = stack.last {
+                    parent.size += node.size; parent.fileCount += node.fileCount
+                    if node.unreadable || node.containsUnmeasuredItems { parent.containsUnmeasuredItems = true }
+                }
             case FTS_NS, FTS_NSOK:
                 // A file that vanished between listing and reading is not a permission
                 // problem. One that may not be examined means its folder is closed to
                 // us even though it could be listed; count that folder once.
                 let reason = entry.pointee.fts_errno
                 if reason == ENOENT { break }
+                stack.last?.containsUnmeasuredItems = true
                 if let folder = stack.last, reason == EACCES || reason == EPERM {
                     if !folder.unreadable { folder.unreadable = true; unreadable += 1 }
                 } else {
@@ -156,8 +187,9 @@ public enum DiskScanner {
             default:
                 guard let folder = stack.last else { return nil }  // The root is a file.
                 let status = entry.pointee.fts_statp.pointee
+                if status.st_flags & UInt32(SF_DATALESS) != 0 { folder.containsUnmeasuredItems = true }
                 if status.st_nlink > 1,
-                   !linked.insert(FileIdentity(device: status.st_dev, inode: status.st_ino)).inserted { continue }
+                   !linked.insert(DiskFileIdentity(status)).inserted { continue }
                 let bytes = Int64(status.st_blocks) * 512
                 folder.size += bytes; folder.fileCount += 1
                 state.bytes += bytes; state.files += 1
@@ -174,8 +206,10 @@ public enum DiskScanner {
             }
         }
         guard let rootNode, !isCancelled() else { return nil }
-        // An interrupted walk leaves folders open; close them so totals stay consistent.
+        // A walk ending before the post-order entries only has partial totals.
+        if !stack.isEmpty { unreadable += 1 }
         while let node = stack.popLast() {
+            node.containsUnmeasuredItems = true
             if let parent = stack.last { parent.size += node.size; parent.fileCount += node.fileCount }
         }
         return DiskScanResult(root: rootNode, unreadable: unreadable, skipped: skipped)
@@ -189,6 +223,7 @@ public enum DiskScanner {
 
 /// What a folder holds right now, as read from the disk.
 public struct DiskItem: Equatable, Sendable {
+    fileprivate var version: DiskEntryVersion?
     public let name: String
     public let isDirectory: Bool
     /// Allocated bytes of a file or link; zero for a folder, whose total comes from the scan.
@@ -207,6 +242,7 @@ public struct DiskItem: Equatable, Sendable {
 
 /// A line of the browser: a live item joined with what the scan knows about it.
 public struct DiskRow: Identifiable, Sendable {
+    fileprivate var version: DiskEntryVersion?
     public var id: String { path }
     public let name: String
     public let path: String
@@ -218,8 +254,17 @@ public struct DiskRow: Identifiable, Sendable {
     public let node: DiskNode?
     public let linked: Bool
     public let cloudOnly: Bool
-    /// A folder the scan has no total for: what moving it would do is unknown.
-    public var unmeasured: Bool { isDirectory && node == nil }
+    /// A missing or incomplete scan cannot tell what moving the whole folder would affect.
+    public var unmeasured: Bool { isDirectory && (node == nil || unreadable || node?.containsUnmeasuredItems == true) }
+
+    public func matches(_ other: DiskRow) -> Bool {
+        path == other.path && version != nil && version == other.version
+    }
+
+    public func stillMatchesFile() -> Bool {
+        var status = stat()
+        return lstat(path, &status) == 0 && version == DiskEntryVersion(status)
+    }
 
     public init(name: String, path: String, isDirectory: Bool, size: Int64?, fileCount: Int?,
                 unreadable: Bool, node: DiskNode?, linked: Bool = false, cloudOnly: Bool = false) {
@@ -235,14 +280,22 @@ public enum DiskListing {
     }
 
     /// Reads one folder without descending. Links are reported as files, never followed.
-    public static func items(at path: String, fileManager: FileManager = .default) throws -> [DiskItem] {
-        try fileManager.contentsOfDirectory(atPath: path).compactMap { name in
+    public static func items(at path: String, of folder: DiskNode? = nil, fileManager: FileManager = .default) throws -> [DiskItem] {
+        if let identity = folder?.identity {
+            var status = stat()
+            guard lstat(path, &status) == 0, DiskFileIdentity(status) == identity else {
+                throw CocoaError(.fileReadNoSuchFile)
+            }
+        }
+        return try fileManager.contentsOfDirectory(atPath: path).compactMap { name in
             var status = stat()
             guard lstat(join(path, name), &status) == 0 else { return nil }
             let isDirectory = status.st_mode & S_IFMT == S_IFDIR
-            return DiskItem(name: name, isDirectory: isDirectory, size: isDirectory ? 0 : Int64(status.st_blocks) * 512,
-                            linked: !isDirectory && status.st_nlink > 1,
-                            cloudOnly: status.st_flags & UInt32(SF_DATALESS) != 0)
+            var item = DiskItem(name: name, isDirectory: isDirectory, size: isDirectory ? 0 : Int64(status.st_blocks) * 512,
+                                linked: !isDirectory && status.st_nlink > 1,
+                                cloudOnly: status.st_flags & UInt32(SF_DATALESS) != 0)
+            item.version = DiskEntryVersion(status)
+            return item
         }
     }
 
@@ -250,11 +303,14 @@ public enum DiskListing {
     public static func rows(_ items: [DiskItem], of node: DiskNode, at path: String) -> [DiskRow] {
         let folders = Dictionary(node.children.map { ($0.name, $0) }, uniquingKeysWith: { first, _ in first })
         return items.map { item -> DiskRow in
-            let child = item.isDirectory ? folders[item.name] : nil
-            return DiskRow(name: item.name, path: join(path, item.name), isDirectory: item.isDirectory,
-                           size: item.isDirectory ? child?.size : item.size, fileCount: child?.fileCount,
-                           unreadable: child?.unreadable ?? false, node: child,
-                           linked: item.linked, cloudOnly: item.cloudOnly)
+            let scanned = item.isDirectory ? folders[item.name] : nil
+            let child = scanned?.identity == item.version?.identity ? scanned : nil
+            var row = DiskRow(name: item.name, path: join(path, item.name), isDirectory: item.isDirectory,
+                              size: item.isDirectory ? child?.size : item.size, fileCount: child?.fileCount,
+                              unreadable: child?.unreadable ?? false, node: child,
+                              linked: item.linked, cloudOnly: item.cloudOnly)
+            row.version = item.version
+            return row
         }.sorted {
             let first = $0.size ?? -1, second = $1.size ?? -1
             return first != second ? first > second : $0.name.localizedStandardCompare($1.name) == .orderedAscending

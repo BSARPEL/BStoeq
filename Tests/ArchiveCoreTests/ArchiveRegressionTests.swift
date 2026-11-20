@@ -62,6 +62,15 @@ final class ArchiveRegressionTests: XCTestCase {
         XCTAssertEqual(try String(contentsOf: result.appendingPathComponent("document.txt"), encoding: .utf8), "original")
     }
 
+    func testExtractionKeepsAnArchiveExtensionThatIsPartOfTheBaseName() async throws {
+        var options = ArchiveOptions()
+        options.format = .sevenZip
+        let archive = try await create(file("notes.txt"), name: "Project.zip.7z", options: options)
+        let result = try await service.extract(archive, to: folder, control: JobControl())
+        XCTAssertEqual(result.lastPathComponent, "Project.zip")
+        XCTAssertEqual(try String(contentsOf: result.appendingPathComponent("notes.txt"), encoding: .utf8), "original")
+    }
+
     func testOrphanedVolumePreventsMixedOldAndNewArchives() async throws {
         let old = try file("split.7z.004", contents: "old volume")
         let source = try file("small.txt")
@@ -99,6 +108,26 @@ final class ArchiveRegressionTests: XCTestCase {
         XCTAssertThrowsError(try ArchiveSafety.validatePath(""))
         XCTAssertThrowsError(try ArchiveSafety.validateDestinations([ArchiveEntry(path: ".")], caseSensitive: true))
         XCTAssertNoThrow(try ArchiveSafety.validateDestinations([ArchiveEntry(path: "./", isDirectory: true), ArchiveEntry(path: "./file.txt")], caseSensitive: true))
+    }
+
+    func testChangedSelectionNeverPartiallyExtractsOrDeletes() async throws {
+        let archive = try storedZIP([("Design/icon.txt", "icon"), ("readme.txt", "readme")])
+        let original = try Data(contentsOf: archive)
+        let selection = ["Design", "removed.txt"]
+        do {
+            _ = try await service.extract(archive, to: folder, paths: selection, control: JobControl())
+            XCTFail("Extracted a partial selection")
+        } catch ArchiveError.message(let key) { XCTAssertEqual(key, "ARCHIVE_CHANGED") }
+        do {
+            try await service.edit(archive, operation: .delete(selection), control: JobControl())
+            XCTFail("Deleted a partial selection")
+        } catch ArchiveError.message(let key) { XCTAssertEqual(key, "ARCHIVE_CHANGED") }
+        XCTAssertEqual(try Data(contentsOf: archive), original)
+        XCTAssertEqual(try FileManager.default.contentsOfDirectory(atPath: folder.path), [archive.lastPathComponent])
+
+        let output = try await service.extract(archive, to: folder, paths: ["Design", "Design/icon.txt"], control: JobControl())
+        XCTAssertEqual(try String(contentsOf: output.appendingPathComponent("Design/icon.txt"), encoding: .utf8), "icon")
+        XCTAssertFalse(FileManager.default.fileExists(atPath: output.appendingPathComponent("readme.txt").path))
     }
 
     func testRenameCannotTurnFileIntoParentOrMoveFolderInsideItself() async throws {
@@ -140,6 +169,24 @@ final class ArchiveRegressionTests: XCTestCase {
         do { try await service.edit(archive, operation: .add([root]), control: JobControl()); XCTFail("Added archive's filesystem root") }
         catch ArchiveError.message(let reason) { XCTAssertEqual(reason, "DESTINATION_INSIDE_SOURCE") }
         XCTAssertEqual(try Data(contentsOf: archive), original)
+    }
+
+    func testTarOfCurrentDirectoryShowsItsContentsAtTheBrowseRoot() async throws {
+        _ = try file("source/Documents/notes.txt", contents: "notes")
+        _ = try file("source/readme.txt", contents: "readme")
+        let archive = folder.appendingPathComponent("example.tar")
+        _ = try await ProcessRunner.run(tool: URL(fileURLWithPath: "/usr/bin/tar"),
+            arguments: ["--no-mac-metadata", "--no-xattrs", "-cf", archive.path, "-C", folder.appendingPathComponent("source").path, "."],
+            control: JobControl())
+        let listing = try await service.list(archive, control: JobControl())
+        let root = listing.children(of: "")
+        XCTAssertEqual(root.map(\.name), ["Documents", "readme.txt"])
+        let documents = try XCTUnwrap(root.first)
+        XCTAssertEqual(listing.children(of: documents.path).map(\.name), ["notes.txt"])
+        XCTAssertFalse(listing.children(of: "", search: ".").contains { $0.path == "." })
+        let result = try await service.extract(archive, to: folder, paths: [documents.path], control: JobControl())
+        XCTAssertEqual(try String(contentsOf: result.appendingPathComponent("Documents/notes.txt"), encoding: .utf8), "notes")
+        XCTAssertFalse(FileManager.default.fileExists(atPath: result.appendingPathComponent("readme.txt").path))
     }
 
     func testTBZAliasReadsInnerTarAndExtractsItsContents() async throws {

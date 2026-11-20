@@ -80,7 +80,10 @@ struct CompressionProfile: Codable, Identifiable { var id = UUID(); var name: St
     var service: ArchiveService { ArchiveService(tool: toolURL, rarTool: rarURL) }
     var isArchive: Bool { archive != nil }
     var canEdit: Bool { isArchive && ["zip", "7z", "tar"].contains(listing.format.lowercased()) && !listing.isMultiVolume && !listing.encrypted && listing.metadata["Container"] == nil && archive?.pathExtension != "001" }
-    var selectedRows: [FileRow] { rows.filter { selection.contains($0.id) } }
+    var selectedRows: [FileRow] {
+        guard !selection.isEmpty else { return [] }
+        return rows.filter { selection.contains($0.id) }
+    }
     var rows: [FileRow] {
         let values: [FileRow]
         if isArchive {
@@ -176,11 +179,19 @@ struct CompressionProfile: Codable, Identifiable { var id = UUID(); var name: St
     }
     static let archiveExtensions: Set<String> = ["zip", "rar", "7z", "001", "tar", "gz", "bz2", "xz", "tgz", "tbz", "tbz2", "txz", "cab", "iso", "dmg", "xar", "arj", "lzma", "z", "wim", "deb", "rpm", "jar", "war", "cpio", "lzh"]
     func up() {
-        if isArchive && !archiveFolder.isEmpty { archiveFolder = (archiveFolder as NSString).deletingLastPathComponent; selection = []; search = "" }
+        if isArchive && !archiveFolder.isEmpty {
+            let parent = (archiveFolder as NSString).deletingLastPathComponent
+            archiveFolder = parent == "." ? "" : parent
+            selection = []; search = ""
+        }
         else if isArchive { loadFolder(folder) }
         else { loadFolder(folder.deletingLastPathComponent()) }
     }
-    func back() { guard !busy else { return }; if let last = history.popLast() { loadFolder(last, record: false) } else { up() } }
+    func back() {
+        guard !busy else { return }
+        if !isArchive, let last = history.popLast() { loadFolder(last, record: false) }
+        else { up() }
+    }
     func refresh() { if let archive { open(archive, password: password) } else { loadFolder(folder, record: false) } }
     func addFavorite() {
         let path = (archive ?? folder).path

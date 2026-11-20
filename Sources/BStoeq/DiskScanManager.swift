@@ -189,19 +189,22 @@ struct DiskTarget: Identifiable, Equatable {
         let path = currentPath
         loading = true
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            let outcome = Result { try DiskListing.items(at: path) }
+            let outcome = Result { try DiskListing.items(at: path, of: node) }
             DispatchQueue.main.async {
                 MainActor.assumeIsolated {
                     guard let self, self.listGeneration == generation, self.trail.last === node else { return }
                     self.loading = false
                     switch outcome {
                     case .success(let items):
+                        let selected = Dictionary(self.selectedRows.map { ($0.id, $0) }, uniquingKeysWith: { first, _ in first })
                         self.rows = DiskListing.rows(items, of: node, at: path)
+                        self.selection = Set(self.rows.compactMap { row in
+                            selected[row.id]?.matches(row) == true ? row.id : nil
+                        })
                     case .failure(let error):
-                        self.rows = []
+                        self.rows = []; self.selection = []
                         self.problem = UserMessage("Klasör okunamadı: %@", detail: error.localizedDescription)
                     }
-                    self.selection.formIntersection(self.rows.map(\.id))
                 }
             }
         }
@@ -225,7 +228,7 @@ struct DiskTarget: Identifiable, Equatable {
     func isProtected(_ row: DiskRow) -> Bool { lock(for: row) != nil }
 
     func toggle(_ row: DiskRow) {
-        guard !trashing, !isProtected(row) else { return }
+        guard !trashing, !loading, rows.contains(where: { $0.matches(row) }), !isProtected(row) else { return }
         if selection.contains(row.id) { selection.remove(row.id) } else { selection.insert(row.id) }
     }
 
@@ -238,7 +241,11 @@ struct DiskTarget: Identifiable, Equatable {
         guard phase == .finished, !trashing, !loading else { return }
         // A disk may have been connected since the scan.
         volumes = mountPoints()
-        let accepted = requested.filter { row in rows.contains { $0.id == row.id } && !isProtected(row) }
+        let visible = Dictionary(rows.map { ($0.id, $0) }, uniquingKeysWith: { first, _ in first })
+        let accepted = requested.compactMap { row -> DiskRow? in
+            guard let current = visible[row.id], current.matches(row), !isProtected(current) else { return nil }
+            return current
+        }
         guard !accepted.isEmpty else { return }
         let ancestors = trail
         let move = moveToTrash
@@ -246,10 +253,8 @@ struct DiskTarget: Identifiable, Equatable {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             var moved: [DiskRow] = [], changed: [DiskRow] = [], failures: [(DiskRow, Error)] = []
             for row in accepted {
-                // The user approved what the list showed. If the name now belongs to
-                // something else (a file where a folder was), leave it alone.
-                var status = stat()
-                guard lstat(row.path, &status) == 0, (status.st_mode & S_IFMT == S_IFDIR) == row.isDirectory else {
+                // An atomic save can replace a file without changing its name or type.
+                guard row.stillMatchesFile() else {
                     changed.append(row); continue
                 }
                 do { try move(URL(fileURLWithPath: row.path)); moved.append(row) }

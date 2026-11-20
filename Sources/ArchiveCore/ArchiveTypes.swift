@@ -44,8 +44,13 @@ public struct ArchiveListing: Sendable {
     public init(entries: [ArchiveEntry] = [], metadata: [String: String] = [:]) { self.entries = entries; self.metadata = metadata }
 
     public func children(of directory: String, search: String = "") -> [ArchiveEntry] {
-        if !search.isEmpty { return entries.filter { $0.path.localizedCaseInsensitiveContains(search) } }
-        let prefix = directory.isEmpty ? "" : directory + "/"
+        if !search.isEmpty {
+            return entries.filter { $0.path != "." && $0.path.localizedCaseInsensitiveContains(search) }
+        }
+        // tar -C folder -cf archive.tar . records the root as ".". Hide that extra
+        // navigation level while keeping the exact stored names for engine selections.
+        let usesDotRoot = directory.isEmpty && entries.allSatisfy { $0.path == "." || $0.path.hasPrefix("./") }
+        let prefix = usesDotRoot ? "./" : (directory.isEmpty ? "" : directory + "/")
         var result: [String: ArchiveEntry] = [:]
         for entry in entries where entry.path.hasPrefix(prefix) {
             let remainder = String(entry.path.dropFirst(prefix.count))

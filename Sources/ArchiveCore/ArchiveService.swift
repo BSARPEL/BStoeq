@@ -45,11 +45,7 @@ public struct ArchiveService: Sendable {
         }
         let listing = try await list(archive, password: password, control: control)
         try ArchiveSafety.validate(listing.entries)
-        for path in paths { try ArchiveSafety.validatePath(path) }
-        let selectedEntries = paths.isEmpty ? listing.entries : listing.entries.filter { entry in
-            paths.contains { entry.path == $0 || entry.path.hasPrefix($0 + "/") }
-        }
-        guard paths.isEmpty || !selectedEntries.isEmpty else { throw ArchiveError.message("NO_SELECTION") }
+        let selectedEntries = try entries(matching: paths, in: listing)
         let fm = FileManager.default
         let volume = try parent.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey, .volumeSupportsCaseSensitiveNamesKey])
         try ArchiveSafety.validateDestinations(selectedEntries, caseSensitive: volume.volumeSupportsCaseSensitiveNames == true)
@@ -79,13 +75,38 @@ public struct ArchiveService: Sendable {
                   isDirectory.boolValue == entry.isDirectory else { throw ArchiveError.message("INVALID_ARCHIVE_LIST") }
         }
         var name = archive.lastPathComponent
-        for suffix in [".001", ".tar.gz", ".tar.bz2", ".tar.xz", ".7z", ".zip", ".rar", ".tar", ".gz", ".bz2", ".xz"] {
-            if name.lowercased().hasSuffix(suffix) { name = String(name.dropLast(suffix.count)) }
+        if name.hasSuffix(".001") { name.removeLast(4) }
+        let suffixes = [".tar.gz", ".tar.bz2", ".tar.xz", ".7z", ".zip", ".rar", ".tar", ".gz", ".bz2", ".xz"]
+        if let suffix = suffixes.first(where: { name.lowercased().hasSuffix($0) }) {
+            name.removeLast(suffix.count)
         }
         if name.isEmpty { name = "Archive" }
         let destination = ArchiveSafety.uniqueDestination(parent.appendingPathComponent(name))
         try fm.moveItem(at: content, to: destination)
         return destination
+    }
+
+    private func entries(matching paths: [String], in listing: ArchiveListing) throws -> [ArchiveEntry] {
+        guard !paths.isEmpty else { return listing.entries }
+        for path in paths { try ArchiveSafety.validatePath(path) }
+        let requested = Set(paths.map { $0[...] })
+        var missing = requested
+        let selected = listing.entries.filter { entry in
+            var path = entry.path[...]
+            var included = false
+            // A folder selection also covers descendants in archives without explicit directory entries.
+            while !path.isEmpty {
+                if requested.contains(path) {
+                    missing.remove(path)
+                    included = true
+                }
+                guard let separator = path.lastIndex(of: "/") else { break }
+                path = path[..<separator]
+            }
+            return included
+        }
+        guard missing.isEmpty else { throw ArchiveError.message("ARCHIVE_CHANGED") }
+        return selected
     }
 
     private func temporaryFolder() throws -> URL {
@@ -282,7 +303,7 @@ public struct ArchiveService: Sendable {
             args = ["a", "-spd", "-sccUTF-8", "-bsp1", "-y"] + (password.isEmpty ? [] : ["-p"]) + ["--", copy.path] + files.map { "./" + $0.lastPathComponent }
         case .delete(let paths):
             guard !paths.isEmpty else { throw ArchiveError.message("NO_SELECTION") }
-            for path in paths { try ArchiveSafety.validatePath(path) }
+            _ = try entries(matching: paths, in: listing)
             args = ["d", "-spd", "-sccUTF-8"] + (password.isEmpty ? [] : ["-p"]) + ["--", copy.path] + paths
         case .rename(let old, let new):
             try ArchiveSafety.validatePath(old); try ArchiveSafety.validatePath(new)
