@@ -116,7 +116,6 @@ struct BarApp: Identifiable {
             return owners.contains(app.id)
         }
     }
-    var hiddenCount: Int { apps.filter { $0.running && !$0.protected && visibility($0.id) != .visible }.count }
     var hiddenIDs: Set<String> {
         guard !arrangingMenuBar else { return [] }
         return VisibilityPlan.hiddenIDs(assignments: preferences.assignments, expanded: expanded,
@@ -126,7 +125,6 @@ struct BarApp: Identifiable {
     }
     var panelPresented: Bool { !arrangingMenuBar && expanded && !revealingAll && preferences.revealMode != .menuBar && selectedMenuAppID == nil }
     var panelApps: [BarApp] { apps.filter { $0.running && !$0.protected && visibility($0.id) == .hidden } }
-    var previewApps: [BarApp] { availableApps.filter { !$0.protected && $0.running && !hiddenIDs.contains($0.id) } }
     var conflict: Bool {
         NSWorkspace.shared.runningApplications.contains {
             let id = ($0.bundleIdentifier ?? "").lowercased()

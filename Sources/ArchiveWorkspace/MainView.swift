@@ -242,7 +242,7 @@ struct MainView: View {
             if !model.isArchive { Button("SHA-256") { context(ids, model.hashSelection) } }
             Divider()
         }
-        if model.isArchive {
+        if let archive = model.archive {
             Menu(L("Archive actions")) {
                 Button(L("Extract all…")) { model.archiveAction("extract") }
                 Button(L("Extract to a new folder here")) { model.archiveAction("quickExtract") }
@@ -255,7 +255,7 @@ struct MainView: View {
                 if model.listing.format.lowercased().contains("rar") {
                     Button(L("Repair RAR archive…")) { model.repair() }
                 }
-                Button(L("Show archive in Finder")) { NSWorkspace.shared.activateFileViewerSelecting([model.archive!]) }
+                Button(L("Show archive in Finder")) { NSWorkspace.shared.activateFileViewerSelecting([archive]) }
                 Button(L("Close archive")) { model.loadFolder(model.folder) }
             }
         } else {

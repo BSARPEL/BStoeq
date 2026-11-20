@@ -4,7 +4,7 @@ import CoreServices
 /// A third-party application with an old, known LaunchServices usage record.
 public struct UnusedApp: Identifiable, Sendable {
     public var id: String { path }
-    public let path, name, bundleIdentifier, version: String
+    public let path, name, bundleIdentifier: String
     public let lastUsed: Date
     public let bytes: Int64
     fileprivate let minimumAgeDays: Int
@@ -20,7 +20,6 @@ public struct AppWithUnknownUsage: Identifiable, Sendable {
 public struct UnusedAppScanResult: Sendable {
     public fileprivate(set) var apps: [UnusedApp] = []
     /// Otherwise eligible applications without a usable Spotlight usage record.
-    public var unassessable: Int { unknownUsageApps.count }
     public fileprivate(set) var unknownUsageApps: [AppWithUnknownUsage] = []
     public fileprivate(set) var unreadable = 0
 }
@@ -384,7 +383,7 @@ public enum UnusedApps {
         let identity = AppIdentity(directory: AppFileStamp(bundle), info: AppFileStamp(manifest),
                                    executable: AppFileStamp(binary), identifier: id,
                                    version: version, build: build, executableName: executable, tree: tree)
-        return .eligible(UnusedApp(path: path, name: name, bundleIdentifier: id, version: version.isEmpty ? build : version,
+        return .eligible(UnusedApp(path: path, name: name, bundleIdentifier: id,
                                    lastUsed: lastUse, bytes: tree.bytes, minimumAgeDays: minimumAgeDays, identity: identity))
     }
 }

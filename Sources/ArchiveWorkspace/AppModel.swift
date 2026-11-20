@@ -1,6 +1,5 @@
 import AppKit
 import SwiftUI
-import UniformTypeIdentifiers
 import Quartz
 import ArchiveCore
 
@@ -132,7 +131,7 @@ struct CompressionProfile: Codable, Identifiable { var id = UUID(); var name: St
     func loadFolder(_ url: URL, record: Bool = true) {
         guard !busy else { return }
         do {
-            let keys: Set<URLResourceKey> = [.isDirectoryKey, .fileSizeKey, .contentModificationDateKey, .isHiddenKey]
+            let keys: Set<URLResourceKey> = [.isDirectoryKey, .fileSizeKey, .contentModificationDateKey]
             let urls = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: Array(keys), options: showHidden ? [] : [.skipsHiddenFiles])
             let formatter = DateFormatter(); formatter.dateFormat = "yyyy-MM-dd HH:mm"
             let values = try urls.map { url -> FileRow in
@@ -156,7 +155,7 @@ struct CompressionProfile: Codable, Identifiable { var id = UUID(); var name: St
         if (try? url.resourceValues(forKeys: [.isDirectoryKey]).isDirectory) == true { loadFolder(url); return }
         passwordContext = url.lastPathComponent
         let service = self.service
-        perform("Opening archive") { token, log in
+        perform("Opening archive") { token, _ in
             let result = try await service.list(url, password: supplied, control: token)
             self.archive = url; self.folder = url.deletingLastPathComponent(); self.archiveFolder = ""
             self.listing = result; self.password = supplied; self.selection = []; self.search = ""

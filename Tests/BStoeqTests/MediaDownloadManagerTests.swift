@@ -466,9 +466,7 @@ final class MediaDownloadManagerTests: XCTestCase {
             XCTAssertEqual(manager.failedCount, 0)
             XCTAssertNil(manager.notice)
             XCTAssertEqual(manager.items.map(\.title), (1...12).map { "Şarkı \($0)" })
-            XCTAssertEqual(manager.items.first?.group, manager.items.last?.group)
-            XCTAssertEqual(manager.items.first?.group?.title, "Yaz: Akşam/Sabah $HOME")
-            XCTAssertEqual(manager.items.first?.group?.count, 12)
+            XCTAssertTrue(manager.items.allSatisfy { $0.playlistTitle == "Yaz: Akşam/Sabah $HOME" })
             // The folder is named literally; nothing in the title is expanded or followed.
             XCTAssertEqual(self.names(in: self.destination), ["Yaz- Akşam-Sabah $HOME"])
             let folder = self.destination.appendingPathComponent("Yaz- Akşam-Sabah $HOME")
@@ -478,7 +476,7 @@ final class MediaDownloadManagerTests: XCTestCase {
             let order = try String(contentsOf: self.directory.appendingPathComponent("order.txt"), encoding: .utf8)
             XCTAssertEqual(order.split(separator: "\n").map(String.init), (1...12).map { String(format: "vid%08d", $0) })
             XCTAssertEqual(manager.items[4].file?.lastPathComponent, "T-vid00000005.mp3")
-            XCTAssertEqual(manager.items[4].request.position, PlaylistPosition(index: 5, count: 12))
+            XCTAssertEqual(manager.items.map(\.request.position), (1...12).map { PlaylistPosition(index: $0, count: 12) })
             // Finished downloads leave no working folder behind.
             XCTAssertEqual(self.names(in: self.workingRoot), [])
         }

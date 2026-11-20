@@ -227,7 +227,7 @@ struct DiskView: View {
                 Text(L("Yer açmak için öğeleri işaretle. Klasörlerin içine girmek için satıra tıkla."))
                     .font(.system(size: 11)).foregroundStyle(.secondary).lineLimit(1)
             } else {
-                let size = Self.bytes(selected.reduce(0) { $0 + ($1.size ?? 0) })
+                let size = Self.bytes(DiskScanManager.totalSize(of: selected))
                 Text(selected.count == 1 ? L("1 öğe seçildi · %@", size) : L("%d öğe seçildi · %@", selected.count, size))
                     .font(.system(size: 11, weight: .medium)).monospacedDigit()
                     .accessibilityIdentifier("disk-selection")
@@ -319,7 +319,7 @@ struct DiskView: View {
 
     private func confirmTrash(_ rows: [DiskRow]) {
         guard !rows.isEmpty, !disk.trashing else { return }
-        let size = Self.bytes(rows.reduce(0) { $0 + ($1.size ?? 0) })
+        let size = Self.bytes(DiskScanManager.totalSize(of: rows))
         let alert = NSAlert()
         alert.alertStyle = .warning
         alert.messageText = rows.count == 1 ? L("“%@” Çöp Sepeti’ne taşınsın mı?", rows[0].name)

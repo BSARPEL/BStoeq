@@ -230,7 +230,7 @@ struct DiskTarget: Identifiable, Equatable {
     }
 
     var selectedRows: [DiskRow] { rows.filter { selection.contains($0.id) && !isProtected($0) } }
-    var selectedSize: Int64 { selectedRows.reduce(0) { $0 + ($1.size ?? 0) } }
+    static func totalSize(of rows: [DiskRow]) -> Int64 { rows.reduce(0) { $0 + ($1.size ?? 0) } }
 
     /// Moves rows of the open folder to the Trash. Only rows that are on screen and not
     /// protected are accepted, whatever the caller passes.

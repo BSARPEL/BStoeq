@@ -15,7 +15,7 @@ struct Localizer {
         return values
     }()
     func text(_ key: String) -> String {
-        for prefix in ["ARCHIVE_PATH_CONFLICT", "ARCHIVE_RENAME_CONFLICT", "SOURCE_MISSING"] where key.hasPrefix(prefix + ": ") {
+        for prefix in ["ARCHIVE_PATH_CONFLICT", "SOURCE_MISSING"] where key.hasPrefix(prefix + ": ") {
             return (Self.catalog[prefix]?[language.rawValue] ?? prefix) + "\n" + String(key.dropFirst(prefix.count + 2))
         }
         return Self.catalog[key]?[language.rawValue] ?? key

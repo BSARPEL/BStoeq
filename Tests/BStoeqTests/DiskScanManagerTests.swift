@@ -111,7 +111,7 @@ final class DiskScanManagerTests: XCTestCase {
 
         manager.toggle(old)
         XCTAssertEqual(manager.selectedRows.map(\.name), ["eski"])
-        XCTAssertEqual(manager.selectedSize, oldSize)
+        XCTAssertEqual(DiskScanManager.totalSize(of: manager.selectedRows), oldSize)
         manager.trash(manager.selectedRows)
         XCTAssertTrue(manager.trashing)
         manager.goUp(to: 0)

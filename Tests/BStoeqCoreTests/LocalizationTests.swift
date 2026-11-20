@@ -29,8 +29,7 @@ final class LocalizationTests: XCTestCase {
         XCTAssertEqual(message.text(using: Localizer(language: .german)), "Symbole konnten nicht ausgeblendet werden: example")
         XCTAssertEqual(Localizer(language: .english).seconds(1), "1 second")
         XCTAssertEqual(Localizer(language: .german).seconds(5), "5 Sekunden")
-        XCTAssertEqual(Localizer(language: .english).appCount(1), "A calmer menu bar for one app.")
-        XCTAssertTrue(Localizer(language: .turkish).appCount(4).contains("4"))
+        XCTAssertEqual(Localizer(language: .turkish).seconds(4), "4 saniye")
     }
     func testSpaceShortcutUsesSelectedLanguage() {
         let shortcut = Shortcut(keyCode: 49, modifiers: 2304, label: "⌥ ⌘ Boşluk")

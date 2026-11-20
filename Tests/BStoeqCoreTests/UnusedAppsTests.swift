@@ -86,14 +86,13 @@ final class UnusedAppsTests: XCTestCase {
         XCTAssertEqual(Set(result.apps.map(\.path)), [shared.path, user.path])
         XCTAssertTrue(Set(result.apps.map(\.path)).isSubset(of: reported))
         XCTAssertFalse(reported.contains(nested.path))
-        XCTAssertEqual(result.unassessable, 1)
         XCTAssertEqual(result.unknownUsageApps.map(\.path), [unknown.path])
         XCTAssertEqual(result.unknownUsageApps.first?.name, "Unknown")
         XCTAssertEqual(result.unreadable, 0)
         let app = try XCTUnwrap(result.apps.first { $0.path == shared.path })
         XCTAssertEqual(app.bytes, DiskScanner.scan(shared.path)?.root.size)
         XCTAssertEqual(app.lastUsed, usage[shared.path])
-        XCTAssertEqual(app.version, "1.0")
+        XCTAssertEqual(app.bundleIdentifier, "org.example.Shared")
     }
 
     func testCleanupRevalidatesIdentityVersionUsageMountsAndLateLaunch() throws {

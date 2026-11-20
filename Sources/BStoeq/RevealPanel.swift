@@ -108,7 +108,7 @@ private struct RevealPanelView: View {
                     TextField(L("Uygulama ara…"), text: $search)
                         .textFieldStyle(.plain).focused($searchFocused)
                         .accessibilityIdentifier("panel-search")
-                        .onSubmit { if let app = apps.first(where: \.running) { model.selectPanelApp(app) } }
+                        .onSubmit { if let app = apps.first { model.selectPanelApp(app) } }
                 }.font(.system(size: 12)).padding(9)
                     .background(.primary.opacity(0.045), in: RoundedRectangle(cornerRadius: 8))
             }
@@ -156,20 +156,18 @@ private struct RevealPanelView: View {
         Button { model.selectPanelApp(app) } label: {
             Group {
                 if isBar {
-                    icon(app, size: 24).opacity(app.running ? 1 : 0.45)
-                        .frame(width: 36, height: 36)
+                    icon(app, size: 24).frame(width: 36, height: 36)
                 } else {
                     HStack(spacing: 9) {
                         icon(app, size: 22)
                         Text(app.name).font(.system(size: 11, weight: .medium))
                         Spacer()
-                        if !app.running { Text(L("Çalışmıyor")).font(.system(size: 10)).foregroundStyle(.secondary) }
-                        else { Image(systemName: "chevron.right").font(.system(size: 10)).foregroundStyle(.secondary) }
+                        Image(systemName: "chevron.right").font(.system(size: 10)).foregroundStyle(.secondary)
                     }.padding(8)
                 }
             }.contentShape(RoundedRectangle(cornerRadius: 10))
-        }.buttonStyle(PanelItemStyle()).disabled(!app.running)
-            .background(SecondaryClickCapture(enabled: app.running) {
+        }.buttonStyle(PanelItemStyle())
+            .background(SecondaryClickCapture {
                 model.selectPanelApp(app, action: .contextMenu)
             })
             .accessibilityLabel(app.name)
@@ -177,7 +175,7 @@ private struct RevealPanelView: View {
             .accessibilityAction(named: Text(L("Sağ tık menüsünü aç"))) {
                 model.selectPanelApp(app, action: .contextMenu)
             }
-            .help(app.running ? app.name : "\(app.name) · \(L("Çalışmıyor"))")
+            .help(app.name)
     }
     private func icon(_ app: BarApp, size: CGFloat) -> some View {
         Group {

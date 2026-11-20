@@ -4,7 +4,6 @@ import BStoeqCore
 
 enum Palette {
     static let accent = Color(red: 0.43, green: 0.34, blue: 0.84)
-    static let muted = Color.secondary
     static let page = Color(nsColor: .windowBackgroundColor)
     static let card = Color(nsColor: .controlBackgroundColor)
     static let line = Color.primary.opacity(0.075)

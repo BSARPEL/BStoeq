@@ -20,7 +20,6 @@ final class AppLifecycleTests: XCTestCase {
 
             model.reconcileApps([])
             XCTAssertTrue(model.panelApps.isEmpty)
-            XCTAssertEqual(model.hiddenCount, 0)
             XCTAssertTrue(model.panelPresented)
             XCTAssertEqual(model.availableApps.first?.running, false)
             XCTAssertEqual(model.availableApps.first?.name, "Fixture")
@@ -28,7 +27,7 @@ final class AppLifecycleTests: XCTestCase {
 
             model.reconcileApps([app])
             XCTAssertEqual(model.panelApps.map(\.id), [app.id])
-            XCTAssertEqual(model.hiddenCount, 1)
+            XCTAssertEqual(model.availableApps.first?.running, true)
             XCTAssertEqual(counts, [0, 1])
             XCTAssertEqual(AppModel(defaults: defaults).preferences, saved)
         }
@@ -76,7 +75,7 @@ final class AppLifecycleTests: XCTestCase {
             for mode in [RevealMode.bar, .list] {
                 model.update { $0.revealMode = mode }
                 XCTAssertEqual(model.panelApps.map(\.name), ["hidden"])
-                XCTAssertEqual(model.hiddenCount, 2)
+                XCTAssertEqual(model.hiddenIDs, Set([apps[0].id, apps[1].id, apps[2].id]))
                 XCTAssertEqual(model.visibility(apps[1].id), .hidden)
             }
         }

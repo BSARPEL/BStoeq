@@ -124,11 +124,6 @@
     "tr": "Son arşivleri temizle",
     "de": "Zuletzt verwendete Archive leeren"
   },
-  "Close window": {
-    "en": "Close window",
-    "tr": "Pencereyi kapat",
-    "de": "Fenster schließen"
-  },
   "Compression": {
     "en": "Compression",
     "tr": "Sıkıştırma",
@@ -223,16 +218,6 @@
     "en": "Drop files to create an archive, or open ZIP, RAR, 7z and more.",
     "tr": "Arşiv oluşturmak için dosyaları bırak; ZIP, RAR, 7z ve diğer arşivleri aç.",
     "de": "Dateien ablegen, um ein Archiv zu erstellen, oder ZIP, RAR, 7z und weitere Formate öffnen."
-  },
-  "EVERYTHING, IN PLACE.": {
-    "en": "EVERYTHING, IN PLACE.",
-    "tr": "HER ŞEY YERLİ YERİNDE.",
-    "de": "ALLES AN SEINEM PLATZ."
-  },
-  "Edit": {
-    "en": "Edit",
-    "tr": "Düzen",
-    "de": "Bearbeiten"
   },
   "Editing ZIP, 7z and TAR keeps a .backup copy beside the original. Encrypted and multipart archives are read-only; use Convert to create an editable copy.": {
     "en": "Editing ZIP, 7z and TAR keeps a .backup copy beside the original. Encrypted and multipart archives are read-only; use Convert to create an editable copy.",
@@ -459,11 +444,6 @@
     "tr": "Arşiv açılıyor",
     "de": "Archiv wird geöffnet"
   },
-  "Open…": {
-    "en": "Open…",
-    "tr": "Aç…",
-    "de": "Öffnen…"
-  },
   "Operation cancelled": {
     "en": "Operation cancelled",
     "tr": "İşlem iptal edildi",
@@ -528,11 +508,6 @@
     "en": "Profiles save compression settings, never passwords.",
     "tr": "Profiller sıkıştırma ayarlarını saklar; şifreleri kaydetmez.",
     "de": "Profile speichern Kompressionseinstellungen, keine Passwörter."
-  },
-  "Quit BStoeq": {
-    "en": "Quit BStoeq",
-    "tr": "BStoeq'ten çık",
-    "de": "BStoeq beenden"
   },
   "RAR engine (optional)": {
     "en": "RAR engine (optional)",
@@ -719,11 +694,6 @@
     "tr": "Orijinal arşiv .backup dosyası olarak saklanacak.",
     "de": "Das Originalarchiv wird als .backup-Datei aufbewahrt."
   },
-  "Tools": {
-    "en": "Tools",
-    "tr": "Araçlar",
-    "de": "Werkzeuge"
-  },
   "Type": {
     "en": "Type",
     "tr": "Tür",
@@ -853,26 +823,6 @@
     "en": "AES-256 encryption. Keep your password safe; it cannot be recovered.",
     "tr": "AES-256 şifreleme. Şifreni güvenli bir yerde sakla; kurtarılamaz.",
     "de": "AES-256-Verschlüsselung. Bewahre dein Passwort sicher auf; es kann nicht wiederhergestellt werden."
-  },
-  "Undo": {
-    "en": "Undo",
-    "tr": "Geri al",
-    "de": "Widerrufen"
-  },
-  "Cut": {
-    "en": "Cut",
-    "tr": "Kes",
-    "de": "Ausschneiden"
-  },
-  "Copy": {
-    "en": "Copy",
-    "tr": "Kopyala",
-    "de": "Kopieren"
-  },
-  "Paste": {
-    "en": "Paste",
-    "tr": "Yapıştır",
-    "de": "Einfügen"
   },
   "Select all": {
     "en": "Select all",
@@ -1174,11 +1124,6 @@
     "tr": "Arşivde hedefte aynı konuma yazılacak dosyalar var:",
     "de": "Das Archiv enthält Pfade, die sich am Ziel überschreiben würden:"
   },
-  "ARCHIVE_RENAME_CONFLICT": {
-    "en": "An item with this name already exists in the archive:",
-    "tr": "Arşivde aynı adlı bir öğe var:",
-    "de": "Im Archiv existiert bereits ein Objekt mit diesem Namen:"
-  },
   "Select at least one item": {
     "en": "Select at least one item",
     "tr": "En az bir öğe seç.",
@@ -1198,26 +1143,6 @@
     "en": "Select files or an archive in Finder.",
     "tr": "Finder’da dosyaları veya bir arşivi seç.",
     "de": "Wähle im Finder Dateien oder ein Archiv aus."
-  },
-  "Services": {
-    "en": "Services",
-    "tr": "Servisler",
-    "de": "Dienste"
-  },
-  "Redo": {
-    "en": "Redo",
-    "tr": "Yinele",
-    "de": "Wiederholen"
-  },
-  "Window": {
-    "en": "Window",
-    "tr": "Pencere",
-    "de": "Fenster"
-  },
-  "Show BStoeq": {
-    "en": "Show BStoeq",
-    "tr": "BStoeq’i göster",
-    "de": "BStoeq zeigen"
   },
   "Finder integration": {
     "en": "Finder integration",

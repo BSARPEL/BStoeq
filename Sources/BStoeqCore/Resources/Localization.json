@@ -114,11 +114,6 @@
     "en": "Another menu bar manager is running. Use one at a time for consistent behavior.",
     "de": "Ein weiterer Menüleistenmanager ist aktiv. Verwende für zuverlässiges Verhalten nur einen gleichzeitig."
   },
-  "Uygulamaları aşağıdaki gruplara sürükle. Menü çubuğundaki sıralamayı değiştirmek için ⌘ tuşuna basılı tutarak gerçek simgeleri sürükle.": {
-    "tr": "Uygulamaları aşağıdaki gruplara sürükle. Menü çubuğundaki sıralamayı değiştirmek için ⌘ tuşuna basılı tutarak gerçek simgeleri sürükle.",
-    "en": "Drag apps into the groups below. To reorder the actual menu bar, hold ⌘ and drag its icons.",
-    "de": "Ziehe Apps in die Gruppen unten. Zum Sortieren in der Menüleiste halte ⌘ gedrückt und ziehe die Symbole."
-  },
   "Sadece menü çubuğu uygulamalarını gör": {
     "tr": "Sadece menü çubuğu uygulamalarını gör",
     "en": "See only menu bar apps",
@@ -138,31 +133,6 @@
     "tr": "MENÜ ÇUBUĞUN",
     "en": "YOUR MENU BAR",
     "de": "DEINE MENÜLEISTE"
-  },
-  "GRUP ÖNİZLEMESİ": {
-    "tr": "GRUP ÖNİZLEMESİ",
-    "en": "GROUP PREVIEW",
-    "de": "GRUPPENVORSCHAU"
-  },
-  "Dosya   Düzen": {
-    "tr": "Dosya   Düzen",
-    "en": "File   Edit",
-    "de": "Ablage   Bearbeiten"
-  },
-  "İlk uygulamanı gizleyerek kendine biraz alan aç.": {
-    "tr": "İlk uygulamanı gizleyerek kendine biraz alan aç.",
-    "en": "Make some room by hiding your first app.",
-    "de": "Schaffe Platz und blende deine erste App aus."
-  },
-  "%d uygulama için daha sade bir menü çubuğu.": {
-    "tr": "%d uygulama için daha sade bir menü çubuğu.",
-    "en": "A calmer menu bar for %d apps.",
-    "de": "Eine aufgeräumte Menüleiste für %d Apps."
-  },
-  "Bir uygulama için daha sade bir menü çubuğu.": {
-    "tr": "Bir uygulama için daha sade bir menü çubuğu.",
-    "en": "A calmer menu bar for one app.",
-    "de": "Eine aufgeräumte Menüleiste für eine App."
   },
   "Buraya sürükle": {
     "tr": "Buraya sürükle",
@@ -684,11 +654,6 @@
     "en": "Open",
     "de": "Öffnen"
   },
-  "%@": {
-    "tr": "%@",
-    "en": "%@",
-    "de": "%@"
-  },
   "Yarım daire": {
     "tr": "Yarım daire",
     "en": "Half circle",
@@ -774,45 +739,15 @@
     "en": "Opening style",
     "de": "Darstellung beim Öffnen"
   },
-  "Gizli grubun boş": {
-    "tr": "Gizli grubun boş",
-    "en": "Your hidden group is empty",
-    "de": "Deine ausgeblendete Gruppe ist leer"
-  },
   "Uygulamaları düzenle": {
     "tr": "Uygulamaları düzenle",
     "en": "Organize apps",
     "de": "Apps organisieren"
   },
-  "Simgeye tıklayarak uygulamanın menüsünü aç.": {
-    "tr": "Simgeye tıklayarak uygulamanın menüsünü aç.",
-    "en": "Click an icon to open its app’s menu.",
-    "de": "Klicke auf ein Symbol, um das Menü der App zu öffnen."
-  },
-  "Simgeye tıkla; uygulama üst menü çubuğunda görünsün.": {
-    "tr": "Simgeye tıkla; uygulama üst menü çubuğunda görünsün.",
-    "en": "Click an icon to reveal the app in the top menu bar.",
-    "de": "Klicke auf ein Symbol, um die App in der oberen Menüleiste einzublenden."
-  },
   "Menüleri doğrudan açmak için izin ver": {
     "tr": "Menüleri doğrudan açmak için izin ver",
     "en": "Allow access to open menus directly",
     "de": "Zugriff erlauben, um Menüs direkt zu öffnen"
-  },
-  "Çalışmıyor": {
-    "tr": "Çalışmıyor",
-    "en": "Not running",
-    "de": "Nicht geöffnet"
-  },
-  "Uygulamanın menüsünü aç": {
-    "tr": "Uygulamanın menüsünü aç",
-    "en": "Open the app’s menu",
-    "de": "Menü der App öffnen"
-  },
-  "Üst menü çubuğunda göster": {
-    "tr": "Üst menü çubuğunda göster",
-    "en": "Show in the top menu bar",
-    "de": "In der oberen Menüleiste anzeigen"
   },
   "Uygulamanın simgesi üst çubukta gösterildi. Menüsü otomatik açılmıyorsa simgeye tıkla.": {
     "tr": "Uygulamanın simgesi üst çubukta gösterildi. Menüsü otomatik açılmıyorsa simgeye tıkla.",
@@ -899,11 +834,6 @@
     "en": "Arrange Menu Bar",
     "de": "Menüleiste anordnen"
   },
-  "BStoeq’in konumu ve simge sırası": {
-    "tr": "BStoeq’in konumu ve simge sırası",
-    "en": "BStoeq position and icon order",
-    "de": "BStoeq-Position und Symbolreihenfolge"
-  },
   "Düzenlemeyi başlat": {
     "tr": "Düzenlemeyi başlat",
     "en": "Start arranging",
@@ -943,16 +873,6 @@
     "tr": "⌘ sürükle: simgenin yerini değiştir",
     "en": "⌘-drag: move the icon",
     "de": "⌘ + Ziehen: Symbol verschieben"
-  },
-  "BStoeq’in yeni konumu macOS tarafından saklanır.": {
-    "tr": "BStoeq’in yeni konumu macOS tarafından saklanır.",
-    "en": "macOS remembers BStoeq’s new position.",
-    "de": "macOS speichert die neue Position von BStoeq."
-  },
-  "Uygulamaları aşağıdaki görünürlük gruplarına sürükle. Bu önizleme üst menüdeki gerçek sıralamayı göstermez.": {
-    "tr": "Uygulamaları aşağıdaki görünürlük gruplarına sürükle. Bu önizleme üst menüdeki gerçek sıralamayı göstermez.",
-    "en": "Drag apps into the visibility groups below. This preview does not show their actual order in the top menu bar.",
-    "de": "Ziehe Apps in die Sichtbarkeitsgruppen unten. Diese Vorschau zeigt nicht die tatsächliche Reihenfolge in der oberen Menüleiste."
   },
   "Düzenleme açık · gizleme duraklatıldı": {
     "tr": "Düzenleme açık · gizleme duraklatıldı",

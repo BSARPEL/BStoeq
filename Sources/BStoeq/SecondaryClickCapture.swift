@@ -4,17 +4,15 @@ import SwiftUI
 /// Observe secondary clicks only inside this tile, leaving normal SwiftUI button
 /// activation, scrolling, drag tracking and keyboard accessibility intact.
 struct SecondaryClickCapture: NSViewRepresentable {
-    var enabled: Bool
     var action: () -> Void
 
     func makeNSView(context: Context) -> CaptureView { CaptureView() }
     func updateNSView(_ view: CaptureView, context: Context) {
-        view.enabled = enabled; view.action = action
+        view.action = action
     }
     static func dismantleNSView(_ view: CaptureView, coordinator: ()) { view.stop() }
 
     final class CaptureView: NSView {
-        var enabled = true
         var action: (() -> Void)?
         private var monitor: Any?
         private var secondaryDown = false
@@ -23,7 +21,7 @@ struct SecondaryClickCapture: NSViewRepresentable {
             super.init(frame: frameRect)
             setAccessibilityElement(false)
             monitor = NSEvent.addLocalMonitorForEvents(matching: [.rightMouseDown, .rightMouseUp, .leftMouseDown, .leftMouseUp]) { [weak self] event in
-                guard let self, self.enabled, let window = self.window, event.window === window else { return event }
+                guard let self, let window = self.window, event.window === window else { return event }
                 let inside = self.bounds.contains(self.convert(event.locationInWindow, from: nil))
                 if event.type == .rightMouseDown || (event.type == .leftMouseDown && event.modifierFlags.contains(.control)) {
                     self.secondaryDown = inside

@@ -228,8 +228,8 @@ struct DownloadsView: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text(rowTitle(item))
                     .font(.system(size: 12, weight: .medium)).lineLimit(1).truncationMode(.middle)
-                if let group = item.group {
-                    Label(group.title, systemImage: "list.bullet").font(.system(size: 9)).foregroundStyle(.tertiary).lineLimit(1)
+                if let playlistTitle = item.playlistTitle {
+                    Label(playlistTitle, systemImage: "list.bullet").font(.system(size: 9)).foregroundStyle(.tertiary).lineLimit(1)
                 }
                 if item.isRunning {
                     if item.state == .processing || item.fraction <= 0 {

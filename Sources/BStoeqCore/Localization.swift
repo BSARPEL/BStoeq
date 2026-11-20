@@ -41,9 +41,6 @@ public struct Localizer: Sendable {
         guard !arguments.isEmpty else { return template }
         return String(format: template, locale: Locale(identifier: language.rawValue), arguments: arguments)
     }
-    public func appCount(_ count: Int) -> String {
-        count == 1 ? text("Bir uygulama için daha sade bir menü çubuğu.") : text("%d uygulama için daha sade bir menü çubuğu.", count)
-    }
     public func seconds(_ count: Int) -> String {
         count == 1 ? text("1 saniye") : text("%d saniye", count)
     }

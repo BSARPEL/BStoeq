@@ -2,14 +2,14 @@
 
 ## Çalışma ortamı
 
-Apple Silicon üzerinde macOS 27, macOS 27 SDK’sı ve Swift 6 araç zinciri gerekir. Xcode’da `Package.swift` dosyasını açabilir veya proje kökünden SwiftPM komutlarını kullanabilirsin.
+Kendi Mac’ine uygulamayı ve indirme araçlarını kurmak için proje klasöründe `./scripts/install.sh` çalıştır. Geliştirme ve test için Apple Silicon üzerinde macOS 27 veya üstü ve Swift 6 ile macOS 27 SDK’sını içeren tam Xcode kurulumu gerekir. SwiftUI görünümleri Xcode ile gelen makro eklentilerini kullanır. Proje kökünden SwiftPM komutlarını çalıştırabilirsin. [GitHub’dan kurulum](README.md#githubdan-kurulum)
 
 ```sh
 swift build
 swift test
 ```
 
-Menü çubuğundaki davranışı kurulu uygulamada denemek için `./scripts/build.sh` çalıştır. `dist/BStoeq-macOS.zip` içindeki uygulamayı **Uygulamalar** klasörüne kur ve menü çubuğu simgesinden aç. Paketleme betiği derlenmiş arşiv motorunu, kaynak paketlerini, çevirileri ve lisansları uygulamaya ekler.
+Menü çubuğundaki davranışı denemek için aşağıdaki paketleme komutunu çalıştır. `dist/BStoeq-macOS.zip` içindeki uygulamayı **Uygulamalar** klasörüne kur ve oradan aç. Paketleme betiği derlenmiş arşiv motorunu, çalışma zamanında kullanılan kaynak paketlerini, çevirileri ve lisansları uygulamaya ekler. [Kurulum ve ilk açılış](README.md#githubdan-kurulum)
 
 ## Kaynak düzeni
 
@@ -17,7 +17,9 @@ Menü çubuğundaki davranışı kurulu uygulamada denemek için `./scripts/buil
 - `Sources/BStoeqCore` disk ve temizlik taramalarını, indirme seçeneklerini ve ortak modelleri içerir.
 - `Sources/BStoeqRuntime` ve `Sources/MenuBarBridge` menü çubuğuyla sistem düzeyindeki etkileşimi sağlar.
 - `Sources/ArchiveCore` arşiv biçimlerini, 7-Zip süreçlerini ve dosya işlemlerini yönetir. `Sources/ArchiveWorkspace` arşiv penceresini ve dosya gezginini içerir.
-- `Tests` birim ve regresyon testlerini barındırır. `Resources` paket bilgilerini, araçları ve lisans metinlerini, `scripts` ise dağıtım betiğini içerir.
+- `Tests` birim ve regresyon testlerini barındırır. `Resources` paket bilgilerini, araçları ve lisans metinlerini içerir.
+- `scripts/install.sh` derleme araçlarını, Homebrew’u ve indirme araçlarını denetler, uygulamayı paketleyip Uygulamalar klasörüne kurar.
+- `scripts/build.sh` dağıtım paketini oluşturur ve `scripts/icon.swift` simgelerini üretir. Elle test için `scripts/TestFixture.swift` geçici bir menü çubuğu simgesi oluşturur. `scripts/engine-probe.m` menü çubuğu sistem arayüzünün etkinleştirilip serbest bırakılabildiğini denetler.
 
 ## Değişiklikleri doğrulama
 
@@ -32,10 +34,12 @@ Dosya taşıma, çıkartma veya temizleme davranışlarını test ederken geçic
 
 ## Paketleme ve imzalama
 
-`./scripts/build.sh` bir Release derlemesi alır. Tek bir uygun Apple Development imza kimliği bulursa onu kullanır. Kimlik seçmek için `BSTOEQ_SIGNING_IDENTITY`, yerel ad-hoc imza için `-` değeri kullanılabilir. Ayrı bir çıktı klasörü seçmek için `BSTOEQ_OUTPUT_DIR` ayarlanabilir.
+Aşağıdaki komut bir Release derlemesi alır, paketi yerel (*ad hoc*) imzayla imzalar ve ZIP dosyasını `dist/` klasörüne yazar. Ayrı bir çıktı klasörü seçmek için `BSTOEQ_OUTPUT_DIR` ayarlanabilir.
 
 ```sh
 BSTOEQ_SIGNING_IDENTITY=- ./scripts/build.sh
 ```
+
+Kendi sertifikanı kullanmak için `BSTOEQ_SIGNING_IDENTITY` değerini imza kimliğin olarak ayarla. Varsayılan ayarlarda betik, Anahtar Zinciri’nde tek bir uygun Apple Development kimliği bulursa o kimliği kullanır. Geliştirici sertifikasıyla imzalanan uygulamanın imza bilgilerinde sertifika sahibi görünür. Apple’ın noter onayı ayrı bir dağıtım adımıdır.
 
 Üçüncü taraf motoru değiştirirken çalıştırılabilir dosyayı, karşılık gelen kaynak arşivini, lisans metinlerini ve doğrulama özetlerini birlikte güncelle. Bileşenlerin konumları üçüncü taraf bildirimlerinde bulunur. [Üçüncü taraf bildirimleri](THIRD_PARTY_NOTICES.md)

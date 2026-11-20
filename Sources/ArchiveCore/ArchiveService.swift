@@ -278,7 +278,6 @@ public struct ArchiveService: Sendable {
             guard files.allSatisfy({ $0.deletingLastPathComponent() == parent }) else { throw ArchiveError.message("SAME_FOLDER_REQUIRED") }
             try validateDestinationOutsideSources(archive, files: files)
             try validateSources(files, control: control)
-            for file in files { try ArchiveSafety.validatePath(file.lastPathComponent) }
             cwd = parent
             args = ["a", "-spd", "-sccUTF-8", "-bsp1", "-y"] + (password.isEmpty ? [] : ["-p"]) + ["--", copy.path] + files.map { "./" + $0.lastPathComponent }
         case .delete(let paths):

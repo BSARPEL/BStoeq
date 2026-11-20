@@ -24,12 +24,6 @@ struct MediaTools: Equatable, Sendable {
     }
 }
 
-struct PlaylistGroup: Equatable, Sendable {
-    let id: UUID
-    let title: String
-    let count: Int
-}
-
 struct DownloadItem: Identifiable, Equatable {
     enum State: Equatable {
         case queued, running, processing, finished, cancelled
@@ -38,7 +32,7 @@ struct DownloadItem: Identifiable, Equatable {
     let id = UUID()
     let request: MediaDownloadRequest
     var title: String?
-    var group: PlaylistGroup?
+    var playlistTitle: String?
     var state = State.queued
     var fraction = 0.0
     var speed: Double?
@@ -258,7 +252,7 @@ enum FileOrigin {
         // yt-dlp looks up its helpers (ffmpeg, a JavaScript runtime) through PATH.
         let toolDirectories = [ytDlp, tools.ffmpeg].compactMap { $0?.deletingLastPathComponent().path }
         var path: [String] = []
-        for directory in toolDirectories + ["/opt/homebrew/bin", "/usr/local/bin"] +
+        for directory in toolDirectories + MediaTools.defaultDirectories() +
             (environment["PATH"] ?? "/usr/bin:/bin:/usr/sbin:/sbin").split(separator: ":").map(String.init)
         where !path.contains(directory) { path.append(directory) }
         environment["PATH"] = path.joined(separator: ":")
@@ -324,7 +318,6 @@ enum FileOrigin {
         let title = plan.title ?? listID ?? "Playlist"
         let folder = plan.destination.appendingPathComponent(
             MediaLink.folderName(for: title, fallback: listID ?? "Playlist"), isDirectory: true)
-        let group = PlaylistGroup(id: UUID(), title: title, count: plan.entries.count)
         let site = playlist.host ?? "www.youtube.com"
         var batch: [DownloadItem] = []
         for (offset, entry) in plan.entries.enumerated() {
@@ -333,7 +326,7 @@ enum FileOrigin {
                 destination: folder, position: PlaylistPosition(index: offset + 1, count: plan.entries.count))
             guard !items.contains(where: { $0.isActive && $0.request == request }) else { continue }
             var item = DownloadItem(request: request)
-            item.title = entry.title; item.group = group
+            item.title = entry.title; item.playlistTitle = title
             item.order = nextOrder; nextOrder += 1
             batch.append(item)
         }

@@ -40,10 +40,6 @@ public struct CacheGroup: Identifiable, Sendable {
     public let files: [CacheFile]
     public let bytes: Int64
 
-    public init(id: String, files: [CacheFile]) {
-        self.init(id: id, name: id, source: .userCaches, files: files)
-    }
-
     public init(id: String, name: String, source: CacheSource, files: [CacheFile]) {
         self.id = id
         self.name = name
