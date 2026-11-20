@@ -3,6 +3,22 @@ dist/
 .DS_Store
 .swiftpm/
 
+# Local environment, credentials and Apple signing material.
+.env
+.env.*
+.envrc
+*.env
+.netrc
+.git-credentials
+*.p8
+*.p12
+*.pfx
+*.pem
+*.mobileprovision
+*.provisionprofile
+*.keychain
+*.keychain-db
+
 # Checked-in archive engine, its upstream source, and test samples.
 !Resources/Tools/7zz
 !Resources/Licenses/7z2604-src.tar.xz
