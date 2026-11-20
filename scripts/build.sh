@@ -23,6 +23,8 @@ APP="$STAGING/BStoeq.app"
 RESOURCE_DIR="$APP/Contents/Resources"
 mkdir -p "$APP/Contents/MacOS" "$RESOURCE_DIR"
 cp "$BIN_DIR/BStoeq" "$APP/Contents/MacOS/BStoeq"
+# The linker’s debug map contains absolute source and object paths.
+/usr/bin/xcrun strip -S -x "$APP/Contents/MacOS/BStoeq"
 cp Resources/Info.plist "$APP/Contents/Info.plist"
 cp Resources/Stash-LICENSE.txt "$RESOURCE_DIR/"
 ditto Resources/Tools "$RESOURCE_DIR/Tools"
@@ -71,8 +73,9 @@ for FILE in "$RESOURCE_DIR"/{en,tr,de}.lproj/{ServicesMenu,InfoPlist}.strings "$
 done
 "$ENGINE" i >/dev/null
 "$APP/Contents/MacOS/BStoeq" --diagnostics
-PACKAGE="$STAGING/BStoeq-macOS.zip"
-ditto -c -k --sequesterRsrc --keepParent "$APP" "$PACKAGE"
+PACKAGE="${STAGING:A}/BStoeq-macOS.zip"
+# Store bundle contents and executable permissions, omitting AppleDouble and Unix owner metadata.
+(cd "$STAGING" && COPYFILE_DISABLE=1 /usr/bin/zip -q -X -r -y "$PACKAGE" "${APP:t}")
 "$ENGINE" t -bso0 -bsp0 "$PACKAGE"
 mv -f "$PACKAGE" "$OUTPUT_DIR/BStoeq-macOS.zip"
 print "Dağıtım paketi hazır: $OUTPUT_DIR/BStoeq-macOS.zip"

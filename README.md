@@ -2,7 +2,7 @@
 
 BStoeq 2.0, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
 
-[Otomatik kuruluma geç](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik)
+[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Kaynaktan otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -12,6 +12,14 @@ BStoeq 2.0, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çu
 ## GitHub’dan kurulum
 
 BStoeq için **Apple Silicon işlemcili bir Mac ve macOS 27.0 veya üstü** gerekir. İşlemcini ve macOS sürümünü ** → Bu Mac Hakkında** bölümünde görebilirsin.
+
+### Hazır uygulamayı kurma
+
+1. **BStoeq-macOS.zip** dosyasını indir. Hazır uygulamayı çalıştırmak için Xcode veya Homebrew gerekmez. [v2.0.0 uygulamasını indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip)
+2. ZIP’i açmadan önce Terminal’de `shasum -a 256 ~/Downloads/BStoeq-macOS.zip` çalıştır. Çıkan değeri sürüm sayfasındaki SHA-256 ile karşılaştır. [Sürüm ve doğrulama özeti](https://github.com/BSARPEL/BStoeq/releases/tag/v2.0.0)
+3. ZIP’i Finder’da aç. Güncelleme yapıyorsan önce menü çubuğundan BStoeq’ten çık. **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı ve oradan aç.
+
+Bu paket yerel (*ad hoc*) imzalıdır ve Apple noter onayı taşımaz. İlk açılışta yalnızca geliştiricinin doğrulanamadığı uyarısı çıkarsa, kaynağa güveniyor ve SHA-256 özetini doğruladıysan **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç** seçeneğini kullanabilirsin. [Apple’ın ilk açılış kılavuzu](https://support.apple.com/tr-tr/102445)
 
 ### Otomatik kurulum
 
@@ -47,7 +55,7 @@ open /Applications/BStoeq.app
 
 ### Elle paketleme ve kurulum
 
-Elinde bir `BStoeq-macOS.zip` varsa doğrudan Finder’da açıp içindeki **BStoeq.app** dosyasını **Uygulamalar** klasörüne sürükleyebilirsin. GitHub’ın **Code → Download ZIP** ve **Source code (zip)** dosyaları kaynak kodu içerir. Hazır uygulama paketi yayımlandığında dosya adı sürümün **Assets** bölümünde `BStoeq-macOS.zip` olarak görünür. [GitHub sürümleri](https://github.com/BSARPEL/BStoeq/releases)
+GitHub’ın **Code → Download ZIP** ve **Source code (zip)** seçenekleri derleme için kaynak kodu içerir.
 
 Paketi kendin oluşturmak için Swift 6 araç zincirini ve macOS 27 SDK’sını içeren tam Xcode uygulamasını kur. Xcode’u açıp ilk kullanım adımlarını tamamla. Proje klasöründe aşağıdaki komutu çalıştır. Derleme başarıyla tamamlanınca Finder’da seçilen ZIP’i aç ve **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı.
 
