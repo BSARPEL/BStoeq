@@ -1,0 +1,5 @@
+"NSDesktopFolderUsageDescription" = "BStoeq ermittelt beim Speicherscan Dateigrößen und greift auf die Dateien zu, die du für Archiv- oder Dateiaktionen auswählst.";
+"NSDocumentsFolderUsageDescription" = "BStoeq ermittelt beim Speicherscan Dateigrößen und greift auf die Dateien zu, die du für Archiv- oder Dateiaktionen auswählst.";
+"NSRemovableVolumesUsageDescription" = "BStoeq ermittelt beim Speicherscan Dateigrößen und greift auf die Dateien zu, die du für Archiv- oder Dateiaktionen auswählst.";
+"NSNetworkVolumesUsageDescription" = "BStoeq ermittelt beim Speicherscan Dateigrößen und greift auf die Dateien zu, die du für Archiv- oder Dateiaktionen auswählst.";
+"NSDownloadsFolderUsageDescription" = "BStoeq speichert hier Downloads, ermittelt Dateigrößen, sucht nach alten Installationspaketen und greift auf die Dateien zu, die du für Archiv- oder Dateiaktionen auswählst.";

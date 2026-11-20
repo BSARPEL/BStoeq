@@ -1,0 +1,10 @@
+.build/
+dist/
+.DS_Store
+.swiftpm/
+
+# Checked-in archive engine, its upstream source, and test samples.
+!Resources/Tools/7zz
+!Resources/Licenses/7z2604-src.tar.xz
+!Tests/ArchiveCoreTests/Fixtures/*.rar
+!Tests/ArchiveCoreTests/Fixtures/*.zip

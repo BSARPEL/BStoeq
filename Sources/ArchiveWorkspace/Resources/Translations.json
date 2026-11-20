@@ -1,0 +1,1257 @@
+{
+  "A new folder is created for the archive. Existing files remain unchanged.": {
+    "en": "A new folder is created for the archive. Existing files remain unchanged.",
+    "tr": "Arşiv için yeni bir klasör oluşturulur. Mevcut dosyalar korunur.",
+    "de": "Für das Archiv wird ein neuer Ordner erstellt. Vorhandene Dateien bleiben unverändert."
+  },
+  "About BStoeq": {
+    "en": "About BStoeq",
+    "tr": "BStoeq hakkında",
+    "de": "Über BStoeq"
+  },
+  "Add current location": {
+    "en": "Add current location",
+    "tr": "Bu konumu ekle",
+    "de": "Diesen Ort hinzufügen"
+  },
+  "Add files": {
+    "en": "Add files",
+    "tr": "Dosya ekle",
+    "de": "Hinzufügen"
+  },
+  "All files": {
+    "en": "All files",
+    "tr": "Tüm dosyalar",
+    "de": "Alle Dateien"
+  },
+  "An operation is still running": {
+    "en": "An operation is still running",
+    "tr": "Bir işlem devam ediyor",
+    "de": "Ein Vorgang läuft noch"
+  },
+  "Application language": {
+    "en": "Application language",
+    "tr": "Uygulama dili",
+    "de": "Sprache der Anwendung"
+  },
+  "Archive": {
+    "en": "Archive",
+    "tr": "Arşiv",
+    "de": "Archiv"
+  },
+  "Archive contents": {
+    "en": "Archive contents",
+    "tr": "Arşiv içeriği",
+    "de": "Archivinhalt"
+  },
+  "Archive created": {
+    "en": "Archive created",
+    "tr": "Arşiv oluşturuldu",
+    "de": "Archiv erstellt"
+  },
+  "Archive destination": {
+    "en": "Archive destination",
+    "tr": "Arşivin kaydedileceği yer",
+    "de": "Archivziel"
+  },
+  "Archive test passed": {
+    "en": "Archive test passed",
+    "tr": "Arşiv testi başarılı",
+    "de": "Archivprüfung erfolgreich"
+  },
+  "Archive tools": {
+    "en": "Archive tools",
+    "tr": "Arşiv araçları",
+    "de": "Archivwerkzeuge"
+  },
+  "Archive updated; original backed up": {
+    "en": "Archive updated; original backed up",
+    "tr": "Arşiv güncellendi; orijinali yedeklendi",
+    "de": "Archiv aktualisiert; Original gesichert"
+  },
+  "Archives containing symbolic or hard links are not extracted by this version.": {
+    "en": "Archives containing symbolic or hard links are not extracted by this version.",
+    "tr": "Bu sürüm sembolik veya sabit bağlantı içeren arşivleri çıkarmıyor.",
+    "de": "Archive mit symbolischen oder harten Verknüpfungen werden in dieser Version nicht entpackt."
+  },
+  "Ascending": {
+    "en": "Ascending",
+    "tr": "Artan",
+    "de": "Aufsteigend"
+  },
+  "Back": {
+    "en": "Back",
+    "tr": "Geri",
+    "de": "Zurück"
+  },
+  "Benchmark": {
+    "en": "Benchmark",
+    "tr": "Hız testi",
+    "de": "Leistungstest"
+  },
+  "Browse…": {
+    "en": "Browse…",
+    "tr": "Göz at…",
+    "de": "Durchsuchen…"
+  },
+  "Calculating SHA-256": {
+    "en": "Calculating SHA-256",
+    "tr": "SHA-256 hesaplanıyor",
+    "de": "SHA-256 wird berechnet"
+  },
+  "Cancel": {
+    "en": "Cancel",
+    "tr": "Vazgeç",
+    "de": "Abbrechen"
+  },
+  "Cancel the operation before quitting.": {
+    "en": "Cancel the operation before quitting.",
+    "tr": "Çıkmadan önce devam eden işlemi iptal et.",
+    "de": "Brich den laufenden Vorgang vor dem Beenden ab."
+  },
+  "Choose the executable named rar": {
+    "en": "Choose the executable named rar",
+    "tr": "Adı rar olan çalıştırılabilir dosyayı seç",
+    "de": "Wähle die ausführbare Datei namens rar"
+  },
+  "Choose…": {
+    "en": "Choose…",
+    "tr": "Seç…",
+    "de": "Auswählen…"
+  },
+  "Clear recent archives": {
+    "en": "Clear recent archives",
+    "tr": "Son arşivleri temizle",
+    "de": "Zuletzt verwendete Archive leeren"
+  },
+  "Close window": {
+    "en": "Close window",
+    "tr": "Pencereyi kapat",
+    "de": "Fenster schließen"
+  },
+  "Compression": {
+    "en": "Compression",
+    "tr": "Sıkıştırma",
+    "de": "Komprimierung"
+  },
+  "Compression level": {
+    "en": "Compression level",
+    "tr": "Sıkıştırma düzeyi",
+    "de": "Kompressionsstufe"
+  },
+  "Compression profiles": {
+    "en": "Compression profiles",
+    "tr": "Sıkıştırma profilleri",
+    "de": "Kompressionsprofile"
+  },
+  "Confirm password": {
+    "en": "Confirm password",
+    "tr": "Şifreyi tekrar yaz",
+    "de": "Passwort bestätigen"
+  },
+  "Connect…": {
+    "en": "Connect…",
+    "tr": "Bağla…",
+    "de": "Verbinden…"
+  },
+  "Contents": {
+    "en": "Contents",
+    "tr": "İçerik",
+    "de": "Inhalt"
+  },
+  "Convert": {
+    "en": "Convert",
+    "tr": "Dönüştür",
+    "de": "Konvertieren"
+  },
+  "Could not complete the operation": {
+    "en": "Could not complete the operation",
+    "tr": "İşlem tamamlanamadı",
+    "de": "Vorgang konnte nicht abgeschlossen werden"
+  },
+  "Create": {
+    "en": "Create",
+    "tr": "Oluştur",
+    "de": "Erstellen"
+  },
+  "Create archive…": {
+    "en": "Create archive…",
+    "tr": "Arşiv oluştur…",
+    "de": "Archiv erstellen…"
+  },
+  "Creating archive": {
+    "en": "Creating archive",
+    "tr": "Arşiv oluşturuluyor",
+    "de": "Archiv wird erstellt"
+  },
+  "Delete": {
+    "en": "Delete",
+    "tr": "Sil",
+    "de": "Löschen"
+  },
+  "Desktop": {
+    "en": "Desktop",
+    "tr": "Masaüstü",
+    "de": "Schreibtisch"
+  },
+  "Destination folder": {
+    "en": "Destination folder",
+    "tr": "Hedef klasör",
+    "de": "Zielordner"
+  },
+  "Details": {
+    "en": "Details",
+    "tr": "Ayrıntılar",
+    "de": "Details"
+  },
+  "Disconnect": {
+    "en": "Disconnect",
+    "tr": "Bağlantıyı kaldır",
+    "de": "Trennen"
+  },
+  "Documents": {
+    "en": "Documents",
+    "tr": "Belgeler",
+    "de": "Dokumente"
+  },
+  "Downloads": {
+    "en": "Downloads",
+    "tr": "İndirilenler",
+    "de": "Downloads"
+  },
+  "Drop files to create an archive, or open ZIP, RAR, 7z and more.": {
+    "en": "Drop files to create an archive, or open ZIP, RAR, 7z and more.",
+    "tr": "Arşiv oluşturmak için dosyaları bırak; ZIP, RAR, 7z ve diğer arşivleri aç.",
+    "de": "Dateien ablegen, um ein Archiv zu erstellen, oder ZIP, RAR, 7z und weitere Formate öffnen."
+  },
+  "EVERYTHING, IN PLACE.": {
+    "en": "EVERYTHING, IN PLACE.",
+    "tr": "HER ŞEY YERLİ YERİNDE.",
+    "de": "ALLES AN SEINEM PLATZ."
+  },
+  "Edit": {
+    "en": "Edit",
+    "tr": "Düzen",
+    "de": "Bearbeiten"
+  },
+  "Editing ZIP, 7z and TAR keeps a .backup copy beside the original. Encrypted and multipart archives are read-only; use Convert to create an editable copy.": {
+    "en": "Editing ZIP, 7z and TAR keeps a .backup copy beside the original. Encrypted and multipart archives are read-only; use Convert to create an editable copy.",
+    "tr": "ZIP, 7z ve TAR düzenlenirken orijinalin yanında .backup kopyası tutulur. Şifreli ve parçalı arşivler salt okunurdur; düzenlenebilir kopya için Dönüştür'ü kullan.",
+    "de": "Beim Bearbeiten von ZIP, 7z und TAR bleibt eine .backup-Kopie neben dem Original. Verschlüsselte und mehrteilige Archive sind schreibgeschützt; erstelle mit Konvertieren eine bearbeitbare Kopie."
+  },
+  "Encrypt file names": {
+    "en": "Encrypt file names",
+    "tr": "Dosya adlarını şifrele",
+    "de": "Dateinamen verschlüsseln"
+  },
+  "Encrypted archive": {
+    "en": "Encrypted archive",
+    "tr": "Şifreli arşiv",
+    "de": "Verschlüsseltes Archiv"
+  },
+  "Encryption": {
+    "en": "Encryption",
+    "tr": "Şifreleme",
+    "de": "Verschlüsselung"
+  },
+  "Existing archives are never overwritten.": {
+    "en": "Existing archives are never overwritten.",
+    "tr": "Mevcut arşivlerin üzerine yazılmaz.",
+    "de": "Vorhandene Archive werden nicht überschrieben."
+  },
+  "Extract": {
+    "en": "Extract",
+    "tr": "Çıkart",
+    "de": "Entpacken"
+  },
+  "Extract selected…": {
+    "en": "Extract selected…",
+    "tr": "Seçilenleri çıkart…",
+    "de": "Auswahl entpacken…"
+  },
+  "Extracting files": {
+    "en": "Extracting files",
+    "tr": "Dosyalar çıkartılıyor",
+    "de": "Dateien werden entpackt"
+  },
+  "Extract…": {
+    "en": "Extract…",
+    "tr": "Çıkart…",
+    "de": "Entpacken…"
+  },
+  "FAVORITES": {
+    "en": "FAVORITES",
+    "tr": "SIK KULLANILANLAR",
+    "de": "FAVORITEN"
+  },
+  "Fast": {
+    "en": "Fast",
+    "tr": "Hızlı",
+    "de": "Schnell"
+  },
+  "Fastest": {
+    "en": "Fastest",
+    "tr": "En hızlı",
+    "de": "Am schnellsten"
+  },
+  "File": {
+    "en": "File",
+    "tr": "Dosya",
+    "de": "Datei"
+  },
+  "File path": {
+    "en": "File path",
+    "tr": "Dosya yolu",
+    "de": "Dateipfad"
+  },
+  "Files": {
+    "en": "Files",
+    "tr": "Dosyalar",
+    "de": "Dateien"
+  },
+  "Files are checked before extraction and published only after success.": {
+    "en": "Files are checked before extraction and published only after success.",
+    "tr": "Dosyalar çıkarmadan önce kontrol edilir; işlem başarıyla bitince hedef klasöre aktarılır.",
+    "de": "Dateien werden vor dem Entpacken geprüft und erst nach Erfolg im Zielordner bereitgestellt."
+  },
+  "Files extracted": {
+    "en": "Files extracted",
+    "tr": "Dosyalar çıkartıldı",
+    "de": "Dateien entpackt"
+  },
+  "Find files…": {
+    "en": "Find files…",
+    "tr": "Dosya ara…",
+    "de": "Dateien suchen…"
+  },
+  "Folder path": {
+    "en": "Folder path",
+    "tr": "Klasör yolu",
+    "de": "Ordnerpfad"
+  },
+  "Format": {
+    "en": "Format",
+    "tr": "Biçim",
+    "de": "Format"
+  },
+  "Home": {
+    "en": "Home",
+    "tr": "Ana klasör",
+    "de": "Benutzerordner"
+  },
+  "Independent archive manager. Not affiliated with WinRAR or RARLAB.": {
+    "en": "Independent archive manager. Not affiliated with WinRAR or RARLAB.",
+    "tr": "Bağımsız arşiv yöneticisi. WinRAR veya RARLAB ile bağlantılı değildir.",
+    "de": "Unabhängige Archivverwaltung. Nicht mit WinRAR oder RARLAB verbunden."
+  },
+  "Info": {
+    "en": "Info",
+    "tr": "Bilgi",
+    "de": "Info"
+  },
+  "Keep every volume together. Open the first part (.001 or .part1.rar).": {
+    "en": "Keep every volume together. Open the first part (.001 or .part1.rar).",
+    "tr": "Tüm parçaları aynı klasörde tut. İlk parçayı (.001 veya .part1.rar) aç.",
+    "de": "Alle Teile im selben Ordner aufbewahren. Öffne den ersten Teil (.001 oder .part1.rar)."
+  },
+  "LOCATIONS": {
+    "en": "LOCATIONS",
+    "tr": "KONUMLAR",
+    "de": "ORTE"
+  },
+  "Language": {
+    "en": "Language",
+    "tr": "Dil",
+    "de": "Sprache"
+  },
+  "Licenses & source": {
+    "en": "Licenses & source",
+    "tr": "Lisanslar ve kaynak kod",
+    "de": "Lizenzen & Quellcode"
+  },
+  "Load profile": {
+    "en": "Load profile",
+    "tr": "Profil yükle",
+    "de": "Profil laden"
+  },
+  "Local. Private. Yours.": {
+    "en": "Local. Private. Yours.",
+    "tr": "Yerel. Özel. Senin.",
+    "de": "Lokal. Privat. Deins."
+  },
+  "MB · 0 = one file": {
+    "en": "MB · 0 = one file",
+    "tr": "MB · 0 = tek dosya",
+    "de": "MB · 0 = eine Datei"
+  },
+  "Maximum": {
+    "en": "Maximum",
+    "tr": "En yüksek",
+    "de": "Maximal"
+  },
+  "Modified": {
+    "en": "Modified",
+    "tr": "Değiştirilme",
+    "de": "Geändert"
+  },
+  "Name": {
+    "en": "Name",
+    "tr": "Ad",
+    "de": "Name"
+  },
+  "New": {
+    "en": "New",
+    "tr": "Yeni",
+    "de": "Neu"
+  },
+  "New archive…": {
+    "en": "New archive…",
+    "tr": "Yeni arşiv…",
+    "de": "Neues Archiv…"
+  },
+  "New name": {
+    "en": "New name",
+    "tr": "Yeni ad",
+    "de": "Neuer Name"
+  },
+  "Normal": {
+    "en": "Normal",
+    "tr": "Normal",
+    "de": "Normal"
+  },
+  "Not connected": {
+    "en": "Not connected",
+    "tr": "Bağlı değil",
+    "de": "Nicht verbunden"
+  },
+  "OK": {
+    "en": "OK",
+    "tr": "Tamam",
+    "de": "OK"
+  },
+  "Official RAR downloads": {
+    "en": "Official RAR downloads",
+    "tr": "Resmî RAR indirmeleri",
+    "de": "Offizielle RAR-Downloads"
+  },
+  "Open": {
+    "en": "Open",
+    "tr": "Aç",
+    "de": "Öffnen"
+  },
+  "Open / View": {
+    "en": "Open / View",
+    "tr": "Aç / Görüntüle",
+    "de": "Öffnen / Ansehen"
+  },
+  "Open an archive or folder": {
+    "en": "Open an archive or folder",
+    "tr": "Bir arşiv veya klasör aç",
+    "de": "Archiv oder Ordner öffnen"
+  },
+  "Open archive…": {
+    "en": "Open archive…",
+    "tr": "Arşiv aç…",
+    "de": "Archiv öffnen…"
+  },
+  "Opening archive": {
+    "en": "Opening archive",
+    "tr": "Arşiv açılıyor",
+    "de": "Archiv wird geöffnet"
+  },
+  "Open…": {
+    "en": "Open…",
+    "tr": "Aç…",
+    "de": "Öffnen…"
+  },
+  "Operation cancelled": {
+    "en": "Operation cancelled",
+    "tr": "İşlem iptal edildi",
+    "de": "Vorgang abgebrochen"
+  },
+  "Packed": {
+    "en": "Packed",
+    "tr": "Sıkıştırılmış",
+    "de": "Komprimiert"
+  },
+  "Parent folder": {
+    "en": "Parent folder",
+    "tr": "Üst klasör",
+    "de": "Übergeordneter Ordner"
+  },
+  "Password": {
+    "en": "Password",
+    "tr": "Şifre",
+    "de": "Passwort"
+  },
+  "Password (optional)": {
+    "en": "Password (optional)",
+    "tr": "Şifre (isteğe bağlı)",
+    "de": "Passwort (optional)"
+  },
+  "Password is missing or incorrect": {
+    "en": "Password is missing or incorrect",
+    "tr": "Şifre eksik veya yanlış",
+    "de": "Passwort fehlt oder ist falsch"
+  },
+  "Passwords are kept only for the current archive session.": {
+    "en": "Passwords are kept only for the current archive session.",
+    "tr": "Şifre yalnızca bu arşiv açıkken bellekte tutulur.",
+    "de": "Das Passwort wird nur für die aktuelle Archivsitzung im Speicher gehalten."
+  },
+  "Passwords do not match": {
+    "en": "Passwords do not match",
+    "tr": "Şifreler eşleşmiyor",
+    "de": "Passwörter stimmen nicht überein"
+  },
+  "Pin a folder or archive": {
+    "en": "Pin a folder or archive",
+    "tr": "Bir klasör veya arşiv sabitle",
+    "de": "Ordner oder Archiv anheften"
+  },
+  "Preparing conversion": {
+    "en": "Preparing conversion",
+    "tr": "Dönüştürme hazırlanıyor",
+    "de": "Konvertierung wird vorbereitet"
+  },
+  "Preparing preview": {
+    "en": "Preparing preview",
+    "tr": "Önizleme hazırlanıyor",
+    "de": "Vorschau wird vorbereitet"
+  },
+  "Profile name": {
+    "en": "Profile name",
+    "tr": "Profil adı",
+    "de": "Profilname"
+  },
+  "Profiles save compression settings, never passwords.": {
+    "en": "Profiles save compression settings, never passwords.",
+    "tr": "Profiller sıkıştırma ayarlarını saklar; şifreleri kaydetmez.",
+    "de": "Profile speichern Kompressionseinstellungen, keine Passwörter."
+  },
+  "Quit BStoeq": {
+    "en": "Quit BStoeq",
+    "tr": "BStoeq'ten çık",
+    "de": "BStoeq beenden"
+  },
+  "RAR engine (optional)": {
+    "en": "RAR engine (optional)",
+    "tr": "RAR motoru (isteğe bağlı)",
+    "de": "RAR-Engine (optional)"
+  },
+  "RAR extraction is included for free. Creating and repairing RAR archives requires your own licensed RAR command-line engine.": {
+    "en": "RAR extraction is included for free. Creating and repairing RAR archives requires your own licensed RAR command-line engine.",
+    "tr": "RAR çıkartma ücretsiz olarak dahildir. RAR oluşturmak ve onarmak için kendi lisanslı RAR komut satırı motorunu bağlamalısın.",
+    "de": "RAR-Archive lassen sich kostenlos entpacken. Zum Erstellen und Reparieren von RAR-Archiven benötigst du eine eigene lizenzierte RAR-Kommandozeilen-Engine."
+  },
+  "RAR — connect an engine": {
+    "en": "RAR — connect an engine",
+    "tr": "RAR — motor bağla",
+    "de": "RAR — Engine verbinden"
+  },
+  "RECENT ARCHIVES": {
+    "en": "RECENT ARCHIVES",
+    "tr": "SON ARŞİVLER",
+    "de": "LETZTE ARCHIVE"
+  },
+  "Read & extract": {
+    "en": "Read & extract",
+    "tr": "Oku ve çıkart",
+    "de": "Lesen & entpacken"
+  },
+  "Ready": {
+    "en": "Ready",
+    "tr": "Hazır",
+    "de": "Bereit"
+  },
+  "Recovery record (%)": {
+    "en": "Recovery record (%)",
+    "tr": "Kurtarma kaydı (%)",
+    "de": "Wiederherstellungsdaten (%)"
+  },
+  "Refresh": {
+    "en": "Refresh",
+    "tr": "Yenile",
+    "de": "Aktualisieren"
+  },
+  "Remove": {
+    "en": "Remove",
+    "tr": "Kaldır",
+    "de": "Entfernen"
+  },
+  "Remove favorite": {
+    "en": "Remove favorite",
+    "tr": "Sık kullanılanlardan kaldır",
+    "de": "Aus Favoriten entfernen"
+  },
+  "Remove selected items?": {
+    "en": "Remove selected items?",
+    "tr": "Seçilen öğeler kaldırılsın mı?",
+    "de": "Ausgewählte Einträge entfernen?"
+  },
+  "Rename": {
+    "en": "Rename",
+    "tr": "Yeniden adlandır",
+    "de": "Umbenennen"
+  },
+  "Rename…": {
+    "en": "Rename…",
+    "tr": "Yeniden adlandır…",
+    "de": "Umbenennen…"
+  },
+  "Repair completed": {
+    "en": "Repair completed",
+    "tr": "Onarma tamamlandı",
+    "de": "Reparatur abgeschlossen"
+  },
+  "Repair current RAR archive": {
+    "en": "Repair current RAR archive",
+    "tr": "Açık RAR arşivini onar",
+    "de": "Aktuelles RAR-Archiv reparieren"
+  },
+  "Repairing RAR archive": {
+    "en": "Repairing RAR archive",
+    "tr": "RAR arşivi onarılıyor",
+    "de": "RAR-Archiv wird repariert"
+  },
+  "SHA-256": {
+    "en": "SHA-256",
+    "tr": "SHA-256",
+    "de": "SHA-256"
+  },
+  "Save": {
+    "en": "Save",
+    "tr": "Kaydet",
+    "de": "Speichern"
+  },
+  "Save archive": {
+    "en": "Save archive",
+    "tr": "Arşivi kaydet",
+    "de": "Archiv speichern"
+  },
+  "Save report…": {
+    "en": "Save report…",
+    "tr": "Raporu kaydet…",
+    "de": "Bericht speichern…"
+  },
+  "Select": {
+    "en": "Select",
+    "tr": "Seç",
+    "de": "Auswählen"
+  },
+  "Select files and folders": {
+    "en": "Select files and folders",
+    "tr": "Dosya ve klasörleri seç",
+    "de": "Dateien und Ordner auswählen"
+  },
+  "Select the RAR command-line executable": {
+    "en": "Select the RAR command-line executable",
+    "tr": "RAR komut satırı dosyasını seç",
+    "de": "RAR-Kommandozeilenprogramm auswählen"
+  },
+  "Selected items": {
+    "en": "Selected items",
+    "tr": "Seçilen öğeler",
+    "de": "Ausgewählte Einträge"
+  },
+  "Settings…": {
+    "en": "Settings…",
+    "tr": "Ayarlar…",
+    "de": "Einstellungen…"
+  },
+  "Show extracted files in Finder": {
+    "en": "Show extracted files in Finder",
+    "tr": "Çıkartılan dosyaları Finder'da göster",
+    "de": "Entpackte Dateien im Finder anzeigen"
+  },
+  "Show hidden files": {
+    "en": "Show hidden files",
+    "tr": "Gizli dosyaları göster",
+    "de": "Versteckte Dateien anzeigen"
+  },
+  "Show in Finder": {
+    "en": "Show in Finder",
+    "tr": "Finder'da göster",
+    "de": "Im Finder anzeigen"
+  },
+  "Size": {
+    "en": "Size",
+    "tr": "Boyut",
+    "de": "Größe"
+  },
+  "Solid archive (smaller size)": {
+    "en": "Solid archive (smaller size)",
+    "tr": "Katı arşiv (daha küçük boyut)",
+    "de": "Solides Archiv (kleinere Größe)"
+  },
+  "Sort by": {
+    "en": "Sort by",
+    "tr": "Sıralama",
+    "de": "Sortieren nach"
+  },
+  "Split into volumes": {
+    "en": "Split into volumes",
+    "tr": "Parçalara böl",
+    "de": "In Teile aufteilen"
+  },
+  "Store (no compression)": {
+    "en": "Store (no compression)",
+    "tr": "Depola (sıkıştırma yok)",
+    "de": "Speichern (ohne Komprimierung)"
+  },
+  "Test": {
+    "en": "Test",
+    "tr": "Test et",
+    "de": "Prüfen"
+  },
+  "Test archive": {
+    "en": "Test archive",
+    "tr": "Arşivi test et",
+    "de": "Archiv prüfen"
+  },
+  "Testing archive": {
+    "en": "Testing archive",
+    "tr": "Arşiv test ediliyor",
+    "de": "Archiv wird geprüft"
+  },
+  "The original archive will be kept as a .backup file.": {
+    "en": "The original archive will be kept as a .backup file.",
+    "tr": "Orijinal arşiv .backup dosyası olarak saklanacak.",
+    "de": "Das Originalarchiv wird als .backup-Datei aufbewahrt."
+  },
+  "Tools": {
+    "en": "Tools",
+    "tr": "Araçlar",
+    "de": "Werkzeuge"
+  },
+  "Type": {
+    "en": "Type",
+    "tr": "Tür",
+    "de": "Typ"
+  },
+  "Ultra": {
+    "en": "Ultra",
+    "tr": "Ultra",
+    "de": "Ultra"
+  },
+  "Uncompressed size": {
+    "en": "Uncompressed size",
+    "tr": "Açılmış boyut",
+    "de": "Unkomprimierte Größe"
+  },
+  "Unlock": {
+    "en": "Unlock",
+    "tr": "Kilidi aç",
+    "de": "Entsperren"
+  },
+  "Updating archive": {
+    "en": "Updating archive",
+    "tr": "Arşiv güncelleniyor",
+    "de": "Archiv wird aktualisiert"
+  },
+  "View": {
+    "en": "View",
+    "tr": "Görüntüle",
+    "de": "Ansehen"
+  },
+  "Windows .exe self-extractors and Windows shell extensions are not provided.": {
+    "en": "Windows .exe self-extractors and Windows shell extensions are not provided.",
+    "tr": "Windows .exe kendiliğinden açılan arşivleri ve Windows sağ tık uzantıları sunulmaz.",
+    "de": "Selbstentpackende Windows-.exe-Archive und Windows-Shell-Erweiterungen sind nicht enthalten."
+  },
+  "Your archive workspace": {
+    "en": "Your archive workspace",
+    "tr": "Arşiv çalışma alanın",
+    "de": "Dein Archiv-Arbeitsbereich"
+  },
+  "Your files stay on your Mac.": {
+    "en": "Your files stay on your Mac.",
+    "tr": "Dosyaların Mac'inde kalır.",
+    "de": "Deine Dateien bleiben auf deinem Mac."
+  },
+  "files": {
+    "en": "files",
+    "tr": "dosya",
+    "de": "Dateien"
+  },
+  "items": {
+    "en": "items",
+    "tr": "öğe",
+    "de": "Einträge"
+  },
+  "items selected": {
+    "en": "items selected",
+    "tr": "öğe seçildi",
+    "de": "Einträge ausgewählt"
+  },
+  "selected": {
+    "en": "selected",
+    "tr": "seçili",
+    "de": "ausgewählt"
+  },
+  "Create archive": {
+    "en": "Create archive",
+    "tr": "Arşiv oluştur",
+    "de": "Archiv erstellen"
+  },
+  "Extract files": {
+    "en": "Extract files",
+    "tr": "Dosyaları çıkart",
+    "de": "Dateien entpacken"
+  },
+  "Settings": {
+    "en": "Settings",
+    "tr": "Ayarlar",
+    "de": "Einstellungen"
+  },
+  "Archive information": {
+    "en": "Archive information",
+    "tr": "Arşiv bilgileri",
+    "de": "Archivinformationen"
+  },
+  "Rename item": {
+    "en": "Rename item",
+    "tr": "Öğeyi yeniden adlandır",
+    "de": "Eintrag umbenennen"
+  },
+  "Password required": {
+    "en": "Password required",
+    "tr": "Şifre gerekiyor",
+    "de": "Passwort erforderlich"
+  },
+  "Operation report": {
+    "en": "Operation report",
+    "tr": "İşlem raporu",
+    "de": "Vorgangsbericht"
+  },
+  "Close": {
+    "en": "Close",
+    "tr": "Kapat",
+    "de": "Schließen"
+  },
+  "A little order. A lot of space.": {
+    "en": "A little order. A lot of space.",
+    "tr": "Biraz düzen. Bolca alan.",
+    "de": "Mehr Ordnung. Mehr Platz."
+  },
+  "No matching files": {
+    "en": "No matching files",
+    "tr": "Eşleşen dosya yok",
+    "de": "Keine passenden Dateien"
+  },
+  "Folder": {
+    "en": "Folder",
+    "tr": "Klasör",
+    "de": "Ordner"
+  },
+  "AES-256 ZIP requires a compatible extractor such as BStoeq, 7-Zip or WinRAR.": {
+    "en": "AES-256 ZIP requires a compatible extractor such as BStoeq, 7-Zip or WinRAR.",
+    "tr": "AES-256 ZIP, BStoeq, 7-Zip veya WinRAR gibi uyumlu bir uygulama gerektirir.",
+    "de": "AES-256-ZIP benötigt ein kompatibles Programm wie BStoeq, 7-Zip oder WinRAR."
+  },
+  "AES-256 encryption. Keep your password safe; it cannot be recovered.": {
+    "en": "AES-256 encryption. Keep your password safe; it cannot be recovered.",
+    "tr": "AES-256 şifreleme. Şifreni güvenli bir yerde sakla; kurtarılamaz.",
+    "de": "AES-256-Verschlüsselung. Bewahre dein Passwort sicher auf; es kann nicht wiederhergestellt werden."
+  },
+  "Undo": {
+    "en": "Undo",
+    "tr": "Geri al",
+    "de": "Widerrufen"
+  },
+  "Cut": {
+    "en": "Cut",
+    "tr": "Kes",
+    "de": "Ausschneiden"
+  },
+  "Copy": {
+    "en": "Copy",
+    "tr": "Kopyala",
+    "de": "Kopieren"
+  },
+  "Paste": {
+    "en": "Paste",
+    "tr": "Yapıştır",
+    "de": "Einfügen"
+  },
+  "Select all": {
+    "en": "Select all",
+    "tr": "Tümünü seç",
+    "de": "Alles auswählen"
+  },
+  "Physical Size": {
+    "en": "Physical Size",
+    "tr": "Diskteki boyut",
+    "de": "Physische Größe"
+  },
+  "Headers Size": {
+    "en": "Headers Size",
+    "tr": "Başlık boyutu",
+    "de": "Kopfgröße"
+  },
+  "Method": {
+    "en": "Method",
+    "tr": "Yöntem",
+    "de": "Methode"
+  },
+  "Solid": {
+    "en": "Solid",
+    "tr": "Katı",
+    "de": "Solide"
+  },
+  "Blocks": {
+    "en": "Blocks",
+    "tr": "Bloklar",
+    "de": "Blöcke"
+  },
+  "Volumes": {
+    "en": "Volumes",
+    "tr": "Parçalar",
+    "de": "Teile"
+  },
+  "Volume Index": {
+    "en": "Volume Index",
+    "tr": "Parça sırası",
+    "de": "Teilindex"
+  },
+  "Total Physical Size": {
+    "en": "Total Physical Size",
+    "tr": "Toplam disk boyutu",
+    "de": "Gesamte physische Größe"
+  },
+  "Characteristics": {
+    "en": "Characteristics",
+    "tr": "Özellikler",
+    "de": "Eigenschaften"
+  },
+  "Comment": {
+    "en": "Comment",
+    "tr": "Açıklama",
+    "de": "Kommentar"
+  },
+  "INVALID_ARCHIVE_LIST": {
+    "tr": "Arşiv içeriği okunamadı.",
+    "en": "Could not read the archive contents.",
+    "de": "Archivinhalt konnte nicht gelesen werden."
+  },
+  "NOT_ENOUGH_SPACE": {
+    "tr": "Dosyaları çıkartmak için yeterli boş alan yok.",
+    "en": "Not enough free space to extract these files.",
+    "de": "Nicht genügend Speicherplatz zum Entpacken."
+  },
+  "NO_SELECTION": {
+    "tr": "Önce en az bir dosya seç.",
+    "en": "Select at least one file first.",
+    "de": "Wähle zuerst mindestens eine Datei aus."
+  },
+  "INVALID_OPTIONS": {
+    "tr": "Sıkıştırma ayarlarını kontrol et. Parça boyutu 0–1000000 MB olmalı.",
+    "en": "Check compression settings. Volume size must be 0–1000000 MB.",
+    "de": "Prüfe die Kompressionseinstellungen. Teilgröße muss 0–1000000 MB sein."
+  },
+  "INVALID_PASSWORD": {
+    "tr": "Bu biçim şifrelemeyi desteklemiyor veya şifre satır sonu içeriyor.",
+    "en": "This format does not support encryption, or the password contains a line break.",
+    "de": "Das Format unterstützt keine Verschlüsselung oder das Passwort enthält einen Zeilenumbruch."
+  },
+  "DESTINATION_EXISTS": {
+    "en": "An item with this name already exists. Choose a different name.",
+    "tr": "Hedefte aynı adlı bir öğe var. Farklı bir ad seç.",
+    "de": "Am Ziel existiert bereits ein Objekt mit diesem Namen. Wähle einen anderen Namen."
+  },
+  "DESTINATION_INSIDE_SOURCE": {
+    "tr": "Arşivi sıkıştırılacak klasörün dışına kaydet.",
+    "en": "Save the archive outside the folder being compressed.",
+    "de": "Speichere das Archiv außerhalb des zu komprimierenden Ordners."
+  },
+  "RAR_ENGINE_REQUIRED": {
+    "tr": "Ayarlar bölümünden kendi RAR motorunu bağla.",
+    "en": "Connect your RAR engine in Settings.",
+    "de": "Verbinde deine RAR-Engine in den Einstellungen."
+  },
+  "NO_OUTPUT": {
+    "tr": "Arşiv motoru çıktı oluşturmadı.",
+    "en": "The archive engine did not create an output file.",
+    "de": "Die Archiv-Engine hat keine Ausgabedatei erstellt."
+  },
+  "READ_ONLY_FORMAT": {
+    "tr": "Bu arşiv doğrudan düzenlenemiyor. Dönüştür ile ZIP veya 7z kopyası oluştur.",
+    "en": "This archive cannot be edited directly. Use Convert to create a ZIP or 7z copy.",
+    "de": "Dieses Archiv ist nicht direkt bearbeitbar. Erstelle mit Konvertieren eine ZIP- oder 7z-Kopie."
+  },
+  "SAME_FOLDER_REQUIRED": {
+    "tr": "Eklenecek dosyaları aynı klasörden seç.",
+    "en": "Choose files from the same folder when adding to an archive.",
+    "de": "Wähle beim Hinzufügen Dateien aus demselben Ordner."
+  },
+  "ARCHIVE_CHANGED": {
+    "tr": "Arşiv başka bir işlem tarafından değiştirildi. Dosyaya dokunulmadı; yeniden açıp dene.",
+    "en": "The archive changed in another process. Reopen it and try again.",
+    "de": "Das Archiv wurde von einem anderen Prozess geändert. Öffne es erneut."
+  },
+  "LIST_TOO_LARGE": {
+    "tr": "Arşiv listesi bu sürümün bellekte gösterim sınırını aşıyor.",
+    "en": "The archive list exceeds this version’s in-memory display limit.",
+    "de": "Die Archivliste überschreitet das Anzeigelimit dieser Version."
+  },
+  "bytes": {
+    "tr": "bayt",
+    "en": "bytes",
+    "de": "Byte"
+  },
+  "Encrypted": {
+    "tr": "Şifreli",
+    "en": "Encrypted",
+    "de": "Verschlüsselt"
+  },
+  "Container": {
+    "tr": "Kapsayıcı",
+    "en": "Container",
+    "de": "Container"
+  },
+  "This archive contains a path outside its destination folder:": {
+    "en": "This archive contains a path outside its destination folder:",
+    "tr": "Bu arşiv, hedef klasörün dışına çıkan bir dosya yolu içeriyor:",
+    "de": "Dieses Archiv enthält einen Pfad außerhalb des Zielordners:"
+  },
+  "This version cannot extract links inside an archive:": {
+    "en": "This version cannot extract links inside an archive:",
+    "tr": "Bu sürüm arşiv içindeki dosya bağlantılarını çıkartamıyor:",
+    "de": "Diese Version kann Verknüpfungen innerhalb eines Archivs nicht entpacken:"
+  },
+  "Quick Look": {
+    "en": "Quick Look",
+    "tr": "Hızlı Bakış",
+    "de": "Übersicht"
+  },
+  "Extract to a new folder here": {
+    "en": "Extract to a new folder here",
+    "tr": "Burada yeni klasöre çıkart",
+    "de": "Hier in neuen Ordner entpacken"
+  },
+  "Convert…": {
+    "en": "Convert…",
+    "tr": "Dönüştür…",
+    "de": "Konvertieren…"
+  },
+  "Copy files": {
+    "en": "Copy files",
+    "tr": "Dosyaları kopyala",
+    "de": "Dateien kopieren"
+  },
+  "Copy path": {
+    "en": "Copy path",
+    "tr": "Yolu kopyala",
+    "de": "Pfad kopieren"
+  },
+  "Delete from archive…": {
+    "en": "Delete from archive…",
+    "tr": "Arşivden sil…",
+    "de": "Aus Archiv löschen…"
+  },
+  "Move to Trash…": {
+    "en": "Move to Trash…",
+    "tr": "Çöp’e taşı…",
+    "de": "In den Papierkorb…"
+  },
+  "Move to Trash": {
+    "en": "Move to Trash",
+    "tr": "Çöp’e taşı",
+    "de": "In den Papierkorb"
+  },
+  "Move selected items to Trash?": {
+    "en": "Move selected items to Trash?",
+    "tr": "Seçili öğeler Çöp’e taşınsın mı?",
+    "de": "Ausgewählte Objekte in den Papierkorb verschieben?"
+  },
+  "Moving to Trash": {
+    "en": "Moving to Trash",
+    "tr": "Çöp’e taşınıyor",
+    "de": "In den Papierkorb verschieben"
+  },
+  "Moved to Trash": {
+    "en": "Moved to Trash",
+    "tr": "Çöp’e taşındı",
+    "de": "In den Papierkorb verschoben"
+  },
+  "Properties…": {
+    "en": "Properties…",
+    "tr": "Özellikler…",
+    "de": "Eigenschaften…"
+  },
+  "Archive actions": {
+    "en": "Archive actions",
+    "tr": "Arşiv işlemleri",
+    "de": "Archivaktionen"
+  },
+  "Extract all…": {
+    "en": "Extract all…",
+    "tr": "Tümünü çıkart…",
+    "de": "Alles entpacken…"
+  },
+  "Add files to archive root…": {
+    "en": "Add files to archive root…",
+    "tr": "Arşivin ana klasörüne dosya ekle…",
+    "de": "Dateien im Archiv-Hauptordner hinzufügen…"
+  },
+  "Paste into archive root": {
+    "en": "Paste into archive root",
+    "tr": "Arşivin ana klasörüne yapıştır",
+    "de": "Im Archiv-Hauptordner einfügen"
+  },
+  "Repair RAR archive…": {
+    "en": "Repair RAR archive…",
+    "tr": "RAR arşivini onar…",
+    "de": "RAR-Archiv reparieren…"
+  },
+  "Show archive in Finder": {
+    "en": "Show archive in Finder",
+    "tr": "Arşivi Finder’da göster",
+    "de": "Archiv im Finder zeigen"
+  },
+  "Close archive": {
+    "en": "Close archive",
+    "tr": "Arşivi kapat",
+    "de": "Archiv schließen"
+  },
+  "Paste files": {
+    "en": "Paste files",
+    "tr": "Dosyaları yapıştır",
+    "de": "Dateien einfügen"
+  },
+  "New folder…": {
+    "en": "New folder…",
+    "tr": "Yeni klasör…",
+    "de": "Neuer Ordner…"
+  },
+  "New folder": {
+    "en": "New folder",
+    "tr": "Yeni klasör",
+    "de": "Neuer Ordner"
+  },
+  "Selection": {
+    "en": "Selection",
+    "tr": "Seçim",
+    "de": "Auswahl"
+  },
+  "Invert selection": {
+    "en": "Invert selection",
+    "tr": "Seçimi ters çevir",
+    "de": "Auswahl umkehren"
+  },
+  "Clear selection": {
+    "en": "Clear selection",
+    "tr": "Seçimi temizle",
+    "de": "Auswahl aufheben"
+  },
+  "Paths copied": {
+    "en": "Paths copied",
+    "tr": "Yollar kopyalandı",
+    "de": "Pfade kopiert"
+  },
+  "Files copied": {
+    "en": "Files copied",
+    "tr": "Dosyalar kopyalandı",
+    "de": "Dateien kopiert"
+  },
+  "Copying files": {
+    "en": "Copying files",
+    "tr": "Dosyalar kopyalanıyor",
+    "de": "Dateien werden kopiert"
+  },
+  "INVALID_FILE_NAME": {
+    "en": "Enter a valid file name without /, \\, : or control characters.",
+    "tr": "Geçerli bir dosya adı gir. /, \\, : ve kontrol karakterleri kullanılamaz.",
+    "de": "Gib einen gültigen Dateinamen ohne /, \\, : oder Steuerzeichen ein."
+  },
+  "CANNOT_COPY_INTO_SELF": {
+    "en": "A folder cannot be copied into itself.",
+    "tr": "Bir klasör kendi içine kopyalanamaz.",
+    "de": "Ein Ordner kann nicht in sich selbst kopiert werden."
+  },
+  "ARCHIVE_PATH_CONFLICT": {
+    "en": "Archive paths would overwrite each other at the destination:",
+    "tr": "Arşivde hedefte aynı konuma yazılacak dosyalar var:",
+    "de": "Das Archiv enthält Pfade, die sich am Ziel überschreiben würden:"
+  },
+  "ARCHIVE_RENAME_CONFLICT": {
+    "en": "An item with this name already exists in the archive:",
+    "tr": "Arşivde aynı adlı bir öğe var:",
+    "de": "Im Archiv existiert bereits ein Objekt mit diesem Namen:"
+  },
+  "Select at least one item": {
+    "en": "Select at least one item",
+    "tr": "En az bir öğe seç.",
+    "de": "Wähle mindestens ein Objekt aus."
+  },
+  "Select one archive for this action.": {
+    "en": "Select one archive for this action.",
+    "tr": "Bu işlem için tek bir arşiv seç.",
+    "de": "Wähle für diese Aktion ein einzelnes Archiv aus."
+  },
+  "Finish the current operation or close the dialog first.": {
+    "en": "Finish the current operation or close the dialog first.",
+    "tr": "Önce geçerli işlemi tamamla veya açık pencereyi kapat.",
+    "de": "Beende zuerst den aktuellen Vorgang oder schließe den Dialog."
+  },
+  "Select files or an archive in Finder.": {
+    "en": "Select files or an archive in Finder.",
+    "tr": "Finder’da dosyaları veya bir arşivi seç.",
+    "de": "Wähle im Finder Dateien oder ein Archiv aus."
+  },
+  "Services": {
+    "en": "Services",
+    "tr": "Servisler",
+    "de": "Dienste"
+  },
+  "Redo": {
+    "en": "Redo",
+    "tr": "Yinele",
+    "de": "Wiederholen"
+  },
+  "Window": {
+    "en": "Window",
+    "tr": "Pencere",
+    "de": "Fenster"
+  },
+  "Show BStoeq": {
+    "en": "Show BStoeq",
+    "tr": "BStoeq’i göster",
+    "de": "BStoeq zeigen"
+  },
+  "Finder integration": {
+    "en": "Finder integration",
+    "tr": "Finder entegrasyonu",
+    "de": "Finder-Integration"
+  },
+  "In Finder, right-click files → Services → BStoeq.": {
+    "en": "In Finder, right-click files → Services → BStoeq.",
+    "tr": "Finder’da dosyaya sağ tıkla → Servisler → BStoeq komutunu seç.",
+    "de": "Im Finder: Rechtsklick auf Dateien → Dienste → BStoeq-Aktion wählen."
+  },
+  "Replace matching archive entries?": {
+    "en": "Replace matching archive entries?",
+    "tr": "Aynı adlı arşiv öğeleri değiştirilsin mi?",
+    "de": "Gleichnamige Archiveinträge ersetzen?"
+  },
+  "Existing entries may be replaced. The original archive will be kept as a .backup file.": {
+    "en": "Existing entries may be replaced. The original archive will be kept as a .backup file.",
+    "tr": "Mevcut öğeler değiştirilebilir. Orijinal arşiv .backup dosyası olarak saklanacak.",
+    "de": "Vorhandene Einträge können ersetzt werden. Das Originalarchiv bleibt als .backup-Datei erhalten."
+  },
+  "Continue": {
+    "en": "Continue",
+    "tr": "Devam et",
+    "de": "Fortfahren"
+  },
+  "SOURCE_MISSING": {
+    "en": "The source could not be read:",
+    "tr": "Kaynak okunamadı:",
+    "de": "Die Quelle konnte nicht gelesen werden:"
+  },
+  "Archive manager": {
+    "en": "Archive manager",
+    "tr": "Arşiv yöneticisi",
+    "de": "Archivverwaltung"
+  }
+}

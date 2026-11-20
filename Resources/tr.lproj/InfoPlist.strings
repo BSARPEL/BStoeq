@@ -1,0 +1,5 @@
+"NSDesktopFolderUsageDescription" = "BStoeq, disk taramasında dosya boyutlarını ölçer ve arşiv ya da dosya işlemleri için seçtiğin dosyalara erişir.";
+"NSDocumentsFolderUsageDescription" = "BStoeq, disk taramasında dosya boyutlarını ölçer ve arşiv ya da dosya işlemleri için seçtiğin dosyalara erişir.";
+"NSRemovableVolumesUsageDescription" = "BStoeq, disk taramasında dosya boyutlarını ölçer ve arşiv ya da dosya işlemleri için seçtiğin dosyalara erişir.";
+"NSNetworkVolumesUsageDescription" = "BStoeq, disk taramasında dosya boyutlarını ölçer ve arşiv ya da dosya işlemleri için seçtiğin dosyalara erişir.";
+"NSDownloadsFolderUsageDescription" = "BStoeq indirmelerini buraya kaydeder, dosya boyutlarını ve eski yükleyicileri tarar. Arşiv veya dosya işlemleri için seçtiğin dosyalara erişir.";

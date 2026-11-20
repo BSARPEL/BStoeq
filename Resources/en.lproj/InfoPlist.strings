@@ -1,0 +1,5 @@
+"NSDesktopFolderUsageDescription" = "BStoeq measures files when you scan disk usage and accesses the files you choose for archive or file operations.";
+"NSDocumentsFolderUsageDescription" = "BStoeq measures files when you scan disk usage and accesses the files you choose for archive or file operations.";
+"NSRemovableVolumesUsageDescription" = "BStoeq measures files when you scan disk usage and accesses the files you choose for archive or file operations.";
+"NSNetworkVolumesUsageDescription" = "BStoeq measures files when you scan disk usage and accesses the files you choose for archive or file operations.";
+"NSDownloadsFolderUsageDescription" = "BStoeq saves downloads here, scans file sizes and old installers, and accesses the files you choose for archive or file operations.";

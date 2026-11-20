@@ -1,0 +1,2027 @@
+{
+  "Her zaman görünür": {
+    "tr": "Her zaman görünür",
+    "en": "Always visible",
+    "de": "Immer sichtbar"
+  },
+  "Gizli": {
+    "tr": "Gizli",
+    "en": "Hidden",
+    "de": "Ausgeblendet"
+  },
+  "Daima gizli": {
+    "tr": "Daima gizli",
+    "en": "Always hidden",
+    "de": "Immer ausgeblendet"
+  },
+  "ÇALIŞMA ALANIN": {
+    "tr": "ÇALIŞMA ALANIN",
+    "en": "YOUR WORKSPACE",
+    "de": "DEIN ARBEITSBEREICH"
+  },
+  "Menü çubuğu": {
+    "tr": "Menü çubuğu",
+    "en": "Menu bar",
+    "de": "Menüleiste"
+  },
+  "Davranış": {
+    "tr": "Davranış",
+    "en": "Behavior",
+    "de": "Verhalten"
+  },
+  "Kısayollar": {
+    "tr": "Kısayollar",
+    "en": "Shortcuts",
+    "de": "Tastenkürzel"
+  },
+  "Genel": {
+    "tr": "Genel",
+    "en": "General",
+    "de": "Allgemein"
+  },
+  "Az kalabalık.\nDaha çok odak.": {
+    "tr": "Az kalabalık.\nDaha çok odak.",
+    "en": "Less clutter.\nMore focus.",
+    "de": "Weniger Ablenkung.\nMehr Fokus."
+  },
+  "Menü çubuğun, senin düzenin.": {
+    "tr": "Menü çubuğun, senin düzenin.",
+    "en": "Your menu bar. Your way.",
+    "de": "Deine Menüleiste. Dein Stil."
+  },
+  "Mac’inde çalışıyor": {
+    "tr": "Mac’inde çalışıyor",
+    "en": "Running on your Mac",
+    "de": "Auf deinem Mac aktiv"
+  },
+  "Motor kullanılamıyor": {
+    "tr": "Motor kullanılamıyor",
+    "en": "Engine unavailable",
+    "de": "Steuerung nicht verfügbar"
+  },
+  "Klavye kısayolları": {
+    "tr": "Klavye kısayolları",
+    "en": "Keyboard shortcuts",
+    "de": "Tastenkürzel"
+  },
+  "Tüm simgeler açık": {
+    "tr": "Tüm simgeler açık",
+    "en": "All icons revealed",
+    "de": "Alle Symbole eingeblendet"
+  },
+  "Gizli simgeler açık": {
+    "tr": "Gizli simgeler açık",
+    "en": "Hidden icons revealed",
+    "de": "Verborgene Symbole eingeblendet"
+  },
+  "Odak görünümü": {
+    "tr": "Odak görünümü",
+    "en": "Focus view",
+    "de": "Fokusansicht"
+  },
+  "Gizle": {
+    "tr": "Gizle",
+    "en": "Hide",
+    "de": "Ausblenden"
+  },
+  "Gizlileri göster": {
+    "tr": "Gizlileri göster",
+    "en": "Show hidden",
+    "de": "Verborgene einblenden"
+  },
+  "Değişiklikler otomatik kaydedilir": {
+    "tr": "Değişiklikler otomatik kaydedilir",
+    "en": "Changes saved automatically",
+    "de": "Änderungen automatisch gespeichert"
+  },
+  "Tümünü göster": {
+    "tr": "Tümünü göster",
+    "en": "Show all",
+    "de": "Alle anzeigen"
+  },
+  "Her şey yerli yerinde.": {
+    "tr": "Her şey yerli yerinde.",
+    "en": "Everything in its place.",
+    "de": "Alles an seinem Platz."
+  },
+  "Gerekenler göz önünde. Diğerleri bir kısayol uzağında.": {
+    "tr": "Gerekenler göz önünde. Diğerleri bir kısayol uzağında.",
+    "en": "Essentials in sight. Everything else a shortcut away.",
+    "de": "Das Wichtige im Blick. Alles andere per Tastenkürzel."
+  },
+  "Başka bir menü çubuğu yöneticisi açık. Tutarlı bir düzen için birini kullanmanı öneririz.": {
+    "tr": "Başka bir menü çubuğu yöneticisi açık. Tutarlı bir düzen için birini kullanmanı öneririz.",
+    "en": "Another menu bar manager is running. Use one at a time for consistent behavior.",
+    "de": "Ein weiterer Menüleistenmanager ist aktiv. Verwende für zuverlässiges Verhalten nur einen gleichzeitig."
+  },
+  "Uygulamaları aşağıdaki gruplara sürükle. Menü çubuğundaki sıralamayı değiştirmek için ⌘ tuşuna basılı tutarak gerçek simgeleri sürükle.": {
+    "tr": "Uygulamaları aşağıdaki gruplara sürükle. Menü çubuğundaki sıralamayı değiştirmek için ⌘ tuşuna basılı tutarak gerçek simgeleri sürükle.",
+    "en": "Drag apps into the groups below. To reorder the actual menu bar, hold ⌘ and drag its icons.",
+    "de": "Ziehe Apps in die Gruppen unten. Zum Sortieren in der Menüleiste halte ⌘ gedrückt und ziehe die Symbole."
+  },
+  "Sadece menü çubuğu uygulamalarını gör": {
+    "tr": "Sadece menü çubuğu uygulamalarını gör",
+    "en": "See only menu bar apps",
+    "de": "Nur Menüleisten-Apps anzeigen"
+  },
+  "İsteğe bağlı Erişilebilirlik izni, simgesi olan uygulamaları otomatik bulur.": {
+    "tr": "İsteğe bağlı Erişilebilirlik izni, simgesi olan uygulamaları otomatik bulur.",
+    "en": "Optional Accessibility access identifies apps with menu bar icons.",
+    "de": "Die optionale Bedienungshilfen-Berechtigung erkennt Apps mit Menüleistensymbolen."
+  },
+  "İzin ver": {
+    "tr": "İzin ver",
+    "en": "Grant access",
+    "de": "Zugriff erlauben"
+  },
+  "MENÜ ÇUBUĞUN": {
+    "tr": "MENÜ ÇUBUĞUN",
+    "en": "YOUR MENU BAR",
+    "de": "DEINE MENÜLEISTE"
+  },
+  "GRUP ÖNİZLEMESİ": {
+    "tr": "GRUP ÖNİZLEMESİ",
+    "en": "GROUP PREVIEW",
+    "de": "GRUPPENVORSCHAU"
+  },
+  "Dosya   Düzen": {
+    "tr": "Dosya   Düzen",
+    "en": "File   Edit",
+    "de": "Ablage   Bearbeiten"
+  },
+  "İlk uygulamanı gizleyerek kendine biraz alan aç.": {
+    "tr": "İlk uygulamanı gizleyerek kendine biraz alan aç.",
+    "en": "Make some room by hiding your first app.",
+    "de": "Schaffe Platz und blende deine erste App aus."
+  },
+  "%d uygulama için daha sade bir menü çubuğu.": {
+    "tr": "%d uygulama için daha sade bir menü çubuğu.",
+    "en": "A calmer menu bar for %d apps.",
+    "de": "Eine aufgeräumte Menüleiste für %d Apps."
+  },
+  "Bir uygulama için daha sade bir menü çubuğu.": {
+    "tr": "Bir uygulama için daha sade bir menü çubuğu.",
+    "en": "A calmer menu bar for one app.",
+    "de": "Eine aufgeräumte Menüleiste für eine App."
+  },
+  "Buraya sürükle": {
+    "tr": "Buraya sürükle",
+    "en": "Drop here",
+    "de": "Hier ablegen"
+  },
+  "Daima elinin altında": {
+    "tr": "Daima elinin altında",
+    "en": "Always within reach",
+    "de": "Immer griffbereit"
+  },
+  "Tıklayınca ya da kısayolla": {
+    "tr": "Tıklayınca ya da kısayolla",
+    "en": "With a click or shortcut",
+    "de": "Per Klick oder Tastenkürzel"
+  },
+  "Yalnızca tümünü gösterince": {
+    "tr": "Yalnızca tümünü gösterince",
+    "en": "Only with Show all",
+    "de": "Nur mit Alle einblenden"
+  },
+  "Uygulamalar": {
+    "tr": "Uygulamalar",
+    "en": "Applications",
+    "de": "Anwendungen"
+  },
+  "Menü çubuğu uygulamaları": {
+    "tr": "Menü çubuğu uygulamaları",
+    "en": "Menu bar apps",
+    "de": "Menüleisten-Apps"
+  },
+  "Uygulamaları yenile": {
+    "tr": "Uygulamaları yenile",
+    "en": "Refresh apps",
+    "de": "Apps aktualisieren"
+  },
+  "Uygulama ara…": {
+    "tr": "Uygulama ara…",
+    "en": "Search apps…",
+    "de": "Apps suchen…"
+  },
+  "Filtre": {
+    "tr": "Filtre",
+    "en": "Filter",
+    "de": "Filter"
+  },
+  "Tümü": {
+    "tr": "Tümü",
+    "en": "All",
+    "de": "Alle"
+  },
+  "Görünür": {
+    "tr": "Görünür",
+    "en": "Visible",
+    "de": "Sichtbar"
+  },
+  "Çalışan uygulamalar listeleniyor; hepsinin menü çubuğu simgesi olmayabilir.": {
+    "tr": "Çalışan uygulamalar listeleniyor; hepsinin menü çubuğu simgesi olmayabilir.",
+    "en": "Running apps are listed; some may not have a menu bar icon.",
+    "de": "Laufende Apps werden angezeigt; manche haben kein Menüleistensymbol."
+  },
+  "Tüm çalışan uygulamaları göster": {
+    "tr": "Tüm çalışan uygulamaları göster",
+    "en": "Show all running apps",
+    "de": "Alle laufenden Apps anzeigen"
+  },
+  "Bu görünümde uygulama yok": {
+    "tr": "Bu görünümde uygulama yok",
+    "en": "No apps in this view",
+    "de": "Keine Apps in dieser Ansicht"
+  },
+  "Aramanı veya filtreyi değiştirebilirsin.": {
+    "tr": "Aramanı veya filtreyi değiştirebilirsin.",
+    "en": "Try a different search or filter.",
+    "de": "Ändere deine Suche oder den Filter."
+  },
+  "Çalışmıyor · tercih kaydedildi": {
+    "tr": "Çalışmıyor · tercih kaydedildi",
+    "en": "Not running · preference saved",
+    "de": "Nicht aktiv · Einstellung gespeichert"
+  },
+  "Sistem uygulaması": {
+    "tr": "Sistem uygulaması",
+    "en": "System application",
+    "de": "Systemanwendung"
+  },
+  "Sistem yönetir": {
+    "tr": "Sistem yönetir",
+    "en": "Managed by macOS",
+    "de": "Von macOS verwaltet"
+  },
+  "%@ görünürlüğü": {
+    "tr": "%@ görünürlüğü",
+    "en": "Visibility of %@",
+    "de": "Sichtbarkeit von %@"
+  },
+  "Senin ritmine uysun.": {
+    "tr": "Senin ritmine uysun.",
+    "en": "Make it work your way.",
+    "de": "So, wie es zu dir passt."
+  },
+  "Simgelerin ne zaman görünüp ne zaman gizleneceğini seç.": {
+    "tr": "Simgelerin ne zaman görünüp ne zaman gizleneceğini seç.",
+    "en": "Choose when your icons appear and when they tuck away.",
+    "de": "Lege fest, wann deine Symbole ein- und ausgeblendet werden."
+  },
+  "GÖSTER VE GİZLE": {
+    "tr": "GÖSTER VE GİZLE",
+    "en": "SHOW AND HIDE",
+    "de": "EIN- UND AUSBLENDEN"
+  },
+  "Otomatik gizle": {
+    "tr": "Otomatik gizle",
+    "en": "Automatically hide",
+    "de": "Automatisch ausblenden"
+  },
+  "Açılan simgeleri belirlediğin süre sonunda yeniden gizle.": {
+    "tr": "Açılan simgeleri belirlediğin süre sonunda yeniden gizle.",
+    "en": "Hide revealed icons again after your chosen delay.",
+    "de": "Blende eingeblendete Symbole nach der gewählten Zeit wieder aus."
+  },
+  "Bekleme süresi": {
+    "tr": "Bekleme süresi",
+    "en": "Delay",
+    "de": "Verzögerung"
+  },
+  "%d saniye": {
+    "tr": "%d saniye",
+    "en": "%d seconds",
+    "de": "%d Sekunden"
+  },
+  "1 saniye": {
+    "tr": "1 saniye",
+    "en": "1 second",
+    "de": "1 Sekunde"
+  },
+  "Dışarı tıklayınca gizle": {
+    "tr": "Dışarı tıklayınca gizle",
+    "en": "Hide on outside click",
+    "de": "Bei Klick außerhalb ausblenden"
+  },
+  "Menü çubuğundan ayrıldığında sade görünüme dön.": {
+    "tr": "Menü çubuğundan ayrıldığında sade görünüme dön.",
+    "en": "Return to a clean view when you click outside the menu bar.",
+    "de": "Kehre zur aufgeräumten Ansicht zurück, wenn du außerhalb der Menüleiste klickst."
+  },
+  "Üzerine gelince göster": {
+    "tr": "Üzerine gelince göster",
+    "en": "Reveal on hover",
+    "de": "Bei Zeigerkontakt einblenden"
+  },
+  "İmleci BStoeq simgesinin üzerinde kısa bir süre tut. Erişilebilirlik izni gerektirir.": {
+    "tr": "İmleci BStoeq simgesinin üzerinde kısa bir süre tut. Erişilebilirlik izni gerektirir.",
+    "en": "Rest the pointer on the BStoeq icon briefly. Requires Accessibility access.",
+    "de": "Halte den Zeiger kurz über das BStoeq-Symbol. Benötigt Zugriff auf Bedienungshilfen."
+  },
+  "Üzerine gelince göstermek için Erişilebilirlik izni ver.": {
+    "tr": "Üzerine gelince göstermek için Erişilebilirlik izni ver.",
+    "en": "Grant Accessibility access to reveal icons on hover.",
+    "de": "Erlaube den Zugriff auf Bedienungshilfen zum Einblenden bei Zeigerkontakt."
+  },
+  "AKILLI GÖRÜNÜRLÜK": {
+    "tr": "AKILLI GÖRÜNÜRLÜK",
+    "en": "SMART VISIBILITY",
+    "de": "INTELLIGENTE SICHTBARKEIT"
+  },
+  "Etkin uygulamayı göster": {
+    "tr": "Etkin uygulamayı göster",
+    "en": "Show the active app",
+    "de": "Aktive App anzeigen"
+  },
+  "Gizli bir uygulamaya geçtiğinde onun simgesini göster. Daima gizli grubunu etkilemez.": {
+    "tr": "Gizli bir uygulamaya geçtiğinde onun simgesini göster. Daima gizli grubunu etkilemez.",
+    "en": "Show a hidden app’s icon when you switch to it. Always hidden apps stay hidden.",
+    "de": "Zeige das Symbol einer verborgenen App, wenn du zu ihr wechselst. Immer ausgeblendete Apps bleiben verborgen."
+  },
+  "İmlecin menü çubuğundayken veya fare düğmesine basılı tutarken otomatik gizleme bekler.": {
+    "tr": "İmlecin menü çubuğundayken veya fare düğmesine basılı tutarken otomatik gizleme bekler.",
+    "en": "Auto-hide waits while the pointer is in the menu bar or a mouse button is held.",
+    "de": "Das automatische Ausblenden wartet, solange der Zeiger in der Menüleiste ist oder eine Maustaste gedrückt wird."
+  },
+  "Bir hareket kadar yakın.": {
+    "tr": "Bir hareket kadar yakın.",
+    "en": "Just a keystroke away.",
+    "de": "Nur einen Tastendruck entfernt."
+  },
+  "Fareye uzanmadan menü çubuğunun kontrolünü eline al.": {
+    "tr": "Fareye uzanmadan menü çubuğunun kontrolünü eline al.",
+    "en": "Take control of your menu bar without reaching for the mouse.",
+    "de": "Steuere deine Menüleiste, ohne zur Maus zu greifen."
+  },
+  "KLAVYE KISAYOLLARI": {
+    "tr": "KLAVYE KISAYOLLARI",
+    "en": "KEYBOARD SHORTCUTS",
+    "de": "TASTENKÜRZEL"
+  },
+  "Gizlileri göster / gizle": {
+    "tr": "Gizlileri göster / gizle",
+    "en": "Toggle hidden icons",
+    "de": "Verborgene Symbole umschalten"
+  },
+  "Görünür ve sade görünüm arasında geçiş yap.": {
+    "tr": "Görünür ve sade görünüm arasında geçiş yap.",
+    "en": "Switch between expanded and focused views.",
+    "de": "Wechsle zwischen erweiterter Ansicht und Fokusansicht."
+  },
+  "BStoeq’i aç ve ara": {
+    "tr": "BStoeq’i aç ve ara",
+    "en": "Open BStoeq and search",
+    "de": "BStoeq öffnen und suchen"
+  },
+  "Uygulama listesini aç; aramaya hemen başla.": {
+    "tr": "Uygulama listesini aç; aramaya hemen başla.",
+    "en": "Open the app list and start searching right away.",
+    "de": "Öffne die App-Liste und beginne sofort mit der Suche."
+  },
+  "Tüm simgeleri geri getir": {
+    "tr": "Tüm simgeleri geri getir",
+    "en": "Reveal every icon",
+    "de": "Alle Symbole wieder einblenden"
+  },
+  "Daima gizli grubu dahil. Sen gizleyene kadar açık kalır.": {
+    "tr": "Daima gizli grubu dahil. Sen gizleyene kadar açık kalır.",
+    "en": "Includes Always hidden. Stays open until you hide it again.",
+    "de": "Einschließlich Immer ausgeblendet. Bleibt offen, bis du erneut ausblendest."
+  },
+  "Değiştirmek istediğin kısayola tıkla ve yeni tuşlara bas. Vazgeçmek için Esc kullan. ⌥ ⌘ 0 kurtarma için ayrılmıştır.": {
+    "tr": "Değiştirmek istediğin kısayola tıkla ve yeni tuşlara bas. Vazgeçmek için Esc kullan. ⌥ ⌘ 0 kurtarma için ayrılmıştır.",
+    "en": "Click a shortcut and press a new combination. Press Esc to cancel. ⌥ ⌘ 0 is reserved for recovery.",
+    "de": "Klicke auf ein Tastenkürzel und drücke eine neue Kombination. Esc bricht ab. ⌥ ⌘ 0 ist für die Wiederherstellung reserviert."
+  },
+  "Varsayılan kısayolları geri yükle": {
+    "tr": "Varsayılan kısayolları geri yükle",
+    "en": "Restore default shortcuts",
+    "de": "Standard-Tastenkürzel wiederherstellen"
+  },
+  "Küçük ayrıntılar, senin seçimin.": {
+    "tr": "Küçük ayrıntılar, senin seçimin.",
+    "en": "Little details. Your choice.",
+    "de": "Kleine Details. Deine Wahl."
+  },
+  "BStoeq’i Mac’inin doğal bir parçası haline getir.": {
+    "tr": "BStoeq’i Mac’inin doğal bir parçası haline getir.",
+    "en": "Make BStoeq feel right at home on your Mac.",
+    "de": "Mach BStoeq zu einem festen Bestandteil deines Macs."
+  },
+  "BAŞLANGIÇ VE GÖRÜNÜM": {
+    "tr": "BAŞLANGIÇ VE GÖRÜNÜM",
+    "en": "STARTUP AND APPEARANCE",
+    "de": "START UND ERSCHEINUNGSBILD"
+  },
+  "Oturum açıldığında başlat": {
+    "tr": "Oturum açıldığında başlat",
+    "en": "Launch at login",
+    "de": "Bei der Anmeldung starten"
+  },
+  "Mac’in hazır olduğunda BStoeq de hazır olsun.": {
+    "tr": "Mac’in hazır olduğunda BStoeq de hazır olsun.",
+    "en": "Have BStoeq ready when your Mac is.",
+    "de": "BStoeq ist bereit, sobald dein Mac es ist."
+  },
+  "Görünüm": {
+    "tr": "Görünüm",
+    "en": "Appearance",
+    "de": "Erscheinungsbild"
+  },
+  "Sistem": {
+    "tr": "Sistem",
+    "en": "System",
+    "de": "System"
+  },
+  "Açık": {
+    "tr": "Açık",
+    "en": "Light",
+    "de": "Hell"
+  },
+  "Koyu": {
+    "tr": "Koyu",
+    "en": "Dark",
+    "de": "Dunkel"
+  },
+  "Menü çubuğu simgesi": {
+    "tr": "Menü çubuğu simgesi",
+    "en": "Menu bar icon",
+    "de": "Menüleistensymbol"
+  },
+  "AYARLARINI YANINDA TAŞI": {
+    "tr": "AYARLARINI YANINDA TAŞI",
+    "en": "TAKE YOUR SETTINGS WITH YOU",
+    "de": "DEINE EINSTELLUNGEN MITNEHMEN"
+  },
+  "Gruplarını ve tercihlerini yedekle.": {
+    "tr": "Gruplarını ve tercihlerini yedekle.",
+    "en": "Back up your groups and preferences.",
+    "de": "Sichere deine Gruppen und Einstellungen."
+  },
+  "İçe aktar…": {
+    "tr": "İçe aktar…",
+    "en": "Import…",
+    "de": "Importieren…"
+  },
+  "Dışa aktar…": {
+    "tr": "Dışa aktar…",
+    "en": "Export…",
+    "de": "Exportieren…"
+  },
+  "macOS 27 ve Apple Silicon için. Gizleme sistemi macOS’un özel MenuBarClientCore arayüzünü kullanır; sistem güncellemeleri uyumluluğu etkileyebilir.": {
+    "tr": "macOS 27 ve Apple Silicon için. Gizleme sistemi macOS’un özel MenuBarClientCore arayüzünü kullanır; sistem güncellemeleri uyumluluğu etkileyebilir.",
+    "en": "For macOS 27 and Apple Silicon. Hiding uses the private MenuBarClientCore interface; system updates may affect compatibility.",
+    "de": "Für macOS 27 und Apple Silicon. Zum Ausblenden wird die private MenuBarClientCore-Schnittstelle verwendet; Systemupdates können die Kompatibilität beeinflussen."
+  },
+  "Açık kaynak lisansı": {
+    "tr": "Açık kaynak lisansı",
+    "en": "Open-source license",
+    "de": "Open-Source-Lizenz"
+  },
+  "Bu kombinasyon diğer BStoeq kısayoluna atanmış.": {
+    "tr": "Bu kombinasyon diğer BStoeq kısayoluna atanmış.",
+    "en": "This combination is already assigned to another BStoeq shortcut.",
+    "de": "Diese Kombination ist bereits einem anderen BStoeq-Tastenkürzel zugewiesen."
+  },
+  "Dil": {
+    "tr": "Dil",
+    "en": "Language",
+    "de": "Sprache"
+  },
+  "Uygulama dili": {
+    "tr": "Uygulama dili",
+    "en": "App language",
+    "de": "App-Sprache"
+  },
+  "Sistem dilini kullan": {
+    "tr": "Sistem dilini kullan",
+    "en": "Use system language",
+    "de": "Systemsprache verwenden"
+  },
+  "Değişiklik hemen uygulanır; yeniden başlatma gerekmez.": {
+    "tr": "Değişiklik hemen uygulanır; yeniden başlatma gerekmez.",
+    "en": "Changes apply immediately. No restart needed.",
+    "de": "Änderungen gelten sofort. Kein Neustart nötig."
+  },
+  "BStoeq — gizli simgeleri göster veya gizle": {
+    "tr": "BStoeq — gizli simgeleri göster veya gizle",
+    "en": "BStoeq — toggle hidden icons",
+    "de": "BStoeq — verborgene Symbole umschalten"
+  },
+  "Simgeleri gizle": {
+    "tr": "Simgeleri gizle",
+    "en": "Hide icons",
+    "de": "Symbole ausblenden"
+  },
+  "Sağ tık: seçenekler · ⌥ tık: tümünü göster": {
+    "tr": "Sağ tık: seçenekler · ⌥ tık: tümünü göster",
+    "en": "Right-click: options · ⌥ click: show all",
+    "de": "Rechtsklick: Optionen · ⌥-Klick: alle einblenden"
+  },
+  "Gizli simgeleri kapat": {
+    "tr": "Gizli simgeleri kapat",
+    "en": "Hide revealed icons",
+    "de": "Eingeblendete Symbole ausblenden"
+  },
+  "Gizli simgeleri göster": {
+    "tr": "Gizli simgeleri göster",
+    "en": "Reveal hidden icons",
+    "de": "Verborgene Symbole einblenden"
+  },
+  "BStoeq ayarları…": {
+    "tr": "BStoeq ayarları…",
+    "en": "BStoeq Settings…",
+    "de": "BStoeq-Einstellungen…"
+  },
+  "BStoeq’ten çık": {
+    "tr": "BStoeq’ten çık",
+    "en": "Quit BStoeq",
+    "de": "BStoeq beenden"
+  },
+  "Düzen": {
+    "tr": "Düzen",
+    "en": "Edit",
+    "de": "Bearbeiten"
+  },
+  "Geri al": {
+    "tr": "Geri al",
+    "en": "Undo",
+    "de": "Widerrufen"
+  },
+  "Kes": {
+    "tr": "Kes",
+    "en": "Cut",
+    "de": "Ausschneiden"
+  },
+  "Kopyala": {
+    "tr": "Kopyala",
+    "en": "Copy",
+    "de": "Kopieren"
+  },
+  "Yapıştır": {
+    "tr": "Yapıştır",
+    "en": "Paste",
+    "de": "Einsetzen"
+  },
+  "Tümünü seç": {
+    "tr": "Tümünü seç",
+    "en": "Select All",
+    "de": "Alles auswählen"
+  },
+  "Pencere": {
+    "tr": "Pencere",
+    "en": "Window",
+    "de": "Fenster"
+  },
+  "Kapat": {
+    "tr": "Kapat",
+    "en": "Close",
+    "de": "Schließen"
+  },
+  "Klavye kısayolunu değiştir": {
+    "tr": "Klavye kısayolunu değiştir",
+    "en": "Change keyboard shortcut",
+    "de": "Tastenkürzel ändern"
+  },
+  "Tuşlara bas…": {
+    "tr": "Tuşlara bas…",
+    "en": "Press keys…",
+    "de": "Tasten drücken…"
+  },
+  "⌘, ⌥ veya ⌃ ekle": {
+    "tr": "⌘, ⌥ veya ⌃ ekle",
+    "en": "Add ⌘, ⌥ or ⌃",
+    "de": "⌘, ⌥ oder ⌃ hinzufügen"
+  },
+  "Boşluk": {
+    "tr": "Boşluk",
+    "en": "Space",
+    "de": "Leertaste"
+  },
+  "Kurtarma için ayrıldı": {
+    "tr": "Kurtarma için ayrıldı",
+    "en": "Reserved for recovery",
+    "de": "Für Wiederherstellung reserviert"
+  },
+  "Bu kısayol kaydedilemedi: %@. Farklı bir kombinasyon seç.": {
+    "tr": "Bu kısayol kaydedilemedi: %@. Farklı bir kombinasyon seç.",
+    "en": "Could not register this shortcut: %@. Choose a different combination.",
+    "de": "Dieses Tastenkürzel konnte nicht registriert werden: %@. Wähle eine andere Kombination."
+  },
+  "Oturum açılışında başlatmak için Sistem Ayarları’nda BStoeq’e izin ver.": {
+    "tr": "Oturum açılışında başlatmak için Sistem Ayarları’nda BStoeq’e izin ver.",
+    "en": "Allow BStoeq in System Settings to launch it at login.",
+    "de": "Erlaube BStoeq in den Systemeinstellungen, bei der Anmeldung zu starten."
+  },
+  "Başlangıç ayarı kaydedilemedi: %@": {
+    "tr": "Başlangıç ayarı kaydedilemedi: %@",
+    "en": "Could not save the login setting: %@",
+    "de": "Die Anmeldeeinstellung konnte nicht gespeichert werden: %@"
+  },
+  "Ayarların dışa aktarıldı.": {
+    "tr": "Ayarların dışa aktarıldı.",
+    "en": "Your settings were exported.",
+    "de": "Deine Einstellungen wurden exportiert."
+  },
+  "Ayarların içe aktarıldı.": {
+    "tr": "Ayarların içe aktarıldı.",
+    "en": "Your settings were imported.",
+    "de": "Deine Einstellungen wurden importiert."
+  },
+  "Bu ayar dosyası okunamadı: %@": {
+    "tr": "Bu ayar dosyası okunamadı: %@",
+    "en": "Could not read this settings file: %@",
+    "de": "Diese Einstellungsdatei konnte nicht gelesen werden: %@"
+  },
+  "Ayarlar kaydedilemedi: %@": {
+    "tr": "Ayarlar kaydedilemedi: %@",
+    "en": "Could not save settings: %@",
+    "de": "Die Einstellungen konnten nicht gespeichert werden: %@"
+  },
+  "Kayıtlı ayarlar okunamadı. Önceki veriler korunuyor; bir ayarı değiştirdiğinde yeni tercihler kaydedilir.": {
+    "tr": "Kayıtlı ayarlar okunamadı. Önceki veriler korunuyor; bir ayarı değiştirdiğinde yeni tercihler kaydedilir.",
+    "en": "Saved settings could not be read. The original data is preserved until you change a preference.",
+    "de": "Gespeicherte Einstellungen konnten nicht gelesen werden. Die ursprünglichen Daten bleiben erhalten, bis du eine Einstellung änderst."
+  },
+  "Bu macOS sürümünde gizleme motoruna ulaşılamıyor. Tüm simgeler görünür bırakıldı.": {
+    "tr": "Bu macOS sürümünde gizleme motoruna ulaşılamıyor. Tüm simgeler görünür bırakıldı.",
+    "en": "The hiding engine is unavailable on this macOS version. All icons were left visible.",
+    "de": "Die Ausblendfunktion ist unter dieser macOS-Version nicht verfügbar. Alle Symbole bleiben sichtbar."
+  },
+  "Gizleme uygulanamadı: %@": {
+    "tr": "Gizleme uygulanamadı: %@",
+    "en": "Could not hide icons: %@",
+    "de": "Symbole konnten nicht ausgeblendet werden: %@"
+  },
+  "Gizleme motoru başlatılamadı. Menü çubuğun görünür bırakıldı.": {
+    "tr": "Gizleme motoru başlatılamadı. Menü çubuğun görünür bırakıldı.",
+    "en": "The hiding engine could not start. Your menu bar was left visible.",
+    "de": "Die Ausblendfunktion konnte nicht gestartet werden. Deine Menüleiste bleibt sichtbar."
+  },
+  "macOS yanıt vermedi. Menü çubuğun görünür bırakıldı; tekrar deneyebilirsin.": {
+    "tr": "macOS yanıt vermedi. Menü çubuğun görünür bırakıldı; tekrar deneyebilirsin.",
+    "en": "macOS did not respond. Your menu bar was left visible; you can try again.",
+    "de": "macOS hat nicht geantwortet. Deine Menüleiste bleibt sichtbar. Du kannst es erneut versuchen."
+  },
+  "Ayarları dışa aktar": {
+    "tr": "Ayarları dışa aktar",
+    "en": "Export settings",
+    "de": "Einstellungen exportieren"
+  },
+  "Ayarları içe aktar": {
+    "tr": "Ayarları içe aktar",
+    "en": "Import settings",
+    "de": "Einstellungen importieren"
+  },
+  "Kaydet": {
+    "tr": "Kaydet",
+    "en": "Save",
+    "de": "Sichern"
+  },
+  "Aç": {
+    "tr": "Aç",
+    "en": "Open",
+    "de": "Öffnen"
+  },
+  "%@": {
+    "tr": "%@",
+    "en": "%@",
+    "de": "%@"
+  },
+  "Yarım daire": {
+    "tr": "Yarım daire",
+    "en": "Half circle",
+    "de": "Halbkreis"
+  },
+  "Noktalar": {
+    "tr": "Noktalar",
+    "en": "Dots",
+    "de": "Punkte"
+  },
+  "Ok": {
+    "tr": "Ok",
+    "en": "Arrow",
+    "de": "Pfeil"
+  },
+  "Izgara": {
+    "tr": "Izgara",
+    "en": "Grid",
+    "de": "Raster"
+  },
+  "Yaprak": {
+    "tr": "Yaprak",
+    "en": "Leaf",
+    "de": "Blatt"
+  },
+  "BStoeq’i Uygulamalar klasöründen aç": {
+    "tr": "BStoeq’i Uygulamalar klasöründen aç",
+    "en": "Open BStoeq from Applications",
+    "de": "BStoeq aus dem Programme-Ordner öffnen"
+  },
+  "Menü çubuğu simgesinin görünmesi için BStoeq.app dosyasını Uygulamalar klasörüne taşı ve oradan aç. Kayıtlı ayarların korunur.": {
+    "tr": "Menü çubuğu simgesinin görünmesi için BStoeq.app dosyasını Uygulamalar klasörüne taşı ve oradan aç. Kayıtlı ayarların korunur.",
+    "en": "To keep the menu bar icon visible, move BStoeq.app to the Applications folder and open it there. Your saved settings will be preserved.",
+    "de": "Damit das Menüleistensymbol sichtbar bleibt, verschiebe BStoeq.app in den Programme-Ordner und öffne die App dort. Deine gespeicherten Einstellungen bleiben erhalten."
+  },
+  "Kurulu BStoeq’i aç": {
+    "tr": "Kurulu BStoeq’i aç",
+    "en": "Open installed BStoeq",
+    "de": "Installiertes BStoeq öffnen"
+  },
+  "Uygulamalar klasörünü aç": {
+    "tr": "Uygulamalar klasörünü aç",
+    "en": "Open Applications folder",
+    "de": "Programme-Ordner öffnen"
+  },
+  "Uygulamalar klasörü açılamadı. Finder’dan /Applications/BStoeq.app dosyasını aç.": {
+    "tr": "Uygulamalar klasörü açılamadı. Finder’dan /Applications/BStoeq.app dosyasını aç.",
+    "en": "Could not open Applications. Open /Applications/BStoeq.app in Finder.",
+    "de": "Der Programme-Ordner konnte nicht geöffnet werden. Öffne /Applications/BStoeq.app im Finder."
+  },
+  "Üst menü çubuğu": {
+    "tr": "Üst menü çubuğu",
+    "en": "Top menu bar",
+    "de": "Obere Menüleiste"
+  },
+  "Alt simge çubuğu": {
+    "tr": "Alt simge çubuğu",
+    "en": "Icon bar below",
+    "de": "Symbolleiste darunter"
+  },
+  "Aramalı liste": {
+    "tr": "Aramalı liste",
+    "en": "Searchable list",
+    "de": "Durchsuchbare Liste"
+  },
+  "BStoeq alt çubuğu": {
+    "tr": "BStoeq alt çubuğu",
+    "en": "BStoeq icon bar",
+    "de": "BStoeq-Symbolleiste"
+  },
+  "BStoeq hızlı menüsü": {
+    "tr": "BStoeq hızlı menüsü",
+    "en": "BStoeq quick menu",
+    "de": "BStoeq-Schnellmenü"
+  },
+  "Gizli uygulamalar": {
+    "tr": "Gizli uygulamalar",
+    "en": "Hidden apps",
+    "de": "Ausgeblendete Apps"
+  },
+  "Açılma biçimi": {
+    "tr": "Açılma biçimi",
+    "en": "Opening style",
+    "de": "Darstellung beim Öffnen"
+  },
+  "Gizli grubun boş": {
+    "tr": "Gizli grubun boş",
+    "en": "Your hidden group is empty",
+    "de": "Deine ausgeblendete Gruppe ist leer"
+  },
+  "Uygulamaları düzenle": {
+    "tr": "Uygulamaları düzenle",
+    "en": "Organize apps",
+    "de": "Apps organisieren"
+  },
+  "Simgeye tıklayarak uygulamanın menüsünü aç.": {
+    "tr": "Simgeye tıklayarak uygulamanın menüsünü aç.",
+    "en": "Click an icon to open its app’s menu.",
+    "de": "Klicke auf ein Symbol, um das Menü der App zu öffnen."
+  },
+  "Simgeye tıkla; uygulama üst menü çubuğunda görünsün.": {
+    "tr": "Simgeye tıkla; uygulama üst menü çubuğunda görünsün.",
+    "en": "Click an icon to reveal the app in the top menu bar.",
+    "de": "Klicke auf ein Symbol, um die App in der oberen Menüleiste einzublenden."
+  },
+  "Menüleri doğrudan açmak için izin ver": {
+    "tr": "Menüleri doğrudan açmak için izin ver",
+    "en": "Allow access to open menus directly",
+    "de": "Zugriff erlauben, um Menüs direkt zu öffnen"
+  },
+  "Çalışmıyor": {
+    "tr": "Çalışmıyor",
+    "en": "Not running",
+    "de": "Nicht geöffnet"
+  },
+  "Uygulamanın menüsünü aç": {
+    "tr": "Uygulamanın menüsünü aç",
+    "en": "Open the app’s menu",
+    "de": "Menü der App öffnen"
+  },
+  "Üst menü çubuğunda göster": {
+    "tr": "Üst menü çubuğunda göster",
+    "en": "Show in the top menu bar",
+    "de": "In der oberen Menüleiste anzeigen"
+  },
+  "Uygulamanın simgesi üst çubukta gösterildi. Menüsü otomatik açılmıyorsa simgeye tıkla.": {
+    "tr": "Uygulamanın simgesi üst çubukta gösterildi. Menüsü otomatik açılmıyorsa simgeye tıkla.",
+    "en": "The app’s icon is now visible in the top bar. Click it if its menu does not open automatically.",
+    "de": "Das Symbol der App ist jetzt in der oberen Menüleiste sichtbar. Klicke darauf, falls sich das Menü nicht automatisch öffnet."
+  },
+  "BStoeq’e tıkladığında gizli uygulamalar nasıl açılsın?": {
+    "tr": "BStoeq’e tıkladığında gizli uygulamalar nasıl açılsın?",
+    "en": "How should hidden apps appear when you click BStoeq?",
+    "de": "Wie sollen ausgeblendete Apps beim Klick auf BStoeq erscheinen?"
+  },
+  "Seçili": {
+    "tr": "Seçili",
+    "en": "Selected",
+    "de": "Ausgewählt"
+  },
+  "Alt çubuk ve liste, Gizli grubundaki uygulamaları gösterir. Daima gizli grubu yalnızca Tümünü göster ile açılır.": {
+    "tr": "Alt çubuk ve liste, Gizli grubundaki uygulamaları gösterir. Daima gizli grubu yalnızca Tümünü göster ile açılır.",
+    "en": "The bar and list show apps in the Hidden group. Always hidden apps only appear with Show all.",
+    "de": "Leiste und Liste zeigen Apps der Gruppe Ausgeblendet. Immer ausgeblendete Apps erscheinen nur über Alle anzeigen."
+  },
+  "Seçili biçimi dene": {
+    "tr": "Seçili biçimi dene",
+    "en": "Preview this style",
+    "de": "Darstellung testen"
+  },
+  "Aynı seçim simgeye tıklarken ve kısayolu kullanırken geçerlidir.": {
+    "tr": "Aynı seçim simgeye tıklarken ve kısayolu kullanırken geçerlidir.",
+    "en": "Your choice applies to icon clicks and the keyboard shortcut.",
+    "de": "Die Auswahl gilt für Symbolklicks und das Tastenkürzel."
+  },
+  "Sol tık: aç · Sağ tık: uygulamanın seçenekleri": {
+    "tr": "Sol tık: aç · Sağ tık: uygulamanın seçenekleri",
+    "en": "Left-click: open · Right-click: app options",
+    "de": "Linksklick: öffnen · Rechtsklick: App-Optionen"
+  },
+  "Uygulama menülerini açmak için Erişilebilirlik izni gerekir.": {
+    "tr": "Uygulama menülerini açmak için Erişilebilirlik izni gerekir.",
+    "en": "Opening app menus requires Accessibility access.",
+    "de": "Zum Öffnen von App-Menüs ist der Zugriff auf Bedienungshilfen erforderlich."
+  },
+  "Sağ tık menüsünü aç": {
+    "tr": "Sağ tık menüsünü aç",
+    "en": "Open context menu",
+    "de": "Kontextmenü öffnen"
+  },
+  "Uygulama menülerini açmak için izin gerekiyor": {
+    "tr": "Uygulama menülerini açmak için izin gerekiyor",
+    "en": "Permission is needed to open app menus",
+    "de": "Zum Öffnen von App-Menüs ist eine Berechtigung erforderlich"
+  },
+  "BStoeq’in diğer uygulamaların sağ ve sol tık menülerini açabilmesi için Sistem Ayarları → Gizlilik ve Güvenlik → Erişilebilirlik bölümünde BStoeq’i etkinleştir. Bu izin olmadan yalnızca simgeyi üst çubukta gösterebiliriz.": {
+    "tr": "BStoeq’in diğer uygulamaların sağ ve sol tık menülerini açabilmesi için Sistem Ayarları → Gizlilik ve Güvenlik → Erişilebilirlik bölümünde BStoeq’i etkinleştir. Bu izin olmadan yalnızca simgeyi üst çubukta gösterebiliriz.",
+    "en": "To let BStoeq open other apps’ left- and right-click menus, enable BStoeq in System Settings → Privacy & Security → Accessibility. Without this permission, we can only show the icon in the top bar.",
+    "de": "Damit BStoeq die Links- und Rechtsklick-Menüs anderer Apps öffnen kann, aktiviere BStoeq unter Systemeinstellungen → Datenschutz & Sicherheit → Bedienungshilfen. Ohne diese Berechtigung können wir nur das Symbol in der oberen Menüleiste anzeigen."
+  },
+  "Sistem Ayarlarını aç": {
+    "tr": "Sistem Ayarlarını aç",
+    "en": "Open System Settings",
+    "de": "Systemeinstellungen öffnen"
+  },
+  "Yalnızca üst çubukta göster": {
+    "tr": "Yalnızca üst çubukta göster",
+    "en": "Only show in the top bar",
+    "de": "Nur in der oberen Menüleiste anzeigen"
+  },
+  "Vazgeç": {
+    "tr": "Vazgeç",
+    "en": "Cancel",
+    "de": "Abbrechen"
+  },
+  "Çalışan gizli uygulama yok": {
+    "tr": "Çalışan gizli uygulama yok",
+    "en": "No hidden apps are running",
+    "de": "Keine ausgeblendeten Apps aktiv"
+  },
+  "Menü çubuğunu düzenle…": {
+    "tr": "Menü çubuğunu düzenle…",
+    "en": "Arrange Menu Bar…",
+    "de": "Menüleiste anordnen…"
+  },
+  "Menü çubuğunu düzenle": {
+    "tr": "Menü çubuğunu düzenle",
+    "en": "Arrange Menu Bar",
+    "de": "Menüleiste anordnen"
+  },
+  "BStoeq’in konumu ve simge sırası": {
+    "tr": "BStoeq’in konumu ve simge sırası",
+    "en": "BStoeq position and icon order",
+    "de": "BStoeq-Position und Symbolreihenfolge"
+  },
+  "Düzenlemeyi başlat": {
+    "tr": "Düzenlemeyi başlat",
+    "en": "Start arranging",
+    "de": "Anordnen starten"
+  },
+  "Düzenlemeyi bitir": {
+    "tr": "Düzenlemeyi bitir",
+    "en": "Finish arranging",
+    "de": "Anordnen beenden"
+  },
+  "Bitti": {
+    "tr": "Bitti",
+    "en": "Done",
+    "de": "Fertig"
+  },
+  "⌘ tuşunu basılı tutup üst çubuktaki simgeleri sağa veya sola sürükle.": {
+    "tr": "⌘ tuşunu basılı tutup üst çubuktaki simgeleri sağa veya sola sürükle.",
+    "en": "Hold ⌘ and drag the icons in the top menu bar left or right.",
+    "de": "Halte ⌘ gedrückt und ziehe die Symbole in der oberen Menüleiste nach links oder rechts."
+  },
+  "BStoeq simgesini istediğin konuma sürükleyebilirsin.": {
+    "tr": "BStoeq simgesini istediğin konuma sürükleyebilirsin.",
+    "en": "Drag the BStoeq icon to your preferred position.",
+    "de": "Ziehe das BStoeq-Symbol an die gewünschte Position."
+  },
+  "Düzenleme sırasında gizleme duraklatılır. Bitti’ye basınca önceki görünürlük düzenin geri gelir.": {
+    "tr": "Düzenleme sırasında gizleme duraklatılır. Bitti’ye basınca önceki görünürlük düzenin geri gelir.",
+    "en": "Hiding pauses while you arrange the icons. Click Done to restore your previous visibility settings.",
+    "de": "Während des Anordnens wird das Ausblenden pausiert. Mit „Fertig“ gelten wieder deine bisherigen Sichtbarkeitseinstellungen."
+  },
+  "Bazı macOS simgelerinin konumu sabittir.": {
+    "tr": "Bazı macOS simgelerinin konumu sabittir.",
+    "en": "Some macOS icons have fixed positions.",
+    "de": "Einige macOS-Symbole haben feste Positionen."
+  },
+  "⌘ sürükle: simgenin yerini değiştir": {
+    "tr": "⌘ sürükle: simgenin yerini değiştir",
+    "en": "⌘-drag: move the icon",
+    "de": "⌘ + Ziehen: Symbol verschieben"
+  },
+  "BStoeq’in yeni konumu macOS tarafından saklanır.": {
+    "tr": "BStoeq’in yeni konumu macOS tarafından saklanır.",
+    "en": "macOS remembers BStoeq’s new position.",
+    "de": "macOS speichert die neue Position von BStoeq."
+  },
+  "Uygulamaları aşağıdaki görünürlük gruplarına sürükle. Bu önizleme üst menüdeki gerçek sıralamayı göstermez.": {
+    "tr": "Uygulamaları aşağıdaki görünürlük gruplarına sürükle. Bu önizleme üst menüdeki gerçek sıralamayı göstermez.",
+    "en": "Drag apps into the visibility groups below. This preview does not show their actual order in the top menu bar.",
+    "de": "Ziehe Apps in die Sichtbarkeitsgruppen unten. Diese Vorschau zeigt nicht die tatsächliche Reihenfolge in der oberen Menüleiste."
+  },
+  "Düzenleme açık · gizleme duraklatıldı": {
+    "tr": "Düzenleme açık · gizleme duraklatıldı",
+    "en": "Editing · hiding paused",
+    "de": "Bearbeitung aktiv · Ausblenden pausiert"
+  },
+  "Üst çubuğun gerçek sırası": {
+    "tr": "Üst çubuğun gerçek sırası",
+    "en": "Actual menu bar order",
+    "de": "Tatsächliche Reihenfolge der Menüleiste"
+  },
+  "Sıra güncelleniyor…": {
+    "tr": "Sıra güncelleniyor…",
+    "en": "Updating order…",
+    "de": "Reihenfolge wird aktualisiert…"
+  },
+  "Menü çubuğu okunuyor…": {
+    "tr": "Menü çubuğu okunuyor…",
+    "en": "Reading the menu bar…",
+    "de": "Menüleiste wird gelesen…"
+  },
+  "Menü çubuğunu yenile": {
+    "tr": "Menü çubuğunu yenile",
+    "en": "Refresh menu bar",
+    "de": "Menüleiste aktualisieren"
+  },
+  "Düzenle": {
+    "tr": "Düzenle",
+    "en": "Edit",
+    "de": "Bearbeiten"
+  },
+  "Görünür menü çubuğu simgesi bulunamadı. Yenilemeyi deneyebilirsin.": {
+    "tr": "Görünür menü çubuğu simgesi bulunamadı. Yenilemeyi deneyebilirsin.",
+    "en": "No visible menu bar icons were found. Try refreshing.",
+    "de": "Keine sichtbaren Menüleistensymbole gefunden. Versuche es mit Aktualisieren."
+  },
+  "Simgeleri burada göstermek ve taşımak için Erişilebilirlik izni gerekiyor.": {
+    "tr": "Simgeleri burada göstermek ve taşımak için Erişilebilirlik izni gerekiyor.",
+    "en": "Accessibility permission is needed to show and move icons here.",
+    "de": "Zum Anzeigen und Verschieben der Symbole ist die Berechtigung für Bedienungshilfen erforderlich."
+  },
+  "Ekran %d": {
+    "tr": "Ekran %d",
+    "en": "Display %d",
+    "de": "Bildschirm %d"
+  },
+  "Sistem ayarlarını aç…": {
+    "tr": "Sistem ayarlarını aç…",
+    "en": "Open system settings…",
+    "de": "Systemeinstellungen öffnen…"
+  },
+  "Sola taşı": {
+    "tr": "Sola taşı",
+    "en": "Move left",
+    "de": "Nach links verschieben"
+  },
+  "Sağa taşı": {
+    "tr": "Sağa taşı",
+    "en": "Move right",
+    "de": "Nach rechts verschieben"
+  },
+  "Bu simgenin konumunu macOS yönetir.": {
+    "tr": "Bu simgenin konumunu macOS yönetir.",
+    "en": "macOS controls the position of this icon.",
+    "de": "macOS verwaltet die Position dieses Symbols."
+  },
+  "Sıralamak için sürükle; gizlemek için simgeye tıkla veya sağ tıkla. Bitti’ye basınca gizleme geri açılır.": {
+    "tr": "Sıralamak için sürükle; gizlemek için simgeye tıkla veya sağ tıkla. Bitti’ye basınca gizleme geri açılır.",
+    "en": "Drag to reorder; click or right-click an icon to hide it. Done restores hiding.",
+    "de": "Zum Sortieren ziehen; zum Ausblenden auf ein Symbol klicken oder rechtsklicken. „Fertig“ aktiviert das Ausblenden wieder."
+  },
+  "Düzenle ile tüm simgeleri aç ve sırala. Gizlemek için simgeye tıkla veya sağ tıkla.": {
+    "tr": "Düzenle ile tüm simgeleri aç ve sırala. Gizlemek için simgeye tıkla veya sağ tıkla.",
+    "en": "Choose Edit to reveal and arrange all icons. Click or right-click an icon to hide it.",
+    "de": "Mit „Bearbeiten“ alle Symbole anzeigen und sortieren. Zum Ausblenden auf ein Symbol klicken oder rechtsklicken."
+  },
+  "Wi-Fi, pil ve saat simgeleri kendi macOS ayarlarını açar.": {
+    "tr": "Wi-Fi, pil ve saat simgeleri kendi macOS ayarlarını açar.",
+    "en": "Wi-Fi, battery, and clock icons open their macOS settings.",
+    "de": "Die Symbole für WLAN, Batterie und Uhr öffnen ihre macOS-Einstellungen."
+  },
+  "⌘ sürükleme rehberi": {
+    "tr": "⌘ sürükleme rehberi",
+    "en": "⌘ drag guide",
+    "de": "Anleitung zum ⌘-Ziehen"
+  },
+  "Sistem Ayarları açılamadı. Uygulamalar klasöründen açıp Menü Çubuğu bölümüne gidebilirsin.": {
+    "tr": "Sistem Ayarları açılamadı. Uygulamalar klasöründen açıp Menü Çubuğu bölümüne gidebilirsin.",
+    "en": "Could not open System Settings. Open it from Applications and select Menu Bar.",
+    "de": "Systemeinstellungen konnten nicht geöffnet werden. Öffne sie im Ordner Programme und wähle Menüleiste."
+  },
+  "Uygulamaları aşağıdaki gruplara sürükleyerek görünürlüklerini seç. Sıralama için yukarıdaki düzenleyiciyi kullan.": {
+    "tr": "Uygulamaları aşağıdaki gruplara sürükleyerek görünürlüklerini seç. Sıralama için yukarıdaki düzenleyiciyi kullan.",
+    "en": "Drag apps into the groups below to choose their visibility. Use the editor above to change their order.",
+    "de": "Ziehe Apps in die Gruppen unten, um ihre Sichtbarkeit festzulegen. Ändere die Reihenfolge im Editor oben."
+  },
+  "Wi-Fi": {
+    "tr": "Wi-Fi",
+    "en": "Wi-Fi",
+    "de": "WLAN"
+  },
+  "Pil": {
+    "tr": "Pil",
+    "en": "Battery",
+    "de": "Batterie"
+  },
+  "Saat ve tarih": {
+    "tr": "Saat ve tarih",
+    "en": "Time and date",
+    "de": "Uhrzeit und Datum"
+  },
+  "Wi-Fi, pil ve saat": {
+    "tr": "Wi-Fi, pil ve saat",
+    "en": "Wi-Fi, battery and clock",
+    "de": "WLAN, Batterie und Uhr"
+  },
+  "Bu simgelerin görünürlüğünü ve görünümünü macOS ayarlarından değiştirebilirsin.": {
+    "tr": "Bu simgelerin görünürlüğünü ve görünümünü macOS ayarlarından değiştirebilirsin.",
+    "en": "Change the visibility and appearance of these icons in macOS settings.",
+    "de": "Ändere die Sichtbarkeit und Darstellung dieser Symbole in den macOS-Einstellungen."
+  },
+  "Menü Çubuğu bölümünde Wi-Fi simgesini göster veya gizle.": {
+    "tr": "Menü Çubuğu bölümünde Wi-Fi simgesini göster veya gizle.",
+    "en": "Show or hide the Wi-Fi icon in Menu Bar settings.",
+    "de": "Blende das WLAN-Symbol in den Menüleisten-Einstellungen ein oder aus."
+  },
+  "Pil simgesini göster veya gizle; Pil Seçenekleri’nden yüzdeyi ayarla.": {
+    "tr": "Pil simgesini göster veya gizle; Pil Seçenekleri’nden yüzdeyi ayarla.",
+    "en": "Show or hide the battery icon; set the percentage in Battery Options.",
+    "de": "Blende das Batteriesymbol ein oder aus; ändere die Prozentanzeige unter Batterieoptionen."
+  },
+  "Saat Seçenekleri’nden tarihi, günü, saniyeyi ve saat görünümünü ayarla.": {
+    "tr": "Saat Seçenekleri’nden tarihi, günü, saniyeyi ve saat görünümünü ayarla.",
+    "en": "Set the date, day, seconds and clock appearance in Clock Options.",
+    "de": "Stelle Datum, Wochentag, Sekunden und Uhrdarstellung unter Uhroptionen ein."
+  },
+  "macOS’ta düzenle": {
+    "tr": "macOS’ta düzenle",
+    "en": "Edit in macOS",
+    "de": "In macOS ändern"
+  },
+  "Sistem Ayarları açılamadı": {
+    "tr": "Sistem Ayarları açılamadı",
+    "en": "Could not open System Settings",
+    "de": "Systemeinstellungen konnten nicht geöffnet werden"
+  },
+  "Tamam": {
+    "tr": "Tamam",
+    "en": "OK",
+    "de": "OK"
+  },
+  "Simgeleri düzenlemek için BStoeq’in Erişilebilirlik iznini aç.": {
+    "tr": "Simgeleri düzenlemek için BStoeq’in Erişilebilirlik iznini aç.",
+    "en": "Enable Accessibility access for BStoeq to arrange the icons.",
+    "de": "Aktiviere den Bedienungshilfenzugriff für BStoeq, um die Symbole anzuordnen."
+  },
+  "Bu simgenin konumu macOS tarafından sabitlenmiş olabilir.": {
+    "tr": "Bu simgenin konumu macOS tarafından sabitlenmiş olabilir.",
+    "en": "The position of this icon may be fixed by macOS.",
+    "de": "Die Position dieses Symbols ist möglicherweise durch macOS festgelegt."
+  },
+  "Simgeleri aynı ekranın menü çubuğu içinde taşı.": {
+    "tr": "Simgeleri aynı ekranın menü çubuğu içinde taşı.",
+    "en": "Move icons within the menu bar on the same display.",
+    "de": "Verschiebe Symbole innerhalb der Menüleiste desselben Bildschirms."
+  },
+  "Simgenin konumu değişti veya simgeye ulaşılamıyor. Yenile ve tekrar dene.": {
+    "tr": "Simgenin konumu değişti veya simgeye ulaşılamıyor. Yenile ve tekrar dene.",
+    "en": "The icon moved or is unavailable. Refresh and try again.",
+    "de": "Das Symbol wurde verschoben oder ist nicht verfügbar. Aktualisiere die Ansicht und versuche es erneut."
+  },
+  "İmleç kullanımda veya simgeye ulaşılamıyor. Sürüklemeyi bitirip tekrar dene.": {
+    "tr": "İmleç kullanımda veya simgeye ulaşılamıyor. Sürüklemeyi bitirip tekrar dene.",
+    "en": "The pointer is in use or the icon is unavailable. Finish dragging and try again.",
+    "de": "Der Zeiger wird verwendet oder das Symbol ist nicht verfügbar. Beende das Ziehen und versuche es erneut."
+  },
+  "Simge taşınamadı. Menü çubuğunu yenileyip tekrar dene.": {
+    "tr": "Simge taşınamadı. Menü çubuğunu yenileyip tekrar dene.",
+    "en": "The icon could not be moved. Refresh the menu bar and try again.",
+    "de": "Das Symbol konnte nicht verschoben werden. Aktualisiere die Menüleiste und versuche es erneut."
+  },
+  "İmleç hareket ettiği için taşıma durduruldu. Tekrar deneyebilirsin.": {
+    "tr": "İmleç hareket ettiği için taşıma durduruldu. Tekrar deneyebilirsin.",
+    "en": "The move stopped because the pointer moved. You can try again.",
+    "de": "Das Verschieben wurde wegen einer Zeigerbewegung angehalten. Du kannst es erneut versuchen."
+  },
+  "macOS bu taşımayı uygulamadı. Simge sabit olabilir; üst çubukta ⌘ tuşuyla sürüklemeyi deneyebilirsin.": {
+    "tr": "macOS bu taşımayı uygulamadı. Simge sabit olabilir; üst çubukta ⌘ tuşuyla sürüklemeyi deneyebilirsin.",
+    "en": "macOS did not apply this move. The icon may be fixed; try holding ⌘ and dragging it in the menu bar.",
+    "de": "macOS hat diese Verschiebung nicht übernommen. Das Symbol ist möglicherweise fest positioniert; versuche, es in der Menüleiste mit gedrückter ⌘-Taste zu ziehen."
+  },
+  "Saat": {
+    "tr": "Saat",
+    "en": "Clock",
+    "de": "Uhr"
+  },
+  "Denetim Merkezi": {
+    "tr": "Denetim Merkezi",
+    "en": "Control Center",
+    "de": "Kontrollzentrum"
+  },
+  "Wi‑Fi": {
+    "tr": "Wi‑Fi",
+    "en": "Wi‑Fi",
+    "de": "WLAN"
+  },
+  "Mac’inde, sana özel. Hesap yok, analitik yok; ağ yalnızca başlattığın indirmelerde kullanılır.": {
+    "tr": "Mac’inde, sana özel. Hesap yok, analitik yok; ağ yalnızca başlattığın indirmelerde kullanılır.",
+    "en": "Local to your Mac. No account, no analytics; the network is used only for downloads you start.",
+    "de": "Lokal auf deinem Mac. Kein Konto, keine Analysen; das Netzwerk wird nur für Downloads genutzt, die du startest."
+  },
+  "İndirmeler": {
+    "tr": "İndirmeler",
+    "en": "Downloads",
+    "de": "Downloads"
+  },
+  "İstediğin an, çevrimdışı.": {
+    "tr": "İstediğin an, çevrimdışı.",
+    "en": "Offline, whenever you like.",
+    "de": "Offline, wann immer du willst."
+  },
+  "YouTube bağlantısını yapıştır; videoyu veya yalnızca sesini Mac’ine indir.": {
+    "tr": "YouTube bağlantısını yapıştır; videoyu veya yalnızca sesini Mac’ine indir.",
+    "en": "Paste a YouTube link and save the video, or just its audio, to your Mac.",
+    "de": "Füge einen YouTube-Link ein und sichere das Video oder nur den Ton auf deinem Mac."
+  },
+  "YENİ İNDİRME": {
+    "tr": "YENİ İNDİRME",
+    "en": "NEW DOWNLOAD",
+    "de": "NEUER DOWNLOAD"
+  },
+  "YouTube bağlantısı": {
+    "tr": "YouTube bağlantısı",
+    "en": "YouTube link",
+    "de": "YouTube-Link"
+  },
+  "Tür": {
+    "tr": "Tür",
+    "en": "Type",
+    "de": "Art"
+  },
+  "Video": {
+    "tr": "Video",
+    "en": "Video",
+    "de": "Video"
+  },
+  "Müzik": {
+    "tr": "Müzik",
+    "en": "Music",
+    "de": "Musik"
+  },
+  "Kalite": {
+    "tr": "Kalite",
+    "en": "Quality",
+    "de": "Qualität"
+  },
+  "En iyi kalite": {
+    "tr": "En iyi kalite",
+    "en": "Best quality",
+    "de": "Beste Qualität"
+  },
+  "Biçim": {
+    "tr": "Biçim",
+    "en": "Format",
+    "de": "Format"
+  },
+  "Kayıt klasörü": {
+    "tr": "Kayıt klasörü",
+    "en": "Save to",
+    "de": "Speicherort"
+  },
+  "Değiştir…": {
+    "tr": "Değiştir…",
+    "en": "Change…",
+    "de": "Ändern…"
+  },
+  "İndir": {
+    "tr": "İndir",
+    "en": "Download",
+    "de": "Laden"
+  },
+  "İNDİRMELER": {
+    "tr": "İNDİRMELER",
+    "en": "DOWNLOADS",
+    "de": "DOWNLOADS"
+  },
+  "Bitenleri temizle": {
+    "tr": "Bitenleri temizle",
+    "en": "Clear finished",
+    "de": "Erledigte entfernen"
+  },
+  "Henüz indirme yok.": {
+    "tr": "Henüz indirme yok.",
+    "en": "No downloads yet.",
+    "de": "Noch keine Downloads."
+  },
+  "Sırada": {
+    "tr": "Sırada",
+    "en": "Queued",
+    "de": "In der Warteschlange"
+  },
+  "Hazırlanıyor…": {
+    "tr": "Hazırlanıyor…",
+    "en": "Preparing…",
+    "de": "Wird vorbereitet…"
+  },
+  "Dönüştürülüyor…": {
+    "tr": "Dönüştürülüyor…",
+    "en": "Converting…",
+    "de": "Wird konvertiert…"
+  },
+  "Tamamlandı": {
+    "tr": "Tamamlandı",
+    "en": "Done",
+    "de": "Fertig"
+  },
+  "İptal edildi": {
+    "tr": "İptal edildi",
+    "en": "Cancelled",
+    "de": "Abgebrochen"
+  },
+  "İptal et": {
+    "tr": "İptal et",
+    "en": "Cancel",
+    "de": "Abbrechen"
+  },
+  "Finder’da göster": {
+    "tr": "Finder’da göster",
+    "en": "Show in Finder",
+    "de": "Im Finder zeigen"
+  },
+  "Yeniden dene": {
+    "tr": "Yeniden dene",
+    "en": "Try again",
+    "de": "Erneut versuchen"
+  },
+  "Listeden kaldır": {
+    "tr": "Listeden kaldır",
+    "en": "Remove from list",
+    "de": "Aus der Liste entfernen"
+  },
+  "%@/sn": {
+    "tr": "%@/sn",
+    "en": "%@/s",
+    "de": "%@/s"
+  },
+  "Kalan süre %@": {
+    "tr": "Kalan süre %@",
+    "en": "%@ left",
+    "de": "Noch %@"
+  },
+  "Bu bağlantı zaten indiriliyor.": {
+    "tr": "Bu bağlantı zaten indiriliyor.",
+    "en": "This link is already downloading.",
+    "de": "Dieser Link wird bereits geladen."
+  },
+  "İndirme başarısız: %@": {
+    "tr": "İndirme başarısız: %@",
+    "en": "Download failed: %@",
+    "de": "Download fehlgeschlagen: %@"
+  },
+  "İndirme başlatılamadı: %@": {
+    "tr": "İndirme başlatılamadı: %@",
+    "en": "Could not start the download: %@",
+    "de": "Download konnte nicht gestartet werden: %@"
+  },
+  "Kayıt klasörü kullanılamıyor: %@": {
+    "tr": "Kayıt klasörü kullanılamıyor: %@",
+    "en": "The save folder cannot be used: %@",
+    "de": "Der Speicherort kann nicht verwendet werden: %@"
+  },
+  "İndirme için yt-dlp gerekli. Terminal’de aşağıdaki komutu çalıştır, ardından Yeniden denetle’ye bas.": {
+    "tr": "İndirme için yt-dlp gerekli. Terminal’de aşağıdaki komutu çalıştır, ardından Yeniden denetle’ye bas.",
+    "en": "Downloading needs yt-dlp. Run the command below in Terminal, then press Check again.",
+    "de": "Für Downloads wird yt-dlp benötigt. Führe den folgenden Befehl im Terminal aus und klicke dann auf „Erneut prüfen“."
+  },
+  "ffmpeg bulunamadı. Videolar tek dosyalı daha düşük kalitede, müzik M4A olarak iner. Tam kalite ve MP3 için ffmpeg kur.": {
+    "tr": "ffmpeg bulunamadı. Videolar tek dosyalı daha düşük kalitede, müzik M4A olarak iner. Tam kalite ve MP3 için ffmpeg kur.",
+    "en": "ffmpeg was not found. Videos download as a single lower-quality file and music as M4A. Install ffmpeg for full quality and MP3.",
+    "de": "ffmpeg wurde nicht gefunden. Videos werden als einzelne Datei in geringerer Qualität geladen, Musik als M4A. Installiere ffmpeg für volle Qualität und MP3."
+  },
+  "Komutu kopyala": {
+    "tr": "Komutu kopyala",
+    "en": "Copy command",
+    "de": "Befehl kopieren"
+  },
+  "Yeniden denetle": {
+    "tr": "Yeniden denetle",
+    "en": "Check again",
+    "de": "Erneut prüfen"
+  },
+  "Yalnızca indirme hakkına sahip olduğun içerikleri indir. BStoeq ağı yalnızca senin başlattığın indirmeler için kullanır.": {
+    "tr": "Yalnızca indirme hakkına sahip olduğun içerikleri indir. BStoeq ağı yalnızca senin başlattığın indirmeler için kullanır.",
+    "en": "Only download content you have the right to download. BStoeq uses the network only for downloads you start.",
+    "de": "Lade nur Inhalte, die du herunterladen darfst. BStoeq nutzt das Netzwerk nur für Downloads, die du startest."
+  },
+  "Video veya müzik indir…": {
+    "tr": "Video veya müzik indir…",
+    "en": "Download video or music…",
+    "de": "Video oder Musik laden…"
+  },
+  "İndirme klasörünü seç": {
+    "tr": "İndirme klasörünü seç",
+    "en": "Choose the download folder",
+    "de": "Download-Ordner wählen"
+  },
+  "Seç": {
+    "tr": "Seç",
+    "en": "Choose",
+    "de": "Auswählen"
+  },
+  "Oynatma listesi": {
+    "tr": "Oynatma listesi",
+    "en": "Playlist",
+    "de": "Playlist"
+  },
+  "Listedeki her video, liste adını taşıyan klasöre sırasıyla indirilir.": {
+    "tr": "Listedeki her video, liste adını taşıyan klasöre sırasıyla indirilir.",
+    "en": "Every video in the list is saved, in order, to a folder named after the list.",
+    "de": "Jedes Video der Liste wird der Reihe nach in einem Ordner mit dem Namen der Liste gesichert."
+  },
+  "Tüm liste": {
+    "tr": "Tüm liste",
+    "en": "Whole playlist",
+    "de": "Ganze Playlist"
+  },
+  "Yalnızca bu video": {
+    "tr": "Yalnızca bu video",
+    "en": "This video only",
+    "de": "Nur dieses Video"
+  },
+  "Oynatma listesi okunuyor…": {
+    "tr": "Oynatma listesi okunuyor…",
+    "en": "Reading playlist…",
+    "de": "Playlist wird gelesen…"
+  },
+  "Oynatma listesi okunamadı: %@": {
+    "tr": "Oynatma listesi okunamadı: %@",
+    "en": "Could not read the playlist: %@",
+    "de": "Playlist konnte nicht gelesen werden: %@"
+  },
+  "Bu oynatma listesinde indirilebilir video bulunamadı.": {
+    "tr": "Bu oynatma listesinde indirilebilir video bulunamadı.",
+    "en": "No downloadable videos were found in this playlist.",
+    "de": "In dieser Playlist wurden keine ladbaren Videos gefunden."
+  },
+  "%d / %d tamamlandı": {
+    "tr": "%d / %d tamamlandı",
+    "en": "%d of %d done",
+    "de": "%d von %d fertig"
+  },
+  "%d başarısız": {
+    "tr": "%d başarısız",
+    "en": "%d failed",
+    "de": "%d fehlgeschlagen"
+  },
+  "Başarısızları yeniden dene": {
+    "tr": "Başarısızları yeniden dene",
+    "en": "Retry failed",
+    "de": "Fehlgeschlagene wiederholen"
+  },
+  "Tümünü iptal et": {
+    "tr": "Tümünü iptal et",
+    "en": "Cancel all",
+    "de": "Alle abbrechen"
+  },
+  "Bu geçerli bir YouTube bağlantısı değil.": {
+    "tr": "Bu geçerli bir YouTube bağlantısı değil.",
+    "en": "That is not a valid YouTube link.",
+    "de": "Das ist kein gültiger YouTube-Link."
+  },
+  "Zaten indirilmişti": {
+    "tr": "Zaten indirilmişti",
+    "en": "Already downloaded",
+    "de": "Bereits geladen"
+  },
+  "İndirilen dosya bulunamadı.": {
+    "tr": "İndirilen dosya bulunamadı.",
+    "en": "The downloaded file could not be found.",
+    "de": "Die geladene Datei wurde nicht gefunden."
+  },
+  "Dosya kayıt klasörüne taşınamadı: %@": {
+    "tr": "Dosya kayıt klasörüne taşınamadı: %@",
+    "en": "The file could not be moved to the save folder: %@",
+    "de": "Die Datei konnte nicht in den Speicherort verschoben werden: %@"
+  },
+  "Bu liste çok uzun; yalnızca ilk 500 video sıraya alındı (toplam %@).": {
+    "tr": "Bu liste çok uzun; yalnızca ilk 500 video sıraya alındı (toplam %@).",
+    "en": "This playlist is very long; only the first 500 videos were queued (%@ in total).",
+    "de": "Diese Playlist ist sehr lang; nur die ersten 500 Videos wurden eingereiht (insgesamt %@)."
+  },
+  "Disk alanı": {
+    "tr": "Disk alanı",
+    "en": "Disk space",
+    "de": "Speicherplatz"
+  },
+  "Disk alanını tara…": {
+    "tr": "Disk alanını tara…",
+    "en": "Scan disk space…",
+    "de": "Speicherplatz prüfen …"
+  },
+  "Yer açmak artık kolay.": {
+    "tr": "Yer açmak artık kolay.",
+    "en": "Make room, the easy way.",
+    "de": "Platz schaffen, ganz einfach."
+  },
+  "Diskini tara, en çok yer kaplayanları gör ve gereksizleri Çöp Sepeti’ne taşı.": {
+    "tr": "Diskini tara, en çok yer kaplayanları gör ve gereksizleri Çöp Sepeti’ne taşı.",
+    "en": "Scan your disk, see what takes up the most space, and move what you don’t need to the Trash.",
+    "de": "Prüfe dein Laufwerk, sieh, was am meisten Platz belegt, und lege Überflüssiges in den Papierkorb."
+  },
+  "BStoeq hiçbir şeyi kalıcı olarak silmez. Seçtiklerin Çöp Sepeti’ne taşınır ve oradan geri alınabilir.": {
+    "tr": "BStoeq hiçbir şeyi kalıcı olarak silmez. Seçtiklerin Çöp Sepeti’ne taşınır ve oradan geri alınabilir.",
+    "en": "BStoeq never deletes anything for good. What you pick is moved to the Trash, where you can get it back.",
+    "de": "BStoeq löscht nichts endgültig. Deine Auswahl wird in den Papierkorb gelegt und kann von dort zurückgeholt werden."
+  },
+  "NEREYİ TARAYALIM?": {
+    "tr": "NEREYİ TARAYALIM?",
+    "en": "WHAT TO SCAN",
+    "de": "WAS SOLL GEPRÜFT WERDEN?"
+  },
+  "Ev klasörü": {
+    "tr": "Ev klasörü",
+    "en": "Home folder",
+    "de": "Benutzerordner"
+  },
+  "Başka bir klasör": {
+    "tr": "Başka bir klasör",
+    "en": "Another folder",
+    "de": "Anderer Ordner"
+  },
+  "Yalnızca seçtiğin klasör ve içindekiler taranır.": {
+    "tr": "Yalnızca seçtiğin klasör ve içindekiler taranır.",
+    "en": "Only the folder you choose and its contents are scanned.",
+    "de": "Nur der gewählte Ordner und sein Inhalt werden geprüft."
+  },
+  "Klasör seç…": {
+    "tr": "Klasör seç…",
+    "en": "Choose folder…",
+    "de": "Ordner wählen …"
+  },
+  "%@ boş · toplam %@": {
+    "tr": "%@ boş · toplam %@",
+    "en": "%@ free of %@",
+    "de": "%@ frei von %@"
+  },
+  "Tara": {
+    "tr": "Tara",
+    "en": "Scan",
+    "de": "Prüfen"
+  },
+  "Taranacak klasörü seç": {
+    "tr": "Taranacak klasörü seç",
+    "en": "Choose a folder to scan",
+    "de": "Ordner zum Prüfen wählen"
+  },
+  "TARANIYOR": {
+    "tr": "TARANIYOR",
+    "en": "SCANNING",
+    "de": "WIRD GEPRÜFT"
+  },
+  "Durdur": {
+    "tr": "Durdur",
+    "en": "Stop",
+    "de": "Stoppen"
+  },
+  "1 dosya": {
+    "tr": "1 dosya",
+    "en": "1 file",
+    "de": "1 Datei"
+  },
+  "%d dosya": {
+    "tr": "%d dosya",
+    "en": "%d files",
+    "de": "%d Dateien"
+  },
+  "YER KAPLAYANLAR": {
+    "tr": "YER KAPLAYANLAR",
+    "en": "WHAT TAKES UP SPACE",
+    "de": "WAS PLATZ BELEGT"
+  },
+  "Yeniden tara": {
+    "tr": "Yeniden tara",
+    "en": "Scan again",
+    "de": "Erneut prüfen"
+  },
+  "Başka bir yer tara": {
+    "tr": "Başka bir yer tara",
+    "en": "Scan somewhere else",
+    "de": "Etwas anderes prüfen"
+  },
+  "Klasör okunuyor…": {
+    "tr": "Klasör okunuyor…",
+    "en": "Reading folder…",
+    "de": "Ordner wird gelesen …"
+  },
+  "Bu klasör boş.": {
+    "tr": "Bu klasör boş.",
+    "en": "This folder is empty.",
+    "de": "Dieser Ordner ist leer."
+  },
+  "Daha fazla göster (%d öğe daha)": {
+    "tr": "Daha fazla göster (%d öğe daha)",
+    "en": "Show more (%d left)",
+    "de": "Mehr anzeigen (noch %d)"
+  },
+  "Üst klasöre dön": {
+    "tr": "Üst klasöre dön",
+    "en": "Go to the enclosing folder",
+    "de": "Zum übergeordneten Ordner"
+  },
+  "Çöp Sepeti’ne taşınıyor…": {
+    "tr": "Çöp Sepeti’ne taşınıyor…",
+    "en": "Moving to the Trash…",
+    "de": "Wird in den Papierkorb gelegt …"
+  },
+  "Yer açmak için öğeleri işaretle. Klasörlerin içine girmek için satıra tıkla.": {
+    "tr": "Yer açmak için öğeleri işaretle. Klasörlerin içine girmek için satıra tıkla.",
+    "en": "Tick items to make room. Click a row to look inside a folder.",
+    "de": "Markiere Objekte, um Platz zu schaffen. Klicke auf eine Zeile, um einen Ordner zu öffnen."
+  },
+  "%d öğe seçildi · %@": {
+    "tr": "%d öğe seçildi · %@",
+    "en": "%d items selected · %@",
+    "de": "%d Objekte ausgewählt · %@"
+  },
+  "1 öğe seçildi · %@": {
+    "tr": "1 öğe seçildi · %@",
+    "en": "1 item selected · %@",
+    "de": "1 Objekt ausgewählt · %@"
+  },
+  "Seçimi temizle": {
+    "tr": "Seçimi temizle",
+    "en": "Clear selection",
+    "de": "Auswahl aufheben"
+  },
+  "Çöp Sepeti’ne taşı": {
+    "tr": "Çöp Sepeti’ne taşı",
+    "en": "Move to Trash",
+    "de": "In den Papierkorb legen"
+  },
+  "macOS veya hesabın için gerekli ya da içinde başka bir disk bağlı; bu yüzden taşınamaz. İçine girip öğe seçebilirsin.": {
+    "tr": "macOS veya hesabın için gerekli ya da içinde başka bir disk bağlı; bu yüzden taşınamaz. İçine girip öğe seçebilirsin.",
+    "en": "macOS or your account needs this folder, or another disk is mounted inside it, so it cannot be moved. Open it to pick items inside.",
+    "de": "macOS oder dein Account benötigt diesen Ordner oder ein anderes Laufwerk ist darin eingebunden, daher kann er nicht bewegt werden. Öffne ihn, um Objekte darin auszuwählen."
+  },
+  "Ne kadar yer kapladığı bilinmediği için seçilemez. Yeni klasörler için yeniden tara; bulutta duran öğeleri kendi uygulamasından yönet.": {
+    "tr": "Ne kadar yer kapladığı bilinmediği için seçilemez. Yeni klasörler için yeniden tara; bulutta duran öğeleri kendi uygulamasından yönet.",
+    "en": "Cannot be selected because the space it takes up is unknown. Scan again for new folders; manage cloud-only items in their own app.",
+    "de": "Nicht auswählbar, da der belegte Platz unbekannt ist. Prüfe neue Ordner erneut; verwalte Cloud-Objekte in ihrer eigenen App."
+  },
+  "Klasörü aç": {
+    "tr": "Klasörü aç",
+    "en": "Open folder",
+    "de": "Ordner öffnen"
+  },
+  "Taranmadı: başka bir disk, yalnızca bulutta duran veya yeni bir klasör": {
+    "tr": "Taranmadı: başka bir disk, yalnızca bulutta duran veya yeni bir klasör",
+    "en": "Not scanned: another disk, a cloud-only folder, or a new folder",
+    "de": "Nicht geprüft: anderes Laufwerk, nur in der Cloud oder neuer Ordner"
+  },
+  "Okunamadı: erişim izni yok": {
+    "tr": "Okunamadı: erişim izni yok",
+    "en": "Could not be read: no permission",
+    "de": "Nicht lesbar: keine Zugriffsrechte"
+  },
+  "“%@” Çöp Sepeti’ne taşınsın mı?": {
+    "tr": "“%@” Çöp Sepeti’ne taşınsın mı?",
+    "en": "Move “%@” to the Trash?",
+    "de": "„%@“ in den Papierkorb legen?"
+  },
+  "%d öğe Çöp Sepeti’ne taşınsın mı?": {
+    "tr": "%d öğe Çöp Sepeti’ne taşınsın mı?",
+    "en": "Move %d items to the Trash?",
+    "de": "%d Objekte in den Papierkorb legen?"
+  },
+  "Toplam %@. Öğeler Çöp Sepeti’nden geri alınabilir; disk alanı Çöp Sepeti boşaltıldığında açılır.": {
+    "tr": "Toplam %@. Öğeler Çöp Sepeti’nden geri alınabilir; disk alanı Çöp Sepeti boşaltıldığında açılır.",
+    "en": "%@ in total. You can put the items back from the Trash; the space is freed when the Trash is emptied.",
+    "de": "Insgesamt %@. Die Objekte lassen sich aus dem Papierkorb zurücklegen; der Platz wird frei, wenn der Papierkorb entleert wird."
+  },
+  "%@ Çöp Sepeti’ne taşındı. Disk alanını açmak için Çöp Sepeti’ni boşalt.": {
+    "tr": "%@ Çöp Sepeti’ne taşındı. Disk alanını açmak için Çöp Sepeti’ni boşalt.",
+    "en": "%@ moved to the Trash. Empty the Trash to free the space.",
+    "de": "%@ in den Papierkorb gelegt. Entleere den Papierkorb, um den Platz freizugeben."
+  },
+  "Çöp Sepeti’ni aç": {
+    "tr": "Çöp Sepeti’ni aç",
+    "en": "Open Trash",
+    "de": "Papierkorb öffnen"
+  },
+  "Erişim izni olmadığı için okunamayan klasörler var (%d). Hepsini görmek için Sistem Ayarları’nda BStoeq’e Tam Disk Erişimi ver ve yeniden tara.": {
+    "tr": "Erişim izni olmadığı için okunamayan klasörler var (%d). Hepsini görmek için Sistem Ayarları’nda BStoeq’e Tam Disk Erişimi ver ve yeniden tara.",
+    "en": "Some folders could not be read for lack of permission (%d). To see everything, give BStoeq Full Disk Access in System Settings and scan again.",
+    "de": "Einige Ordner konnten mangels Zugriffsrechten nicht gelesen werden (%d). Um alles zu sehen, erlaube BStoeq in den Systemeinstellungen den Festplattenvollzugriff und prüfe erneut."
+  },
+  "Diskte kullanılan alan %@. Taramada görünmeyen %@ sistem verileri, anlık görüntüler ve okunamayan klasörlerdir.": {
+    "tr": "Diskte kullanılan alan %@. Taramada görünmeyen %@ sistem verileri, anlık görüntüler ve okunamayan klasörlerdir.",
+    "en": "%@ is in use on this disk. The %@ missing from the scan is system data, snapshots and folders that could not be read.",
+    "de": "Auf diesem Laufwerk sind %@ belegt. Die %@, die in der Prüfung fehlen, sind Systemdaten, Schnappschüsse und nicht lesbare Ordner."
+  },
+  "Bu klasör taranamadı. BStoeq’in bu klasöre erişim izni olmayabilir.": {
+    "tr": "Bu klasör taranamadı. BStoeq’in bu klasöre erişim izni olmayabilir.",
+    "en": "This folder could not be scanned. BStoeq may not have permission to read it.",
+    "de": "Dieser Ordner konnte nicht geprüft werden. BStoeq darf ihn möglicherweise nicht lesen."
+  },
+  "Klasör okunamadı: %@": {
+    "tr": "Klasör okunamadı: %@",
+    "en": "The folder could not be read: %@",
+    "de": "Der Ordner konnte nicht gelesen werden: %@"
+  },
+  "Çöp Sepeti’ne taşınamadı: %@": {
+    "tr": "Çöp Sepeti’ne taşınamadı: %@",
+    "en": "Could not be moved to the Trash: %@",
+    "de": "Konnte nicht in den Papierkorb gelegt werden: %@"
+  },
+  "Yalnızca bulutta; bu Mac’te yer kaplamıyor": {
+    "tr": "Yalnızca bulutta; bu Mac’te yer kaplamıyor",
+    "en": "In the cloud only; takes up no space on this Mac",
+    "de": "Nur in der Cloud; belegt keinen Platz auf diesem Mac"
+  },
+  "Başka bir yerde de bağlantısı var; taşımak yer açmayabilir": {
+    "tr": "Başka bir yerde de bağlantısı var; taşımak yer açmayabilir",
+    "en": "Also linked from elsewhere; moving it may not free space",
+    "de": "Auch an anderer Stelle verknüpft; Bewegen gibt eventuell keinen Platz frei"
+  },
+  "Taramadan sonra değiştiği için taşınmadı: %@": {
+    "tr": "Taramadan sonra değiştiği için taşınmadı: %@",
+    "en": "Not moved because it changed after the scan: %@",
+    "de": "Nicht bewegt, da nach der Prüfung geändert: %@"
+  },
+  "Okunamayan öğeler (%d) tarama sonucuna dahil edilmedi.": {
+    "tr": "Okunamayan öğeler (%d) tarama sonucuna dahil edilmedi.",
+    "en": "Unreadable items (%d) were left out of the results.",
+    "de": "Nicht lesbare Objekte (%d) wurden bei der Suche ausgelassen."
+  },
+  "Kullanıcı önbelleği": {
+    "tr": "Kullanıcı önbelleği",
+    "en": "User cache",
+    "de": "Benutzer-Cache"
+  },
+  "Çöp Sepeti’ne taşınan · %@ · %@": {
+    "tr": "Çöp Sepeti’ne taşınan · %@ · %@",
+    "en": "Moved to Trash · %@ · %@",
+    "de": "In den Papierkorb gelegt · %@ · %@"
+  },
+  "Artık uygun olmadığı için atlanan · %@": {
+    "tr": "Artık uygun olmadığı için atlanan · %@",
+    "en": "No longer eligible · %@",
+    "de": "Nicht mehr für die Bereinigung geeignet · %@"
+  },
+  "Taşınamayan · %@": {
+    "tr": "Taşınamayan · %@",
+    "en": "Could not be moved · %@",
+    "de": "Verschieben fehlgeschlagen · %@"
+  },
+  "Disk alanı Çöp Sepeti boşaltıldığında açılır.": {
+    "tr": "Disk alanı Çöp Sepeti boşaltıldığında açılır.",
+    "en": "Space is freed when you empty the Trash.",
+    "de": "Speicherplatz wird frei, wenn du den Papierkorb entleerst."
+  },
+  "Temizlik": {
+    "tr": "Temizlik",
+    "en": "Cleanup",
+    "de": "Bereinigung"
+  },
+  "Temizliği aç…": {
+    "tr": "Temizliği aç…",
+    "en": "Open Cleanup…",
+    "de": "Bereinigung öffnen …"
+  },
+  "Eski dosyalar ve uygulamalar": {
+    "tr": "Eski dosyalar ve uygulamalar",
+    "en": "Old files and apps",
+    "de": "Alte Dateien und Apps"
+  },
+  "Mac’ini tara ve Çöp Sepeti’ne taşımak istediklerini sonuçlardan seç.": {
+    "tr": "Mac’ini tara ve Çöp Sepeti’ne taşımak istediklerini sonuçlardan seç.",
+    "en": "Scan your Mac and choose what to move to the Trash.",
+    "de": "Prüfe deinen Mac und wähle aus, was du in den Papierkorb legen möchtest."
+  },
+  "Disk alanında başka bir klasörü incele": {
+    "tr": "Disk alanında başka bir klasörü incele",
+    "en": "Explore another folder in Disk Space",
+    "de": "Weiteren Ordner unter „Speicherplatz“ prüfen"
+  },
+  "Temizlik taraması": {
+    "tr": "Temizlik taraması",
+    "en": "Cleanup scan",
+    "de": "Nach alten Dateien und Apps suchen"
+  },
+  "Önbellekler, günlükler, geliştirici dosyaları, yükleyiciler ve uygulamalar": {
+    "tr": "Önbellekler, günlükler, geliştirici dosyaları, yükleyiciler ve uygulamalar",
+    "en": "Caches, logs, developer files, installers, and apps",
+    "de": "Caches, Protokolle, Entwicklerdateien, Installationsdateien und Apps"
+  },
+  "Taramayı başlat": {
+    "tr": "Taramayı başlat",
+    "en": "Start scan",
+    "de": "Suche starten"
+  },
+  "Taranan konumlar": {
+    "tr": "Taranan konumlar",
+    "en": "Scan locations",
+    "de": "Durchsuchte Ordner"
+  },
+  "Uygulama kapsayıcıları": {
+    "tr": "Uygulama kapsayıcıları",
+    "en": "App containers",
+    "de": "App-Container"
+  },
+  "Paylaşılan kapsayıcılar": {
+    "tr": "Paylaşılan kapsayıcılar",
+    "en": "Shared containers",
+    "de": "Gemeinsame Container"
+  },
+  "Eski günlükler": {
+    "tr": "Eski günlükler",
+    "en": "Old logs",
+    "de": "Alte Protokolle"
+  },
+  "Xcode önbellekleri": {
+    "tr": "Xcode önbellekleri",
+    "en": "Xcode caches",
+    "de": "Xcode-Caches"
+  },
+  "Geliştirici araçları": {
+    "tr": "Geliştirici araçları",
+    "en": "Developer tools",
+    "de": "Entwicklerwerkzeuge"
+  },
+  "Disk görüntüleri ve yükleyiciler": {
+    "tr": "Disk görüntüleri ve yükleyiciler",
+    "en": "Disk images and installers",
+    "de": "Disk-Images und Installationsdateien"
+  },
+  "Dosyalar taranıyor…": {
+    "tr": "Dosyalar taranıyor…",
+    "en": "Scanning files…",
+    "de": "Dateien werden geprüft …"
+  },
+  "Uygulamalar taranıyor…": {
+    "tr": "Uygulamalar taranıyor…",
+    "en": "Scanning apps…",
+    "de": "Apps werden geprüft …"
+  },
+  "Eski dosyalar": {
+    "tr": "Eski dosyalar",
+    "en": "Old files",
+    "de": "Alte Dateien"
+  },
+  "Son erişimi ve değişikliği en az 30 gün önce olan dosyalar.": {
+    "tr": "Son erişimi ve değişikliği en az 30 gün önce olan dosyalar.",
+    "en": "Files last accessed and modified at least 30 days ago.",
+    "de": "Dateien, die seit mindestens 30 Tagen weder gelesen noch geändert wurden."
+  },
+  "Dosya taraması tamamlanamadı. Yeniden deneyebilirsin.": {
+    "tr": "Dosya taraması tamamlanamadı. Yeniden deneyebilirsin.",
+    "en": "The file scan could not finish. You can try again.",
+    "de": "Die Dateisuche konnte nicht abgeschlossen werden. Du kannst sie erneut starten."
+  },
+  "Taranan konumlarda temizlenecek eski dosya bulunamadı.": {
+    "tr": "Taranan konumlarda temizlenecek eski dosya bulunamadı.",
+    "en": "No old files were found in the scanned folders.",
+    "de": "In den geprüften Ordnern wurden keine alten Dateien gefunden."
+  },
+  "Dosyaları taşı…": {
+    "tr": "Dosyaları taşı…",
+    "en": "Move files…",
+    "de": "Dateien bewegen …"
+  },
+  "Önbellek ve günlük seçimini kaldır": {
+    "tr": "Önbellek ve günlük seçimini kaldır",
+    "en": "Clear cache and log selection",
+    "de": "Cache- und Protokollauswahl aufheben"
+  },
+  "Tüm önbellek ve günlükleri seç": {
+    "tr": "Tüm önbellek ve günlükleri seç",
+    "en": "Select all caches and logs",
+    "de": "Alle Caches und Protokolle auswählen"
+  },
+  "Genişletilmiş": {
+    "tr": "Genişletilmiş",
+    "en": "Expanded",
+    "de": "Ausgeklappt"
+  },
+  "Daraltılmış": {
+    "tr": "Daraltılmış",
+    "en": "Collapsed",
+    "de": "Eingeklappt"
+  },
+  "İndirilenler’deki disk görüntülerini ve yükleyicileri tek tek seç.": {
+    "tr": "İndirilenler’deki disk görüntülerini ve yükleyicileri tek tek seç.",
+    "en": "Select disk images and installers from Downloads individually.",
+    "de": "Wähle Disk-Images und Installationsdateien aus dem Downloads-Ordner einzeln aus."
+  },
+  "Ana klasördeki dosyalar": {
+    "tr": "Ana klasördeki dosyalar",
+    "en": "Files directly in this folder",
+    "de": "Dateien direkt in diesem Ordner"
+  },
+  "Uzun süredir kullanılmayan uygulamalar": {
+    "tr": "Uzun süredir kullanılmayan uygulamalar",
+    "en": "Apps you haven’t used recently",
+    "de": "Länger ungenutzte Apps"
+  },
+  "Uygulamalar için kullanım eşiği": {
+    "tr": "Uygulamalar için kullanım eşiği",
+    "en": "Time since last app use",
+    "de": "Zeit seit der letzten App-Nutzung"
+  },
+  "%d gün": {
+    "tr": "%d gün",
+    "en": "%d days",
+    "de": "%d Tage"
+  },
+  "Son kullanım kaydı en az %d gün öncesine ait uygulamalar. Taşınacak uygulamaları tek tek seç.": {
+    "tr": "Son kullanım kaydı en az %d gün öncesine ait uygulamalar. Taşınacak uygulamaları tek tek seç.",
+    "en": "Apps last used at least %d days ago. Select each app you want to move.",
+    "de": "Die letzte bekannte Nutzung dieser Apps liegt mindestens %d Tage zurück. Wähle die Apps zum Verschieben einzeln aus."
+  },
+  "Uygulama taraması tamamlanamadı. Yeniden deneyebilirsin.": {
+    "tr": "Uygulama taraması tamamlanamadı. Yeniden deneyebilirsin.",
+    "en": "The app scan could not finish. You can try again.",
+    "de": "Die App-Suche konnte nicht abgeschlossen werden. Du kannst sie erneut starten."
+  },
+  "Okunamayan uygulama veya klasör sayısı · %d": {
+    "tr": "Okunamayan uygulama veya klasör sayısı · %d",
+    "en": "Unreadable apps or folders · %d",
+    "de": "Nicht lesbare Apps oder Ordner · %d"
+  },
+  "Son kullanım kaydı bulunmayan uygulamalar (%d)": {
+    "tr": "Son kullanım kaydı bulunmayan uygulamalar (%d)",
+    "en": "Apps without a last-used date (%d)",
+    "de": "Apps ohne bekanntes Nutzungsdatum (%d)"
+  },
+  "Bu uygulamaları Finder’da inceleyebilirsin.": {
+    "tr": "Bu uygulamaları Finder’da inceleyebilirsin.",
+    "en": "You can review these apps in Finder.",
+    "de": "Diese Apps kannst du im Finder prüfen."
+  },
+  "İncelenen uygulamalar arasında bu ölçüte uyan uygulama bulunamadı.": {
+    "tr": "İncelenen uygulamalar arasında bu ölçüte uyan uygulama bulunamadı.",
+    "en": "No scanned apps met this criterion.",
+    "de": "Keine der geprüften Apps erfüllt dieses Kriterium."
+  },
+  "Uygulamaları taşı…": {
+    "tr": "Uygulamaları taşı…",
+    "en": "Move apps…",
+    "de": "Apps bewegen …"
+  },
+  "Son kullanım · %@": {
+    "tr": "Son kullanım · %@",
+    "en": "Last used · %@",
+    "de": "Zuletzt verwendet · %@"
+  },
+  "1 uygulama": {
+    "tr": "1 uygulama",
+    "en": "1 app",
+    "de": "1 App"
+  },
+  "%d uygulama": {
+    "tr": "%d uygulama",
+    "en": "%d apps",
+    "de": "%d Apps"
+  },
+  "Seçim · %@": {
+    "tr": "Seçim · %@",
+    "en": "Selected · %@",
+    "de": "Ausgewählt · %@"
+  },
+  "Seçim yapılmadı": {
+    "tr": "Seçim yapılmadı",
+    "en": "Nothing selected",
+    "de": "Nichts ausgewählt"
+  },
+  "Seçili dosyalar Çöp Sepeti’ne taşınsın mı?": {
+    "tr": "Seçili dosyalar Çöp Sepeti’ne taşınsın mı?",
+    "en": "Move the selected files to the Trash?",
+    "de": "Ausgewählte Dateien in den Papierkorb legen?"
+  },
+  "Seçili uygulamalar Çöp Sepeti’ne taşınsın mı?": {
+    "tr": "Seçili uygulamalar Çöp Sepeti’ne taşınsın mı?",
+    "en": "Move the selected apps to the Trash?",
+    "de": "Ausgewählte Apps in den Papierkorb legen?"
+  },
+  "Seçtiklerini Çöp Sepeti’nden geri alabilirsin. Disk alanı Çöp Sepeti boşaltıldığında açılır.": {
+    "tr": "Seçtiklerini Çöp Sepeti’nden geri alabilirsin. Disk alanı Çöp Sepeti boşaltıldığında açılır.",
+    "en": "You can restore these items from the Trash. Space is freed when you empty the Trash.",
+    "de": "Du kannst diese Objekte aus dem Papierkorb zurücklegen. Speicherplatz wird frei, wenn du den Papierkorb entleerst."
+  },
+  "Geçerli öğe tamamlanınca duracak…": {
+    "tr": "Geçerli öğe tamamlanınca duracak…",
+    "en": "Stopping after the current item…",
+    "de": "Wird nach dem aktuellen Objekt angehalten …"
+  },
+  "Temizlik ilerlemesi": {
+    "tr": "Temizlik ilerlemesi",
+    "en": "Cleanup progress",
+    "de": "Fortschritt der Bereinigung"
+  },
+  "İşlenen · %d / %d": {
+    "tr": "İşlenen · %d / %d",
+    "en": "Processed · %d / %d",
+    "de": "Verarbeitet · %d / %d"
+  },
+  "Temizlik durduruldu. Kalan öğeleri listeden inceleyebilirsin.": {
+    "tr": "Temizlik durduruldu. Kalan öğeleri listeden inceleyebilirsin.",
+    "en": "Cleanup stopped. You can review the remaining items in the list.",
+    "de": "Die Bereinigung wurde angehalten. Die verbleibenden Objekte kannst du in der Liste prüfen."
+  },
+  "Tarayıcı ve Electron önbellekleri": {
+    "tr": "Tarayıcı ve Electron önbellekleri",
+    "en": "Browser and Electron caches",
+    "de": "Browser- und Electron-Caches"
+  },
+  "Tümü seçildi": {
+    "tr": "Tümü seçildi",
+    "en": "All selected",
+    "de": "Alle ausgewählt"
+  },
+  "Kısmen seçildi": {
+    "tr": "Kısmen seçildi",
+    "en": "Partially selected",
+    "de": "Teilweise ausgewählt"
+  },
+  "Erişilemedi": {
+    "tr": "Erişilemedi",
+    "en": "Could not be accessed",
+    "de": "Kein Zugriff"
+  },
+  "Konum bulunamadı": {
+    "tr": "Konum bulunamadı",
+    "en": "Location not found",
+    "de": "Kein Ordner gefunden"
+  },
+  "1 konum tarandı": {
+    "tr": "1 konum tarandı",
+    "en": "1 location scanned",
+    "de": "1 Ordner geprüft"
+  },
+  "%d konum tarandı": {
+    "tr": "%d konum tarandı",
+    "en": "%d locations scanned",
+    "de": "%d Ordner geprüft"
+  },
+  "Okunamayan öğe sayısı %d": {
+    "tr": "Okunamayan öğe sayısı %d",
+    "en": "Unreadable items · %d",
+    "de": "Nicht lesbare Objekte · %d"
+  },
+  "Korumalı konumlara erişimi macOS yönetir. Tam Disk Erişimi ayarını değiştirirsen yeniden tara.": {
+    "tr": "Korumalı konumlara erişimi macOS yönetir. Tam Disk Erişimi ayarını değiştirirsen yeniden tara.",
+    "en": "macOS controls access to protected locations. Scan again if you change the Full Disk Access setting.",
+    "de": "macOS regelt den Zugriff auf geschützte Ordner. Prüfe erneut, wenn du die Einstellung für den Festplattenvollzugriff änderst."
+  },
+  "Tam Disk Erişimi…": {
+    "tr": "Tam Disk Erişimi…",
+    "en": "Full Disk Access…",
+    "de": "Festplattenvollzugriff …"
+  },
+  "Arşivler": {
+    "tr": "Arşivler",
+    "en": "Archives",
+    "de": "Archive"
+  },
+  "Arşiv yöneticisini aç…": {
+    "tr": "Arşiv yöneticisini aç…",
+    "en": "Open archive manager…",
+    "de": "Archivverwaltung öffnen …"
+  }
+}

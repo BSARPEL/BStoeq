@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleExecutable</key>
+	<string>BStoeq</string>
+	<key>CFBundleIdentifier</key>
+	<string>local.barlet.app</string>
+	<key>CFBundleName</key>
+	<string>BStoeq</string>
+	<key>CFBundleDisplayName</key>
+	<string>BStoeq</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>18</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>27.0</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>tr</string>
+		<string>de</string>
+	</array>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSDesktopFolderUsageDescription</key>
+	<string>BStoeq measures files when you scan disk usage and accesses the files you choose for archive or file operations.</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>BStoeq measures files when you scan disk usage and accesses the files you choose for archive or file operations.</string>
+	<key>NSRemovableVolumesUsageDescription</key>
+	<string>BStoeq measures files when you scan disk usage and accesses the files you choose for archive or file operations.</string>
+	<key>NSNetworkVolumesUsageDescription</key>
+	<string>BStoeq measures files when you scan disk usage and accesses the files you choose for archive or file operations.</string>
+	<key>NSDownloadsFolderUsageDescription</key>
+	<string>BStoeq saves downloads here, scans file sizes and old installers, and accesses the files you choose for archive or file operations.</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>BStoeq © 2026. Includes 7-Zip, copyright Igor Pavlov. See Licenses.</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Archive</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>zip</string>
+				<string>rar</string>
+				<string>7z</string>
+				<string>001</string>
+				<string>tar</string>
+				<string>gz</string>
+				<string>tgz</string>
+				<string>bz2</string>
+				<string>xz</string>
+				<string>cab</string>
+				<string>arj</string>
+				<string>iso</string>
+				<string>xar</string>
+				<string>cpio</string>
+				<string>lzh</string>
+				<string>tbz</string>
+				<string>tbz2</string>
+				<string>txz</string>
+				<string>dmg</string>
+				<string>lzma</string>
+				<string>z</string>
+				<string>wim</string>
+				<string>deb</string>
+				<string>rpm</string>
+				<string>jar</string>
+				<string>war</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Open with BStoeq</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>bstoeqArchiveService</string>
+			<key>NSUserData</key>
+			<string>open</string>
+			<key>NSPortName</key>
+			<string>BStoeq</string>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSServiceDescription</key>
+			<string>Open with BStoeq</string>
+		</dict>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Compress with BStoeq…</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>bstoeqArchiveService</string>
+			<key>NSUserData</key>
+			<string>compress</string>
+			<key>NSPortName</key>
+			<string>BStoeq</string>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSServiceDescription</key>
+			<string>Compress with BStoeq…</string>
+		</dict>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Extract with BStoeq…</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>bstoeqArchiveService</string>
+			<key>NSUserData</key>
+			<string>extract</string>
+			<key>NSPortName</key>
+			<string>BStoeq</string>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSServiceDescription</key>
+			<string>Extract with BStoeq…</string>
+		</dict>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Extract to a new folder with BStoeq</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>bstoeqArchiveService</string>
+			<key>NSUserData</key>
+			<string>quickExtract</string>
+			<key>NSPortName</key>
+			<string>BStoeq</string>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSServiceDescription</key>
+			<string>Extract to a new folder with BStoeq</string>
+		</dict>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Test archive with BStoeq</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>bstoeqArchiveService</string>
+			<key>NSUserData</key>
+			<string>test</string>
+			<key>NSPortName</key>
+			<string>BStoeq</string>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSServiceDescription</key>
+			<string>Test archive with BStoeq</string>
+		</dict>
+	</array>
+</dict>
+</plist>
