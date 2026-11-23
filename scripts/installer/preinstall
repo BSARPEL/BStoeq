@@ -1,0 +1,26 @@
+#!/bin/sh
+# Runs as root before the payload is written. $2 is the install destination ("/").
+set -eu
+
+target="${2%/}/Applications/BStoeq.app"
+
+# Installer asks to close BStoeq first; a command-line install has no such prompt.
+if /usr/bin/pgrep -qx BStoeq; then
+    echo "BStoeq is running. Quit it from its menu bar icon and run the installer again." >&2
+    exit 1
+fi
+
+if [ -L "$target" ]; then
+    echo "$target is a link. Remove it and run the installer again." >&2
+    exit 1
+fi
+if [ -e "$target" ]; then
+    identifier=$(/usr/bin/plutil -extract CFBundleIdentifier raw "$target/Contents/Info.plist" 2>/dev/null) || identifier=''
+    if [ ! -d "$target" ] || [ "$identifier" != local.barlet.app ]; then
+        echo "$target is not BStoeq. Move it away and run the installer again." >&2
+        exit 1
+    fi
+    # Replace the previous copy as a whole. A file the new version no longer
+    # ships would stay behind and break the code signature of the bundle.
+    /bin/rm -rf "$target"
+fi

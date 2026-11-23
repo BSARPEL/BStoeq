@@ -1,0 +1,14 @@
+#!/bin/sh
+# Runs as root after the payload is written. $2 is the install destination ("/").
+set -eu
+
+target="${2%/}/Applications/BStoeq.app"
+
+/usr/bin/codesign --verify --deep --strict --all-architectures "$target"
+
+# A copy dragged into Applications belongs to the person who put it there. Keep
+# it that way, so scripts/install.sh can replace this copy later without root.
+owner=$(/usr/bin/stat -f %Su /dev/console 2>/dev/null) || owner=''
+if [ -n "$owner" ] && [ "$owner" != root ] && /usr/bin/id -u "$owner" >/dev/null 2>&1; then
+    /usr/sbin/chown -R -h "$owner":admin "$target"
+fi

@@ -4,7 +4,7 @@
 
 BStoeq 2.1, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
 
-[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.0/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
+[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.0/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Kurucu paketi](#kurucu-paketi-oluşturma) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -66,6 +66,21 @@ BSTOEQ_SIGNING_IDENTITY=- ./scripts/build.sh && open -R dist/BStoeq-macOS.zip
 ```
 
 Yerel imza için geliştirici sertifikası gerekmez. macOS internetten indirdiğin hazır bir uygulamanın geliştiricisini doğrulayamazsa paketin kaynağını kontrol et. Kendi kopyanı bu depodan derleyebilirsin. [Apple’ın uygulama güvenliği kılavuzu](https://support.apple.com/tr-tr/102445)
+
+### Kurucu paketi oluşturma
+
+BStoeq’i çift tıklanarak kurulan bir kurucu olarak vermek için **BStoeq-macOS.pkg** dosyasını oluştur. Aşağıdaki komut uygulamayı yukarıda anlatıldığı gibi derler ve standart bir macOS kurucu paketine yerleştirir.
+
+```sh
+BSTOEQ_SIGNING_IDENTITY=- ./scripts/package-installer.sh && open -R dist/BStoeq-macOS.pkg
+```
+
+Pakete çift tıklayınca Yükleyici açılır. Yönetici parolasını ister ve **BStoeq.app** dosyasını **Uygulamalar** klasörüne yerleştirir. Böylece uygulama beklediği konumdan açılır. Paket, macOS 27.0 veya üstünü çalıştıran Apple Silicon işlemcili bir Mac’in başlangıç diskine kurulur.
+
+- **Elindeki bir kopyayı paketlemek için** onu betiğe ver. Örneğin yayımlanmış ZIP’in SHA-256 özetini denetledikten sonra `./scripts/package-installer.sh ~/Downloads/BStoeq-macOS.zip` çalıştır. Bir `BStoeq.app` paketi de verilebilir.
+- **Güncelleme yaparken** önce menü çubuğundaki simgeden BStoeq’ten çık. Uygulama hâlâ çalışıyorsa kurucu durur. Uygulamalar klasöründeki önceki kopya bütün olarak değiştirilir, ayarların korunur.
+- **Paket yalnızca uygulamayı içerir.** Video ve müzik indirmek için `yt-dlp` ile `ffmpeg` araçlarını sonradan ekle. [Video ve müzik indirme](#video-ve-müzik-indirme)
+- **Paket imzasızdır.** İmzalamak için `BSTOEQ_INSTALLER_IDENTITY` değerini Anahtar Zinciri’ndeki bir *Developer ID Installer* sertifikası olarak ayarla. macOS, internetten indirilen imzasız bir paket için uyarı gösterir. Kaynağına güveniyorsan **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç** seçeneğini kullanabilirsin.
 
 ### Kurulumu denetleme
 
