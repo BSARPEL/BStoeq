@@ -2,9 +2,9 @@
 
 **English** · [Türkçe](README.tr.md)
 
-BStoeq 2.0 is a menu bar app for macOS 27 on Apple Silicon. Use it to arrange menu bar icons, open or create archives, see what takes up disk space, find duplicate files, uninstall apps together with their data, and manage YouTube downloads. The interface is available in Turkish, English and German.
+BStoeq 2.1 is a menu bar app for macOS 27 on Apple Silicon. Use it to arrange menu bar icons, open or create archives, see what takes up disk space, find duplicate files, uninstall apps together with their data, and manage YouTube downloads. The interface is available in Turkish, English and German.
 
-[Download for Mac](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Automatic setup with media tools](#automatic-setup) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
+[Download for Mac](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.0/BStoeq-macOS.zip) · [Automatic setup with media tools](#automatic-setup) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -17,15 +17,15 @@ BStoeq needs **a Mac with Apple Silicon and macOS 27.0 or later**. You can see y
 
 ### Installing the ready-made app
 
-1. Download **BStoeq-macOS.zip**. Running the ready-made app needs neither Xcode nor Homebrew. [Download the v2.0.0 app](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip)
-2. Before opening the ZIP, run `shasum -a 256 ~/Downloads/BStoeq-macOS.zip` in Terminal. Compare the result with the SHA-256 on the release page. [Release and verification summary](https://github.com/BSARPEL/BStoeq/releases/tag/v2.0.0)
+1. Download **BStoeq-macOS.zip**. Running the ready-made app needs neither Xcode nor Homebrew. [Download the v2.1.0 app](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.0/BStoeq-macOS.zip)
+2. Before opening the ZIP, run `shasum -a 256 ~/Downloads/BStoeq-macOS.zip` in Terminal. Compare the result with the SHA-256 on the release page. [Release and verification summary](https://github.com/BSARPEL/BStoeq/releases/tag/v2.1.0)
 3. Open the ZIP in Finder. If you are updating, quit BStoeq from the menu bar first. Move **BStoeq.app** to the **Applications** folder and open it from there.
 
 This package is signed locally (*ad hoc*) and is not notarized by Apple. If the first launch only warns that the developer cannot be verified, and you trust the source and have checked the SHA-256 digest, you can use **System Settings → Privacy & Security → Open Anyway**. [Apple’s guide to opening apps for the first time](https://support.apple.com/102445)
 
 ### Automatic setup
 
-**To install the ready-made app and the download tools together**, download the source archive of this repository with **Code → Download ZIP**. Open the archive in Finder and double-click **BStoeq Kur.command** in the resulting `BStoeq-main` folder. The setup runs in Terminal. It downloads the published `v2.0.0` ZIP, checks its SHA-256 digest, installs any missing media tools and places the app in the **Applications** folder. Full Xcode is not needed. [Download the installer files (main branch ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
+**To install the ready-made app and the download tools together**, download the source archive of this repository with **Code → Download ZIP**. Open the archive in Finder and double-click **BStoeq Kur.command** in the resulting `BStoeq-main` folder. The setup runs in Terminal. It downloads the published `v2.1.0` ZIP, checks its SHA-256 digest, installs any missing media tools and places the app in the **Applications** folder. Full Xcode is not needed. [Download the installer files (main branch ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
 
 To start the same process from Terminal, type `cd` followed by a space, drag the project folder into Terminal, press Return and run the command below.
 

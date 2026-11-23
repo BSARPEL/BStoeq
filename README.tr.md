@@ -2,9 +2,9 @@
 
 [English](README.md) · **Türkçe**
 
-BStoeq 2.0, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
+BStoeq 2.1, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
 
-[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
+[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.0/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -17,15 +17,15 @@ BStoeq için **Apple Silicon işlemcili bir Mac ve macOS 27.0 veya üstü** gere
 
 ### Hazır uygulamayı kurma
 
-1. **BStoeq-macOS.zip** dosyasını indir. Hazır uygulamayı çalıştırmak için Xcode veya Homebrew gerekmez. [v2.0.0 uygulamasını indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip)
-2. ZIP’i açmadan önce Terminal’de `shasum -a 256 ~/Downloads/BStoeq-macOS.zip` çalıştır. Çıkan değeri sürüm sayfasındaki SHA-256 ile karşılaştır. [Sürüm ve doğrulama özeti](https://github.com/BSARPEL/BStoeq/releases/tag/v2.0.0)
+1. **BStoeq-macOS.zip** dosyasını indir. Hazır uygulamayı çalıştırmak için Xcode veya Homebrew gerekmez. [v2.1.0 uygulamasını indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.0/BStoeq-macOS.zip)
+2. ZIP’i açmadan önce Terminal’de `shasum -a 256 ~/Downloads/BStoeq-macOS.zip` çalıştır. Çıkan değeri sürüm sayfasındaki SHA-256 ile karşılaştır. [Sürüm ve doğrulama özeti](https://github.com/BSARPEL/BStoeq/releases/tag/v2.1.0)
 3. ZIP’i Finder’da aç. Güncelleme yapıyorsan önce menü çubuğundan BStoeq’ten çık. **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı ve oradan aç.
 
 Bu paket yerel (*ad hoc*) imzalıdır ve Apple noter onayı taşımaz. İlk açılışta yalnızca geliştiricinin doğrulanamadığı uyarısı çıkarsa, kaynağa güveniyor ve SHA-256 özetini doğruladıysan **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç** seçeneğini kullanabilirsin. [Apple’ın ilk açılış kılavuzu](https://support.apple.com/tr-tr/102445)
 
 ### Otomatik kurulum
 
-**Hazır uygulamayı ve indirme araçlarını birlikte kurmak için** bu deponun **Code → Download ZIP** seçeneğiyle kaynak arşivini indir. Finder’da arşivi aç, çıkan `BStoeq-main` klasöründeki **BStoeq Kur.command** dosyasına çift tıkla. Kurulum Terminal’de çalışır. Yayımlanmış `v2.0.0` ZIP’ini indirir, SHA-256 özetini denetler, eksik medya araçlarını kurar ve uygulamayı **Uygulamalar** klasörüne yerleştirir. Tam Xcode gerekmez. [Kurucu dosyalarını indir (ana dal ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
+**Hazır uygulamayı ve indirme araçlarını birlikte kurmak için** bu deponun **Code → Download ZIP** seçeneğiyle kaynak arşivini indir. Finder’da arşivi aç, çıkan `BStoeq-main` klasöründeki **BStoeq Kur.command** dosyasına çift tıkla. Kurulum Terminal’de çalışır. Yayımlanmış `v2.1.0` ZIP’ini indirir, SHA-256 özetini denetler, eksik medya araçlarını kurar ve uygulamayı **Uygulamalar** klasörüne yerleştirir. Tam Xcode gerekmez. [Kurucu dosyalarını indir (ana dal ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
 
 Aynı işlemi Terminal’den başlatmak için `cd` yazıp bir boşluk bırak, proje klasörünü Terminal’e sürükle, Return’e bas ve aşağıdaki komutu çalıştır.
 
