@@ -107,7 +107,7 @@ has_ffmpeg_pair() {
 if [[ $mode == release ]]; then
     # Pin the asset and its known hash together. A different download is never extracted.
     package="$work_dir/BStoeq-macOS.zip"
-    expected_sha256=41d75b852f88293102a1fbd312e42a3b9d9c68c2dab2dda7554b902d54c71f59
+    expected_sha256=c1d259e0896f0b9d3f5876f01b3668ded87b08d637795e038b6979331dd03da5
     print 'Yayımlanmış BStoeq v2.1.1 indiriliyor.'
     /usr/bin/curl --fail --show-error --silent --location --retry 2 --proto '=https' --proto-redir '=https' \
         https://github.com/BSARPEL/BStoeq/releases/download/v2.1.1/BStoeq-macOS.zip -o "$package"
