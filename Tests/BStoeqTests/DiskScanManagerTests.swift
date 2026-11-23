@@ -325,6 +325,56 @@ final class DiskScanManagerTests: XCTestCase {
         XCTAssertFalse(manager.rows.contains { $0.name == "film-kopya.mkv" })
     }
 
+    @MainActor func testAFolderThatGrewAfterTheScanIsShownAgainBeforeItGoes() async throws {
+        let manager = makeManager()
+        manager.scan(target)
+        try await settled(manager)
+        let before = manager.scannedSize
+        manager.toggle(try row(manager, "projeler"))
+        let approved = manager.selectedRows
+        let approvedTotal = DiskScanManager.totalSize(of: approved)
+
+        try write("projeler/eski/sonradan.bin", bytes: 2_000_000)
+        manager.trash(approved)
+        try await settled(manager)
+        XCTAssertTrue(exists("projeler/eski/sonradan.bin"), "It would have gone under a total that left this file out")
+        XCTAssertEqual(manager.problem?.key, "Taramadan sonra değiştiği için taşınmadı: %@")
+        XCTAssertEqual(manager.problem?.detail, "projeler")
+        XCTAssertEqual(manager.trashed, 0)
+        let shown = try XCTUnwrap(try row(manager, "projeler").size)
+        XCTAssertGreaterThanOrEqual(shown, approvedTotal + 2_000_000)
+        XCTAssertEqual(manager.scannedSize, before + shown - approvedTotal)
+        XCTAssertEqual(manager.rows.first?.name, "projeler")
+
+        // Approved again at its real size, it goes.
+        XCTAssertEqual(manager.selectedRows.map(\.name), ["projeler"])
+        XCTAssertEqual(DiskScanManager.totalSize(of: manager.selectedRows), shown)
+        manager.trash(manager.selectedRows)
+        try await settled(manager)
+        XCTAssertFalse(exists("projeler"))
+        XCTAssertTrue(FileManager.default.fileExists(atPath: bin.appendingPathComponent("projeler/eski/sonradan.bin").path))
+        XCTAssertEqual(manager.trashed, shown)
+        XCTAssertEqual(manager.scannedSize, before - approvedTotal)
+        XCTAssertNil(manager.problem)
+    }
+
+    @MainActor func testTrashingAFileThatArrivedAfterTheScanKeepsTheTotals() async throws {
+        let manager = makeManager()
+        manager.scan(target)
+        try await settled(manager)
+        let before = manager.scannedSize, files = manager.trail.first?.fileCount
+        try write("indirilen.zip", bytes: 3_000_000)
+        manager.reload()
+        try await settled(manager)
+        let late = try row(manager, "indirilen.zip")
+        manager.trash([late])
+        try await settled(manager)
+        XCTAssertFalse(exists("indirilen.zip"))
+        XCTAssertEqual(manager.trashed, late.size)
+        XCTAssertEqual(manager.scannedSize, before, "The scan never counted it, so there is nothing to take off")
+        XCTAssertEqual(manager.trail.first?.fileCount, files)
+    }
+
     @MainActor func testAtomicSaveAfterSelectionLeavesNewFileInPlace() async throws {
         let manager = makeManager()
         manager.scan(target)

@@ -31,15 +31,14 @@ private final class BarPanel: NSPanel {
     func sync(model: AppModel) {
         guard model.panelPresented else { close(); return }
         if mode != model.preferences.revealMode { close() }
-        let pointer = NSEvent.mouseLocation
-        let screen = panel?.screen ?? NSScreen.screens.first(where: { $0.frame.contains(pointer) }) ?? NSScreen.main ?? NSScreen.screens.first
+        let screen = panel?.screen ?? NSScreen.containing(NSEvent.mouseLocation) ?? NSScreen.main ?? NSScreen.screens.first
         guard let screen else { return }
         let isBar = model.preferences.revealMode == .bar
         let count = model.panelApps.count
         let barWidth = min(420, max(260, CGFloat(count) * 36 + CGFloat(max(0, count - 1)) * 4 + 20))
         let barHeight: CGFloat = (count == 0 ? 132 : 92) + (model.trusted ? 0 : 28)
         let size = NSSize(width: isBar ? barWidth : 320, height: isBar ? barHeight : 340)
-        let x = anchor.flatMap { screen.frame.contains($0) ? $0.x : nil } ?? panel?.frame.midX ?? screen.visibleFrame.maxX - size.width / 2 - 12
+        let x = anchor.flatMap { ScreenGeometry.contains(screen.frame, pointer: $0) ? $0.x : nil } ?? panel?.frame.midX ?? screen.visibleFrame.maxX - size.width / 2 - 12
         let rect = PanelPlacement.frame(size: size, visibleFrame: screen.visibleFrame, anchorX: x,
             top: screen.frame.maxY - max(NSStatusBar.system.thickness, screen.safeAreaInsets.top) - 8)
         if let panel {

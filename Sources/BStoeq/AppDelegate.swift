@@ -122,11 +122,7 @@ import ArchiveWorkspace
             }
         }
         clickMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown]) { [weak self] _ in
-            let point = NSEvent.mouseLocation
-            let isMenuBar = NSScreen.screens.contains {
-                $0.frame.contains(point) && point.y >= $0.frame.maxY - max(28, $0.safeAreaInsets.top)
-            }
-            if !isMenuBar { self?.model.outsideClick() }
+            if !NSScreen.menuBarContains(NSEvent.mouseLocation) { self?.model.outsideClick() }
         }
         // Partial downloads of a previous run have no row to resume them from.
         model.downloads.discardStaleWorkingFiles()
@@ -214,6 +210,8 @@ import ArchiveWorkspace
 
     @objc private func statusClicked() {
         let event = NSApp.currentEvent
+        // A click shorter than one hover tick is otherwise never seen by the monitor.
+        hoverMonitor.pointerUsed()
         // A native Command-drag release must not toggle hiding or open the reveal panel.
         if event?.type == .leftMouseUp && event?.modifierFlags.contains(.command) == true { return }
         revealPanel.rememberAnchor(NSEvent.mouseLocation)

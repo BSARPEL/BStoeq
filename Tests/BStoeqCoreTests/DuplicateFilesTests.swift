@@ -93,6 +93,27 @@ final class DuplicateFilesTests: XCTestCase {
         XCTAssertEqual(elsewhere.groups.first?.files.count, 3)
     }
 
+    func testLibraryIsLeftAloneUnderTheDataVolumeNameToo() throws {
+        let data = bytes(6, 20_000)
+        try write("Documents/report.pdf", data)
+        try write("Desktop/report.pdf", data)
+        try write("Library/Application Support/Tool/report.pdf", data)
+        // On the startup disk every folder is also reachable below the data volume.
+        let alias = "/System/Volumes/Data" + root.path
+        var first = stat(), second = stat()
+        guard lstat(root.path, &first) == 0, lstat(alias, &second) == 0,
+              first.st_dev == second.st_dev, first.st_ino == second.st_ino else {
+            throw XCTSkip("The temporary folder is not on the startup disk's data volume")
+        }
+        let result = try XCTUnwrap(DuplicateFinder.scan(alias, home: root.path, minimumBytes: 1))
+        XCTAssertEqual(result.groups.count, 1)
+        XCTAssertEqual(result.groups.first?.files.count, 2)
+        XCTAssertFalse(result.groups.flatMap(\.files).contains { $0.path.contains("/Library/") })
+        // The same holds when the home folder was given under that name.
+        let aliasHome = try XCTUnwrap(DuplicateFinder.scan(root.path, home: alias, minimumBytes: 1))
+        XCTAssertEqual(aliasHome.groups.first?.files.count, 2)
+    }
+
     func testScanRefusesFilesAndStopsWhenCancelled() throws {
         let file = try write("single.bin", bytes(1, 10))
         XCTAssertNil(DuplicateFinder.scan(file))

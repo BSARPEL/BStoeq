@@ -60,7 +60,7 @@ public struct ArchiveService: Sendable {
         if !paths.isEmpty {
             let selections = selectedEntries.map(\.path)
             let file = stage.appendingPathComponent("selections.txt")
-            try selections.joined(separator: "\n").write(to: file, atomically: true, encoding: .utf8)
+            try listFile(selections).write(to: file, atomically: true, encoding: .utf8)
             args += ["-scsUTF-8", "-i@" + file.path]
         }
         args += ["--", archive.path]
@@ -107,6 +107,12 @@ public struct ArchiveService: Sendable {
         }
         guard missing.isEmpty else { throw ArchiveError.message("ARCHIVE_CHANGED") }
         return selected
+    }
+
+    /// 7-Zip trims every line of a list file and then removes one pair of surrounding
+    /// quotes. Quoting each name keeps its leading and trailing spaces and its own quotes.
+    private func listFile(_ names: [String]) -> String {
+        names.map { "\"" + $0 + "\"" }.joined(separator: "\n")
     }
 
     private func temporaryFolder() throws -> URL {
@@ -227,7 +233,7 @@ public struct ArchiveService: Sendable {
         try fm.createDirectory(at: outputFolder, withIntermediateDirectories: false)
         let result = outputFolder.appendingPathComponent(target.lastPathComponent)
         let inputList = stage.appendingPathComponent("inputs.txt")
-        try names.joined(separator: "\n").write(to: inputList, atomically: true, encoding: .utf8)
+        try listFile(names).write(to: inputList, atomically: true, encoding: .utf8)
         let inputArgs = ["-scsUTF-8", "-spd", "-i@" + inputList.path]
         if options.format == .rar {
             guard let rarTool else { throw ArchiveError.message("RAR_ENGINE_REQUIRED") }

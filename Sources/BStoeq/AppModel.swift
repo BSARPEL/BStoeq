@@ -6,6 +6,16 @@ import UniformTypeIdentifiers
 import BStoeqCore
 import BStoeqRuntime
 
+extension NSScreen {
+    /// The screen under a pointer location in Cocoa coordinates, top row included.
+    static func containing(_ pointer: NSPoint) -> NSScreen? {
+        screens.first { ScreenGeometry.contains($0.frame, pointer: pointer) }
+    }
+    static func menuBarContains(_ pointer: NSPoint) -> Bool {
+        screens.contains { ScreenGeometry.isInMenuBar(pointer, frame: $0.frame, topInset: $0.safeAreaInsets.top) }
+    }
+}
+
 struct BarApp: Identifiable {
     let id: String
     let name: String
@@ -236,8 +246,12 @@ struct BarApp: Identifiable {
     func panelKeyboardActivity() {
         if panelPresented { scheduleAutoHide() }
     }
+    /// An app picked from the panel is shown for that one menu. Nothing else ends
+    /// that state (the timer stays off so a menu is never hidden mid-use), so the
+    /// next click elsewhere does, even when outside clicks otherwise change nothing.
+    private var hidesOnOutsideClick: Bool { preferences.hideOnOutsideClick || selectedMenuAppID != nil }
     func outsideClick() {
-        guard !arrangingMenuBar, expanded, !revealingAll, preferences.hideOnOutsideClick else { return }
+        guard !arrangingMenuBar, expanded, !revealingAll, hidesOnOutsideClick else { return }
         scheduleOutsideClickCheck()
     }
     private func scheduleOutsideClickCheck() {
@@ -245,7 +259,7 @@ struct BarApp: Identifiable {
         // Let a native menu process the click before deciding whether it has closed.
         let work = DispatchWorkItem { [weak self] in
             guard let self, !self.arrangingMenuBar, self.expanded, !self.revealingAll,
-                  self.preferences.hideOnOutsideClick else { return }
+                  self.hidesOnOutsideClick else { return }
             // Decide only after the button is released. Hiding during a long press on
             // our own Hide button would be undone by that button's toggle on release.
             if NSEvent.pressedMouseButtons != 0 { self.scheduleOutsideClickCheck(); return }
@@ -365,11 +379,7 @@ struct BarApp: Identifiable {
         hideTimer = Timer.scheduledTimer(withTimeInterval: preferences.autoHideDelay, repeats: false) { [weak self] _ in
             MainActor.assumeIsolated {
                 guard let self, !self.arrangingMenuBar else { return }
-                let pointer = NSEvent.mouseLocation
-                let inMenuBar = NSScreen.screens.contains {
-                    $0.frame.contains(pointer) && pointer.y >= $0.frame.maxY - max(28, $0.safeAreaInsets.top)
-                }
-                if inMenuBar || NSEvent.pressedMouseButtons != 0 || self.shouldKeepRevealed?() == true { self.scheduleAutoHide() }
+                if NSScreen.menuBarContains(NSEvent.mouseLocation) || NSEvent.pressedMouseButtons != 0 || self.shouldKeepRevealed?() == true { self.scheduleAutoHide() }
                 else { self.hide() }
             }
         }

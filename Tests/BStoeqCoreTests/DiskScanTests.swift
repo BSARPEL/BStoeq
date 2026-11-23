@@ -119,6 +119,70 @@ final class DiskScanTests: XCTestCase {
         XCTAssertEqual(scanned.size, before[0] - (single.size ?? 0))
     }
 
+    func testAFolderThatGrewSinceTheScanIsMeasuredAgain() throws {
+        try write("klasor/a.bin", bytes: 100_000)
+        try write("diger/b.bin", bytes: 5_000)
+        let scanned = try XCTUnwrap(DiskScanner.scan(root.path)).root
+        func folderRow() throws -> DiskRow {
+            let rows = DiskListing.rows(try DiskListing.items(at: root.path), of: scanned, at: root.path)
+            return try XCTUnwrap(rows.first { $0.name == "klasor" })
+        }
+        let measured = try folderRow()
+        guard case .current = DiskTree.check(measured) else { return XCTFail("Nothing changed yet") }
+        let rootBefore = scanned.size, filesBefore = scanned.fileCount
+
+        // Deep enough that the folder's own entry does not change.
+        try write("klasor/derin/sonradan.bin", bytes: 900_000)
+        let stale = try folderRow()
+        XCTAssertEqual(stale.size, measured.size, "The listing still shows what the scan measured")
+        guard case .changed(let fresh?) = DiskTree.check(stale) else { return XCTFail("The growth went unnoticed") }
+        XCTAssertEqual(fresh.name, "klasor")
+        XCTAssertEqual(fresh.size, ["klasor", "klasor/a.bin", "klasor/derin", "klasor/derin/sonradan.bin"].reduce(0) { $0 + allocated($1) })
+        XCTAssertEqual(fresh.fileCount, 2)
+
+        DiskTree.replace(stale, with: fresh, in: [scanned])
+        XCTAssertEqual(scanned.size, rootBefore + fresh.size - (measured.size ?? 0))
+        XCTAssertEqual(scanned.fileCount, filesBefore + 1)
+        let current = try folderRow()
+        XCTAssertEqual(current.size, fresh.size)
+        XCTAssertEqual(current.fileCount, 2)
+        guard case .current = DiskTree.check(current) else { return XCTFail("The new measurement is the folder's own") }
+
+        // Files and folders without a measurement have nothing to compare.
+        let rows = DiskListing.rows(try DiskListing.items(at: root.path + "/diger"), of: try child(scanned, "diger"), at: root.path + "/diger")
+        guard case .current = DiskTree.check(try XCTUnwrap(rows.first)) else { return XCTFail("A file is not measured again") }
+        try FileManager.default.removeItem(at: root.appendingPathComponent("klasor"))
+        guard case .changed(nil) = DiskTree.check(current) else { return XCTFail("A missing folder cannot be current") }
+    }
+
+    func testAnUntouchedFolderWithAFileChargedElsewhereIsCurrent() throws {
+        try write("a/ortak.bin", bytes: 300_000)
+        try write("b/tek.bin", bytes: 10_000)
+        try FileManager.default.linkItem(at: root.appendingPathComponent("a/ortak.bin"), to: root.appendingPathComponent("b/ortak.bin"))
+        let scanned = try XCTUnwrap(DiskScanner.scan(root.path)).root
+        // The scan charged the shared file to one folder; measured alone, each holds it.
+        XCTAssertNotEqual(try child(scanned, "a").size + (try child(scanned, "b").size),
+                          try XCTUnwrap(DiskScanner.scan(root.path + "/a")).root.size + (try XCTUnwrap(DiskScanner.scan(root.path + "/b")).root.size))
+        for row in DiskListing.rows(try DiskListing.items(at: root.path), of: scanned, at: root.path) {
+            guard case .current = DiskTree.check(row) else { return XCTFail("\(row.name) did not change") }
+        }
+    }
+
+    func testAFileThatArrivedAfterTheScanLeavesTheTotalsAlone() throws {
+        try write("eski.bin", bytes: 300_000)
+        try write("alt/ic.bin", bytes: 40_000)
+        let scanned = try XCTUnwrap(DiskScanner.scan(root.path)).root
+        let before = scanned.size, files = scanned.fileCount
+        try write("gec.bin", bytes: 2_000_000)
+        let rows = DiskListing.rows(try DiskListing.items(at: root.path), of: scanned, at: root.path)
+        let late = try XCTUnwrap(rows.first { $0.name == "gec.bin" }), old = try XCTUnwrap(rows.first { $0.name == "eski.bin" })
+        XCTAssertEqual(late.size, allocated("gec.bin"))
+        DiskTree.remove(late, from: [scanned])
+        XCTAssertEqual([scanned.size, Int64(scanned.fileCount)], [before, Int64(files)], "It was never part of the totals")
+        DiskTree.remove(old, from: [scanned])
+        XCTAssertEqual([scanned.size, Int64(scanned.fileCount)], [before - (old.size ?? 0), Int64(files - 1)])
+    }
+
     func testCancelledMissingAndFileRootsGiveNoResult() throws {
         try write("dosya.bin", bytes: 100)
         XCTAssertNil(DiskScanner.scan(root.path, isCancelled: { true }))

@@ -23,10 +23,16 @@ import ApplicationServices
         timer?.invalidate(); timer = nil
         enteredAt = nil; fired = false; lastRead = .distantPast
     }
+    /// A click or a Command-drag is the user's own answer. Re-arming here would let
+    /// the hover reopen what that click just closed while the pointer still rests on
+    /// the icon, so wait until the pointer has left it.
+    func pointerUsed() {
+        enteredAt = nil; fired = true
+    }
     private func tick() {
         // Native Command-drag rearranges status items; hover must not interrupt it.
         guard !NSEvent.modifierFlags.contains(.command), NSEvent.pressedMouseButtons == 0 else {
-            enteredAt = nil; fired = false; return
+            pointerUsed(); return
         }
         guard AXIsProcessTrusted(), let primary = NSScreen.screens.first else { return }
         let mouse = NSEvent.mouseLocation

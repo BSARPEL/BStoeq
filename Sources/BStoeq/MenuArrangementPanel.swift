@@ -27,7 +27,7 @@ private final class ArrangementPanel: NSPanel {
         view.autoresizingMask = [.width, .height]
         panel.contentView = view
         self.panel = panel
-        positionPanel(on: NSScreen.screens.first(where: { $0.frame.contains(NSEvent.mouseLocation) }))
+        positionPanel(on: NSScreen.containing(NSEvent.mouseLocation))
         screenObserver = NotificationCenter.default.addObserver(forName: NSApplication.didChangeScreenParametersNotification,
             object: nil, queue: .main) { [weak self] _ in
                 MainActor.assumeIsolated { self?.positionPanel() }
@@ -36,7 +36,7 @@ private final class ArrangementPanel: NSPanel {
     }
 
     private func positionPanel(on preferredScreen: NSScreen? = nil) {
-        guard let panel, let screen = preferredScreen ?? panel.screen ?? NSScreen.screens.first(where: { $0.frame.contains(NSEvent.mouseLocation) }) ?? NSScreen.main else { return }
+        guard let panel, let screen = preferredScreen ?? panel.screen ?? NSScreen.containing(NSEvent.mouseLocation) ?? NSScreen.main else { return }
         let usable = screen.visibleFrame
         let width = min(484, max(300, usable.width - 32))
         // Keep the guide away from the actual menu-bar drag targets.

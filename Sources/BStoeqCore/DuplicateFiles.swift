@@ -228,6 +228,9 @@ public enum DuplicateFinder {
         }
         let mountLengths = Set(mounts.map(\.utf8.count))
         let library = DiskListing.join(DiskScanner.canonicalPath(home) ?? home, "Library")
+        // A scan started below the data volume's own name meets the Library under that name.
+        let libraryAlias = library.hasPrefix(aliasPrefix) ? String(library.dropFirst(DiskScanner.dataVolume.count))
+                                                          : DiskScanner.dataVolume + library
         let entered = 1
         var stack: [Int32] = []
         var linked = Set<FileIdentity>()
@@ -248,7 +251,7 @@ public enum DuplicateFinder {
                     let cloudOnly = status.st_flags & UInt32(SF_DATALESS) != 0
                     let mounted = mountLengths.contains(Int(entry.pointee.fts_pathlen)) && mounts.contains(path)
                     if cloudOnly || mounted { skipped += 1 }
-                    if hidden || cloudOnly || mounted || path == library || isPackage(path) {
+                    if hidden || cloudOnly || mounted || path == library || path == libraryAlias || isPackage(path) {
                         fts_set(stream, entry, FTS_SKIP)
                         continue
                     }

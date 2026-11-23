@@ -249,28 +249,41 @@ struct DiskTarget: Identifiable, Equatable {
         guard !accepted.isEmpty else { return }
         let ancestors = trail
         let move = moveToTrash
+        let mounts = volumes
         trashing = true; problem = nil
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             var moved: [DiskRow] = [], changed: [DiskRow] = [], failures: [(DiskRow, Error)] = []
+            var measured: [(DiskRow, DiskNode)] = []
             for row in accepted {
                 // An atomic save can replace a file without changing its name or type.
                 guard row.stillMatchesFile() else {
                     changed.append(row); continue
                 }
+                // A folder that grew since the scan would go whole under its old total.
+                // Leave it, show what it holds now and let the user decide again.
+                if case .changed(let fresh) = DiskTree.check(row, mountPoints: mounts) {
+                    changed.append(row)
+                    if let fresh { measured.append((row, fresh)) }
+                    continue
+                }
                 do { try move(URL(fileURLWithPath: row.path)); moved.append(row) }
                 catch { failures.append((row, error)) }
             }
-            let done = moved, stale = changed, failed = failures
+            let done = moved, stale = changed, failed = failures, fresh = measured
             DispatchQueue.main.async {
-                MainActor.assumeIsolated { self?.finishTrash(done, changed: stale, failed, ancestors: ancestors) }
+                MainActor.assumeIsolated {
+                    self?.finishTrash(done, changed: stale, measured: fresh, failed, ancestors: ancestors)
+                }
             }
         }
     }
 
-    private func finishTrash(_ moved: [DiskRow], changed: [DiskRow], _ failed: [(DiskRow, Error)], ancestors: [DiskNode]) {
+    private func finishTrash(_ moved: [DiskRow], changed: [DiskRow], measured: [(DiskRow, DiskNode)],
+                             _ failed: [(DiskRow, Error)], ancestors: [DiskNode]) {
         trashing = false
         // The result may have been closed or replaced while the files were moving.
         guard phase == .finished, trail.first === ancestors.first else { return }
+        for (row, fresh) in measured { DiskTree.replace(row, with: fresh, in: ancestors) }
         for row in moved {
             // One name of a hard-linked file frees nothing while the others remain.
             if !row.linked { trashed += row.size ?? 0 }

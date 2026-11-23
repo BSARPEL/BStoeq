@@ -357,7 +357,8 @@ struct DiskView: View {
     /// whatever could not be read. Say so instead of leaving the gap unexplained.
     private var volumeSummary: String? {
         guard let target = disk.target, target.kind == .volume, let used = target.used else { return nil }
-        let hidden = used - disk.scannedSize
+        // What went to the Trash is still on the disk, only no longer in the totals.
+        let hidden = used - disk.scannedSize - disk.trashed
         guard hidden > 1_000_000_000 else { return nil }
         return L("Diskte kullanılan alan %@. Taramada görünmeyen %@ sistem verileri, anlık görüntüler ve okunamayan klasörlerdir.",
                  Self.bytes(used), Self.bytes(hidden))

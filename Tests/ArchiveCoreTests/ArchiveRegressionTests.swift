@@ -159,6 +159,25 @@ final class ArchiveRegressionTests: XCTestCase {
         XCTAssertEqual(try FileManager.default.contentsOfDirectory(atPath: folder.path), [archive.lastPathComponent])
     }
 
+    func testNamesWithEdgeSpacesAndQuotesSurviveTheEngineListFile() async throws {
+        let names = [" lead.txt", "trail ", "\"quoted\"", "in\"side.txt", "plain.txt"]
+        let sources = try names.map { try file("src/" + $0, contents: $0) }
+        let spaced = try file("src/dir /inner.txt", contents: "inner").deletingLastPathComponent()
+        // Each selected item is written to the list file under its own name.
+        let outputs = try await service.create(files: sources + [spaced], at: folder.appendingPathComponent("flat.zip"),
+                                               options: ArchiveOptions(), control: JobControl())
+        let archive = try XCTUnwrap(outputs.first)
+        let listed = try await service.list(archive, control: JobControl()).entries.filter { !$0.isDirectory }.map(\.path)
+        XCTAssertEqual(Set(listed), Set(names + ["dir /inner.txt"]))
+        for name in names {
+            let out = try await service.extract(archive, to: folder, paths: [name], control: JobControl())
+            XCTAssertEqual(try FileManager.default.contentsOfDirectory(atPath: out.path), [name])
+            XCTAssertEqual(try String(contentsOf: out.appendingPathComponent(name), encoding: .utf8), name)
+        }
+        let out = try await service.extract(archive, to: folder, paths: ["dir "], control: JobControl())
+        XCTAssertEqual(try String(contentsOf: out.appendingPathComponent("dir /inner.txt"), encoding: .utf8), "inner")
+    }
+
     func testRootDirectoryRejectedBeforeScanningOrCreatingOutput() async throws {
         let root = URL(fileURLWithPath: "/", isDirectory: true)
         do { _ = try await create(root); XCTFail("Root source includes every output destination") }

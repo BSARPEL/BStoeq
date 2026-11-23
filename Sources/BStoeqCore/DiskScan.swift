@@ -20,6 +20,23 @@ private struct DiskEntryVersion: Equatable, Sendable {
         changeSeconds = status.st_ctimespec.tv_sec
         changeNanoseconds = status.st_ctimespec.tv_nsec
     }
+
+    var changedAt: Int64 { DiskClock.nanoseconds(seconds: changeSeconds, nanoseconds: changeNanoseconds) }
+}
+
+/// Moments on the clock that files are stamped with, in nanoseconds.
+private enum DiskClock {
+    static func nanoseconds(seconds: Int, nanoseconds: Int) -> Int64 {
+        Int64(seconds) * 1_000_000_000 + Int64(nanoseconds)
+    }
+    static func changed(_ status: stat) -> Int64 {
+        nanoseconds(seconds: status.st_ctimespec.tv_sec, nanoseconds: status.st_ctimespec.tv_nsec)
+    }
+    static func now() -> Int64 {
+        var time = timespec()
+        clock_gettime(CLOCK_REALTIME, &time)
+        return nanoseconds(seconds: time.tv_sec, nanoseconds: time.tv_nsec)
+    }
 }
 
 /// One scanned folder. Files are not kept: a full disk holds millions of them, so a
@@ -37,6 +54,10 @@ public final class DiskNode: @unchecked Sendable {
     /// The folder could not be opened: its size is unknown, not zero.
     public internal(set) var unreadable = false
     fileprivate var containsUnmeasuredItems = false
+    /// When the walk entered this folder. Whatever changed later was not measured.
+    fileprivate var measuredAt: Int64?
+    /// The newest change among everything the walk saw; kept on the scanned root.
+    fileprivate var latestChange: Int64 = 0
     public internal(set) var children: [DiskNode]
 
     public init(name: String, size: Int64 = 0, fileCount: Int = 0, children: [DiskNode] = []) {
@@ -131,6 +152,7 @@ public enum DiskScanner {
         var state = DiskScanProgress()
         var unreadable = 0, skipped = 0
         var visited = 0
+        var latestChange: Int64 = 0
         var lastReport = DispatchTime.now().uptimeNanoseconds
 
         while let entry = fts_read(stream) {
@@ -138,6 +160,7 @@ public enum DiskScanner {
             switch info {
             case FTS_D:
                 let status = entry.pointee.fts_statp.pointee
+                latestChange = max(latestChange, DiskClock.changed(status))
                 if entry.pointee.fts_level > 0 {
                     var leaveOut = status.st_flags & UInt32(SF_DATALESS) != 0
                     if !leaveOut, mountLengths.contains(Int(entry.pointee.fts_pathlen)) {
@@ -154,6 +177,7 @@ public enum DiskScanner {
                 let node = DiskNode(name: entry.pointee.fts_level == 0 ? root : name(of: entry),
                                     size: Int64(status.st_blocks) * 512)
                 node.identity = DiskFileIdentity(status)
+                node.measuredAt = DiskClock.now()
                 state.bytes += node.size
                 entry.pointee.fts_number = entered
                 if let parent = stack.last { parent.children.append(node) } else { rootNode = node }
@@ -187,6 +211,7 @@ public enum DiskScanner {
             default:
                 guard let folder = stack.last else { return nil }  // The root is a file.
                 let status = entry.pointee.fts_statp.pointee
+                latestChange = max(latestChange, DiskClock.changed(status))
                 if status.st_flags & UInt32(SF_DATALESS) != 0 { folder.containsUnmeasuredItems = true }
                 if status.st_nlink > 1,
                    !linked.insert(DiskFileIdentity(status)).inserted { continue }
@@ -212,6 +237,7 @@ public enum DiskScanner {
             node.containsUnmeasuredItems = true
             if let parent = stack.last { parent.size += node.size; parent.fileCount += node.fileCount }
         }
+        rootNode.latestChange = latestChange
         return DiskScanResult(root: rootNode, unreadable: unreadable, skipped: skipped)
     }
 
@@ -318,7 +344,49 @@ public enum DiskListing {
     }
 }
 
+/// Whether a folder still holds what its row says.
+public enum DiskFolderCheck {
+    case current
+    /// Something below it changed after it was measured. The new measurement is
+    /// `nil` when the folder can no longer be read.
+    case changed(DiskNode?)
+}
+
 public enum DiskTree {
+    /// A folder goes to the Trash whole, so the total the user approved must still be
+    /// its total. Walks the folder of `row` again; rows that are not measured folders
+    /// have nothing to compare and count as current.
+    public static func check(_ row: DiskRow, mountPoints: Set<String> = []) -> DiskFolderCheck {
+        guard row.isDirectory, let node = row.node else { return .current }
+        guard let fresh = DiskScanner.scan(row.path, mountPoints: mountPoints)?.root else { return .changed(nil) }
+        // Nothing below was touched since the scan read it. The totals may still differ:
+        // a hard-linked file is charged to one folder only, maybe not this one.
+        if let measuredAt = node.measuredAt, fresh.latestChange <= measuredAt { return .current }
+        // A volume that keeps another clock stamps everything "later"; equal totals
+        // are then what tells that the row still describes the folder.
+        if fresh.size == node.size, fresh.fileCount == node.fileCount, fresh.unreadable == node.unreadable,
+           fresh.containsUnmeasuredItems == node.containsUnmeasuredItems { return .current }
+        let replacement = DiskNode(name: node.name, size: fresh.size, fileCount: fresh.fileCount, children: fresh.children)
+        replacement.identity = fresh.identity
+        replacement.unreadable = fresh.unreadable
+        replacement.containsUnmeasuredItems = fresh.containsUnmeasuredItems
+        replacement.measuredAt = fresh.measuredAt
+        return .changed(replacement)
+    }
+
+    /// Puts a new measurement of a folder in place of the scan's and carries the
+    /// difference to every folder above it. `ancestors` as in `remove`.
+    public static func replace(_ row: DiskRow, with fresh: DiskNode, in ancestors: [DiskNode]) {
+        guard let old = row.node, let parent = ancestors.last,
+              let index = parent.children.firstIndex(where: { $0 === old }) else { return }
+        parent.children[index] = fresh
+        for ancestor in ancestors {
+            ancestor.size = max(0, ancestor.size + fresh.size - old.size)
+            ancestor.fileCount = max(0, ancestor.fileCount + fresh.fileCount - old.fileCount)
+            if fresh.unreadable || fresh.containsUnmeasuredItems { ancestor.containsUnmeasuredItems = true }
+        }
+    }
+
     /// Takes an item that left the open folder out of that folder's totals and of every
     /// folder above it. `ancestors` runs from the scanned root down to the open folder.
     public static func remove(_ row: DiskRow, from ancestors: [DiskNode]) {
@@ -327,6 +395,11 @@ public enum DiskTree {
             ancestors.last?.children.removeAll { $0 === node }
             bytes = node.size; files = node.fileCount
         } else if !row.isDirectory, !row.linked, let size = row.size {
+            // Files are not kept by the scan. One that arrived or changed after its
+            // folder was read was never counted at this size: taking it off the totals
+            // would take it off the files that were.
+            if let measuredAt = ancestors.last?.measuredAt, let version = row.version,
+               version.changedAt > measuredAt { return }
             // A hard-linked file was charged to one of its folders, maybe not this one,
             // and its blocks stay in use through the other names: nothing to subtract.
             bytes = size; files = 1

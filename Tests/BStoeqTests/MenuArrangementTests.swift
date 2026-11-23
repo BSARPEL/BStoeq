@@ -128,6 +128,29 @@ final class MenuArrangementTests: XCTestCase {
         }
     }
 
+    func testOutsideClickEndsASelectedMenuEvenWhenOutsideClicksDoNotHide() async throws {
+        let fixture = try await MainActor.run { try ArrangementFixture() }
+        await MainActor.run {
+            fixture.model.update { $0.hideOnOutsideClick = false }
+            fixture.model.toggle()
+            fixture.model.outsideClick()
+        }
+        try await Task.sleep(nanoseconds: 500_000_000)
+        await MainActor.run {
+            // Without a selection the setting still keeps the icons open.
+            XCTAssertTrue(fixture.model.expanded)
+            fixture.model.selectPanelApp(fixture.apps[0], revealOnly: true)
+            XCTAssertEqual(fixture.model.selectedMenuAppID, fixture.apps[0].id)
+            fixture.model.outsideClick()
+        }
+        try await Task.sleep(nanoseconds: 500_000_000)
+        await MainActor.run {
+            defer { fixture.cleanUp() }
+            XCTAssertNil(fixture.model.selectedMenuAppID)
+            XCTAssertFalse(fixture.model.expanded)
+        }
+    }
+
     func testArrangementCancelsNativeMenuAndDoesNotReopenIt() async throws {
         try await MainActor.run {
             let fixture = try ArrangementFixture()
