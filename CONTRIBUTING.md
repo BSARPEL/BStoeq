@@ -2,14 +2,14 @@
 
 ## Çalışma ortamı
 
-Güncel kaynak kodu ve medya araçlarını kurmak için proje klasöründe `./scripts/install.sh` çalıştır. `./scripts/install.sh --release` ise GitHub’daki hazır sürümü indirir, beklenen SHA-256 değerini denetler ve tam Xcode kurulumu olmadan yükler. Geliştirme ve test için Apple Silicon üzerinde macOS 27 veya üstü ve Swift 6 ile macOS 27 SDK’sını içeren tam Xcode kurulumu gerekir. SwiftUI görünümleri Xcode ile gelen makro eklentilerini kullanır. Proje kökünden SwiftPM komutlarını çalıştırabilirsin. [GitHub’dan kurulum](README.md#githubdan-kurulum)
+Güncel kaynak kodu ve medya araçlarını kurmak için proje klasöründe `./scripts/install.sh` çalıştır. `./scripts/install.sh --release` ise GitHub’daki hazır sürümü indirir, beklenen SHA-256 değerini denetler ve tam Xcode kurulumu olmadan yükler. Geliştirme ve test için Apple Silicon üzerinde macOS 27 veya üstü ve Swift 6 ile macOS 27 SDK’sını içeren tam Xcode kurulumu gerekir. SwiftUI görünümleri Xcode ile gelen makro eklentilerini kullanır. Proje kökünden SwiftPM komutlarını çalıştırabilirsin. [GitHub’dan kurulum](README.tr.md#githubdan-kurulum)
 
 ```sh
 swift build
 swift test
 ```
 
-Menü çubuğundaki davranışı denemek için aşağıdaki paketleme komutunu çalıştır. `dist/BStoeq-macOS.zip` içindeki uygulamayı **Uygulamalar** klasörüne kur ve oradan aç. Paketleme betiği derlenmiş arşiv motorunu, çalışma zamanında kullanılan kaynak paketlerini, çevirileri ve lisansları uygulamaya ekler. [Kurulum ve ilk açılış](README.md#githubdan-kurulum)
+Menü çubuğundaki davranışı denemek için aşağıdaki paketleme komutunu çalıştır. `dist/BStoeq-macOS.zip` içindeki uygulamayı **Uygulamalar** klasörüne kur ve oradan aç. Paketleme betiği derlenmiş arşiv motorunu, çalışma zamanında kullanılan kaynak paketlerini, çevirileri ve lisansları uygulamaya ekler. [Kurulum ve ilk açılış](README.tr.md#githubdan-kurulum)
 
 ## Kaynak düzeni
 

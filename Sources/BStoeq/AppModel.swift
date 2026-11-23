@@ -51,6 +51,7 @@ struct BarApp: Identifiable {
     let cache = CacheCleanupManager()
     let duplicates = DuplicateFinderManager()
     let uninstaller = AppUninstallManager()
+    let permissions = PermissionsManager()
     var onChange: (() -> Void)?
     var onShortcutChange: (() -> Void)?
     var onLanguageChange: (() -> Void)?

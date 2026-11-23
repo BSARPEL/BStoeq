@@ -173,4 +173,46 @@ final class NewToolsManagerTests: XCTestCase {
         XCTAssertEqual(manager.phase, .list)
         XCTAssertNil(manager.current)
     }
+
+    @MainActor func testPermissionsReadOnlyWhatWasAskedAboutAndRememberIt() async throws {
+        let suite = "local.barlet.tests.\(UUID().uuidString)"
+        let defaults = try XCTUnwrap(UserDefaults(suiteName: suite))
+        defer { defaults.removePersistentDomain(forName: suite) }
+        for name in ["Desktop", "Documents"] {
+            try fm.createDirectory(at: home.appendingPathComponent(name), withIntermediateDirectories: true)
+        }
+        let closed = home.appendingPathComponent("Documents").path
+        XCTAssertEqual(chmod(closed, 0), 0)
+        defer { _ = chmod(closed, 0o700) }
+        let probe = try write("probe.db", 1, bytes: 10)
+        XCTAssertEqual(chmod(probe, 0), 0)
+
+        let manager = PermissionsManager(home: home.path, defaults: defaults, fullDiskProbes: [probe])
+        manager.refresh()
+        try await settle { manager.fullDisk == .unknown }
+        XCTAssertEqual(manager.fullDisk, .denied)
+        XCTAssertTrue(manager.folders.isEmpty, "A folder nobody asked about is not touched")
+        XCTAssertEqual(manager.state(of: .desktop), .unknown)
+
+        manager.check(.desktop)
+        manager.check(.desktop)
+        manager.check(.documents)
+        manager.check(.downloads)
+        XCTAssertEqual(manager.checking, [.desktop, .documents, .downloads])
+        try await settle { !manager.checking.isEmpty }
+        XCTAssertEqual(manager.state(of: .desktop), .granted)
+        XCTAssertEqual(manager.state(of: .documents), .denied)
+        XCTAssertEqual(manager.state(of: .downloads), .unknown, "A missing folder gives no answer")
+
+        // Another launch reads the folders already asked about, and Full Disk Access covers them all.
+        XCTAssertEqual(chmod(probe, 0o600), 0)
+        let relaunched = PermissionsManager(home: home.path, defaults: defaults, fullDiskProbes: [probe])
+        XCTAssertTrue(relaunched.folders.isEmpty)
+        relaunched.refresh()
+        try await settle { relaunched.fullDisk == .unknown }
+        XCTAssertEqual(relaunched.fullDisk, .granted)
+        XCTAssertEqual(relaunched.folders[.documents], .denied)
+        XCTAssertEqual(relaunched.folders[.desktop], .granted)
+        XCTAssertEqual(relaunched.state(of: .documents), .granted)
+    }
 }

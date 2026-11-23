@@ -287,7 +287,7 @@ import ArchiveWorkspace
             window.titlebarAppearsTransparent = true
             window.toolbarStyle = .unified
             window.contentView = NSHostingView(rootView: SettingsView(model: model).padding(.top, 28))
-            window.minSize = NSSize(width: 980, height: 750)
+            window.minSize = NSSize(width: 980, height: 786)
             window.isReleasedWhenClosed = false
             window.delegate = self
             window.identifier = AppModel.settingsWindowID

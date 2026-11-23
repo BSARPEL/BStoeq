@@ -2248,5 +2248,120 @@
     "tr": "“Ada göre” işaretli klasörler uygulamanın kimliğiyle değil adıyla eşleşti. Başka bir uygulamaya ait olabilir; emin olduğunda işaretle.",
     "en": "Folders marked “By name” matched the app’s name, not its identifier. They may belong to another app; tick them only when you are sure.",
     "de": "Ordner mit dem Hinweis „Nach Name“ passen zum Namen der App, nicht zu ihrer Kennung. Sie könnten zu einer anderen App gehören; markiere sie nur, wenn du sicher bist."
+  },
+  "İzinler": {
+    "tr": "İzinler",
+    "en": "Permissions",
+    "de": "Berechtigungen"
+  },
+  "Hangi izin ne durumda?": {
+    "tr": "Hangi izin ne durumda?",
+    "en": "Which permission stands where?",
+    "de": "Welche Berechtigung hat welchen Stand?"
+  },
+  "BStoeq’in kullandığı macOS izinleri ve her birinin şu anki durumu.": {
+    "tr": "BStoeq’in kullandığı macOS izinleri ve her birinin şu anki durumu.",
+    "en": "The macOS permissions BStoeq uses, and the current state of each.",
+    "de": "Die macOS-Berechtigungen, die BStoeq verwendet, und ihr jeweiliger Stand."
+  },
+  "MENÜ ÇUBUĞU": {
+    "tr": "MENÜ ÇUBUĞU",
+    "en": "MENU BAR",
+    "de": "MENÜLEISTE"
+  },
+  "DOSYALAR VE UYGULAMALAR": {
+    "tr": "DOSYALAR VE UYGULAMALAR",
+    "en": "FILES AND APPS",
+    "de": "DATEIEN UND APPS"
+  },
+  "Erişilebilirlik": {
+    "tr": "Erişilebilirlik",
+    "en": "Accessibility",
+    "de": "Bedienungshilfen"
+  },
+  "Simgeleri sürükleyerek sıralamak, gizli uygulamaların menülerini açmak ve üzerine gelince göstermek için.": {
+    "tr": "Simgeleri sürükleyerek sıralamak, gizli uygulamaların menülerini açmak ve üzerine gelince göstermek için.",
+    "en": "For reordering icons by dragging, opening the menus of hidden apps and revealing on hover.",
+    "de": "Zum Sortieren der Symbole per Ziehen, zum Öffnen der Menüs ausgeblendeter Apps und zum Einblenden beim Überfahren."
+  },
+  "Tam Disk Erişimi": {
+    "tr": "Tam Disk Erişimi",
+    "en": "Full Disk Access",
+    "de": "Festplattenvollzugriff"
+  },
+  "Disk, temizlik ve kopya taramalarında korumalı klasörleri okumak ve kaldırılan uygulamaların korumalı verilerini taşımak için.": {
+    "tr": "Disk, temizlik ve kopya taramalarında korumalı klasörleri okumak ve kaldırılan uygulamaların korumalı verilerini taşımak için.",
+    "en": "For reading protected folders during disk, cleanup and duplicate scans, and for moving the protected data of removed apps.",
+    "de": "Zum Lesen geschützter Ordner bei Speicher-, Bereinigungs- und Duplikatprüfungen und zum Bewegen geschützter Daten entfernter Apps."
+  },
+  "Masaüstü klasörü": {
+    "tr": "Masaüstü klasörü",
+    "en": "Desktop folder",
+    "de": "Ordner „Schreibtisch“"
+  },
+  "Belgeler klasörü": {
+    "tr": "Belgeler klasörü",
+    "en": "Documents folder",
+    "de": "Ordner „Dokumente“"
+  },
+  "İndirilenler klasörü": {
+    "tr": "İndirilenler klasörü",
+    "en": "Downloads folder",
+    "de": "Ordner „Downloads“"
+  },
+  "Bu klasördeki dosyaları taramak ve seçtiğin dosyalarla çalışmak için.": {
+    "tr": "Bu klasördeki dosyaları taramak ve seçtiğin dosyalarla çalışmak için.",
+    "en": "For scanning the files in this folder and working with the files you choose.",
+    "de": "Zum Prüfen der Dateien in diesem Ordner und zum Arbeiten mit den Dateien, die du auswählst."
+  },
+  "Uygulama Yönetimi": {
+    "tr": "Uygulama Yönetimi",
+    "en": "App Management",
+    "de": "App-Verwaltung"
+  },
+  "Uygulama kaldırırken ve eski uygulamaları temizlerken başka uygulamaları Çöp Sepeti’ne taşımak için.": {
+    "tr": "Uygulama kaldırırken ve eski uygulamaları temizlerken başka uygulamaları Çöp Sepeti’ne taşımak için.",
+    "en": "For moving other apps to the Trash when you uninstall an app or clean up old ones.",
+    "de": "Zum Bewegen anderer Apps in den Papierkorb, wenn du eine App entfernst oder alte Apps bereinigst."
+  },
+  "Verildi": {
+    "tr": "Verildi",
+    "en": "Granted",
+    "de": "Erteilt"
+  },
+  "Verilmedi": {
+    "tr": "Verilmedi",
+    "en": "Not granted",
+    "de": "Nicht erteilt"
+  },
+  "Denetlenmedi": {
+    "tr": "Denetlenmedi",
+    "en": "Not checked",
+    "de": "Nicht geprüft"
+  },
+  "Belirlenemedi": {
+    "tr": "Belirlenemedi",
+    "en": "Could not be determined",
+    "de": "Nicht feststellbar"
+  },
+  "macOS bildirmiyor": {
+    "tr": "macOS bildirmiyor",
+    "en": "Not reported by macOS",
+    "de": "Von macOS nicht gemeldet"
+  },
+  "Denetle": {
+    "tr": "Denetle",
+    "en": "Check",
+    "de": "Prüfen"
+  },
+  "macOS bu klasörü daha önce sormadıysa izin penceresini gösterir.": {
+    "tr": "macOS bu klasörü daha önce sormadıysa izin penceresini gösterir.",
+    "en": "If macOS has not asked about this folder before, it shows its permission prompt.",
+    "de": "Falls macOS zu diesem Ordner noch nicht gefragt hat, erscheint die Berechtigungsabfrage."
+  },
+  "İzinlerin hepsi isteğe bağlıdır; simgeleri gizlemek için hiçbiri gerekmez. Tam Disk Erişimi verildiğinde klasör izinleri de verilmiş sayılır. Sistem Ayarları’nda yaptığın bir değişiklik, BStoeq’i kapatıp yeniden açtığında geçerli olabilir.": {
+    "tr": "İzinlerin hepsi isteğe bağlıdır; simgeleri gizlemek için hiçbiri gerekmez. Tam Disk Erişimi verildiğinde klasör izinleri de verilmiş sayılır. Sistem Ayarları’nda yaptığın bir değişiklik, BStoeq’i kapatıp yeniden açtığında geçerli olabilir.",
+    "en": "Every permission is optional; hiding icons needs none of them. Granting Full Disk Access also covers the folder permissions. A change you make in System Settings may take effect only after you quit and reopen BStoeq.",
+    "de": "Alle Berechtigungen sind optional; zum Ausblenden von Symbolen ist keine nötig. Der Festplattenvollzugriff schließt die Ordnerberechtigungen ein. Eine Änderung in den Systemeinstellungen wird möglicherweise erst wirksam, nachdem du BStoeq beendet und erneut geöffnet hast."
   }
 }

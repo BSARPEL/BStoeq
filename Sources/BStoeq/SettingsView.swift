@@ -50,6 +50,7 @@ struct SettingsView: View {
                         case "cache": CacheCleanupView(model: model, cache: model.cache)
                         case "duplicates": DuplicatesView(model: model, finder: model.duplicates)
                         case "uninstall": UninstallView(model: model, uninstaller: model.uninstaller)
+                        case "permissions": PermissionsView(model: model, permissions: model.permissions)
                         case "general": generalPage
                         default: menuPage
                         }
@@ -58,7 +59,7 @@ struct SettingsView: View {
                 footer
             }.frame(maxWidth: .infinity)
         }
-        .frame(minWidth: 980, minHeight: 700)
+        .frame(minWidth: 980, minHeight: 736)
         .background(Palette.page)
         .tint(Palette.accent)
         .onChange(of: model.searchFocusRequest) { _, _ in searchFocused = true }
@@ -83,6 +84,7 @@ struct SettingsView: View {
             nav("duplicates", L("Kopya dosyalar"), "doc.on.doc")
             nav("uninstall", L("Uygulama kaldır"), "xmark.app")
             nav("archives", L("Arşivler"), "archivebox") { model.openArchives?() }
+            nav("permissions", L("İzinler"), "lock.shield")
             nav("general", L("Genel"), "gearshape")
             Spacer()
             VStack(alignment: .leading, spacing: 9) {
@@ -126,6 +128,7 @@ struct SettingsView: View {
         case "cache": L("Temizlik")
         case "duplicates": L("Kopya dosyalar")
         case "uninstall": L("Uygulama kaldır")
+        case "permissions": L("İzinler")
         case "general": L("Genel")
         default: L("Menü çubuğu")
         }

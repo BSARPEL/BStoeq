@@ -1,37 +1,39 @@
-# ![BStoeq — macOS için menü çubuğu, arşiv, disk alanı ve indirme araçları](docs/images/bstoeq-hero.png)
+# ![BStoeq — menu bar, archive, disk space and download tools for macOS](docs/images/bstoeq-hero.png)
 
-BStoeq 2.0, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
+**English** · [Türkçe](README.tr.md)
 
-[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
+BStoeq 2.0 is a menu bar app for macOS 27 on Apple Silicon. Use it to arrange menu bar icons, open or create archives, see what takes up disk space, find duplicate files, uninstall apps together with their data, and manage YouTube downloads. The interface is available in Turkish, English and German.
+
+[Download for Mac](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Automatic setup with media tools](#automatic-setup) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
-  <img src="docs/images/archive-workspace-light.png" alt="BStoeq arşiv yöneticisinde örnek bir ZIP dosyası açık. Araç çubuğu, klasörler ve dosyaların sıkıştırılmış boyutları görünüyor." width="100%">
+  <img src="docs/images/archive-workspace-light.png" alt="A sample ZIP file open in the BStoeq archive manager, showing the toolbar, folders and the compressed sizes of the files." width="100%">
 </picture>
 
-## GitHub’dan kurulum
+## Installing from GitHub
 
-BStoeq için **Apple Silicon işlemcili bir Mac ve macOS 27.0 veya üstü** gerekir. İşlemcini ve macOS sürümünü ** → Bu Mac Hakkında** bölümünde görebilirsin.
+BStoeq needs **a Mac with Apple Silicon and macOS 27.0 or later**. You can see your processor and macOS version under **Apple menu → About This Mac**.
 
-### Hazır uygulamayı kurma
+### Installing the ready-made app
 
-1. **BStoeq-macOS.zip** dosyasını indir. Hazır uygulamayı çalıştırmak için Xcode veya Homebrew gerekmez. [v2.0.0 uygulamasını indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip)
-2. ZIP’i açmadan önce Terminal’de `shasum -a 256 ~/Downloads/BStoeq-macOS.zip` çalıştır. Çıkan değeri sürüm sayfasındaki SHA-256 ile karşılaştır. [Sürüm ve doğrulama özeti](https://github.com/BSARPEL/BStoeq/releases/tag/v2.0.0)
-3. ZIP’i Finder’da aç. Güncelleme yapıyorsan önce menü çubuğundan BStoeq’ten çık. **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı ve oradan aç.
+1. Download **BStoeq-macOS.zip**. Running the ready-made app needs neither Xcode nor Homebrew. [Download the v2.0.0 app](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip)
+2. Before opening the ZIP, run `shasum -a 256 ~/Downloads/BStoeq-macOS.zip` in Terminal. Compare the result with the SHA-256 on the release page. [Release and verification summary](https://github.com/BSARPEL/BStoeq/releases/tag/v2.0.0)
+3. Open the ZIP in Finder. If you are updating, quit BStoeq from the menu bar first. Move **BStoeq.app** to the **Applications** folder and open it from there.
 
-Bu paket yerel (*ad hoc*) imzalıdır ve Apple noter onayı taşımaz. İlk açılışta yalnızca geliştiricinin doğrulanamadığı uyarısı çıkarsa, kaynağa güveniyor ve SHA-256 özetini doğruladıysan **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç** seçeneğini kullanabilirsin. [Apple’ın ilk açılış kılavuzu](https://support.apple.com/tr-tr/102445)
+This package is signed locally (*ad hoc*) and is not notarized by Apple. If the first launch only warns that the developer cannot be verified, and you trust the source and have checked the SHA-256 digest, you can use **System Settings → Privacy & Security → Open Anyway**. [Apple’s guide to opening apps for the first time](https://support.apple.com/102445)
 
-### Otomatik kurulum
+### Automatic setup
 
-**Hazır uygulamayı ve indirme araçlarını birlikte kurmak için** bu deponun **Code → Download ZIP** seçeneğiyle kaynak arşivini indir. Finder’da arşivi aç, çıkan `BStoeq-main` klasöründeki **BStoeq Kur.command** dosyasına çift tıkla. Kurulum Terminal’de çalışır. Yayımlanmış `v2.0.0` ZIP’ini indirir, SHA-256 özetini denetler, eksik medya araçlarını kurar ve uygulamayı **Uygulamalar** klasörüne yerleştirir. Tam Xcode gerekmez. [Kurucu dosyalarını indir (ana dal ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
+**To install the ready-made app and the download tools together**, download the source archive of this repository with **Code → Download ZIP**. Open the archive in Finder and double-click **BStoeq Kur.command** in the resulting `BStoeq-main` folder. The setup runs in Terminal. It downloads the published `v2.0.0` ZIP, checks its SHA-256 digest, installs any missing media tools and places the app in the **Applications** folder. Full Xcode is not needed. [Download the installer files (main branch ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
 
-Aynı işlemi Terminal’den başlatmak için `cd` yazıp bir boşluk bırak, proje klasörünü Terminal’e sürükle, Return’e bas ve aşağıdaki komutu çalıştır.
+To start the same process from Terminal, type `cd` followed by a space, drag the project folder into Terminal, press Return and run the command below.
 
 ```sh
 ./scripts/install.sh --release
 ```
 
-**Ana daldaki en yeni düzeltmelerle kurmak için** proje klasöründe `./scripts/install.sh` çalıştır. Bu seçenek uygun Xcode sürümünü bulur veya kurar, uygulamayı bu klasördeki kaynak koddan derler ve yerel imzayla yükler. Git kullanıyorsan baştan sona şu komutları çalıştırabilirsin.
+**To install with the newest fixes on the main branch**, run `./scripts/install.sh` in the project folder. This option finds or installs a suitable Xcode, builds the app from the source in this folder and installs it with a local signature. If you use Git, you can run these commands from start to finish.
 
 ```sh
 git clone https://github.com/BSARPEL/BStoeq.git
@@ -39,101 +41,109 @@ cd BStoeq
 ./scripts/install.sh
 ```
 
-Betiği kendi kullanıcı hesabından çalıştır ve kurulum sırasında Terminal’i açık tut. Mevcut bir BStoeq kopyasını güncelliyorsan önce menü çubuğundaki simgeden uygulamadan çık.
+Run the script from your own user account and keep Terminal open during setup. If you are updating an existing copy of BStoeq, quit the app from its menu bar icon first.
 
-- **Homebrew** yalnızca eksik bir paketi kurmak için gerekir. Mac’inde yoksa betik resmî Homebrew kurucusunu indirir. Bu kurucu gerekli Apple Komut Satırı Araçlarını da yükler. Terminal’de onay veya yönetici parolası istenebilir. [Homebrew’un kurulum belgeleri](https://docs.brew.sh/Installation)
-- **Kaynaktan kurulumda uygun Xcode bulunamazsa** betik Homebrew üzerinden `mas` aracını yükler ve Mac App Store’dan Xcode’u edinmeyi veya güncellemeyi dener. App Store açılırsa Apple hesabınla orada oturum aç, Xcode’un indirilmesini tamamla ve proje klasöründe `./scripts/install.sh` komutunu tekrarla. Xcode ilk kullanım bileşenleri veya lisans onayı istiyorsa açılan Xcode penceresindeki adımları tamamla. [mas ile App Store kurulumu](https://github.com/mas-cli/mas#commands)
-- **Medya indirmeleri için** kurucu, uygulamanın erişebildiği mevcut araçları kullanır. Eksikse YouTube bağlantıları için `yt-dlp` ve JavaScript çalışma ortamı `deno`, ses ve video işlemleri için `ffmpeg` ile `ffprobe` kurulur. [Homebrew yt-dlp paketi](https://formulae.brew.sh/formula/yt-dlp)
+- **Homebrew** is needed only to install a missing package. If your Mac does not have it, the script downloads the official Homebrew installer, which also installs the required Apple Command Line Tools. Terminal may ask for confirmation or an administrator password. [Homebrew installation documentation](https://docs.brew.sh/Installation)
+- **If no suitable Xcode is found when installing from source**, the script installs the `mas` tool through Homebrew and tries to get or update Xcode from the Mac App Store. If the App Store opens, sign in there with your Apple Account, let Xcode finish downloading and run `./scripts/install.sh` in the project folder again. If Xcode asks for first-launch components or a license agreement, complete the steps in the Xcode window that opens. [Installing from the App Store with mas](https://github.com/mas-cli/mas#commands)
+- **For media downloads**, the installer uses the existing tools the app can reach. If they are missing, it installs `yt-dlp` and the JavaScript runtime `deno` for YouTube links, and `ffmpeg` with `ffprobe` for audio and video processing. [Homebrew yt-dlp package](https://formulae.brew.sh/formula/yt-dlp)
 
-Kurulum tamamlandığında **Uygulamalar → BStoeq**’i aç veya Terminal’de şu komutu çalıştır.
+When setup finishes, open **Applications → BStoeq** or run this command in Terminal.
 
 ```sh
 open /Applications/BStoeq.app
 ```
 
-İlk açılışta ayarlar penceresi ve menü çubuğu simgesi görünür. Pencereyi kapattıktan sonra simgeye sağ tıklayıp **BStoeq ayarları…** veya **Arşiv yöneticisini aç…** seçeneğini kullanabilirsin.
+On first launch the settings window and the menu bar icon appear. After closing the window, right-click the icon and choose **BStoeq Settings…** or **Open archive manager…**.
 
-### Elle paketleme ve kurulum
+### Packaging and installing by hand
 
-GitHub’ın **Code → Download ZIP** ve **Source code (zip)** seçenekleri derleme için kaynak kodu içerir.
+GitHub’s **Code → Download ZIP** and **Source code (zip)** options contain the source code for building.
 
-Paketi kendin oluşturmak için Swift 6 araç zincirini ve macOS 27 SDK’sını içeren tam Xcode uygulamasını kur. Xcode’u açıp ilk kullanım adımlarını tamamla. Proje klasöründe aşağıdaki komutu çalıştır. Derleme başarıyla tamamlanınca Finder’da seçilen ZIP’i aç ve **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı.
+To build the package yourself, install the full Xcode app with the Swift 6 toolchain and the macOS 27 SDK. Open Xcode and complete its first-launch steps. Run the command below in the project folder. When the build succeeds, open the ZIP selected in Finder and move **BStoeq.app** to the **Applications** folder.
 
 ```sh
 BSTOEQ_SIGNING_IDENTITY=- ./scripts/build.sh && open -R dist/BStoeq-macOS.zip
 ```
 
-Yerel imza için geliştirici sertifikası gerekmez. macOS internetten indirdiğin hazır bir uygulamanın geliştiricisini doğrulayamazsa paketin kaynağını kontrol et. Kendi kopyanı bu depodan derleyebilirsin. [Apple’ın uygulama güvenliği kılavuzu](https://support.apple.com/tr-tr/102445)
+A local signature needs no developer certificate. If macOS cannot verify the developer of a ready-made app you downloaded from the internet, check where the package came from. You can build your own copy from this repository. [Apple’s guide to app security](https://support.apple.com/102445)
 
-### Kurulumu denetleme
+### Checking the installation
 
-- **Uygulama, Uygulamalar klasörünü açmanı istiyorsa** çıkarttığın kopyayı `/Applications/BStoeq.app` konumuna taşı ve oradan başlat.
-- **Derleme sırasında SDK veya `SwiftUIMacros` hatası alırsan** macOS 27 SDK’sını içeren tam Xcode uygulamasını aç. **Xcode → Settings → Locations → Command Line Tools** bölümünde bu Xcode sürümünü seç. Terminal’de `xcrun --sdk macosx --show-sdk-version` ile SDK sürümünü kontrol edip kurulum komutunu yeniden çalıştır. [Apple’ın Xcode indirme sayfası](https://developer.apple.com/xcode/resources/)
-- **Kurulu sürümü denetlemek için** aşağıdaki komutu çalıştır. Çıktıda sürüm, uygulama konumu ve Erişilebilirlik izninin durumu görünür. `MenuBarClientCore: unavailable` görünüyorsa menü simgelerini gizlemek için gereken sistem bileşeni bu macOS sürümünde kullanılamıyordur.
+- **If the app asks you to open the Applications folder**, move the extracted copy to `/Applications/BStoeq.app` and start it from there.
+- **If the build fails with an SDK or `SwiftUIMacros` error**, open the full Xcode app that includes the macOS 27 SDK. Select that Xcode under **Xcode → Settings → Locations → Command Line Tools**. Check the SDK version in Terminal with `xcrun --sdk macosx --show-sdk-version` and run the setup command again. [Apple’s Xcode download page](https://developer.apple.com/xcode/resources/)
+- **To check the installed version**, run the command below. The output shows the version, the app’s location and the state of the Accessibility permission. If it shows `MenuBarClientCore: unavailable`, the system component needed to hide menu bar icons cannot be used on this macOS version.
 
 ```sh
 /Applications/BStoeq.app/Contents/MacOS/BStoeq --diagnostics
 ```
 
-## Menü çubuğu
+## Menu bar
 
-**Ayarlar → Menü çubuğu** bölümünde hangi uygulama simgelerinin görünür, gizli veya sürekli gizli kalacağını seç. Gizli öğeleri menü çubuğunda, alt panelde veya aramalı listede açabilirsin. Başka uygulamaların simgelerini sürükleyerek sıralamak veya panelden menülerini açmak istiyorsan **Sistem Ayarları → Gizlilik ve Güvenlik → Erişilebilirlik** bölümünde **BStoeq**’i etkinleştir.
+Under **Settings → Menu bar**, choose which app icons stay visible, hidden or always hidden. You can open hidden items in the menu bar, in a panel below it or in a searchable list. To reorder other apps’ icons by dragging, or to open their menus from the panel, enable **BStoeq** under **System Settings → Privacy & Security → Accessibility**.
 
-### Klavye kısayolları
+### Keyboard shortcuts
 
-`⌥⌘B` gizli simgeleri gösterir veya gizler. `⌥⌘K` ayarları açıp uygulama aramasına geçer. Bu iki tuş birleşimini **Ayarlar → Kısayollar** bölümünden değiştirebilirsin. Menü çubuğunda bir simgeyi bulamadığında `⌥⌘0` tüm simgeleri geri getirir.
+`⌥⌘B` shows or hides the hidden icons. `⌥⌘K` opens the settings and moves to the app search. You can change these two shortcuts under **Settings → Shortcuts**. When you cannot find an icon in the menu bar, `⌥⌘0` brings every icon back.
 
-![BStoeq’in varsayılan klavye kısayolları ve tüm simgeleri geri getirme seçeneği](docs/images/shortcut-settings.png)
+![BStoeq’s default keyboard shortcuts and the option that brings back all icons](docs/images/shortcut-settings.png)
 
-## Arşivler
+## Archives
 
-**Arşivler** penceresinde bir arşivi aç veya pencereye sürükle. Dosyaları ada göre ara, önizle, bütünlüğünü test et veya seçtiklerini yeni bir klasöre çıkart. Yeni arşiv oluştururken dosyaları ya da klasörleri seçip biçim ve sıkıştırma düzeyini ayarlayabilirsin.
+In the **Archives** window, open an archive or drag one onto the window. Search files by name, preview them, test the archive’s integrity or extract your selection to a new folder. When creating an archive, choose files or folders and set the format and compression level.
 
-- Birlikte gelen **7-Zip** motoruyla ZIP, 7z, TAR, TAR.GZ, TAR.BZ2 ve TAR.XZ oluşturulabilir. RAR4 ve RAR5 dosyaları açılabilir ve çıkartılabilir.
-- ZIP ve 7z arşivlerinde AES-256 şifreleme ve çok parçalı çıktı desteklenir. Çok parçalı bir arşivi okumak için parçaları aynı klasöre koyup `.001` dosyasını aç.
-- Şifresiz, tek parçalı ZIP, 7z ve TAR arşivlerine dosya ekleyebilir, arşiv içindeki dosyaları silebilir veya yeniden adlandırabilirsin. Düzenleme tamamlanınca özgün arşiv `.backup` olarak saklanır.
-- RAR oluşturmak veya onarmak istiyorsan RARLAB’ın ayrı lisanslanan `rar` aracını edin ve arşiv ayarlarında seç. [RARLAB lisans koşulları](https://www.rarlab.com/license.htm)
+- The bundled **7-Zip** engine creates ZIP, 7z, TAR, TAR.GZ, TAR.BZ2 and TAR.XZ. RAR4 and RAR5 files can be opened and extracted.
+- ZIP and 7z archives support AES-256 encryption and multi-part output. To read a multi-part archive, put the parts in one folder and open the `.001` file.
+- You can add files to unencrypted, single-part ZIP, 7z and TAR archives, and delete or rename files inside them. When the edit finishes, the original archive is kept as `.backup`.
+- To create or repair RAR files, get RARLAB’s separately licensed `rar` tool and select it in the archive settings. [RARLAB license terms](https://www.rarlab.com/license.htm)
 
-Çıkartma yeni bir klasörde tamamlanır. Dışarıya yazabilecek yollar, çakışan dosya adları ve bağlantı içeren arşivler hata olarak bildirilir. Arşiv penceresinde **⌘O** açar, **⌘N** yeni arşiv oluşturur, **⌘E** çıkartır ve **⌘T** bütünlüğü test eder. Finder’da bir arşive sağ tıklayarak **Servisler** menüsünden açma, çıkartma ve test işlemlerine ulaşabilirsin.
+Extraction finishes in a new folder. Paths that could write outside it, clashing file names and archives containing links are reported as errors. In the archive window **⌘O** opens, **⌘N** creates a new archive, **⌘E** extracts and **⌘T** tests integrity. In Finder, right-click an archive to reach opening, extracting and testing from the **Services** menu.
 
-## Disk alanı ve temizlik
+## Disk space and cleanup
 
-**Ayarlar → Disk alanı** altında bir disk, ev klasörü veya seçtiğin bir klasörü tara. Sonuçlar diskte kapladıkları alana göre sıralanır. Klasörlere girerek alanı hangi dosyaların kullandığını görebilirsin.
+Under **Settings → Disk space**, scan a disk, your home folder or a folder you choose. Results are ordered by the space they take on disk. Open folders to see which files use the space.
 
-**Ayarlar → Temizlik** taramayı dosya türüne ve konuma göre yürütür.
+**Settings → Cleanup** runs the scan by file type and location.
 
-- Kullanıcı ve uygulama kapsayıcılarındaki önbellekler, tanınan Chromium ve Electron önbellekleri.
-- Arşivlenmiş günlükler, eski tanılama raporları, Xcode ara dosyaları ve npm, pip, Gradle önbelleklerinin desteklenen bölümleri.
-- İndirilenler klasöründeki eski `.dmg`, `.pkg`, `.mpkg` ve `.xip` dosyaları.
-- `/Applications` ve `~/Applications` içindeki, macOS’un kaydettiği son kullanım tarihi seçilen eşikten eski olan uygulamalar. Varsayılan eşik **180 gün** olup **30** ve **90 gün** de seçilebilir.
+- Caches in user and app containers, and recognized Chromium and Electron caches.
+- Archived logs, old diagnostic reports, Xcode intermediate files and the supported parts of the npm, pip and Gradle caches.
+- Old `.dmg`, `.pkg`, `.mpkg` and `.xip` files in the Downloads folder.
+- Apps in `/Applications` and `~/Applications` whose last-used date recorded by macOS is older than the chosen threshold. The default threshold is **180 days**; **30** and **90 days** can also be chosen.
 
-Dosyalarda hem son erişimin hem de son değişikliğin üzerinden en az 30 gün geçmiş olmalıdır. Uygulamalarda tarih kaydı eksikse paketi Finder’da inceleyebilirsin. Çalışan uygulamalar, Apple uygulamaları ve yakın zamanda güncellenen paketler taşıma adaylarından çıkarılır.
+For files, at least 30 days must have passed since both the last access and the last change. If an app has no usage record, you can inspect the bundle in Finder. Running apps, Apple’s apps and recently updated bundles are left out of the candidates.
 
-Tarama sonunda neyin taşınacağını sen seçersin. BStoeq seçilenleri yeniden denetler ve onayladıklarını **Çöp Sepeti’ne** taşır. Uygulama temizliği seçilen `.app` paketini kapsar. Öğeleri sepetten geri alabilirsin. Alan sepet boşaltıldığında açılır. Disk taraması okunamayan klasörler bildirirse erişebildiğin bir klasörü seçebilirsin. Korumalı konumları da taramak istiyorsan **Sistem Ayarları → Gizlilik ve Güvenlik → Tam Disk Erişimi** bölümünde BStoeq’e izin verip taramayı tekrarla.
+After the scan you choose what to move. BStoeq checks the selection again and moves what you approve to the **Trash**. App cleanup covers the selected `.app` bundle. You can put items back from the Trash. The space is freed when the Trash is emptied. If the disk scan reports unreadable folders, you can choose a folder you have access to. To scan protected locations as well, allow BStoeq under **System Settings → Privacy & Security → Full Disk Access** and repeat the scan.
 
-## Kopya dosyalar ve uygulama kaldırma
+## Duplicate files and uninstalling apps
 
-**Ayarlar → Kopya dosyalar** altında ev klasörünü, İndirilenler’i veya seçtiğin bir klasörü tara. BStoeq önce aynı boyuttaki dosyaları bulur, ardından içeriklerini SHA-256 özetiyle karşılaştırır. Yalnızca içeriği birebir aynı olan dosyalar aynı grupta gösterilir. Adı veya tarihi farklı olan kopyalar da bulunur. Karşılaştırılacak en küçük dosya boyutunu taramadan önce seçebilirsin. Varsayılan değer **1 MB**’tır.
+Under **Settings → Duplicate files**, scan your home folder, Downloads or a folder you choose. BStoeq first finds files of the same size, then compares their contents by SHA-256 digest. Only files with exactly the same content are shown in one group. Copies with a different name or date are found as well. You can choose the smallest file size to compare before scanning. The default is **1 MB**.
 
-- Gizli öğeler, `~/Library` klasörü ve uygulama ya da fotoğraf arşivi gibi paketler taranmaz. Yalnızca bulutta duran dosyalar indirilmez ve karşılaştırılmaz.
-- Sembolik bağlantılar izlenmez. Aynı dosyanın sabit bağlantıları (*hard link*) kopya sayılmaz.
-- Her grupta en az bir dosya işaretsiz kalır. **Her grupta en eskisini tut, diğerlerini seç** bağlantısı her gruptaki en eski dosya dışındakileri işaretler.
-- Taşımadan önce hem seçilen dosya hem de yerinde kalacak kopya yeniden denetlenir. Taramadan sonra değişen dosyalar atlanır.
+- Hidden items, the `~/Library` folder and packages such as apps or photo libraries are not scanned. Files kept only in the cloud are neither downloaded nor compared.
+- Symbolic links are not followed. Hard links to the same file do not count as copies.
+- At least one file in every group stays unticked. The **Keep the oldest in each group, select the rest** link ticks everything except the oldest file of each group.
+- Before moving, both the selected file and the copy that stays are checked again. Files that changed after the scan are skipped.
 
-**Ayarlar → Uygulama kaldır** bölümü `/Applications` ve `~/Applications` içindeki üçüncü taraf uygulamaları listeler. **İncele** düğmesi uygulamanın boyutunu ölçer ve `~/Library` altında uygulamanın paket kimliğiyle birebir eşleşen verileri arar. Bunlar uygulama verileri, önbellek, tercihler, kayıtlı pencere durumu, web verileri, günlükler, korumalı alan kapsayıcısı ve başlangıç öğesidir. Kimlikle eşleşenler işaretli gelir. Yalnızca uygulamanın adıyla eşleşen klasörler **Ada göre** etiketiyle ve işaretsiz gösterilir.
+**Settings → Uninstall apps** lists the third-party apps in `/Applications` and `~/Applications`. The **Inspect** button measures the app and looks under `~/Library` for data that matches the app’s bundle identifier exactly. This covers app data, caches, preferences, saved window state, web data, logs, the sandbox container and a launch agent. Matches by identifier come ticked. Folders that match only the app’s name are shown with a **By name** label and unticked.
 
-Apple uygulamaları ve BStoeq listelenmez. Açık bir uygulama kaldırılmaz. Aynı kimliği kullanan başka bir kopya kuruluysa ortak verileri yerinde kalır. **Kaldır…** onayından sonra uygulama ve seçtiğin veriler **Çöp Sepeti’ne** taşınır. App Store’dan veya bir yükleyiciyle kurulan uygulamalarda taşıma işini Finder üstlenir ve macOS yönetici onayı isteyebilir. Uygulama taşınamazsa verilerine dokunulmaz.
+Apple’s apps and BStoeq are not listed. An open app is not removed. If another installed copy uses the same identifier, their shared data stays in place. After you confirm **Remove…**, the app and the data you selected are moved to the **Trash**. For apps installed from the App Store or by an installer, Finder takes over the move and macOS may ask for an administrator’s approval. If the app cannot be moved, its data is not touched.
 
-## Video ve müzik indirme
+## Permissions
 
-**Ayarlar → İndirmeler** bölümüne bir YouTube videosu veya oynatma listesi bağlantısı yapıştır. Video için çözünürlüğü, ses için MP3 veya M4A biçimini ve kayıt klasörünü seçebilirsin. İndirmeler yerel `yt-dlp` aracını, ses dönüştürme ve akış birleştirme işlemleri `ffmpeg` aracını kullanır. Otomatik kurulum her ikisini de yükler. Elle kurulum yaptıysan ve Homebrew kullanıyorsan araçları şu komutla ekleyebilirsin.
+The **Settings → Permissions** page shows the macOS permissions BStoeq uses and the state of each. Every permission is optional. Hiding icons needs none of them.
+
+- The state of **Accessibility** and **Full Disk Access** is read automatically. The page refreshes when you come back from System Settings.
+- For the **Desktop**, **Documents** and **Downloads** folders, press **Check**. If macOS has not asked about that folder before, it shows its permission prompt. Granting Full Disk Access covers these folders too.
+- macOS does not report the state of the **App Management** permission. The button on the page opens the matching section of System Settings.
+
+## Downloading video and music
+
+Paste a YouTube video or playlist link under **Settings → Downloads**. Choose the resolution for video, MP3 or M4A for audio, and the folder to save to. Downloads use the local `yt-dlp` tool; audio conversion and stream merging use `ffmpeg`. The automatic setup installs both. If you installed by hand and use Homebrew, add the tools with this command.
 
 ```sh
 brew install yt-dlp ffmpeg
 ```
 
-Kurulumdan sonra **Ayarlar → İndirmeler → Yeniden denetle** düğmesine bas. Yalnızca `yt-dlp` kuruluysa uygulama, ses ve görüntüsü birleştirilmiş videoları veya hazır ses dosyalarını indirebilir. MP3 dönüşümü ve ayrı ses ile görüntü akışlarını birleştirmek için `ffmpeg` gerekir.
+After installing, press **Settings → Downloads → Check again**. With only `yt-dlp` installed, the app can download videos whose audio and picture are already merged, or ready-made audio files. Converting to MP3 and merging separate audio and video streams need `ffmpeg`.
 
-## Proje ve bileşenler
+## Project and components
 
-SwiftUI ve AppKit arayüzü, SwiftPM hedefleri ve gömülü arşiv motorunun dağıtım dosyaları bu projede bulunur. Geliştirme ve test adımları ile paketlenen üçüncü taraf bileşenlerin kaynakları ayrı belgelerde açıklanır. [Katkı kılavuzu](CONTRIBUTING.md) · [Üçüncü taraf bildirimleri](THIRD_PARTY_NOTICES.md)
+The SwiftUI and AppKit interface, the SwiftPM targets and the distribution files of the embedded archive engine live in this project. Development and test steps, and the sources of the bundled third-party components, are described in separate documents, currently in Turkish. [Contributing guide](CONTRIBUTING.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
