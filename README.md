@@ -4,7 +4,7 @@
 
 BStoeq 2.1 is a menu bar app for macOS 27 on Apple Silicon. Use it to arrange menu bar icons, open or create archives, see what takes up disk space, find duplicate files, uninstall apps together with their data, and manage YouTube downloads. The interface is available in Turkish, English and German.
 
-[Download for Mac](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.0/BStoeq-macOS.zip) · [Automatic setup with media tools](#automatic-setup) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
+[Download for Mac](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.0/BStoeq-macOS.zip) · [Automatic setup with media tools](#automatic-setup) · [Installer package](#building-an-installer-package) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -66,6 +66,21 @@ BSTOEQ_SIGNING_IDENTITY=- ./scripts/build.sh && open -R dist/BStoeq-macOS.zip
 ```
 
 A local signature needs no developer certificate. If macOS cannot verify the developer of a ready-made app you downloaded from the internet, check where the package came from. You can build your own copy from this repository. [Apple’s guide to app security](https://support.apple.com/102445)
+
+### Building an installer package
+
+To hand BStoeq to someone as a double-click installer, build **BStoeq-macOS.pkg**. The command below builds the app as described above and wraps it in a standard macOS installer package.
+
+```sh
+BSTOEQ_SIGNING_IDENTITY=- ./scripts/package-installer.sh && open -R dist/BStoeq-macOS.pkg
+```
+
+Double-clicking the package opens Installer. It asks for an administrator password and places **BStoeq.app** in the **Applications** folder, so the app starts from the location it expects. The package installs on the startup disk of an Apple Silicon Mac with macOS 27.0 or later.
+
+- **To package a copy you already have**, pass it to the script. For example, after checking the SHA-256 of the published ZIP, run `./scripts/package-installer.sh ~/Downloads/BStoeq-macOS.zip`. A `BStoeq.app` bundle is accepted as well.
+- **When updating**, quit BStoeq from its menu bar icon first. The installer stops if the app is still running. A previous copy in the Applications folder is replaced as a whole and your settings are kept.
+- **The package contains only the app.** To download video and music, add `yt-dlp` and `ffmpeg` afterwards. [Downloading video and music](#downloading-video-and-music)
+- **The package is unsigned** unless you set `BSTOEQ_INSTALLER_IDENTITY` to a *Developer ID Installer* certificate in your keychain. macOS warns about an unsigned package that was downloaded from the internet. If you trust where it came from, use **System Settings → Privacy & Security → Open Anyway**.
 
 ### Checking the installation
 
