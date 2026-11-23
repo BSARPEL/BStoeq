@@ -19,6 +19,7 @@ Menü çubuğundaki davranışı denemek için aşağıdaki paketleme komutunu �
 - `Sources/ArchiveCore` arşiv biçimlerini, 7-Zip süreçlerini ve dosya işlemlerini yönetir. `Sources/ArchiveWorkspace` arşiv penceresini ve dosya gezginini içerir.
 - `Tests` birim ve regresyon testlerini barındırır. `Resources` paket bilgilerini, araçları ve lisans metinlerini içerir.
 - `BStoeq Kur.command`, Finder’dan hazır sürüm kurulumunu başlatır. `scripts/install.sh` kurulum türüne göre gereken bağımlılıkları sağlar. `scripts/install-app.sh` uygulama kimliğini ve imzasını denetleyip paketi Uygulamalar klasörüne taşır.
+- `scripts/package-installer.sh` uygulamayı bir macOS kurucu paketine (`.pkg`) yerleştirir. `scripts/installer` klasöründeki `preinstall` ve `postinstall` betikleri kurulum sırasında yönetici yetkisiyle çalışır.
 - `scripts/build.sh` dağıtım paketini oluşturur ve `scripts/icon.swift` simgelerini üretir. Elle test için `scripts/TestFixture.swift` geçici bir menü çubuğu simgesi oluşturur. `scripts/engine-probe.m` menü çubuğu sistem arayüzünün etkinleştirilip serbest bırakılabildiğini denetler.
 
 ## Değişiklikleri doğrulama
@@ -41,5 +42,7 @@ BSTOEQ_SIGNING_IDENTITY=- ./scripts/build.sh
 ```
 
 Kendi sertifikanı kullanmak için `BSTOEQ_SIGNING_IDENTITY` değerini imza kimliğin olarak ayarla. Varsayılan ayarlarda betik, Anahtar Zinciri’nde tek bir uygun Apple Development kimliği bulursa o kimliği kullanır. Geliştirici sertifikasıyla imzalanan uygulamanın imza bilgilerinde sertifika sahibi görünür. Apple’ın noter onayı ayrı bir dağıtım adımıdır.
+
+Kurucu paketi için `./scripts/package-installer.sh` çalıştır. Betik önce `scripts/build.sh` ile uygulamayı derler ve `dist/BStoeq-macOS.pkg` dosyasını yazar. Hazır bir `BStoeq.app` veya `BStoeq-macOS.zip` verirsen derleme yapmadan o kopyayı paketler. Kurucu, çalışan bir BStoeq varken durur, Uygulamalar klasöründeki önceki kopyayı bütün olarak değiştirir, kurulan paketin kod imzasını doğrular ve uygulamayı kurulumu yapan kullanıcıya devreder. Böylece `scripts/install-app.sh` sonraki güncellemeyi yönetici yetkisi olmadan yapabilir. Paketi imzalamak için `BSTOEQ_INSTALLER_IDENTITY` değerini bir *Developer ID Installer* kimliği olarak ayarla. `preinstall` betiğini değiştirirsen hedef yolunu ikinci argümandan aldığını unutma: betiği geçici bir klasörü hedef göstererek deneyebilirsin.
 
 Üçüncü taraf motoru değiştirirken çalıştırılabilir dosyayı, karşılık gelen kaynak arşivini, lisans metinlerini ve doğrulama özetlerini birlikte güncelle. Bileşenlerin konumları üçüncü taraf bildirimlerinde bulunur. [Üçüncü taraf bildirimleri](THIRD_PARTY_NOTICES.md)
