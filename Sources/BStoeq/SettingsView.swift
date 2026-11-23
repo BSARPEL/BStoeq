@@ -48,6 +48,8 @@ struct SettingsView: View {
                         case "downloads": DownloadsView(model: model, downloads: model.downloads)
                         case "disk": DiskView(model: model, disk: model.disk)
                         case "cache": CacheCleanupView(model: model, cache: model.cache)
+                        case "duplicates": DuplicatesView(model: model, finder: model.duplicates)
+                        case "uninstall": UninstallView(model: model, uninstaller: model.uninstaller)
                         case "general": generalPage
                         default: menuPage
                         }
@@ -69,7 +71,7 @@ struct SettingsView: View {
             HStack(spacing: 10) {
                 BrandMark(size: 34)
                 Text("BStoeq").font(.system(size: 26, weight: .semibold, design: .rounded)).tracking(-1)
-            }.padding(.top, 30).padding(.bottom, 35).padding(.horizontal, 23)
+            }.padding(.top, 30).padding(.bottom, 24).padding(.horizontal, 23)
             Text(L("ÇALIŞMA ALANIN")).font(.system(size: 9, weight: .semibold)).tracking(1.5)
                 .foregroundStyle(.tertiary).padding(.leading, 25).padding(.bottom, 12)
             nav("menu", L("Menü çubuğu"), "menubar.rectangle")
@@ -78,6 +80,8 @@ struct SettingsView: View {
             nav("downloads", L("İndirmeler"), "arrow.down.circle")
             nav("disk", L("Disk alanı"), "internaldrive")
             nav("cache", L("Temizlik"), "sparkles")
+            nav("duplicates", L("Kopya dosyalar"), "doc.on.doc")
+            nav("uninstall", L("Uygulama kaldır"), "xmark.app")
             nav("archives", L("Arşivler"), "archivebox") { model.openArchives?() }
             nav("general", L("Genel"), "gearshape")
             Spacer()
@@ -104,12 +108,13 @@ struct SettingsView: View {
             HStack(spacing: 11) {
                 Image(systemName: symbol).font(.system(size: 14)).frame(width: 19)
                 Text(title).font(.system(size: 12, weight: model.selection == id ? .semibold : .regular))
-                Spacer()
+                    .lineLimit(1).minimumScaleFactor(0.9)
+                Spacer(minLength: 4)
                 if model.selection == id { Circle().fill(Palette.accent).frame(width: 5, height: 5) }
             }.foregroundStyle(model.selection == id ? Palette.accent : Color.primary.opacity(0.65))
-                .padding(.horizontal, 12).padding(.vertical, 12)
+                .padding(.horizontal, 12).padding(.vertical, 9)
                 .background(model.selection == id ? Palette.accent.opacity(0.10) : .clear, in: RoundedRectangle(cornerRadius: 9))
-        }.buttonStyle(.plain).padding(.horizontal, 12).padding(.bottom, 4)
+        }.buttonStyle(.plain).padding(.horizontal, 12).padding(.bottom, 3)
     }
 
     private var pageTitle: String {
@@ -119,6 +124,8 @@ struct SettingsView: View {
         case "downloads": L("İndirmeler")
         case "disk": L("Disk alanı")
         case "cache": L("Temizlik")
+        case "duplicates": L("Kopya dosyalar")
+        case "uninstall": L("Uygulama kaldır")
         case "general": L("Genel")
         default: L("Menü çubuğu")
         }

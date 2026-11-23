@@ -49,6 +49,8 @@ struct BarApp: Identifiable {
     let downloads: MediaDownloadManager
     let disk: DiskScanManager
     let cache = CacheCleanupManager()
+    let duplicates = DuplicateFinderManager()
+    let uninstaller = AppUninstallManager()
     var onChange: (() -> Void)?
     var onShortcutChange: (() -> Void)?
     var onLanguageChange: (() -> Void)?
@@ -454,6 +456,8 @@ struct BarApp: Identifiable {
         disk.cancelScan()
         cache.cancelScan()
         cache.stopCleaning()
+        duplicates.stop()
+        uninstaller.stop()
         started = false
         endMenuBarArrangement(restoreState: false)
         cancelMenuSelection()

@@ -14,7 +14,7 @@ Menü çubuğundaki davranışı denemek için aşağıdaki paketleme komutunu �
 ## Kaynak düzeni
 
 - `Sources/BStoeq` menü çubuğu uygulamasını, ayarları ve kullanıcı işlemlerini yönetir.
-- `Sources/BStoeqCore` disk ve temizlik taramalarını, indirme seçeneklerini ve ortak modelleri içerir.
+- `Sources/BStoeqCore` disk, temizlik ve kopya dosya taramalarını, uygulama kaldırmayı, indirme seçeneklerini ve ortak modelleri içerir.
 - `Sources/BStoeqRuntime` ve `Sources/MenuBarBridge` menü çubuğuyla sistem düzeyindeki etkileşimi sağlar.
 - `Sources/ArchiveCore` arşiv biçimlerini, 7-Zip süreçlerini ve dosya işlemlerini yönetir. `Sources/ArchiveWorkspace` arşiv penceresini ve dosya gezginini içerir.
 - `Tests` birim ve regresyon testlerini barındırır. `Resources` paket bilgilerini, araçları ve lisans metinlerini içerir.

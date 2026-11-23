@@ -1,8 +1,8 @@
 # ![BStoeq — macOS için menü çubuğu, arşiv, disk alanı ve indirme araçları](docs/images/bstoeq-hero.png)
 
-BStoeq 2.0, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
+BStoeq 2.0, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
 
-[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik)
+[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.0.0/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -110,6 +110,19 @@ Yerel imza için geliştirici sertifikası gerekmez. macOS internetten indirdiğ
 Dosyalarda hem son erişimin hem de son değişikliğin üzerinden en az 30 gün geçmiş olmalıdır. Uygulamalarda tarih kaydı eksikse paketi Finder’da inceleyebilirsin. Çalışan uygulamalar, Apple uygulamaları ve yakın zamanda güncellenen paketler taşıma adaylarından çıkarılır.
 
 Tarama sonunda neyin taşınacağını sen seçersin. BStoeq seçilenleri yeniden denetler ve onayladıklarını **Çöp Sepeti’ne** taşır. Uygulama temizliği seçilen `.app` paketini kapsar. Öğeleri sepetten geri alabilirsin. Alan sepet boşaltıldığında açılır. Disk taraması okunamayan klasörler bildirirse erişebildiğin bir klasörü seçebilirsin. Korumalı konumları da taramak istiyorsan **Sistem Ayarları → Gizlilik ve Güvenlik → Tam Disk Erişimi** bölümünde BStoeq’e izin verip taramayı tekrarla.
+
+## Kopya dosyalar ve uygulama kaldırma
+
+**Ayarlar → Kopya dosyalar** altında ev klasörünü, İndirilenler’i veya seçtiğin bir klasörü tara. BStoeq önce aynı boyuttaki dosyaları bulur, ardından içeriklerini SHA-256 özetiyle karşılaştırır. Yalnızca içeriği birebir aynı olan dosyalar aynı grupta gösterilir. Adı veya tarihi farklı olan kopyalar da bulunur. Karşılaştırılacak en küçük dosya boyutunu taramadan önce seçebilirsin. Varsayılan değer **1 MB**’tır.
+
+- Gizli öğeler, `~/Library` klasörü ve uygulama ya da fotoğraf arşivi gibi paketler taranmaz. Yalnızca bulutta duran dosyalar indirilmez ve karşılaştırılmaz.
+- Sembolik bağlantılar izlenmez. Aynı dosyanın sabit bağlantıları (*hard link*) kopya sayılmaz.
+- Her grupta en az bir dosya işaretsiz kalır. **Her grupta en eskisini tut, diğerlerini seç** bağlantısı her gruptaki en eski dosya dışındakileri işaretler.
+- Taşımadan önce hem seçilen dosya hem de yerinde kalacak kopya yeniden denetlenir. Taramadan sonra değişen dosyalar atlanır.
+
+**Ayarlar → Uygulama kaldır** bölümü `/Applications` ve `~/Applications` içindeki üçüncü taraf uygulamaları listeler. **İncele** düğmesi uygulamanın boyutunu ölçer ve `~/Library` altında uygulamanın paket kimliğiyle birebir eşleşen verileri arar. Bunlar uygulama verileri, önbellek, tercihler, kayıtlı pencere durumu, web verileri, günlükler, korumalı alan kapsayıcısı ve başlangıç öğesidir. Kimlikle eşleşenler işaretli gelir. Yalnızca uygulamanın adıyla eşleşen klasörler **Ada göre** etiketiyle ve işaretsiz gösterilir.
+
+Apple uygulamaları ve BStoeq listelenmez. Açık bir uygulama kaldırılmaz. Aynı kimliği kullanan başka bir kopya kuruluysa ortak verileri yerinde kalır. **Kaldır…** onayından sonra uygulama ve seçtiğin veriler **Çöp Sepeti’ne** taşınır. App Store’dan veya bir yükleyiciyle kurulan uygulamalarda taşıma işini Finder üstlenir ve macOS yönetici onayı isteyebilir. Uygulama taşınamazsa verilerine dokunulmaz.
 
 ## Video ve müzik indirme
 

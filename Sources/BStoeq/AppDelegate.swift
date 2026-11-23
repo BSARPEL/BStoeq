@@ -244,6 +244,8 @@ import ArchiveWorkspace
             menu.addItem(withTitle: L("Video veya müzik indir…"), action: #selector(openDownloads), keyEquivalent: "")
             menu.addItem(withTitle: L("Disk alanını tara…"), action: #selector(openDisk), keyEquivalent: "")
             menu.addItem(withTitle: L("Temizliği aç…"), action: #selector(openCleanup), keyEquivalent: "")
+            menu.addItem(withTitle: L("Kopya dosyaları bul…"), action: #selector(openDuplicates), keyEquivalent: "")
+            menu.addItem(withTitle: L("Uygulama kaldır…"), action: #selector(openUninstall), keyEquivalent: "")
             menu.addItem(withTitle: L("Arşiv yöneticisini aç…"), action: #selector(openArchives), keyEquivalent: "")
             menu.addItem(withTitle: L("BStoeq ayarları…"), action: #selector(openSettings), keyEquivalent: ",")
             menu.addItem(.separator())
@@ -266,6 +268,8 @@ import ArchiveWorkspace
     @objc private func openDownloads() { model.selection = "downloads"; showSettings() }
     @objc private func openDisk() { model.selection = "disk"; showSettings() }
     @objc private func openCleanup() { model.selection = "cache"; showSettings() }
+    @objc private func openDuplicates() { model.selection = "duplicates"; showSettings() }
+    @objc private func openUninstall() { model.selection = "uninstall"; showSettings() }
     @objc private func openArchives() {
         if model.arrangingMenuBar { model.finishMenuBarArrangement() }
         if model.panelPresented { model.hide() }

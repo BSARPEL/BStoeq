@@ -1943,5 +1943,310 @@
     "tr": "Arşiv yöneticisini aç…",
     "en": "Open archive manager…",
     "de": "Archivverwaltung öffnen …"
+  },
+  "%d grup · %@ yer açılabilir": {
+    "tr": "%d grup · %@ yer açılabilir",
+    "en": "%d groups · %@ can be freed",
+    "de": "%d Gruppen · %@ können frei werden"
+  },
+  "1 grup · %@ yer açılabilir": {
+    "tr": "1 grup · %@ yer açılabilir",
+    "en": "1 group · %@ can be freed",
+    "de": "1 Gruppe · %@ können frei werden"
+  },
+  "%d kopya · her biri %@": {
+    "tr": "%d kopya · her biri %@",
+    "en": "%d copies · %@ each",
+    "de": "%d Kopien · je %@"
+  },
+  "%d öğe": {
+    "tr": "%d öğe",
+    "en": "%d items",
+    "de": "%d Objekte"
+  },
+  "1 öğe": {
+    "tr": "1 öğe",
+    "en": "1 item",
+    "de": "1 Objekt"
+  },
+  "Ada göre": {
+    "tr": "Ada göre",
+    "en": "By name",
+    "de": "Nach Name"
+  },
+  "Apple uygulamaları listelenmez. BStoeq hiçbir şeyi kalıcı olarak silmez; kaldırılan uygulama ve verileri Çöp Sepeti’nden geri alınabilir.": {
+    "tr": "Apple uygulamaları listelenmez. BStoeq hiçbir şeyi kalıcı olarak silmez; kaldırılan uygulama ve verileri Çöp Sepeti’nden geri alınabilir.",
+    "en": "Apple’s apps are not listed. BStoeq never deletes anything permanently; a removed app and its data can be put back from the Trash.",
+    "de": "Apps von Apple werden nicht aufgeführt. BStoeq löscht nichts endgültig; eine entfernte App und ihre Daten lassen sich aus dem Papierkorb zurücklegen."
+  },
+  "Aynı boyuttaki dosyaların içeriği karşılaştırılıyor…": {
+    "tr": "Aynı boyuttaki dosyaların içeriği karşılaştırılıyor…",
+    "en": "Comparing the contents of files of the same size…",
+    "de": "Inhalte gleich großer Dateien werden verglichen …"
+  },
+  "Aynı dosyadan bir tane yeter.": {
+    "tr": "Aynı dosyadan bir tane yeter.",
+    "en": "One of each file is enough.",
+    "de": "Von jeder Datei genügt eine."
+  },
+  "Aynı kimliği kullanan başka bir kopya kurulu. Ortak verileri yerinde kalır; yalnızca bu uygulama taşınır.": {
+    "tr": "Aynı kimliği kullanan başka bir kopya kurulu. Ortak verileri yerinde kalır; yalnızca bu uygulama taşınır.",
+    "en": "Another installed copy uses the same identifier. Their shared data stays in place; only this app is moved.",
+    "de": "Eine weitere installierte Kopie verwendet dieselbe Kennung. Die gemeinsamen Daten bleiben erhalten; nur diese App wird bewegt."
+  },
+  "Başlangıç öğesi": {
+    "tr": "Başlangıç öğesi",
+    "en": "Launch agent",
+    "de": "Startobjekt"
+  },
+  "Bir klasörü tara, içeriği birebir aynı olan dosyaları bul ve fazla kopyaları Çöp Sepeti’ne taşı.": {
+    "tr": "Bir klasörü tara, içeriği birebir aynı olan dosyaları bul ve fazla kopyaları Çöp Sepeti’ne taşı.",
+    "en": "Scan a folder, find files with exactly the same content and move the extra copies to the Trash.",
+    "de": "Prüfe einen Ordner, finde Dateien mit exakt gleichem Inhalt und lege überzählige Kopien in den Papierkorb."
+  },
+  "Bir uygulamayı, Kitaplık’ta bıraktığı verilerle birlikte Çöp Sepeti’ne taşı.": {
+    "tr": "Bir uygulamayı, Kitaplık’ta bıraktığı verilerle birlikte Çöp Sepeti’ne taşı.",
+    "en": "Move an app to the Trash together with the data it left in your Library.",
+    "de": "Lege eine App zusammen mit den Daten, die sie in deiner Library hinterlassen hat, in den Papierkorb."
+  },
+  "Bu klasörde içeriği aynı olan dosya bulunamadı.": {
+    "tr": "Bu klasörde içeriği aynı olan dosya bulunamadı.",
+    "en": "No files with identical content were found in this folder.",
+    "de": "In diesem Ordner wurden keine Dateien mit gleichem Inhalt gefunden."
+  },
+  "Daha küçük dosyalar karşılaştırılmaz; tarama daha hızlı biter.": {
+    "tr": "Daha küçük dosyalar karşılaştırılmaz; tarama daha hızlı biter.",
+    "en": "Smaller files are not compared, so the scan finishes sooner.",
+    "de": "Kleinere Dateien werden nicht verglichen; die Prüfung ist dadurch schneller fertig."
+  },
+  "Dosyalar listeleniyor · %@": {
+    "tr": "Dosyalar listeleniyor · %@",
+    "en": "Listing files · %@",
+    "de": "Dateien werden aufgelistet · %@"
+  },
+  "En eski": {
+    "tr": "En eski",
+    "en": "Oldest",
+    "de": "Älteste"
+  },
+  "En küçük dosya boyutu": {
+    "tr": "En küçük dosya boyutu",
+    "en": "Smallest file size",
+    "de": "Kleinste Dateigröße"
+  },
+  "Geride iz bırakmadan kaldır.": {
+    "tr": "Geride iz bırakmadan kaldır.",
+    "en": "Remove apps without a trace.",
+    "de": "Apps entfernen, ohne Spuren zu hinterlassen."
+  },
+  "Gizli öğeler, Kitaplık klasörü ve uygulama ya da fotoğraf arşivi gibi paketler taranmaz. Her kopya grubundan en az bir dosya yerinde kalır; taşınanlar Çöp Sepeti’nden geri alınabilir.": {
+    "tr": "Gizli öğeler, Kitaplık klasörü ve uygulama ya da fotoğraf arşivi gibi paketler taranmaz. Her kopya grubundan en az bir dosya yerinde kalır; taşınanlar Çöp Sepeti’nden geri alınabilir.",
+    "en": "Hidden items, the Library folder and packages such as apps or photo libraries are not scanned. At least one file of every group stays in place, and anything moved can be put back from the Trash.",
+    "de": "Unsichtbare Objekte, der Ordner „Library“ und Pakete wie Apps oder Fotomediatheken werden nicht geprüft. Von jeder Gruppe bleibt mindestens eine Datei an ihrem Ort; Bewegtes lässt sich aus dem Papierkorb zurücklegen."
+  },
+  "Günlükler": {
+    "tr": "Günlükler",
+    "en": "Logs",
+    "de": "Protokolle"
+  },
+  "Her grupta en eskisini tut, diğerlerini seç": {
+    "tr": "Her grupta en eskisini tut, diğerlerini seç",
+    "en": "Keep the oldest in each group, select the rest",
+    "de": "In jeder Gruppe die älteste behalten, übrige auswählen"
+  },
+  "Her grupta işaretlemediğin en az bir kopya yerinde kalır. Seçtiklerini Çöp Sepeti’nden geri alabilirsin.": {
+    "tr": "Her grupta işaretlemediğin en az bir kopya yerinde kalır. Seçtiklerini Çöp Sepeti’nden geri alabilirsin.",
+    "en": "At least one copy you did not tick stays in place in every group. You can put back what you selected from the Trash.",
+    "de": "In jeder Gruppe bleibt mindestens eine nicht markierte Kopie an ihrem Ort. Die Auswahl lässt sich aus dem Papierkorb zurücklegen."
+  },
+  "Her gruptan en az bir kopya yerinde kalır.": {
+    "tr": "Her gruptan en az bir kopya yerinde kalır.",
+    "en": "At least one copy of every group stays in place.",
+    "de": "Von jeder Gruppe bleibt mindestens eine Kopie an ihrem Ort."
+  },
+  "KALDIRILACAKLAR": {
+    "tr": "KALDIRILACAKLAR",
+    "en": "TO BE REMOVED",
+    "de": "WIRD ENTFERNT"
+  },
+  "KOPYA DOSYALAR": {
+    "tr": "KOPYA DOSYALAR",
+    "en": "DUPLICATE FILES",
+    "de": "DOPPELTE DATEIEN"
+  },
+  "KURULU UYGULAMALAR": {
+    "tr": "KURULU UYGULAMALAR",
+    "en": "INSTALLED APPS",
+    "de": "INSTALLIERTE APPS"
+  },
+  "Kaldır": {
+    "tr": "Kaldır",
+    "en": "Remove",
+    "de": "Entfernen"
+  },
+  "Kaldır…": {
+    "tr": "Kaldır…",
+    "en": "Remove…",
+    "de": "Entfernen …"
+  },
+  "Kayıtlı pencere durumu": {
+    "tr": "Kayıtlı pencere durumu",
+    "en": "Saved window state",
+    "de": "Gesicherter Fensterzustand"
+  },
+  "Kitaplık’ta bu uygulamaya ait veri bulunamadı.": {
+    "tr": "Kitaplık’ta bu uygulamaya ait veri bulunamadı.",
+    "en": "No data belonging to this app was found in your Library.",
+    "de": "In deiner Library wurden keine Daten dieser App gefunden."
+  },
+  "Kopya dosyalar": {
+    "tr": "Kopya dosyalar",
+    "en": "Duplicate files",
+    "de": "Doppelte Dateien"
+  },
+  "Kopya dosyaları bul…": {
+    "tr": "Kopya dosyaları bul…",
+    "en": "Find duplicate files…",
+    "de": "Doppelte Dateien suchen …"
+  },
+  "Korumalı alan verileri": {
+    "tr": "Korumalı alan verileri",
+    "en": "Sandbox container",
+    "de": "Sandbox-Container"
+  },
+  "Seçili kopyalar Çöp Sepeti’ne taşınsın mı?": {
+    "tr": "Seçili kopyalar Çöp Sepeti’ne taşınsın mı?",
+    "en": "Move the selected copies to the Trash?",
+    "de": "Ausgewählte Kopien in den Papierkorb legen?"
+  },
+  "Taramadan sonra değiştiği için atlanan · %@": {
+    "tr": "Taramadan sonra değiştiği için atlanan · %@",
+    "en": "Skipped because they changed after the scan · %@",
+    "de": "Übersprungen, da nach der Prüfung geändert · %@"
+  },
+  "Tercihler": {
+    "tr": "Tercihler",
+    "en": "Preferences",
+    "de": "Einstellungen"
+  },
+  "Tüm boyutlar": {
+    "tr": "Tüm boyutlar",
+    "en": "All sizes",
+    "de": "Alle Größen"
+  },
+  "Uygulama açık. Kaldırmak için önce uygulamadan çık.": {
+    "tr": "Uygulama açık. Kaldırmak için önce uygulamadan çık.",
+    "en": "The app is open. Quit it before removing it.",
+    "de": "Die App ist geöffnet. Beende sie, bevor du sie entfernst."
+  },
+  "Uygulama betikleri": {
+    "tr": "Uygulama betikleri",
+    "en": "Application scripts",
+    "de": "App-Skripte"
+  },
+  "Uygulama kaldır": {
+    "tr": "Uygulama kaldır",
+    "en": "Uninstall apps",
+    "de": "Apps entfernen"
+  },
+  "Uygulama kaldır…": {
+    "tr": "Uygulama kaldır…",
+    "en": "Uninstall an app…",
+    "de": "App entfernen …"
+  },
+  "Uygulama ve seçtiğin verileri Çöp Sepeti’ne taşınır; oradan geri alabilirsin. macOS yönetici onayı isteyebilir.": {
+    "tr": "Uygulama ve seçtiğin verileri Çöp Sepeti’ne taşınır; oradan geri alabilirsin. macOS yönetici onayı isteyebilir.",
+    "en": "The app and the data you selected are moved to the Trash, where you can put them back. macOS may ask for an administrator’s approval.",
+    "de": "Die App und die ausgewählten Daten werden in den Papierkorb gelegt; von dort kannst du sie zurücklegen. macOS fragt möglicherweise nach der Bestätigung eines Administrators."
+  },
+  "Uygulama verileri": {
+    "tr": "Uygulama verileri",
+    "en": "App data",
+    "de": "App-Daten"
+  },
+  "Uygulama ölçülüyor ve Kitaplık’taki verileri aranıyor…": {
+    "tr": "Uygulama ölçülüyor ve Kitaplık’taki verileri aranıyor…",
+    "en": "Measuring the app and looking for its data in your Library…",
+    "de": "Die App wird gemessen und ihre Daten werden in der Library gesucht …"
+  },
+  "Uygulamanın kendisi her zaman taşınır.": {
+    "tr": "Uygulamanın kendisi her zaman taşınır.",
+    "en": "The app itself is always moved.",
+    "de": "Die App selbst wird immer bewegt."
+  },
+  "Uygulamayı Finder’dan Çöp Sepeti’ne sürükleyebilir ya da Sistem Ayarları → Gizlilik ve Güvenlik → Uygulama Yönetimi bölümünde BStoeq’e izin verebilirsin.": {
+    "tr": "Uygulamayı Finder’dan Çöp Sepeti’ne sürükleyebilir ya da Sistem Ayarları → Gizlilik ve Güvenlik → Uygulama Yönetimi bölümünde BStoeq’e izin verebilirsin.",
+    "en": "You can drag the app to the Trash in Finder, or allow BStoeq under System Settings → Privacy & Security → App Management.",
+    "de": "Du kannst die App im Finder in den Papierkorb ziehen oder BStoeq unter Systemeinstellungen → Datenschutz & Sicherheit → App-Verwaltung erlauben."
+  },
+  "Web verileri": {
+    "tr": "Web verileri",
+    "en": "Web data",
+    "de": "Webdaten"
+  },
+  "Önbellek": {
+    "tr": "Önbellek",
+    "en": "Cache",
+    "de": "Cache"
+  },
+  "İNCELENİYOR": {
+    "tr": "İNCELENİYOR",
+    "en": "INSPECTING",
+    "de": "WIRD GEPRÜFT"
+  },
+  "İncele": {
+    "tr": "İncele",
+    "en": "Inspect",
+    "de": "Prüfen"
+  },
+  "İncelemeden sonra değiştiği için atlanan · %@": {
+    "tr": "İncelemeden sonra değiştiği için atlanan · %@",
+    "en": "Skipped because they changed after the inspection · %@",
+    "de": "Übersprungen, da nach der Prüfung geändert · %@"
+  },
+  "İncelenen · %@": {
+    "tr": "İncelenen · %@",
+    "en": "Examined · %@",
+    "de": "Geprüft · %@"
+  },
+  "İndirilenler": {
+    "tr": "İndirilenler",
+    "en": "Downloads",
+    "de": "Downloads"
+  },
+  "Çalışıyor": {
+    "tr": "Çalışıyor",
+    "en": "Running",
+    "de": "Läuft"
+  },
+  "“%@” açık olduğu için kaldırılmadı. Uygulamadan çıkıp yeniden dene.": {
+    "tr": "“%@” açık olduğu için kaldırılmadı. Uygulamadan çıkıp yeniden dene.",
+    "en": "“%@” is open, so it was not removed. Quit the app and try again.",
+    "de": "„%@“ ist geöffnet und wurde daher nicht entfernt. Beende die App und versuche es erneut."
+  },
+  "“%@” incelemeden sonra değişti ya da taşındı; hiçbir şeye dokunulmadı.": {
+    "tr": "“%@” incelemeden sonra değişti ya da taşındı; hiçbir şeye dokunulmadı.",
+    "en": "“%@” changed or moved after the inspection; nothing was touched.",
+    "de": "„%@“ wurde nach der Prüfung geändert oder bewegt; nichts wurde angerührt."
+  },
+  "“%@” kaldırıldı · %@ · %@": {
+    "tr": "“%@” kaldırıldı · %@ · %@",
+    "en": "“%@” was removed · %@ · %@",
+    "de": "„%@“ wurde entfernt · %@ · %@"
+  },
+  "“%@” kaldırılsın mı?": {
+    "tr": "“%@” kaldırılsın mı?",
+    "en": "Remove “%@”?",
+    "de": "„%@“ entfernen?"
+  },
+  "“%@” Çöp Sepeti’ne taşınamadı; verilerine dokunulmadı.": {
+    "tr": "“%@” Çöp Sepeti’ne taşınamadı; verilerine dokunulmadı.",
+    "en": "“%@” could not be moved to the Trash; its data was not touched.",
+    "de": "„%@“ konnte nicht in den Papierkorb gelegt werden; die Daten wurden nicht angerührt."
+  },
+  "“Ada göre” işaretli klasörler uygulamanın kimliğiyle değil adıyla eşleşti. Başka bir uygulamaya ait olabilir; emin olduğunda işaretle.": {
+    "tr": "“Ada göre” işaretli klasörler uygulamanın kimliğiyle değil adıyla eşleşti. Başka bir uygulamaya ait olabilir; emin olduğunda işaretle.",
+    "en": "Folders marked “By name” matched the app’s name, not its identifier. They may belong to another app; tick them only when you are sure.",
+    "de": "Ordner mit dem Hinweis „Nach Name“ passen zum Namen der App, nicht zu ihrer Kennung. Sie könnten zu einer anderen App gehören; markiere sie nur, wenn du sicher bist."
   }
 }

@@ -50,7 +50,7 @@ public struct RunningAppSnapshot: Sendable {
     }
 }
 
-fileprivate struct AppFileStamp: Hashable, Sendable {
+struct AppFileStamp: Hashable, Sendable {
     let device: dev_t
     let inode: ino_t
     let bytes: off_t
@@ -89,9 +89,9 @@ fileprivate struct AppTreeStamp: Equatable, Sendable {
 
 public enum UnusedApps {
     public static let minimumAgeDays = 180
-    private static let protectedFlags = UInt32(SF_DATALESS | SF_RESTRICTED | SF_NOUNLINK | SF_FIRMLINK |
+    static let protectedFlags = UInt32(SF_DATALESS | SF_RESTRICTED | SF_NOUNLINK | SF_FIRMLINK |
                                                SF_IMMUTABLE | UF_IMMUTABLE | SF_APPEND | UF_APPEND)
-    private static let maximumGroupDepth = 2
+    static let maximumGroupDepth = 2
 
     /// LaunchServices records opens. A missing or disabled Spotlight index gives no usage evidence.
     public static func lastUsedDate(_ url: URL) -> Date? {
@@ -104,7 +104,7 @@ public enum UnusedApps {
         return MDItemCopyAttribute(item, kMDItemDateAdded) as? Date
     }
 
-    private struct Roots {
+    struct Roots {
         let paths: Set<String>
         let mounts: Set<String>
 
@@ -295,12 +295,12 @@ public enum UnusedApps {
 
     private struct RecentlyChanged: Error {}
 
-    private static func status(_ path: String) -> stat? {
+    static func status(_ path: String) -> stat? {
         var info = stat()
         return lstat(path, &info) == 0 ? info : nil
     }
 
-    private static func isGroup(_ url: URL) -> Bool {
+    static func isGroup(_ url: URL) -> Bool {
         guard !url.lastPathComponent.hasPrefix("."), url.pathExtension.isEmpty,
               let properties = try? url.resourceValues(forKeys: [.isAliasFileKey, .isPackageKey]) else { return false }
         return properties.isAliasFile == false && properties.isPackage == false
@@ -312,37 +312,42 @@ public enum UnusedApps {
         }
     }
 
-    private static func assess(_ url: URL, cutoff: Date, minimumAgeDays: Int,
-                               lastUsed: (URL) -> Date?, added: (URL) -> Date?,
-                               active: RunningAppSnapshot, isCancelled: () -> Bool) throws -> Assessment {
+    struct AppManifest {
+        let values: [String: Any]
+        let info: stat
+        let binaryFolder: URL
+        let identifier, executable: String
+    }
+
+    /// Reads the Info.plist of an application bundle whose directory is `bundle`.
+    /// `nil` means the bundle is not a readable, well-formed application.
+    static func manifest(of url: URL, bundle: stat) -> AppManifest? {
         let path = url.path
-        guard let bundle = status(path), bundle.st_flags & protectedFlags == 0,
-              let properties = try? url.resourceValues(forKeys: [.isAliasFileKey]), properties.isAliasFile == false else { return .excluded }
         let metadataFolder: URL
         let binaryFolder: URL
         let contents = url.appendingPathComponent("Contents")
         if let directory = status(contents.path) {
             guard directory.st_mode & S_IFMT == S_IFDIR, directory.st_flags & protectedFlags == 0,
-                  directory.st_dev == bundle.st_dev else { return .unreadable }
+                  directory.st_dev == bundle.st_dev else { return nil }
             metadataFolder = contents
             binaryFolder = contents.appendingPathComponent("MacOS")
         } else {
             // Apple Silicon wraps iOS apps in a second bundle. Read the wrapper's link
             // text, then inspect its actual directory only if it is a direct child of Wrapper.
-            guard let target = try? FileManager.default.destinationOfSymbolicLink(atPath: path + "/WrappedBundle") else { return .unreadable }
+            guard let target = try? FileManager.default.destinationOfSymbolicLink(atPath: path + "/WrappedBundle") else { return nil }
             let parts = target.components(separatedBy: "/")
-            guard parts.count == 2, parts[0] == "Wrapper", !parts[1].hasPrefix("."), parts[1].lowercased().hasSuffix(".app") else { return .unreadable }
+            guard parts.count == 2, parts[0] == "Wrapper", !parts[1].hasPrefix("."), parts[1].lowercased().hasSuffix(".app") else { return nil }
             let inner = url.appendingPathComponent(target)
             guard DiskScanner.canonicalPath(inner.path) == inner.path, let directory = status(inner.path),
                   directory.st_mode & S_IFMT == S_IFDIR, directory.st_dev == bundle.st_dev,
-                  directory.st_flags & protectedFlags == 0 else { return .unreadable }
+                  directory.st_flags & protectedFlags == 0 else { return nil }
             metadataFolder = inner
             binaryFolder = inner
         }
         let plist = metadataFolder.appendingPathComponent("Info.plist")
         // Read fresh data: Foundation's Bundle cache may still describe a replaced app.
         let fd = open(plist.path, O_RDONLY | O_CLOEXEC | O_NOFOLLOW_ANY | O_NONBLOCK)
-        guard fd >= 0 else { return .unreadable }
+        guard fd >= 0 else { return nil }
         let handle = FileHandle(fileDescriptor: fd, closeOnDealloc: true)
         defer { try? handle.close() }
         var manifest = stat()
@@ -353,7 +358,19 @@ public enum UnusedApps {
               values["CFBundlePackageType"] as? String == "APPL",
               let id = values["CFBundleIdentifier"] as? String, !id.isEmpty,
               let executable = values["CFBundleExecutable"] as? String, !executable.isEmpty,
-              ![".", ".."].contains(executable), !executable.contains("/") else { return .unreadable }
+              ![".", ".."].contains(executable), !executable.contains("/") else { return nil }
+        return AppManifest(values: values, info: manifest, binaryFolder: binaryFolder, identifier: id, executable: executable)
+    }
+
+    private static func assess(_ url: URL, cutoff: Date, minimumAgeDays: Int,
+                               lastUsed: (URL) -> Date?, added: (URL) -> Date?,
+                               active: RunningAppSnapshot, isCancelled: () -> Bool) throws -> Assessment {
+        let path = url.path
+        guard let bundle = status(path), bundle.st_flags & protectedFlags == 0,
+              let properties = try? url.resourceValues(forKeys: [.isAliasFileKey]), properties.isAliasFile == false else { return .excluded }
+        guard let manifest = manifest(of: url, bundle: bundle) else { return .unreadable }
+        let values = manifest.values, id = manifest.identifier, executable = manifest.executable
+        let binaryFolder = manifest.binaryFolder
         let normalized = id.lowercased()
         guard normalized != "local.barlet.app", !normalized.hasPrefix("com.apple."), normalized != "com.apple",
               path != Bundle.main.bundlePath, values["LSBackgroundOnly"] as? Bool != true,
@@ -362,7 +379,7 @@ public enum UnusedApps {
         let executablePath = DiskListing.join(binaryFolder.path, executable)
         guard let binary = status(executablePath), binary.st_mode & S_IFMT == S_IFREG, binary.st_mode & 0o111 != 0, binary.st_flags & protectedFlags == 0,
               DiskScanner.canonicalPath(executablePath) == executablePath else { return .unreadable }
-        guard [bundle, manifest, binary].allSatisfy({ oldEnough($0, cutoff: cutoff) }) else { return .excluded }
+        guard [bundle, manifest.info, binary].allSatisfy({ oldEnough($0, cutoff: cutoff) }) else { return .excluded }
         guard added(url).map({ $0 <= cutoff }) ?? true else { return .excluded }
         let name = values["CFBundleDisplayName"] as? String ?? values["CFBundleName"] as? String ??
                    url.deletingPathExtension().lastPathComponent
@@ -380,7 +397,7 @@ public enum UnusedApps {
         let version = values["CFBundleShortVersionString"] as? String ?? ""
         let build = values["CFBundleVersion"] as? String ?? ""
         guard !version.isEmpty || !build.isEmpty else { return .unreadable }
-        let identity = AppIdentity(directory: AppFileStamp(bundle), info: AppFileStamp(manifest),
+        let identity = AppIdentity(directory: AppFileStamp(bundle), info: AppFileStamp(manifest.info),
                                    executable: AppFileStamp(binary), identifier: id,
                                    version: version, build: build, executableName: executable, tree: tree)
         return .eligible(UnusedApp(path: path, name: name, bundleIdentifier: id,
