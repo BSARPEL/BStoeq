@@ -20,6 +20,7 @@ Menü çubuğundaki davranışı denemek için aşağıdaki paketleme komutunu �
 - `Sources/ArchiveCore` arşiv biçimlerini, 7-Zip süreçlerini ve dosya işlemlerini yönetir. `Sources/ArchiveWorkspace` arşiv penceresini ve dosya gezginini içerir.
 - `Tests` birim ve regresyon testlerini barındırır. `Resources` paket bilgilerini, araçları ve lisans metinlerini içerir.
 - `BStoeq Kur.command`, Finder’dan hazır sürüm kurulumunu başlatır. `scripts/install.sh` kurulum türüne göre gereken bağımlılıkları sağlar. `scripts/install-app.sh` uygulama kimliğini ve imzasını denetleyip paketi Uygulamalar klasörüne taşır.
+- `scripts/package-dmg.sh` uygulamayı, Uygulamalar klasörüne giden bir kısayolla birlikte sürükle-bırak kurulum için bir disk görüntüsüne (`.dmg`) yerleştirir; `package-installer.sh` gibi hazır bir `BStoeq.app` veya `BStoeq-macOS.zip` da alabilir.
 - `scripts/package-installer.sh` uygulamayı bir macOS kurucu paketine (`.pkg`) yerleştirir. `scripts/installer` klasöründeki `preinstall` ve `postinstall` betikleri kurulum sırasında yönetici yetkisiyle çalışır.
 - `scripts/build.sh` dağıtım paketini oluşturur ve `scripts/icon.swift` simgelerini üretir. Elle test için `scripts/TestFixture.swift` geçici bir menü çubuğu simgesi oluşturur. `scripts/engine-probe.m` menü çubuğu sistem arayüzünün etkinleştirilip serbest bırakılabildiğini denetler.
 

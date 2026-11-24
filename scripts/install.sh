@@ -11,7 +11,7 @@ case ${1:-} in
     --release) mode=release ;;
     --help|-h)
         print 'Kullanım: ./scripts/install.sh [--release]'
-        print 'Varsayılan: kaynak kodu derler. --release: doğrulanmış v2.1.1 uygulamasını indirir.'
+        print 'Varsayılan: kaynak kodu derler. --release: doğrulanmış v2.2.0 uygulamasını indirir.'
         print 'Her iki seçenek de eksik medya araçlarını kurar ve BStoeq’i Uygulamalar klasörüne yükler.'
         exit 0 ;;
     *) fail 'Kullanım: ./scripts/install.sh [--release]' ;;
@@ -107,10 +107,10 @@ has_ffmpeg_pair() {
 if [[ $mode == release ]]; then
     # Pin the asset and its known hash together. A different download is never extracted.
     package="$work_dir/BStoeq-macOS.zip"
-    expected_sha256=c1d259e0896f0b9d3f5876f01b3668ded87b08d637795e038b6979331dd03da5
-    print 'Yayımlanmış BStoeq v2.1.1 indiriliyor.'
+    expected_sha256=eb387d074802d00df8ae2c1b39f6ac683b023ff29cccc4c76c95d4b12b09a965
+    print 'Yayımlanmış BStoeq v2.2.0 indiriliyor.'
     /usr/bin/curl --fail --show-error --silent --location --retry 2 --proto '=https' --proto-redir '=https' \
-        https://github.com/BSARPEL/BStoeq/releases/download/v2.1.1/BStoeq-macOS.zip -o "$package"
+        https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.zip -o "$package"
     checksum=$(/usr/bin/shasum -a 256 "$package")
     [[ ${checksum%% *} == "$expected_sha256" ]] || fail 'İndirilen ZIP’in SHA-256 özeti sürümle eşleşmedi. Kurulum durduruldu.'
 else

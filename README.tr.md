@@ -2,9 +2,9 @@
 
 [English](README.md) · **Türkçe**
 
-BStoeq 2.1, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, dosyaları olduğu yerde dönüştürmek, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
+BStoeq 2.2, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, dosyaları olduğu yerde dönüştürmek, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
 
-[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.1/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Kurucu paketi](#kurucu-paketi-oluşturma) · [Dosya dönüştürücü](#dosya-dönüştürme) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
+[Mac için indir (DMG)](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.dmg) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Kurucu paketi](#kurucu-paketi-oluşturma) · [Dosya dönüştürücü](#dosya-dönüştürme) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -17,15 +17,23 @@ BStoeq için **Apple Silicon işlemcili bir Mac ve macOS 27.0 veya üstü** gere
 
 ### Hazır uygulamayı kurma
 
-1. **BStoeq-macOS.zip** dosyasını indir. Hazır uygulamayı çalıştırmak için Xcode veya Homebrew gerekmez. [v2.1.1 uygulamasını indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.1/BStoeq-macOS.zip)
-2. ZIP’i açmadan önce Terminal’de `shasum -a 256 ~/Downloads/BStoeq-macOS.zip` çalıştır. Çıkan değeri sürüm sayfasındaki SHA-256 ile karşılaştır. [Sürüm ve doğrulama özeti](https://github.com/BSARPEL/BStoeq/releases/tag/v2.1.1)
-3. ZIP’i Finder’da aç. Güncelleme yapıyorsan önce menü çubuğundan BStoeq’ten çık. **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı ve oradan aç.
+Her sürümde aynı uygulama üç biçimde sunulur. Birini seç; hiçbiri için Xcode veya Homebrew gerekmez.
+
+| Dosya | Nasıl kurulur |
+|---|---|
+| [**BStoeq-macOS.dmg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.dmg) | Aç ve **BStoeq**’i yanındaki **Applications** (Uygulamalar) klasörüne sürükle. |
+| [**BStoeq-macOS.pkg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.pkg) | Çift tıkla ve yükleyicideki adımları izle. Yönetici parolası ister. |
+| [**BStoeq-macOS.zip**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.zip) | Finder’da aç ve **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı. |
+
+1. Güncelleme yapıyorsan önce menü çubuğundan BStoeq’ten çık.
+2. İndirdiğin dosyayı açmadan önce Terminal’de denetleyebilirsin, örneğin `shasum -a 256 ~/Downloads/BStoeq-macOS.dmg`; çıkan değeri sürüm sayfasındaki SHA-256 ile karşılaştır. [Sürüm ve doğrulama özeti](https://github.com/BSARPEL/BStoeq/releases/tag/v2.2.0)
+3. BStoeq’i **Uygulamalar** klasöründen aç.
 
 Bu paket yerel (*ad hoc*) imzalıdır ve Apple noter onayı taşımaz. İlk açılışta yalnızca geliştiricinin doğrulanamadığı uyarısı çıkarsa, kaynağa güveniyor ve SHA-256 özetini doğruladıysan **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç** seçeneğini kullanabilirsin. [Apple’ın ilk açılış kılavuzu](https://support.apple.com/tr-tr/102445)
 
 ### Otomatik kurulum
 
-**Hazır uygulamayı ve indirme araçlarını birlikte kurmak için** bu deponun **Code → Download ZIP** seçeneğiyle kaynak arşivini indir. Finder’da arşivi aç, çıkan `BStoeq-main` klasöründeki **BStoeq Kur.command** dosyasına çift tıkla. Kurulum Terminal’de çalışır. Yayımlanmış `v2.1.1` ZIP’ini indirir, SHA-256 özetini denetler, eksik medya araçlarını kurar ve uygulamayı **Uygulamalar** klasörüne yerleştirir. Tam Xcode gerekmez. [Kurucu dosyalarını indir (ana dal ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
+**Hazır uygulamayı ve indirme araçlarını birlikte kurmak için** bu deponun **Code → Download ZIP** seçeneğiyle kaynak arşivini indir. Finder’da arşivi aç, çıkan `BStoeq-main` klasöründeki **BStoeq Kur.command** dosyasına çift tıkla. Kurulum Terminal’de çalışır. Yayımlanmış `v2.2.0` ZIP’ini indirir, SHA-256 özetini denetler, eksik medya araçlarını kurar ve uygulamayı **Uygulamalar** klasörüne yerleştirir. Tam Xcode gerekmez. [Kurucu dosyalarını indir (ana dal ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
 
 Aynı işlemi Terminal’den başlatmak için `cd` yazıp bir boşluk bırak, proje klasörünü Terminal’e sürükle, Return’e bas ve aşağıdaki komutu çalıştır.
 
@@ -151,6 +159,11 @@ Apple uygulamaları ve BStoeq listelenmez. Açık bir uygulama kaldırılmaz. Ay
 
 ## Dosya dönüştürme
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/converter-ring-dark.png">
+  <img src="docs/images/converter-ring-light.png" alt="Üç HEIC fotoğraf sürüklenirken imleçte açılan dönüştürme halkası: JPG seçili, çevresinde PNG, PDF, Birleştir, Yarı boyut, Sıkıştır ve Diğerleri dilimleri var." width="520">
+</picture>
+
 Finder’da dosyaları sürüklemeye başladıktan sonra **Option** tuşuna bas: imlecin yanında biçimlerden oluşan bir halka açılır. Dosyaları bir dilime bırak, dönüştürülen kopyalar özgün dosyaların yanına kaydedilir. Halkanın diğer yüzüne geçmek için kaydır ya da **Diğerleri**’nin üzerinde bekle; orada yarı boyut, sıkıştırma, arka planı silme ve metin tanıma (OCR) gibi araçlar var. Vazgeçmek için ortaya bırak. Halkayı kapatabilir, Option yerine Shift seçebilir ya da her uygulamadan sürüklemeye izin verebilirsin: **Ayarlar → Dönüştürücü**. Durum simgesinin menüsünde de **Sürüklerken dönüştür** seçeneği var.
 
 **Dönüştürücü** sayfası dosyaları sürükleyip bırakarak ya da **Dosya seç…** ile alır, onlara uyan bütün hedefleri listeler ve süren ve son dönüştürmeleri gösterir. Bir dönüştürme geri alınabilir: sonuçları değiştirmediğin sürece Çöp Sepeti’ne taşınır. Finder’da dosyalara sağ tıklayıp **Hizmetler → BStoeq ile Dönüştür…** seçeneğiyle onları bu sayfada açabilirsin. **İzlenen klasörler**, bir klasöre gelen her yeni dosyayı dönüştürür; sonuçlar klasörün içindeki “Dönüştürülenler” klasörüne kaydedilir.
@@ -161,6 +174,11 @@ Finder’da dosyaları sürüklemeye başladıktan sonra **Option** tuşuna bas:
 - **Tablolar ve veri:** CSV, TSV, XLSX, JSON ve özellik listeleri. Excel dosyalarındaki tarihler tarih olarak çıkar.
 - **Video ve ses:** ek yazılım olmadan MP4, MOV, GIF, M4A, ALAC, WAV, AIFF, FLAC ve iPhone zil sesi. MP3, Opus, WebM ve MKV için `ffmpeg` gerekir. iPhone’un HDR videoları H.264’e standart aralıkta, HEVC’ye HDR olarak dönüştürülür.
 - **Altyazılar:** SRT ve WebVTT.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/converter-page-dark.png">
+  <img src="docs/images/converter-page-light.png" alt="BStoeq ayarlarındaki Dönüştürücü sayfası: bırakma alanı, tek PDF’te birleştirilmek üzere bekleyen iki dosya ve gösterme ve geri alma düğmeleriyle son dönüştürmeler." width="100%">
+</picture>
 
 Hiçbir şey yüklenmez ve var olan bir dosyanın üzerine asla yazılmaz: adı alınmış bir sonuç numara alır. **Biçim dönüştürmelerinden sonra özgün dosyayı Çöp Sepeti’ne taşı** seçeneğini açmadıkça özgün dosyalar yerinde kalır.
 

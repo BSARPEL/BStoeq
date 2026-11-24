@@ -2,57 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleExecutable</key>
-	<string>BStoeq</string>
-	<key>CFBundleIdentifier</key>
-	<string>local.barlet.app</string>
-	<key>CFBundleName</key>
-	<string>BStoeq</string>
-	<key>CFBundleDisplayName</key>
-	<string>BStoeq</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>2.1.1</string>
-	<key>CFBundleVersion</key>
-	<string>20</string>
-	<key>CFBundleIconFile</key>
-	<string>AppIcon</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>27.0</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>tr</string>
-		<string>de</string>
-	</array>
-	<key>LSUIElement</key>
-	<true/>
-	<key>NSHighResolutionCapable</key>
-	<true/>
-	<key>NSDesktopFolderUsageDescription</key>
-	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
-	<key>NSDocumentsFolderUsageDescription</key>
-	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
-	<key>NSRemovableVolumesUsageDescription</key>
-	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
-	<key>NSNetworkVolumesUsageDescription</key>
-	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
-	<key>NSDownloadsFolderUsageDescription</key>
-	<string>BStoeq saves downloads here, scans file sizes, old installers and duplicate files, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>BStoeq © 2026. Includes 7-Zip, copyright Igor Pavlov. See Licenses.</string>
+	<key>CFBundleDisplayName</key>
+	<string>BStoeq</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Archive</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSHandlerRank</key>
-			<string>Alternate</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>zip</string>
@@ -82,8 +38,52 @@
 				<string>jar</string>
 				<string>war</string>
 			</array>
+			<key>CFBundleTypeName</key>
+			<string>Archive</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
 		</dict>
 	</array>
+	<key>CFBundleExecutable</key>
+	<string>BStoeq</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>local.barlet.app</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>tr</string>
+		<string>de</string>
+	</array>
+	<key>CFBundleName</key>
+	<string>BStoeq</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.2.0</string>
+	<key>CFBundleVersion</key>
+	<string>20</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>27.0</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>NSDesktopFolderUsageDescription</key>
+	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
+	<key>NSDownloadsFolderUsageDescription</key>
+	<string>BStoeq saves downloads here, scans file sizes, old installers and duplicate files, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>BStoeq © 2026. Includes 7-Zip, copyright Igor Pavlov. See Licenses.</string>
+	<key>NSNetworkVolumesUsageDescription</key>
+	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
+	<key>NSRemovableVolumesUsageDescription</key>
+	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
 	<key>NSServices</key>
 	<array>
 		<dict>
@@ -94,18 +94,18 @@
 			</dict>
 			<key>NSMessage</key>
 			<string>bstoeqArchiveService</string>
-			<key>NSUserData</key>
-			<string>open</string>
 			<key>NSPortName</key>
 			<string>BStoeq</string>
+			<key>NSRequiredContext</key>
+			<dict/>
 			<key>NSSendFileTypes</key>
 			<array>
 				<string>public.item</string>
 			</array>
-			<key>NSRequiredContext</key>
-			<dict/>
 			<key>NSServiceDescription</key>
 			<string>Open with BStoeq</string>
+			<key>NSUserData</key>
+			<string>open</string>
 		</dict>
 		<dict>
 			<key>NSMenuItem</key>
@@ -115,18 +115,18 @@
 			</dict>
 			<key>NSMessage</key>
 			<string>bstoeqArchiveService</string>
-			<key>NSUserData</key>
-			<string>compress</string>
 			<key>NSPortName</key>
 			<string>BStoeq</string>
+			<key>NSRequiredContext</key>
+			<dict/>
 			<key>NSSendFileTypes</key>
 			<array>
 				<string>public.item</string>
 			</array>
-			<key>NSRequiredContext</key>
-			<dict/>
 			<key>NSServiceDescription</key>
 			<string>Compress with BStoeq…</string>
+			<key>NSUserData</key>
+			<string>compress</string>
 		</dict>
 		<dict>
 			<key>NSMenuItem</key>
@@ -136,18 +136,18 @@
 			</dict>
 			<key>NSMessage</key>
 			<string>bstoeqArchiveService</string>
-			<key>NSUserData</key>
-			<string>extract</string>
 			<key>NSPortName</key>
 			<string>BStoeq</string>
+			<key>NSRequiredContext</key>
+			<dict/>
 			<key>NSSendFileTypes</key>
 			<array>
 				<string>public.item</string>
 			</array>
-			<key>NSRequiredContext</key>
-			<dict/>
 			<key>NSServiceDescription</key>
 			<string>Extract with BStoeq…</string>
+			<key>NSUserData</key>
+			<string>extract</string>
 		</dict>
 		<dict>
 			<key>NSMenuItem</key>
@@ -157,18 +157,18 @@
 			</dict>
 			<key>NSMessage</key>
 			<string>bstoeqArchiveService</string>
-			<key>NSUserData</key>
-			<string>quickExtract</string>
 			<key>NSPortName</key>
 			<string>BStoeq</string>
+			<key>NSRequiredContext</key>
+			<dict/>
 			<key>NSSendFileTypes</key>
 			<array>
 				<string>public.item</string>
 			</array>
-			<key>NSRequiredContext</key>
-			<dict/>
 			<key>NSServiceDescription</key>
 			<string>Extract to a new folder with BStoeq</string>
+			<key>NSUserData</key>
+			<string>quickExtract</string>
 		</dict>
 		<dict>
 			<key>NSMenuItem</key>
@@ -178,18 +178,18 @@
 			</dict>
 			<key>NSMessage</key>
 			<string>bstoeqArchiveService</string>
-			<key>NSUserData</key>
-			<string>test</string>
 			<key>NSPortName</key>
 			<string>BStoeq</string>
+			<key>NSRequiredContext</key>
+			<dict/>
 			<key>NSSendFileTypes</key>
 			<array>
 				<string>public.item</string>
 			</array>
-			<key>NSRequiredContext</key>
-			<dict/>
 			<key>NSServiceDescription</key>
 			<string>Test archive with BStoeq</string>
+			<key>NSUserData</key>
+			<string>test</string>
 		</dict>
 		<dict>
 			<key>NSMenuItem</key>
@@ -201,12 +201,12 @@
 			<string>bstoeqConvertService</string>
 			<key>NSPortName</key>
 			<string>BStoeq</string>
+			<key>NSRequiredContext</key>
+			<dict/>
 			<key>NSSendFileTypes</key>
 			<array>
 				<string>public.item</string>
 			</array>
-			<key>NSRequiredContext</key>
-			<dict/>
 			<key>NSServiceDescription</key>
 			<string>Convert with BStoeq…</string>
 		</dict>
