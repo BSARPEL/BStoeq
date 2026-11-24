@@ -16,4 +16,4 @@ Arşiv testlerindeki RAR örnekleri libarchive projesinin test koleksiyonundan g
 
 ## Kullanıcının ayrıca kurabileceği araçlar
 
-YouTube indirmeleri kullanıcının kurduğu yt-dlp’yi, akış birleştirme ve ses dönüştürme FFmpeg’i kullanır. RAR oluşturma ve onarma için RARLAB’ın ayrıca edinilen `rar` çalıştırılabilir dosyası seçilebilir. Bu araçların dağıtım ve kullanım koşullarını kendi projeleri yayımlar. [yt-dlp](https://github.com/yt-dlp/yt-dlp) · [FFmpeg](https://ffmpeg.org/) · [RARLAB lisansı](https://www.rarlab.com/license.htm)
+YouTube indirmeleri kullanıcının kurduğu yt-dlp’yi, akış birleştirme ve ses dönüştürme FFmpeg’i kullanır. Dosya dönüştürücü MP3, Opus, WebM ve MKV için kurulu FFmpeg’i, WebP için kurulu `cwebp`’yi (libwebp) çalıştırır; ikisi de uygulamayla birlikte dağıtılmaz. RAR oluşturma ve onarma için RARLAB’ın ayrıca edinilen `rar` çalıştırılabilir dosyası seçilebilir. Bu araçların dağıtım ve kullanım koşullarını kendi projeleri yayımlar. [yt-dlp](https://github.com/yt-dlp/yt-dlp) · [FFmpeg](https://ffmpeg.org/) · [libwebp](https://chromium.googlesource.com/webm/libwebp) · [RARLAB lisansı](https://www.rarlab.com/license.htm)

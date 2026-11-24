@@ -2,6 +2,7 @@ import AppKit
 import SwiftUI
 import BStoeqCore
 import ArchiveWorkspace
+import ConvertCore
 
 @MainActor final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     let model = AppModel()
@@ -9,6 +10,9 @@ import ArchiveWorkspace
         guard let self, let language = AppLanguage(rawValue: code), language != self.model.preferences.language else { return }
         self.model.update { $0.language = language }
     }
+    private lazy var services = ServicesProvider(archives: archives) { [weak self] urls in self?.openConverter(urls) }
+    private lazy var donut = DonutController(manager: model.converter, model: model)
+    private lazy var cards = ConversionCardsController(manager: model.converter, model: model)
     private var readyForDocuments = false
     private var pendingDocuments: [URL] = []
     private var statusItem: NSStatusItem!
@@ -32,7 +36,7 @@ import ArchiveWorkspace
             NSApp.terminate(nil); return
         }
         NSApp.setActivationPolicy(.accessory)
-        NSApp.servicesProvider = archives
+        NSApp.servicesProvider = services
         NSUpdateDynamicServices()
         installMainMenu()
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -126,6 +130,12 @@ import ArchiveWorkspace
         }
         // Partial downloads of a previous run have no row to resume them from.
         model.downloads.discardStaleWorkingFiles()
+        // A crash or a forced quit can leave a conversion's private work folder behind.
+        model.converter.discardStaleWorkFolders()
+        model.converter.onOpenConverter = { [weak self] urls in self?.openConverter(urls) }
+        model.converter.onOpenArchive = { [weak self] url in self?.archives.open([url]) }
+        model.converter.refreshTools()
+        _ = cards
         // Give the status-item scene its image before applying a menu-bar restriction.
         updateStatus(); model.start()
         readyForDocuments = true
@@ -198,6 +208,9 @@ import ArchiveWorkspace
     }
     private func updateStatus() {
         hoverMonitor.setEnabled(!model.arrangingMenuBar && model.preferences.revealOnHover && model.trusted)
+        let converter = model.preferences.converter
+        donut.setEnabled(converter.donutEnabled && !model.arrangingMenuBar, trigger: converter.trigger, finderOnly: converter.finderOnly)
+        model.watch.apply(converter.watch)
         revealPanel.sync(model: model)
         guard let button = statusItem?.button else { return }
         let symbol = model.arrangingMenuBar ? "arrow.left.and.right" : model.expanded ? (model.panelPresented ? "chevron.up" : "chevron.right") : model.preferences.icon
@@ -240,6 +253,9 @@ import ArchiveWorkspace
             modeItem.submenu = modeMenu
             menu.addItem(.separator())
             menu.addItem(withTitle: L("Video veya müzik indir…"), action: #selector(openDownloads), keyEquivalent: "")
+            menu.addItem(withTitle: L("Dosya dönüştür…"), action: #selector(openConverterPage), keyEquivalent: "")
+            let dragItem = menu.addItem(withTitle: L("Sürüklerken dönüştür"), action: #selector(toggleDonut), keyEquivalent: "")
+            dragItem.state = model.preferences.converter.donutEnabled ? .on : .off
             menu.addItem(withTitle: L("Disk alanını tara…"), action: #selector(openDisk), keyEquivalent: "")
             menu.addItem(withTitle: L("Temizliği aç…"), action: #selector(openCleanup), keyEquivalent: "")
             menu.addItem(withTitle: L("Kopya dosyaları bul…"), action: #selector(openDuplicates), keyEquivalent: "")
@@ -264,6 +280,14 @@ import ArchiveWorkspace
     @objc private func showAll() { model.revealEverything() }
     @objc private func openSettings() { showSettings() }
     @objc private func openDownloads() { model.selection = "downloads"; showSettings() }
+    @objc private func openConverterPage() { openConverter([]) }
+    @objc private func toggleDonut() { model.update { $0.converter.donutEnabled.toggle() } }
+    /// The converter page, with these files waiting (the ring's "All", the Finder service, the cards).
+    private func openConverter(_ urls: [URL]) {
+        model.converter.add(urls)
+        model.selection = "converter"
+        showSettings()
+    }
     @objc private func openDisk() { model.selection = "disk"; showSettings() }
     @objc private func openCleanup() { model.selection = "cache"; showSettings() }
     @objc private func openDuplicates() { model.selection = "duplicates"; showSettings() }
@@ -285,7 +309,7 @@ import ArchiveWorkspace
             window.titlebarAppearsTransparent = true
             window.toolbarStyle = .unified
             window.contentView = NSHostingView(rootView: SettingsView(model: model).padding(.top, 28))
-            window.minSize = NSSize(width: 980, height: 786)
+            window.minSize = NSSize(width: 980, height: 822)
             window.isReleasedWhenClosed = false
             window.delegate = self
             window.identifier = AppModel.settingsWindowID
@@ -314,10 +338,20 @@ import ArchiveWorkspace
     }
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
-        archives.canTerminate() ? .terminateNow : .terminateCancel
+        guard archives.canTerminate() else { return .terminateCancel }
+        // A conversion stopped by quitting leaves nothing behind, but the user should know it is lost.
+        guard model.converter.activities.contains(where: { $0.phase != .finished }) else { return .terminateNow }
+        NSApp.activate()
+        let alert = NSAlert()
+        alert.messageText = L("Dönüştürme sürüyor")
+        alert.informativeText = L("Şimdi çıkarsan süren dönüştürmeler iptal edilir.")
+        alert.addButton(withTitle: L("Yine de çık"))
+        alert.addButton(withTitle: L("Vazgeç"))
+        return alert.runModal() == .alertFirstButtonReturn ? .terminateNow : .terminateCancel
     }
     func applicationWillTerminate(_ notification: Notification) {
         archives.shutDown()
+        donut.stop(); cards.stop()
         hoverMonitor.stop(); model.stop(); shortcuts?.stop(); revealPanel.stop(); menuAccess.cancel(); arrangementPanel.close()
         if let clickMonitor { NSEvent.removeMonitor(clickMonitor) }
         if let localClickMonitor { NSEvent.removeMonitor(localClickMonitor) }

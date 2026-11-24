@@ -1,3 +1,4 @@
+import ConvertCore
 import Foundation
 
 public enum RevealMode: String, Codable, CaseIterable, Sendable {
@@ -80,6 +81,8 @@ public struct Preferences: Codable, Equatable, Sendable {
     public var downloadFolder = ""
     /// For a video link that also names a playlist: take the whole list.
     public var downloadWholePlaylist = true
+    /// The file converter: the ring, its output options and the watched folders.
+    public var converter = ConverterSettings()
     public static let iconNames = ["circle.lefthalf.filled": "Yarım daire", "ellipsis": "Noktalar", "chevron.left": "Ok", "square.grid.2x2": "Izgara", "leaf": "Yaprak"]
     public static let icons = ["circle.lefthalf.filled", "ellipsis", "chevron.left", "square.grid.2x2", "leaf"]
     public init() {}
@@ -109,6 +112,8 @@ public struct Preferences: Codable, Equatable, Sendable {
         audioFormat = AudioFormat(rawValue: try c.decodeIfPresent(String.self, forKey: .audioFormat) ?? "") ?? .mp3
         downloadFolder = try c.decodeIfPresent(String.self, forKey: .downloadFolder) ?? ""
         downloadWholePlaylist = try c.decodeIfPresent(Bool.self, forKey: .downloadWholePlaylist) ?? true
+        // The converter's settings repair themselves field by field; nothing in them can fail the import.
+        converter = (try? c.decodeIfPresent(ConverterSettings.self, forKey: .converter)) ?? ConverterSettings()
         normalize()
     }
 
@@ -125,6 +130,7 @@ public struct Preferences: Codable, Equatable, Sendable {
         if !settingsShortcut.isValid || settingsShortcut.matches(.recovery) { settingsShortcut = .settings }
         if toggleShortcut.matches(settingsShortcut) { toggleShortcut = .toggle; settingsShortcut = .settings }
         if !downloadFolder.isEmpty && !downloadFolder.hasPrefix("/") { downloadFolder = "" }
+        converter.normalize()
     }
 }
 

@@ -5,6 +5,7 @@ import ServiceManagement
 import UniformTypeIdentifiers
 import BStoeqCore
 import BStoeqRuntime
+import ConvertCore
 
 extension NSScreen {
     /// The screen under a pointer location in Cocoa coordinates, top row included.
@@ -62,6 +63,10 @@ struct BarApp: Identifiable {
     let duplicates = DuplicateFinderManager()
     let uninstaller = AppUninstallManager()
     let permissions = PermissionsManager()
+    /// Lazy because its closures read the model, which does not exist yet while the stored properties are set.
+    private(set) lazy var converter = ConverterManager(defaults: defaults, settings: { [weak self] in self?.preferences.converter ?? ConverterSettings() },
+                                                       localize: { [weak self] in self?.localizer.text($0) ?? $0 })
+    private(set) lazy var watch = WatchFolderManager(converter: converter, settings: { [weak self] in self?.preferences.converter ?? ConverterSettings() })
     var onChange: (() -> Void)?
     var onShortcutChange: (() -> Void)?
     var onLanguageChange: (() -> Void)?
@@ -92,7 +97,7 @@ struct BarApp: Identifiable {
     func L(_ key: String, _ arguments: CVarArg...) -> String { localizer.text(key, arguments: arguments) }
 
     init(defaults: UserDefaults = .standard, engine: MenuBarEngine? = nil, downloads: MediaDownloadManager? = nil,
-         disk: DiskScanManager? = nil) {
+         disk: DiskScanManager? = nil, converter: ConverterManager? = nil) {
         self.defaults = defaults
         self.downloads = downloads ?? MediaDownloadManager()
         self.disk = disk ?? DiskScanManager()
@@ -120,6 +125,7 @@ struct BarApp: Identifiable {
             self.pendingMenuApp = nil
             self.openSelectedMenu?(request.app, request.action)
         }
+        if let converter { self.converter = converter }
     }
 
     var availableApps: [BarApp] {
@@ -453,7 +459,9 @@ struct BarApp: Identifiable {
         do {
             let data = try Data(contentsOf: url)
             guard data.count <= 2_000_000 else { throw CocoaError(.fileReadTooLarge) }
-            let restored = try JSONDecoder().decode(Preferences.self, from: data)
+            var restored = try JSONDecoder().decode(Preferences.self, from: data)
+            // An import must not start watching folders nobody picked on this Mac.
+            for index in restored.converter.watch.indices { restored.converter.watch[index].enabled = false }
             update { $0 = restored }; refreshApps(); notice = UserMessage("Ayarların içe aktarıldı.")
         } catch { self.error = UserMessage("Bu ayar dosyası okunamadı: %@", detail: error.localizedDescription) }
     }
@@ -469,6 +477,8 @@ struct BarApp: Identifiable {
         cache.stopCleaning()
         duplicates.stop()
         uninstaller.stop()
+        watch.stop()
+        converter.stop()
         started = false
         endMenuBarArrangement(restoreState: false)
         cancelMenuSelection()

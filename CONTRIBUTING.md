@@ -16,6 +16,7 @@ Menü çubuğundaki davranışı denemek için aşağıdaki paketleme komutunu �
 - `Sources/BStoeq` menü çubuğu uygulamasını, ayarları ve kullanıcı işlemlerini yönetir.
 - `Sources/BStoeqCore` disk, temizlik ve kopya dosya taramalarını, uygulama kaldırmayı, indirme seçeneklerini ve ortak modelleri içerir.
 - `Sources/BStoeqRuntime` ve `Sources/MenuBarBridge` menü çubuğuyla sistem düzeyindeki etkileşimi sağlar.
+- `Sources/ConvertCore` dosya dönüştürücünün motorunu, biçim ve hedef listelerini, dönüştürücüleri (görüntü, PDF, belge, altyazı, tablo, ses ve video) ve sürükleme halkasının saf mantığını içerir. Dönüştürücüler yalnızca Apple çatılarını ve kullanıcının kurduğu `ffmpeg` ile `cwebp` araçlarını kullanır. Yeni bir dönüştürücü `Converter` protokolünü uygular ve `ConversionEngine.standardConverters()` listesine eklenir; `StandardConvertersTests` aynı dönüştürmeyi iki dönüştürücünün üstlenmediğini denetler.
 - `Sources/ArchiveCore` arşiv biçimlerini, 7-Zip süreçlerini ve dosya işlemlerini yönetir. `Sources/ArchiveWorkspace` arşiv penceresini ve dosya gezginini içerir.
 - `Tests` birim ve regresyon testlerini barındırır. `Resources` paket bilgilerini, araçları ve lisans metinlerini içerir.
 - `BStoeq Kur.command`, Finder’dan hazır sürüm kurulumunu başlatır. `scripts/install.sh` kurulum türüne göre gereken bağımlılıkları sağlar. `scripts/install-app.sh` uygulama kimliğini ve imzasını denetleyip paketi Uygulamalar klasörüne taşır.

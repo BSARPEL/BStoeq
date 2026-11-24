@@ -2,9 +2,9 @@
 
 **English** · [Türkçe](README.tr.md)
 
-BStoeq 2.1 is a menu bar app for macOS 27 on Apple Silicon. Use it to arrange menu bar icons, open or create archives, see what takes up disk space, find duplicate files, uninstall apps together with their data, and manage YouTube downloads. The interface is available in Turkish, English and German.
+BStoeq 2.1 is a menu bar app for macOS 27 on Apple Silicon. Use it to arrange menu bar icons, open or create archives, convert files where they are, see what takes up disk space, find duplicate files, uninstall apps together with their data, and manage YouTube downloads. The interface is available in Turkish, English and German.
 
-[Download for Mac](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.1/BStoeq-macOS.zip) · [Automatic setup with media tools](#automatic-setup) · [Installer package](#building-an-installer-package) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
+[Download for Mac](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.1/BStoeq-macOS.zip) · [Automatic setup with media tools](#automatic-setup) · [Installer package](#building-an-installer-package) · [File converter](#converting-files) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -148,6 +148,21 @@ The **Settings → Permissions** page shows the macOS permissions BStoeq uses an
 - The state of **Accessibility** and **Full Disk Access** is read automatically. The page refreshes when you come back from System Settings.
 - For the **Desktop**, **Documents** and **Downloads** folders, press **Check**. If macOS has not asked about that folder before, it shows its permission prompt. Granting Full Disk Access covers these folders too.
 - macOS does not report the state of the **App Management** permission. The button on the page opens the matching section of System Settings.
+
+## Converting files
+
+Hold **Option** after you start dragging files in Finder: a ring of formats opens at the pointer. Drop the files on a slice and the converted copies are saved next to the originals. Scroll, or rest on **More**, to turn the ring to its other side with tools such as half size, compress, remove background and text recognition (OCR). Drop in the middle to cancel. You can switch the ring off, use Shift instead or allow drags from every app under **Settings → Converter**; the status-item menu also has **Convert while dragging**.
+
+The **Converter** page takes files by drag and drop or **Choose file…**, lists every target that fits them, and shows running and recent conversions. A conversion can be undone: its results go to the Trash as long as you have not changed them. In Finder, right-click files and choose **Services → Convert with BStoeq…** to open them on this page. **Watched folders** convert every new file that lands in a folder; the results are saved in a "Converted" folder inside it.
+
+- **Images:** JPG, PNG, HEIC, AVIF, TIFF, GIF, BMP, JPEG 2000, ICO and ICNS, and PDF. WebP needs `cwebp` (`brew install webp`).
+- **PDF:** pages to images or text, split, merge (bookmarks and internal links are kept), compress, and OCR for scans.
+- **Documents:** Word, RTF, ODT, HTML, Markdown and text to PDF, DOCX, RTF, ODT, HTML or TXT. Word documents carry styled text only; pictures and tables are not taken over.
+- **Spreadsheets and data:** CSV, TSV, XLSX, JSON and property lists. Dates in Excel files come out as dates.
+- **Video and audio:** MP4, MOV, GIF, M4A, ALAC, WAV, AIFF, FLAC and iPhone ringtones without extra software. MP3, Opus, WebM and MKV need `ffmpeg`. HDR video from an iPhone is converted to standard range for H.264 and kept as HDR for HEVC.
+- **Subtitles:** SRT and WebVTT.
+
+Nothing is uploaded and an existing file is never replaced: a result whose name is taken gets a number. Originals stay where they are unless you turn on **Move the original to the Trash after format conversions**.
 
 ## Downloading video and music
 

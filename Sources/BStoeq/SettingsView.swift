@@ -46,6 +46,9 @@ struct SettingsView: View {
                         case "behavior": behaviorPage
                         case "shortcuts": shortcutsPage
                         case "downloads": DownloadsView(model: model, downloads: model.downloads)
+                        case "converter": ConvertView(model: model, converter: model.converter) {
+                            WatchFoldersView(model: model, watch: model.watch, converter: model.converter)
+                        }
                         case "disk": DiskView(model: model, disk: model.disk)
                         case "cache": CacheCleanupView(model: model, cache: model.cache)
                         case "duplicates": DuplicatesView(model: model, finder: model.duplicates)
@@ -59,7 +62,7 @@ struct SettingsView: View {
                 footer
             }.frame(maxWidth: .infinity)
         }
-        .frame(minWidth: 980, minHeight: 736)
+        .frame(minWidth: 980, minHeight: 772)
         .background(Palette.page)
         .tint(Palette.accent)
         .onChange(of: model.searchFocusRequest) { _, _ in searchFocused = true }
@@ -79,6 +82,7 @@ struct SettingsView: View {
             nav("behavior", L("Davranış"), "slider.horizontal.3")
             nav("shortcuts", L("Kısayollar"), "command")
             nav("downloads", L("İndirmeler"), "arrow.down.circle")
+            nav("converter", L("Dönüştürücü"), "arrow.triangle.2.circlepath")
             nav("disk", L("Disk alanı"), "internaldrive")
             nav("cache", L("Temizlik"), "sparkles")
             nav("duplicates", L("Kopya dosyalar"), "doc.on.doc")
@@ -124,6 +128,7 @@ struct SettingsView: View {
         case "behavior": L("Davranış")
         case "shortcuts": L("Klavye kısayolları")
         case "downloads": L("İndirmeler")
+        case "converter": L("Dönüştürücü")
         case "disk": L("Disk alanı")
         case "cache": L("Temizlik")
         case "duplicates": L("Kopya dosyalar")

@@ -33,15 +33,15 @@
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSDesktopFolderUsageDescription</key>
-	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, and accesses the files you choose for archive or file operations.</string>
+	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
 	<key>NSDocumentsFolderUsageDescription</key>
-	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, and accesses the files you choose for archive or file operations.</string>
+	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
 	<key>NSRemovableVolumesUsageDescription</key>
-	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, and accesses the files you choose for archive or file operations.</string>
+	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
 	<key>NSNetworkVolumesUsageDescription</key>
-	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, and accesses the files you choose for archive or file operations.</string>
+	<string>BStoeq measures files when you scan disk usage, compares them when you look for duplicates, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
 	<key>NSDownloadsFolderUsageDescription</key>
-	<string>BStoeq saves downloads here, scans file sizes, old installers and duplicate files, and accesses the files you choose for archive or file operations.</string>
+	<string>BStoeq saves downloads here, scans file sizes, old installers and duplicate files, accesses the files you choose for archive, conversion or file operations, and converts new files in folders you watch.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>BStoeq © 2026. Includes 7-Zip, copyright Igor Pavlov. See Licenses.</string>
 	<key>CFBundleDocumentTypes</key>
@@ -190,6 +190,25 @@
 			<dict/>
 			<key>NSServiceDescription</key>
 			<string>Test archive with BStoeq</string>
+		</dict>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Convert with BStoeq…</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>bstoeqConvertService</string>
+			<key>NSPortName</key>
+			<string>BStoeq</string>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.item</string>
+			</array>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSServiceDescription</key>
+			<string>Convert with BStoeq…</string>
 		</dict>
 	</array>
 </dict>

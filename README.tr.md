@@ -2,9 +2,9 @@
 
 [English](README.md) · **Türkçe**
 
-BStoeq 2.1, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
+BStoeq 2.1, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, dosyaları olduğu yerde dönüştürmek, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
 
-[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.1/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Kurucu paketi](#kurucu-paketi-oluşturma) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
+[Mac için indir](https://github.com/BSARPEL/BStoeq/releases/download/v2.1.1/BStoeq-macOS.zip) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Kurucu paketi](#kurucu-paketi-oluşturma) · [Dosya dönüştürücü](#dosya-dönüştürme) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -148,6 +148,21 @@ Apple uygulamaları ve BStoeq listelenmez. Açık bir uygulama kaldırılmaz. Ay
 - **Erişilebilirlik** ve **Tam Disk Erişimi** durumu kendiliğinden okunur. Sistem Ayarları’ndan döndüğünde sayfa yenilenir.
 - **Masaüstü**, **Belgeler** ve **İndirilenler** klasörleri için **Denetle** düğmesine bas. macOS o klasörü daha önce sormadıysa izin penceresini gösterir. Tam Disk Erişimi verildiğinde bu klasörler de verilmiş sayılır.
 - **Uygulama Yönetimi** izninin durumunu macOS bildirmez. Sayfadaki düğme ilgili Sistem Ayarları bölümünü açar.
+
+## Dosya dönüştürme
+
+Finder’da dosyaları sürüklemeye başladıktan sonra **Option** tuşuna bas: imlecin yanında biçimlerden oluşan bir halka açılır. Dosyaları bir dilime bırak, dönüştürülen kopyalar özgün dosyaların yanına kaydedilir. Halkanın diğer yüzüne geçmek için kaydır ya da **Diğerleri**’nin üzerinde bekle; orada yarı boyut, sıkıştırma, arka planı silme ve metin tanıma (OCR) gibi araçlar var. Vazgeçmek için ortaya bırak. Halkayı kapatabilir, Option yerine Shift seçebilir ya da her uygulamadan sürüklemeye izin verebilirsin: **Ayarlar → Dönüştürücü**. Durum simgesinin menüsünde de **Sürüklerken dönüştür** seçeneği var.
+
+**Dönüştürücü** sayfası dosyaları sürükleyip bırakarak ya da **Dosya seç…** ile alır, onlara uyan bütün hedefleri listeler ve süren ve son dönüştürmeleri gösterir. Bir dönüştürme geri alınabilir: sonuçları değiştirmediğin sürece Çöp Sepeti’ne taşınır. Finder’da dosyalara sağ tıklayıp **Hizmetler → BStoeq ile Dönüştür…** seçeneğiyle onları bu sayfada açabilirsin. **İzlenen klasörler**, bir klasöre gelen her yeni dosyayı dönüştürür; sonuçlar klasörün içindeki “Dönüştürülenler” klasörüne kaydedilir.
+
+- **Görüntüler:** JPG, PNG, HEIC, AVIF, TIFF, GIF, BMP, JPEG 2000, ICO ve ICNS, ayrıca PDF. WebP için `cwebp` gerekir (`brew install webp`).
+- **PDF:** sayfaları görüntüye veya metne çevirme, bölme, birleştirme (yer imleri ve iç bağlantılar korunur), sıkıştırma ve taranmış belgeler için OCR.
+- **Belgeler:** Word, RTF, ODT, HTML, Markdown ve metin dosyalarından PDF, DOCX, RTF, ODT, HTML veya TXT. Word belgelerinde yalnızca biçimli metin taşınır; resimler ve tablolar aktarılmaz.
+- **Tablolar ve veri:** CSV, TSV, XLSX, JSON ve özellik listeleri. Excel dosyalarındaki tarihler tarih olarak çıkar.
+- **Video ve ses:** ek yazılım olmadan MP4, MOV, GIF, M4A, ALAC, WAV, AIFF, FLAC ve iPhone zil sesi. MP3, Opus, WebM ve MKV için `ffmpeg` gerekir. iPhone’un HDR videoları H.264’e standart aralıkta, HEVC’ye HDR olarak dönüştürülür.
+- **Altyazılar:** SRT ve WebVTT.
+
+Hiçbir şey yüklenmez ve var olan bir dosyanın üzerine asla yazılmaz: adı alınmış bir sonuç numara alır. **Biçim dönüştürmelerinden sonra özgün dosyayı Çöp Sepeti’ne taşı** seçeneğini açmadıkça özgün dosyalar yerinde kalır.
 
 ## Video ve müzik indirme
 

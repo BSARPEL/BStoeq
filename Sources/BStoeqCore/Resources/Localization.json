@@ -2363,5 +2363,925 @@
     "tr": "İzinlerin hepsi isteğe bağlıdır; simgeleri gizlemek için hiçbiri gerekmez. Tam Disk Erişimi verildiğinde klasör izinleri de verilmiş sayılır. Sistem Ayarları’nda yaptığın bir değişiklik, BStoeq’i kapatıp yeniden açtığında geçerli olabilir.",
     "en": "Every permission is optional; hiding icons needs none of them. Granting Full Disk Access also covers the folder permissions. A change you make in System Settings may take effect only after you quit and reopen BStoeq.",
     "de": "Alle Berechtigungen sind optional; zum Ausblenden von Symbolen ist keine nötig. Der Festplattenvollzugriff schließt die Ordnerberechtigungen ein. Eine Änderung in den Systemeinstellungen wird möglicherweise erst wirksam, nachdem du BStoeq beendet und erneut geöffnet hast."
+  },
+  "1 dosya → %@": {
+    "tr": "1 dosya → %@",
+    "en": "1 file → %@",
+    "de": "1 Datei → %@"
+  },
+  "%d dosya → %@": {
+    "tr": "%d dosya → %@",
+    "en": "%d files → %@",
+    "de": "%d Dateien → %@"
+  },
+  "Sırada bekliyor": {
+    "tr": "Sırada bekliyor",
+    "en": "Waiting in line",
+    "de": "Wartet in der Warteschlange"
+  },
+  "İzlenen klasör": {
+    "tr": "İzlenen klasör",
+    "en": "Watched folder",
+    "de": "Überwachter Ordner"
+  },
+  "%d dönüştürüldü": {
+    "tr": "%d dönüştürüldü",
+    "en": "%d converted",
+    "de": "%d konvertiert"
+  },
+  "%d atlandı": {
+    "tr": "%d atlandı",
+    "en": "%d skipped",
+    "de": "%d übersprungen"
+  },
+  "%d tane daha": {
+    "tr": "%d tane daha",
+    "en": "%d more",
+    "de": "%d weitere"
+  },
+  "Dosya sürüklerken %@ tuşuna basınca bu halka açılır. Bir dilime bırakırsan dosya dönüştürülür; sonuç özgün dosyanın yanına kaydedilir. Vazgeçmek için ortaya bırak ya da Esc’e bas.": {
+    "tr": "Dosya sürüklerken %@ tuşuna basınca bu halka açılır. Bir dilime bırakırsan dosya dönüştürülür; sonuç özgün dosyanın yanına kaydedilir. Vazgeçmek için ortaya bırak ya da Esc’e bas.",
+    "en": "This ring opens when you press %@ while dragging files. Drop on a slice to convert; the result is saved next to the original. To cancel, drop in the middle or press Esc.",
+    "de": "Dieser Ring öffnet sich, wenn du beim Ziehen von Dateien %@ drückst. Lege sie auf einem Segment ab, um sie zu konvertieren; das Ergebnis wird neben dem Original gesichert. Zum Abbrechen in der Mitte ablegen oder Esc drücken."
+  },
+  "Dönüştürme durumu": {
+    "tr": "Dönüştürme durumu",
+    "en": "Conversion status",
+    "de": "Konvertierungsstatus"
+  },
+  "Bu dosya okunamadı.": {
+    "tr": "Bu dosya okunamadı.",
+    "en": "This file could not be read.",
+    "de": "Diese Datei konnte nicht gelesen werden."
+  },
+  "Bu JSON tablo biçiminde değil.": {
+    "tr": "Bu JSON tablo biçiminde değil.",
+    "en": "This JSON is not shaped like a table.",
+    "de": "Dieses JSON hat keine Tabellenform."
+  },
+  "Bu JSON plist’e dönüştürülemez.": {
+    "tr": "Bu JSON plist’e dönüştürülemez.",
+    "en": "This JSON cannot be converted to a plist.",
+    "de": "Dieses JSON kann nicht in eine Plist konvertiert werden."
+  },
+  "Yalnızca ilk 1.000.000 satır dönüştürüldü.": {
+    "tr": "Yalnızca ilk 1.000.000 satır dönüştürüldü.",
+    "en": "Only the first 1,000,000 rows were converted.",
+    "de": "Nur die ersten 1.000.000 Zeilen wurden konvertiert."
+  },
+  "Bu belge okunamadı.": {
+    "tr": "Bu belge okunamadı.",
+    "en": "This document could not be read.",
+    "de": "Dieses Dokument konnte nicht gelesen werden."
+  },
+  "Belge boş.": {
+    "tr": "Belge boş.",
+    "en": "The document is empty.",
+    "de": "Das Dokument ist leer."
+  },
+  "Görseller aktarılmaz; yazı biçimleri sadeleşebilir.": {
+    "tr": "Görseller aktarılmaz; yazı biçimleri sadeleşebilir.",
+    "en": "Pictures are not carried over; text formatting may be simplified.",
+    "de": "Bilder werden nicht übernommen; Textformatierungen können vereinfacht werden."
+  },
+  "Bu altyazı okunamadı.": {
+    "tr": "Bu altyazı okunamadı.",
+    "en": "These subtitles could not be read.",
+    "de": "Diese Untertitel konnten nicht gelesen werden."
+  },
+  "Bu görüntü okunamadı.": {
+    "tr": "Bu görüntü okunamadı.",
+    "en": "This image could not be read.",
+    "de": "Dieses Bild konnte nicht gelesen werden."
+  },
+  "Yalnızca ilk kare dönüştürüldü.": {
+    "tr": "Yalnızca ilk kare dönüştürüldü.",
+    "en": "Only the first frame was converted.",
+    "de": "Nur das erste Einzelbild wurde konvertiert."
+  },
+  "Hareketli görüntüler bu araçla küçültülemez.": {
+    "tr": "Hareketli görüntüler bu araçla küçültülemez.",
+    "en": "Animated images can’t be made smaller with this tool.",
+    "de": "Animierte Bilder kannst du mit diesem Werkzeug nicht verkleinern."
+  },
+  "Görüntüde öne çıkan bir nesne bulunamadı.": {
+    "tr": "Görüntüde öne çıkan bir nesne bulunamadı.",
+    "en": "No clear subject was found in the image.",
+    "de": "Im Bild wurde kein deutliches Motiv gefunden."
+  },
+  "Görüntüde metin bulunamadı.": {
+    "tr": "Görüntüde metin bulunamadı.",
+    "en": "No text was found in the image.",
+    "de": "Im Bild wurde kein Text gefunden."
+  },
+  "Dosya dönüştür…": {
+    "tr": "Dosya dönüştür…",
+    "en": "Convert files…",
+    "de": "Dateien konvertieren…"
+  },
+  "Dönüştürücü": {
+    "tr": "Dönüştürücü",
+    "en": "Converter",
+    "de": "Konverter"
+  },
+  "Arşiv": {
+    "tr": "Arşiv",
+    "en": "Archive",
+    "de": "Archiv"
+  },
+  "Kısayol içeren klasörler arşivlenemiyor: %@": {
+    "tr": "Kısayol içeren klasörler arşivlenemiyor: %@",
+    "en": "Folders that contain links cannot be archived: %@",
+    "de": "Ordner mit Links können nicht archiviert werden: %@"
+  },
+  "Arşiv işlemi başarısız: %@": {
+    "tr": "Arşiv işlemi başarısız: %@",
+    "en": "The archive operation failed: %@",
+    "de": "Der Archivvorgang ist fehlgeschlagen: %@"
+  },
+  "Yol kopyalandı": {
+    "tr": "Yol kopyalandı",
+    "en": "Path copied",
+    "de": "Pfad kopiert"
+  },
+  "AirDrop şu anda kullanılamıyor.": {
+    "tr": "AirDrop şu anda kullanılamıyor.",
+    "en": "AirDrop is not available right now.",
+    "de": "AirDrop ist gerade nicht verfügbar."
+  },
+  "Değişen 1 dosya yerinde bırakıldı.": {
+    "tr": "Değişen 1 dosya yerinde bırakıldı.",
+    "en": "1 file that changed was left in place.",
+    "de": "1 geänderte Datei wurde an ihrem Platz gelassen."
+  },
+  "Değişen %@ dosya yerinde bırakıldı.": {
+    "tr": "Değişen %@ dosya yerinde bırakıldı.",
+    "en": "%@ files that changed were left in place.",
+    "de": "%@ geänderte Dateien wurden an ihrem Platz gelassen."
+  },
+  "Bu ses veya video dosyası okunamadı.": {
+    "tr": "Bu ses veya video dosyası okunamadı.",
+    "en": "This audio or video file could not be read.",
+    "de": "Diese Audio- oder Videodatei konnte nicht gelesen werden."
+  },
+  "Bu videoda ses yok.": {
+    "tr": "Bu videoda ses yok.",
+    "en": "This video has no sound.",
+    "de": "Dieses Video hat keinen Ton."
+  },
+  "Zil sesi ilk 30 saniyeden oluşturuldu.": {
+    "tr": "Zil sesi ilk 30 saniyeden oluşturuldu.",
+    "en": "The ringtone was made from the first 30 seconds.",
+    "de": "Der Klingelton wurde aus den ersten 30 Sekunden erstellt."
+  },
+  "GIF yalnızca ilk 60 saniyeyi içerir.": {
+    "tr": "GIF yalnızca ilk 60 saniyeyi içerir.",
+    "en": "The GIF contains only the first 60 seconds.",
+    "de": "Das GIF enthält nur die ersten 60 Sekunden."
+  },
+  "Dosya boyutunu sınırlamak için GIF kısaltıldı.": {
+    "tr": "Dosya boyutunu sınırlamak için GIF kısaltıldı.",
+    "en": "The GIF was shortened to keep the file size in check.",
+    "de": "Das GIF wurde gekürzt, um die Dateigröße zu begrenzen."
+  },
+  "HDR görüntüyü korumak için video HEVC olarak kodlandı.": {
+    "tr": "HDR görüntüyü korumak için video HEVC olarak kodlandı.",
+    "en": "The video was encoded as HEVC to keep its HDR picture.",
+    "de": "Das Video wurde als HEVC kodiert, damit das HDR-Bild erhalten bleibt."
+  },
+  "Dosyaları olduğu yerde dönüştür.": {
+    "tr": "Dosyaları olduğu yerde dönüştür.",
+    "en": "Convert files right where they are.",
+    "de": "Konvertiere Dateien genau dort, wo sie liegen."
+  },
+  "Görüntü, PDF, belge, ses ve video. Her şey bu Mac’te kalır.": {
+    "tr": "Görüntü, PDF, belge, ses ve video. Her şey bu Mac’te kalır.",
+    "en": "Images, PDFs, documents, audio and video. Everything stays on this Mac.",
+    "de": "Bilder, PDFs, Dokumente, Audio und Video. Alles bleibt auf diesem Mac."
+  },
+  "MP3, Opus, WebM ve MKV için ffmpeg gerekir.": {
+    "tr": "MP3, Opus, WebM ve MKV için ffmpeg gerekir.",
+    "en": "MP3, Opus, WebM and MKV need ffmpeg.",
+    "de": "Für MP3, Opus, WebM und MKV wird ffmpeg benötigt."
+  },
+  "WebP için cwebp gerekir.": {
+    "tr": "WebP için cwebp gerekir.",
+    "en": "WebP needs cwebp.",
+    "de": "Für WebP wird cwebp benötigt."
+  },
+  "YENİ DÖNÜŞTÜRME": {
+    "tr": "YENİ DÖNÜŞTÜRME",
+    "en": "NEW CONVERSION",
+    "de": "NEUE KONVERTIERUNG"
+  },
+  "Birleştirmede bu sıra kullanılır.": {
+    "tr": "Birleştirmede bu sıra kullanılır.",
+    "en": "Merging uses this order.",
+    "de": "Beim Verbinden gilt diese Reihenfolge."
+  },
+  "Dönüştür": {
+    "tr": "Dönüştür",
+    "en": "Convert",
+    "de": "Konvertieren"
+  },
+  "Dosyaları buraya bırak": {
+    "tr": "Dosyaları buraya bırak",
+    "en": "Drop files here",
+    "de": "Dateien hier ablegen"
+  },
+  "Dosya seç…": {
+    "tr": "Dosya seç…",
+    "en": "Choose files…",
+    "de": "Dateien wählen …"
+  },
+  "Yukarı taşı": {
+    "tr": "Yukarı taşı",
+    "en": "Move up",
+    "de": "Nach oben"
+  },
+  "Aşağı taşı": {
+    "tr": "Aşağı taşı",
+    "en": "Move down",
+    "de": "Nach unten"
+  },
+  "Klasör": {
+    "tr": "Klasör",
+    "en": "Folder",
+    "de": "Ordner"
+  },
+  "Hedef": {
+    "tr": "Hedef",
+    "en": "Target",
+    "de": "Ziel"
+  },
+  "Uygun dosyalar: %@": {
+    "tr": "Uygun dosyalar: %@",
+    "en": "Files that fit: %@",
+    "de": "Passende Dateien: %@"
+  },
+  "Biçimler": {
+    "tr": "Biçimler",
+    "en": "Formats",
+    "de": "Formate"
+  },
+  "Araçlar": {
+    "tr": "Araçlar",
+    "en": "Tools",
+    "de": "Werkzeuge"
+  },
+  "Hedef seç": {
+    "tr": "Hedef seç",
+    "en": "Choose a target",
+    "de": "Ziel wählen"
+  },
+  "Boyut": {
+    "tr": "Boyut",
+    "en": "Size",
+    "de": "Größe"
+  },
+  "Görüntü hiçbir zaman büyütülmez.": {
+    "tr": "Görüntü hiçbir zaman büyütülmez.",
+    "en": "Images are never enlarged.",
+    "de": "Bilder werden nie vergrößert."
+  },
+  "En fazla yükseklik": {
+    "tr": "En fazla yükseklik",
+    "en": "Maximum height",
+    "de": "Maximale Höhe"
+  },
+  "Özgün çözünürlük": {
+    "tr": "Özgün çözünürlük",
+    "en": "Original resolution",
+    "de": "Originalauflösung"
+  },
+  "Özgün boyut": {
+    "tr": "Özgün boyut",
+    "en": "Original size",
+    "de": "Originalgröße"
+  },
+  "Uzun kenar %@": {
+    "tr": "Uzun kenar %@",
+    "en": "Long edge %@",
+    "de": "Lange Seite %@"
+  },
+  "Dönüştürülecek dosyaları seç": {
+    "tr": "Dönüştürülecek dosyaları seç",
+    "en": "Choose the files to convert",
+    "de": "Wähle die Dateien zum Konvertieren"
+  },
+  "SON DÖNÜŞTÜRMELER": {
+    "tr": "SON DÖNÜŞTÜRMELER",
+    "en": "RECENT CONVERSIONS",
+    "de": "LETZTE KONVERTIERUNGEN"
+  },
+  "Geçmişi temizle": {
+    "tr": "Geçmişi temizle",
+    "en": "Clear history",
+    "de": "Verlauf löschen"
+  },
+  "Henüz dönüştürme yok.": {
+    "tr": "Henüz dönüştürme yok.",
+    "en": "No conversions yet.",
+    "de": "Noch keine Konvertierungen."
+  },
+  "Bu dönüştürme geri alınsın mı?": {
+    "tr": "Bu dönüştürme geri alınsın mı?",
+    "en": "Undo this conversion?",
+    "de": "Diese Konvertierung widerrufen?"
+  },
+  "1 öğe Çöp Sepeti’ne taşınır.": {
+    "tr": "1 öğe Çöp Sepeti’ne taşınır.",
+    "en": "1 item goes to the Trash.",
+    "de": "1 Objekt wird in den Papierkorb gelegt."
+  },
+  "%d öğe Çöp Sepeti’ne taşınır.": {
+    "tr": "%d öğe Çöp Sepeti’ne taşınır.",
+    "en": "%d items go to the Trash.",
+    "de": "%d Objekte werden in den Papierkorb gelegt."
+  },
+  "Özgün dosyalar da Çöp Sepeti’nde; oradan geri alabilirsin.": {
+    "tr": "Özgün dosyalar da Çöp Sepeti’nde; oradan geri alabilirsin.",
+    "en": "The originals are in the Trash too; you can put them back from there.",
+    "de": "Die Originale liegen ebenfalls im Papierkorb; von dort kannst du sie zurücklegen."
+  },
+  "SÜRÜKLERKEN DÖNÜŞTÜR": {
+    "tr": "SÜRÜKLERKEN DÖNÜŞTÜR",
+    "en": "CONVERT WHILE DRAGGING",
+    "de": "BEIM ZIEHEN KONVERTIEREN"
+  },
+  "Sürüklerken dönüştür": {
+    "tr": "Sürüklerken dönüştür",
+    "en": "Convert while dragging",
+    "de": "Beim Ziehen konvertieren"
+  },
+  "Dosya sürüklerken tuşa basınca dönüştürme halkası açılır.": {
+    "tr": "Dosya sürüklerken tuşa basınca dönüştürme halkası açılır.",
+    "en": "Pressing the key while you drag files opens the conversion ring.",
+    "de": "Drückst du beim Ziehen von Dateien die Taste, öffnet sich der Konvertierungsring."
+  },
+  "Tuş": {
+    "tr": "Tuş",
+    "en": "Key",
+    "de": "Taste"
+  },
+  "Yalnızca Finder’dan sürüklerken": {
+    "tr": "Yalnızca Finder’dan sürüklerken",
+    "en": "Only when dragging from Finder",
+    "de": "Nur beim Ziehen aus dem Finder"
+  },
+  "Kapalıyken her uygulamadan sürüklenen dosyalarda açılır.": {
+    "tr": "Kapalıyken her uygulamadan sürüklenen dosyalarda açılır.",
+    "en": "When off, it opens for files dragged from any app.",
+    "de": "Ist die Option aus, öffnet sich der Ring beim Ziehen aus jeder App."
+  },
+  "Dosyayı sürüklemeye başla, sonra %@ tuşuna bas.": {
+    "tr": "Dosyayı sürüklemeye başla, sonra %@ tuşuna bas.",
+    "en": "Start dragging, then press %@.",
+    "de": "Beginne zu ziehen und drücke dann %@."
+  },
+  "Açılan halkada bir dilime bırak.": {
+    "tr": "Açılan halkada bir dilime bırak.",
+    "en": "Drop on a slice of the ring that opens.",
+    "de": "Lege die Dateien auf einem Segment des Rings ab, der sich öffnet."
+  },
+  "Sonuç özgün dosyanın yanına kaydedilir; vazgeçmek için ortaya bırak.": {
+    "tr": "Sonuç özgün dosyanın yanına kaydedilir; vazgeçmek için ortaya bırak.",
+    "en": "The result is saved next to the original; to cancel, drop in the middle.",
+    "de": "Das Ergebnis wird neben dem Original gesichert; zum Abbrechen in der Mitte ablegen."
+  },
+  "Özgün dosyanın yanına": {
+    "tr": "Özgün dosyanın yanına",
+    "en": "Next to the original",
+    "de": "Neben dem Original"
+  },
+  "Yanındaki “%@” klasörüne": {
+    "tr": "Yanındaki “%@” klasörüne",
+    "en": "Into a “%@” folder beside it",
+    "de": "In einen Ordner „%@“ daneben"
+  },
+  "ÇIKTI AYARLARI": {
+    "tr": "ÇIKTI AYARLARI",
+    "en": "OUTPUT SETTINGS",
+    "de": "AUSGABEEINSTELLUNGEN"
+  },
+  "Kalite, çözünürlük ve kayıt yeri": {
+    "tr": "Kalite, çözünürlük ve kayıt yeri",
+    "en": "Quality, resolution and where results go",
+    "de": "Qualität, Auflösung und Speicherort"
+  },
+  "Görüntü kalitesi": {
+    "tr": "Görüntü kalitesi",
+    "en": "Image quality",
+    "de": "Bildqualität"
+  },
+  "Otomatik: her biçim için önerilen değer.": {
+    "tr": "Otomatik: her biçim için önerilen değer.",
+    "en": "Automatic: the recommended value for each format.",
+    "de": "Automatisch: der empfohlene Wert für jedes Format."
+  },
+  "Otomatik": {
+    "tr": "Otomatik",
+    "en": "Automatic",
+    "de": "Automatisch"
+  },
+  "Meta verileri koru": {
+    "tr": "Meta verileri koru",
+    "en": "Keep metadata",
+    "de": "Metadaten behalten"
+  },
+  "Tarih, konum ve kamera bilgisi sonuca aktarılır.": {
+    "tr": "Tarih, konum ve kamera bilgisi sonuca aktarılır.",
+    "en": "Date, location and camera details are carried over.",
+    "de": "Datum, Ort und Kameradaten werden übernommen."
+  },
+  "PDF çözünürlüğü": {
+    "tr": "PDF çözünürlüğü",
+    "en": "PDF resolution",
+    "de": "PDF-Auflösung"
+  },
+  "PDF sayfalarından görüntü oluştururken.": {
+    "tr": "PDF sayfalarından görüntü oluştururken.",
+    "en": "When making images from PDF pages.",
+    "de": "Beim Erstellen von Bildern aus PDF-Seiten."
+  },
+  "PDF sıkıştırma": {
+    "tr": "PDF sıkıştırma",
+    "en": "PDF compression",
+    "de": "PDF-Komprimierung"
+  },
+  "Sıkıştır aracı PDF’lerde bu düzeyi kullanır.": {
+    "tr": "Sıkıştır aracı PDF’lerde bu düzeyi kullanır.",
+    "en": "The Compress tool uses this level for PDFs.",
+    "de": "Das Werkzeug „Komprimieren“ nutzt diese Stufe für PDFs."
+  },
+  "Kağıt boyutu": {
+    "tr": "Kağıt boyutu",
+    "en": "Paper size",
+    "de": "Papierformat"
+  },
+  "Belgeden ve görüntüden PDF oluştururken.": {
+    "tr": "Belgeden ve görüntüden PDF oluştururken.",
+    "en": "When making PDFs from documents and images.",
+    "de": "Beim Erstellen von PDFs aus Dokumenten und Bildern."
+  },
+  "Video kalitesi": {
+    "tr": "Video kalitesi",
+    "en": "Video quality",
+    "de": "Videoqualität"
+  },
+  "Video kodeği": {
+    "tr": "Video kodeği",
+    "en": "Video codec",
+    "de": "Videocodec"
+  },
+  "HEVC daha küçük dosya verir; eski cihazlarda açılmayabilir.": {
+    "tr": "HEVC daha küçük dosya verir; eski cihazlarda açılmayabilir.",
+    "en": "HEVC makes smaller files; older devices may not play them.",
+    "de": "HEVC erzeugt kleinere Dateien; ältere Geräte spielen sie eventuell nicht ab."
+  },
+  "Ses bit hızı": {
+    "tr": "Ses bit hızı",
+    "en": "Audio bitrate",
+    "de": "Audio-Bitrate"
+  },
+  "Biçim dönüştürmelerinden sonra özgün dosyayı Çöp Sepeti’ne taşı": {
+    "tr": "Biçim dönüştürmelerinden sonra özgün dosyayı Çöp Sepeti’ne taşı",
+    "en": "Move the original to the Trash after format conversions",
+    "de": "Original nach Formatkonvertierungen in den Papierkorb legen"
+  },
+  "Araçlar ve başka türe dönüştürmeler özgün dosyaya dokunmaz.": {
+    "tr": "Araçlar ve başka türe dönüştürmeler özgün dosyaya dokunmaz.",
+    "en": "Tools and conversions to another kind of file never touch the original.",
+    "de": "Werkzeuge und Konvertierungen in eine andere Dateiart lassen das Original unberührt."
+  },
+  "Dönüştürülenler": {
+    "tr": "Dönüştürülenler",
+    "en": "Converted",
+    "de": "Konvertiert"
+  },
+  "Seçtiğin klasöre": {
+    "tr": "Seçtiğin klasöre",
+    "en": "Into a folder you choose",
+    "de": "In einen Ordner deiner Wahl"
+  },
+  "Sonuçların kaydedileceği klasörü seç": {
+    "tr": "Sonuçların kaydedileceği klasörü seç",
+    "en": "Choose the folder for the results",
+    "de": "Wähle den Ordner für die Ergebnisse"
+  },
+  "Yalnızca metin aktarılır; düzen ve görseller korunmaz.": {
+    "tr": "Yalnızca metin aktarılır; düzen ve görseller korunmaz.",
+    "en": "Only the text is carried over; layout and images are not kept.",
+    "de": "Nur der Text wird übernommen; Layout und Bilder gehen verloren."
+  },
+  "Bu PDF okunamadı.": {
+    "tr": "Bu PDF okunamadı.",
+    "en": "This PDF could not be read.",
+    "de": "Diese PDF konnte nicht gelesen werden."
+  },
+  "Parola korumalı PDF dönüştürülemez.": {
+    "tr": "Parola korumalı PDF dönüştürülemez.",
+    "en": "A password-protected PDF cannot be converted.",
+    "de": "Eine passwortgeschützte PDF kann nicht konvertiert werden."
+  },
+  "PDF’te metin bulunamadı.": {
+    "tr": "PDF’te metin bulunamadı.",
+    "en": "No text was found in the PDF.",
+    "de": "In der PDF wurde kein Text gefunden."
+  },
+  "Metin sayfa görüntülerinden tanındı (OCR); hatalar olabilir.": {
+    "tr": "Metin sayfa görüntülerinden tanındı (OCR); hatalar olabilir.",
+    "en": "The text was recognized from page images (OCR) and may contain errors.",
+    "de": "Der Text wurde aus Seitenbildern erkannt (OCR) und kann Fehler enthalten."
+  },
+  "Tek sayfalı PDF bölünemez.": {
+    "tr": "Tek sayfalı PDF bölünemez.",
+    "en": "A single-page PDF cannot be split.",
+    "de": "Eine einseitige PDF kann nicht geteilt werden."
+  },
+  "Dönüştürme halkası": {
+    "tr": "Dönüştürme halkası",
+    "en": "Conversion ring",
+    "de": "Konvertierungsring"
+  },
+  "Dönüştürmek için bir dilime bırak": {
+    "tr": "Dönüştürmek için bir dilime bırak",
+    "en": "Drop on a slice to convert",
+    "de": "Zum Konvertieren auf einem Segment ablegen"
+  },
+  "Vazgeçmek için buraya bırak": {
+    "tr": "Vazgeçmek için buraya bırak",
+    "en": "Drop here to cancel",
+    "de": "Zum Abbrechen hier ablegen"
+  },
+  "Diğerleri için kaydır": {
+    "tr": "Diğerleri için kaydır",
+    "en": "Scroll for more",
+    "de": "Für mehr scrollen"
+  },
+  "Bu dosyalar buraya bırakılamıyor.": {
+    "tr": "Bu dosyalar buraya bırakılamıyor.",
+    "en": "These files can’t be dropped here.",
+    "de": "Diese Dateien lassen sich hier nicht ablegen."
+  },
+  "%@ dosya → %@": {
+    "tr": "%@ dosya → %@",
+    "en": "%@ files → %@",
+    "de": "%@ Dateien → %@"
+  },
+  "Özgün dosya Çöp Sepeti’ne taşınır": {
+    "tr": "Özgün dosya Çöp Sepeti’ne taşınır",
+    "en": "The original goes to the Trash",
+    "de": "Das Original wird in den Papierkorb gelegt"
+  },
+  "Tek PDF’te birleştir": {
+    "tr": "Tek PDF’te birleştir",
+    "en": "Merge into one PDF",
+    "de": "Zu einer PDF verbinden"
+  },
+  "Birleştir": {
+    "tr": "Birleştir",
+    "en": "Merge",
+    "de": "Verbinden"
+  },
+  "Sayfalara böl": {
+    "tr": "Sayfalara böl",
+    "en": "Split into pages",
+    "de": "In Seiten teilen"
+  },
+  "Böl": {
+    "tr": "Böl",
+    "en": "Split",
+    "de": "Teilen"
+  },
+  "Yarı boyuta küçült": {
+    "tr": "Yarı boyuta küçült",
+    "en": "Reduce to half size",
+    "de": "Auf halbe Größe verkleinern"
+  },
+  "Yarı boyut": {
+    "tr": "Yarı boyut",
+    "en": "Half size",
+    "de": "Halbieren"
+  },
+  "Sıkıştır": {
+    "tr": "Sıkıştır",
+    "en": "Compress",
+    "de": "Komprimieren"
+  },
+  "Sesi kaldır": {
+    "tr": "Sesi kaldır",
+    "en": "Remove audio",
+    "de": "Ton entfernen"
+  },
+  "Sessiz": {
+    "tr": "Sessiz",
+    "en": "Mute",
+    "de": "Stumm"
+  },
+  "Arka planı sil": {
+    "tr": "Arka planı sil",
+    "en": "Remove background",
+    "de": "Hintergrund entfernen"
+  },
+  "Arka plan": {
+    "tr": "Arka plan",
+    "en": "Cut out",
+    "de": "Freistellen"
+  },
+  "Metni tanı (OCR)": {
+    "tr": "Metni tanı (OCR)",
+    "en": "Recognize text (OCR)",
+    "de": "Text erkennen (OCR)"
+  },
+  "OCR": {
+    "tr": "OCR",
+    "en": "OCR",
+    "de": "OCR"
+  },
+  "birleşik": {
+    "tr": "birleşik",
+    "en": "merged",
+    "de": "verbunden"
+  },
+  "sayfalar": {
+    "tr": "sayfalar",
+    "en": "pages",
+    "de": "Seiten"
+  },
+  "küçük": {
+    "tr": "küçük",
+    "en": "small",
+    "de": "klein"
+  },
+  "sıkıştırılmış": {
+    "tr": "sıkıştırılmış",
+    "en": "compressed",
+    "de": "komprimiert"
+  },
+  "sessiz": {
+    "tr": "sessiz",
+    "en": "muted",
+    "de": "stumm"
+  },
+  "arka plansız": {
+    "tr": "arka plansız",
+    "en": "no background",
+    "de": "freigestellt"
+  },
+  "Tek ZIP’te topla": {
+    "tr": "Tek ZIP’te topla",
+    "en": "Put in one ZIP",
+    "de": "In ein ZIP packen"
+  },
+  "ZIP": {
+    "tr": "ZIP",
+    "en": "ZIP",
+    "de": "ZIP"
+  },
+  "Tek 7Z’de topla": {
+    "tr": "Tek 7Z’de topla",
+    "en": "Put in one 7Z",
+    "de": "In ein 7Z packen"
+  },
+  "7Z": {
+    "tr": "7Z",
+    "en": "7Z",
+    "de": "7Z"
+  },
+  "Arşivi çıkart": {
+    "tr": "Arşivi çıkart",
+    "en": "Extract the archive",
+    "de": "Archiv entpacken"
+  },
+  "Çıkart": {
+    "tr": "Çıkart",
+    "en": "Extract",
+    "de": "Entpacken"
+  },
+  "Arşiv yöneticisinde aç": {
+    "tr": "Arşiv yöneticisinde aç",
+    "en": "Open in the archive manager",
+    "de": "In der Archivverwaltung öffnen"
+  },
+  "Arşivi aç": {
+    "tr": "Arşivi aç",
+    "en": "Open",
+    "de": "Öffnen"
+  },
+  "Yolu kopyala": {
+    "tr": "Yolu kopyala",
+    "en": "Copy path",
+    "de": "Pfad kopieren"
+  },
+  "Dosya yolu": {
+    "tr": "Dosya yolu",
+    "en": "Path",
+    "de": "Pfad"
+  },
+  "AirDrop ile gönder": {
+    "tr": "AirDrop ile gönder",
+    "en": "Send with AirDrop",
+    "de": "Mit AirDrop senden"
+  },
+  "AirDrop": {
+    "tr": "AirDrop",
+    "en": "AirDrop",
+    "de": "AirDrop"
+  },
+  "Dönüştürücüde aç": {
+    "tr": "Dönüştürücüde aç",
+    "en": "Open in the converter",
+    "de": "Im Konverter öffnen"
+  },
+  "Diğerleri": {
+    "tr": "Diğerleri",
+    "en": "More",
+    "de": "Mehr"
+  },
+  "Bu dönüştürme için %@ gerekli. Kurulum adımı Ayarlar → Dönüştürücü’de.": {
+    "tr": "Bu dönüştürme için %@ gerekli. Kurulum adımı Ayarlar → Dönüştürücü’de.",
+    "en": "This conversion needs %@. See Settings → Converter for the setup step.",
+    "de": "Für diese Konvertierung wird %@ benötigt. Die Einrichtung steht unter Einstellungen → Konverter."
+  },
+  "Dosya zaten bu biçimde.": {
+    "tr": "Dosya zaten bu biçimde.",
+    "en": "The file is already in this format.",
+    "de": "Die Datei hat dieses Format bereits."
+  },
+  "Birleştirmek için en az iki dosya gerekir.": {
+    "tr": "Birleştirmek için en az iki dosya gerekir.",
+    "en": "Merging needs at least two files.",
+    "de": "Zum Verbinden sind mindestens zwei Dateien nötig."
+  },
+  "Bu dosya bu biçime dönüştürülemiyor.": {
+    "tr": "Bu dosya bu biçime dönüştürülemiyor.",
+    "en": "This file cannot be converted to this format.",
+    "de": "Diese Datei lässt sich nicht in dieses Format konvertieren."
+  },
+  "Dosyalar aynı klasörde olmalı.": {
+    "tr": "Dosyalar aynı klasörde olmalı.",
+    "en": "The files must be in the same folder.",
+    "de": "Die Dateien müssen im selben Ordner liegen."
+  },
+  "Dosya bulunamadı.": {
+    "tr": "Dosya bulunamadı.",
+    "en": "The file was not found.",
+    "de": "Die Datei wurde nicht gefunden."
+  },
+  "Bu dönüştürme için %@ gerekli.": {
+    "tr": "Bu dönüştürme için %@ gerekli.",
+    "en": "This conversion needs %@.",
+    "de": "Für diese Konvertierung wird %@ benötigt."
+  },
+  "Dönüştürme boş bir dosya üretti.": {
+    "tr": "Dönüştürme boş bir dosya üretti.",
+    "en": "The conversion produced an empty file.",
+    "de": "Die Konvertierung hat eine leere Datei erzeugt."
+  },
+  "Zaten yeterince küçük.": {
+    "tr": "Zaten yeterince küçük.",
+    "en": "Already small enough.",
+    "de": "Bereits klein genug."
+  },
+  "Dönüştürülemedi: %@": {
+    "tr": "Dönüştürülemedi: %@",
+    "en": "Could not convert: %@",
+    "de": "Konvertierung fehlgeschlagen: %@"
+  },
+  "Klasöre yazılamadığı için sonuç İndirilenler klasörüne kaydedildi.": {
+    "tr": "Klasöre yazılamadığı için sonuç İndirilenler klasörüne kaydedildi.",
+    "en": "The folder could not be written to, so the result was saved in Downloads.",
+    "de": "Der Ordner ist nicht beschreibbar, daher wurde das Ergebnis im Ordner „Downloads“ gesichert."
+  },
+  "BStoeq’in bu klasöre yazma izni yok. Ayarlar → İzinler bölümünden izin verebilirsin.": {
+    "tr": "BStoeq’in bu klasöre yazma izni yok. Ayarlar → İzinler bölümünden izin verebilirsin.",
+    "en": "BStoeq is not allowed to write to this folder. You can allow it under Settings → Permissions.",
+    "de": "BStoeq darf in diesen Ordner nicht schreiben. Unter Einstellungen → Berechtigungen kannst du es erlauben."
+  },
+  "Bazı özgün dosyalar Çöp Sepeti’ne taşınamadı.": {
+    "tr": "Bazı özgün dosyalar Çöp Sepeti’ne taşınamadı.",
+    "en": "Some originals could not be moved to the Trash.",
+    "de": "Einige Originale konnten nicht in den Papierkorb gelegt werden."
+  },
+  "Araç başlatılamadı: %@": {
+    "tr": "Araç başlatılamadı: %@",
+    "en": "The tool could not be started: %@",
+    "de": "Das Werkzeug konnte nicht gestartet werden: %@"
+  },
+  "Araç çıktısı çok büyük: %@": {
+    "tr": "Araç çıktısı çok büyük: %@",
+    "en": "The tool’s output is too large: %@",
+    "de": "Die Ausgabe des Werkzeugs ist zu groß: %@"
+  },
+  "Yüksek": {
+    "tr": "Yüksek",
+    "en": "High",
+    "de": "Hoch"
+  },
+  "Dengeli": {
+    "tr": "Dengeli",
+    "en": "Balanced",
+    "de": "Ausgewogen"
+  },
+  "Küçük dosya": {
+    "tr": "Küçük dosya",
+    "en": "Small file",
+    "de": "Kleine Datei"
+  },
+  "Hafif": {
+    "tr": "Hafif",
+    "en": "Light",
+    "de": "Leicht"
+  },
+  "Güçlü": {
+    "tr": "Güçlü",
+    "en": "Strong",
+    "de": "Stark"
+  },
+  "A4": {
+    "tr": "A4",
+    "en": "A4",
+    "de": "A4"
+  },
+  "ABD Letter": {
+    "tr": "ABD Letter",
+    "en": "US Letter",
+    "de": "US Letter"
+  },
+  "Option": {
+    "tr": "Option",
+    "en": "Option",
+    "de": "Wahltaste"
+  },
+  "Shift": {
+    "tr": "Shift",
+    "en": "Shift",
+    "de": "Umschalttaste"
+  },
+  "İZLENEN KLASÖRLER": {
+    "tr": "İZLENEN KLASÖRLER",
+    "en": "WATCHED FOLDERS",
+    "de": "ÜBERWACHTE ORDNER"
+  },
+  "Bir klasör eklersen içine gelen her yeni dosya seçtiğin biçime dönüştürülür. Klasörde zaten olan dosyalara dokunulmaz.": {
+    "tr": "Bir klasör eklersen içine gelen her yeni dosya seçtiğin biçime dönüştürülür. Klasörde zaten olan dosyalara dokunulmaz.",
+    "en": "Add a folder and every new file that lands in it is converted to the format you choose. Files already in the folder are left alone.",
+    "de": "Füge einen Ordner hinzu, und jede neue Datei darin wird in das gewählte Format konvertiert. Dateien, die schon im Ordner liegen, bleiben unberührt."
+  },
+  "Biçim seç": {
+    "tr": "Biçim seç",
+    "en": "Choose format",
+    "de": "Format wählen"
+  },
+  "Sonuçlar klasörün içindeki “%@” klasörüne kaydedilir.": {
+    "tr": "Sonuçlar klasörün içindeki “%@” klasörüne kaydedilir.",
+    "en": "Results are saved to the “%@” folder inside it.",
+    "de": "Ergebnisse werden im Ordner „%@“ darin gespeichert."
+  },
+  "Klasör ekle…": {
+    "tr": "Klasör ekle…",
+    "en": "Add folder…",
+    "de": "Ordner hinzufügen…"
+  },
+  "En fazla %d klasör izlenebilir.": {
+    "tr": "En fazla %d klasör izlenebilir.",
+    "en": "Up to %d folders can be watched.",
+    "de": "Es können höchstens %d Ordner überwacht werden."
+  },
+  "Klasör bulunamadı.": {
+    "tr": "Klasör bulunamadı.",
+    "en": "The folder was not found.",
+    "de": "Der Ordner wurde nicht gefunden."
+  },
+  "Bu dönüştürme bu Mac’te yapılamıyor.": {
+    "tr": "Bu dönüştürme bu Mac’te yapılamıyor.",
+    "en": "This conversion is not possible on this Mac.",
+    "de": "Diese Konvertierung ist auf diesem Mac nicht möglich."
+  },
+  "İzlenecek klasörü seç": {
+    "tr": "İzlenecek klasörü seç",
+    "en": "Choose a folder to watch",
+    "de": "Ordner zum Überwachen wählen"
+  },
+  "Bu klasör zaten izleniyor.": {
+    "tr": "Bu klasör zaten izleniyor.",
+    "en": "This folder is already being watched.",
+    "de": "Dieser Ordner wird bereits überwacht."
+  },
+  "Dönüştürme sürüyor": {
+    "tr": "Dönüştürme sürüyor",
+    "en": "A conversion is running",
+    "de": "Eine Konvertierung läuft"
+  },
+  "Şimdi çıkarsan süren dönüştürmeler iptal edilir.": {
+    "tr": "Şimdi çıkarsan süren dönüştürmeler iptal edilir.",
+    "en": "If you quit now, running conversions are cancelled.",
+    "de": "Wenn du jetzt beendest, werden laufende Konvertierungen abgebrochen."
+  },
+  "Yine de çık": {
+    "tr": "Yine de çık",
+    "en": "Quit anyway",
+    "de": "Trotzdem beenden"
   }
 }
