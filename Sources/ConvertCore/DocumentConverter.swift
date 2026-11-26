@@ -19,7 +19,10 @@ public struct DocumentConverter: Converter {
     }
 
     public func note(for target: ConversionTarget, source: FileFormat) -> String? {
-        Self.claims(target, source) && Self.simplified.contains(source.id) ? "Görseller aktarılmaz; yazı biçimleri sadeleşebilir." : nil
+        guard Self.claims(target, source) else { return nil }
+        if Self.simplified.contains(source.id) { return "Görseller aktarılmaz; yazı biçimleri sadeleşebilir." }
+        // Markdown pictures keep only their alt text.
+        return source.id == "md" ? "Görseller aktarılmaz." : nil
     }
 
     public func convert(_ request: ConversionRequest, context: ConversionContext) async throws -> [URL] {
@@ -82,10 +85,14 @@ public struct DocumentConverter: Converter {
     }
 
     /// The encoding for a page that does not name its own: WebKit would guess Latin-1. A byte order mark
-    /// speaks for itself; a `<meta charset>` in the page still wins.
+    /// speaks for itself, and so does a charset the page declares (`<meta charset>` or `http-equiv`): an
+    /// encoding passed here would override it.
     private static func htmlEncoding(of data: Data) -> String? {
         let head = [UInt8](data.prefix(3))
         if head.starts(with: [0xEF, 0xBB, 0xBF]) || head.starts(with: [0xFF, 0xFE]) || head.starts(with: [0xFE, 0xFF]) { return nil }
+        // The declaration sits in the head; any ASCII-compatible encoding spells it in plain bytes.
+        let start = String(decoding: data.prefix(2048).map { $0 < 0x80 ? $0 : 0x20 }, as: UTF8.self).lowercased()
+        if start.range(of: #"<meta[^>]*charset\s*=\s*["']?[a-z0-9_-]+"#, options: .regularExpression) != nil { return nil }
         return String(data: data, encoding: .utf8) != nil ? "utf-8" : "windows-1254"
     }
 
@@ -139,6 +146,9 @@ public struct DocumentConverter: Converter {
     private static func layOut(_ text: NSMutableAttributedString, paper: CGSize, to url: URL, context: ConversionContext) throws {
         let area = CGSize(width: paper.width - 2 * margin, height: paper.height - 2 * margin)
         fitAttachments(in: text, to: area)
+        // TextKit 1 keeps a table row on one page; a row taller than a page would be cut at its edge and its
+        // text lost. Such a document is set without table blocks instead: every cell still reads in order.
+        if overflowsPage(text, area: area) { flattenTables(in: text) }
         let storage = NSTextStorage(attributedString: text)
         let layout = NSLayoutManager()
         // Background layout would schedule work on the main run loop.
@@ -172,6 +182,43 @@ public struct DocumentConverter: Converter {
             pages += 1
             laidOut = max(laidOut, NSMaxRange(range))
             context.progress(0.1 + 0.9 * Double(laidOut) / Double(max(glyphs, 1)))
+        }
+    }
+
+    /// Whether a table row is taller than a page. TextKit 1 never splits a row: one that does not fit is
+    /// cut at the page's edge (any other line simply moves to the next page). Each cell is measured on one
+    /// endless page; a cell is never taller than its row, so a tall cell is enough to know.
+    private static func overflowsPage(_ text: NSAttributedString, area: CGSize) -> Bool {
+        var cells: [ObjectIdentifier: (block: NSTextBlock, range: NSRange)] = [:]
+        text.enumerateAttribute(.paragraphStyle, in: NSRange(location: 0, length: text.length)) { value, range, _ in
+            guard let style = value as? NSParagraphStyle else { return }
+            for block in style.textBlocks where block is NSTextTableBlock {
+                let key = ObjectIdentifier(block)
+                cells[key] = (block, cells[key].map { NSUnionRange($0.range, range) } ?? range)
+            }
+        }
+        guard !cells.isEmpty else { return false }
+        let storage = NSTextStorage(attributedString: text)
+        let layout = NSLayoutManager()
+        layout.backgroundLayoutEnabled = false
+        storage.addLayoutManager(layout)
+        let container = NSTextContainer(size: CGSize(width: area.width, height: .greatestFiniteMagnitude))
+        container.lineFragmentPadding = 0
+        layout.addTextContainer(container)
+        layout.ensureLayout(for: container)
+        return cells.values.contains { cell in
+            let glyphs = layout.glyphRange(forCharacterRange: cell.range, actualCharacterRange: nil)
+            return layout.boundingRect(forGlyphRange: glyphs, in: container).height > area.height - 1
+        }
+    }
+
+    private static func flattenTables(in text: NSMutableAttributedString) {
+        text.enumerateAttribute(.paragraphStyle, in: NSRange(location: 0, length: text.length)) { value, range, _ in
+            guard let style = value as? NSParagraphStyle, !style.textBlocks.isEmpty,
+                  let plain = style.mutableCopy() as? NSMutableParagraphStyle else { return }
+            plain.textBlocks = []
+            plain.paragraphSpacing = max(plain.paragraphSpacing, 4)
+            text.addAttribute(.paragraphStyle, value: plain, range: range)
         }
     }
 

@@ -60,9 +60,16 @@ public struct DataConverter: Converter {
                                                 to: url, workFolder: request.workFolder, context: context)
             results = [url]
         } else {
+            var taken = Set<String>()
             for (index, sheet) in sheets.enumerated() {
-                let url = sheets.count == 1 ? request.outputURL()
-                    : request.outputURL(Self.sheetFileName(sheet.name, index: index, base: request.baseName, extension: output))
+                var name = Self.sheetFileName(sheet.name, index: index, base: request.baseName, extension: output)
+                // Names cut short to fit can come out the same ("Satış Raporu Ocak", "Satış Raporu Şubat"):
+                // the sheet's position tells them apart.
+                if !taken.insert(name.lowercased()).inserted {
+                    name = request.baseName + "_" + String(index + 1)
+                    taken.insert(name.lowercased())
+                }
+                let url = sheets.count == 1 ? request.outputURL() : request.outputURL(name)
                 let isCancelled = context.isCancelled
                 try await ConversionWork.run {
                     let data = output == "json" ? Data(Self.json(try Self.objects(sheet.rows, isCancelled: isCancelled)).utf8)

@@ -128,7 +128,7 @@ struct ConvertView<WatchFolders: View>: View {
                     Spacer(minLength: 0)
                     Button { converter.startPending() } label: {
                         Label(L("Dönüştür"), systemImage: "arrow.triangle.2.circlepath").font(.system(size: 12, weight: .medium))
-                    }.buttonStyle(.borderedProminent).disabled(chosenOffer?.isUsable != true)
+                    }.buttonStyle(.borderedProminent).disabled(chosenOffer?.isUsable != true || converter.isConvertingPending)
                         .accessibilityIdentifier("convert-start")
                 }.padding(17)
             }

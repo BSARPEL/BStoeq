@@ -4,7 +4,7 @@
 
 BStoeq 2.2, Apple Silicon üzerinde macOS 27 için geliştirilmiş bir menü çubuğu uygulamasıdır. Menü simgelerini düzenlemek, arşiv açmak veya oluşturmak, dosyaları olduğu yerde dönüştürmek, diskte yer kaplayan öğeleri incelemek, kopya dosyaları bulmak, uygulamaları verileriyle birlikte kaldırmak ve YouTube indirmelerini yönetmek için kullanılır. Arayüz Türkçe, İngilizce ve Almancadır.
 
-[Mac için indir (DMG)](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.dmg) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Kurucu paketi](#kurucu-paketi-oluşturma) · [Dosya dönüştürücü](#dosya-dönüştürme) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
+[Mac için indir (DMG)](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.1/BStoeq-macOS.dmg) · [Medya araçlarıyla otomatik kurulum](#otomatik-kurulum) · [Kurucu paketi](#kurucu-paketi-oluşturma) · [Dosya dönüştürücü](#dosya-dönüştürme) · [Arşiv özellikleri](#arşivler) · [Disk alanı ve temizlik](#disk-alanı-ve-temizlik) · [Kopya dosyalar ve uygulama kaldırma](#kopya-dosyalar-ve-uygulama-kaldırma)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -21,19 +21,19 @@ Her sürümde aynı uygulama üç biçimde sunulur. Birini seç; hiçbiri için 
 
 | Dosya | Nasıl kurulur |
 |---|---|
-| [**BStoeq-macOS.dmg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.dmg) | Aç ve **BStoeq**’i yanındaki **Applications** (Uygulamalar) klasörüne sürükle. |
-| [**BStoeq-macOS.pkg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.pkg) | Çift tıkla ve yükleyicideki adımları izle. Yönetici parolası ister. |
-| [**BStoeq-macOS.zip**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.zip) | Finder’da aç ve **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı. |
+| [**BStoeq-macOS.dmg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.1/BStoeq-macOS.dmg) | Aç ve **BStoeq**’i yanındaki **Applications** (Uygulamalar) klasörüne sürükle. |
+| [**BStoeq-macOS.pkg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.1/BStoeq-macOS.pkg) | Çift tıkla ve yükleyicideki adımları izle. Yönetici parolası ister. |
+| [**BStoeq-macOS.zip**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.1/BStoeq-macOS.zip) | Finder’da aç ve **BStoeq.app** dosyasını **Uygulamalar** klasörüne taşı. |
 
 1. Güncelleme yapıyorsan önce menü çubuğundan BStoeq’ten çık.
-2. İndirdiğin dosyayı açmadan önce Terminal’de denetleyebilirsin, örneğin `shasum -a 256 ~/Downloads/BStoeq-macOS.dmg`; çıkan değeri sürüm sayfasındaki SHA-256 ile karşılaştır. [Sürüm ve doğrulama özeti](https://github.com/BSARPEL/BStoeq/releases/tag/v2.2.0)
+2. İndirdiğin dosyayı açmadan önce Terminal’de denetleyebilirsin, örneğin `shasum -a 256 ~/Downloads/BStoeq-macOS.dmg`; çıkan değeri sürüm sayfasındaki SHA-256 ile karşılaştır. [Sürüm ve doğrulama özeti](https://github.com/BSARPEL/BStoeq/releases/tag/v2.2.1)
 3. BStoeq’i **Uygulamalar** klasöründen aç.
 
 Bu paket yerel (*ad hoc*) imzalıdır ve Apple noter onayı taşımaz. İlk açılışta yalnızca geliştiricinin doğrulanamadığı uyarısı çıkarsa, kaynağa güveniyor ve SHA-256 özetini doğruladıysan **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç** seçeneğini kullanabilirsin. [Apple’ın ilk açılış kılavuzu](https://support.apple.com/tr-tr/102445)
 
 ### Otomatik kurulum
 
-**Hazır uygulamayı ve indirme araçlarını birlikte kurmak için** bu deponun **Code → Download ZIP** seçeneğiyle kaynak arşivini indir. Finder’da arşivi aç, çıkan `BStoeq-main` klasöründeki **BStoeq Kur.command** dosyasına çift tıkla. Kurulum Terminal’de çalışır. Yayımlanmış `v2.2.0` ZIP’ini indirir, SHA-256 özetini denetler, eksik medya araçlarını kurar ve uygulamayı **Uygulamalar** klasörüne yerleştirir. Tam Xcode gerekmez. [Kurucu dosyalarını indir (ana dal ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
+**Hazır uygulamayı ve indirme araçlarını birlikte kurmak için** bu deponun **Code → Download ZIP** seçeneğiyle kaynak arşivini indir. Finder’da arşivi aç, çıkan `BStoeq-main` klasöründeki **BStoeq Kur.command** dosyasına çift tıkla. Kurulum Terminal’de çalışır. Yayımlanmış `v2.2.1` ZIP’ini indirir, SHA-256 özetini denetler, eksik medya araçlarını kurar ve uygulamayı **Uygulamalar** klasörüne yerleştirir. Tam Xcode gerekmez. [Kurucu dosyalarını indir (ana dal ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
 
 Aynı işlemi Terminal’den başlatmak için `cd` yazıp bir boşluk bırak, proje klasörünü Terminal’e sürükle, Return’e bas ve aşağıdaki komutu çalıştır.
 
@@ -153,6 +153,7 @@ Apple uygulamaları ve BStoeq listelenmez. Açık bir uygulama kaldırılmaz. Ay
 
 **Ayarlar → İzinler** sayfası BStoeq’in kullandığı macOS izinlerini ve her birinin durumunu gösterir. İzinlerin hepsi isteğe bağlıdır. Simgeleri gizlemek için hiçbiri gerekmez.
 
+- **Oturum açıldığında başlat:** BStoeq, Uygulamalar klasöründen ilk açıldığında kendini giriş öğelerine ekler; böylece her yeniden başlatmadan sonra menü çubuğunda olur. Sayfa bunun açık olup olmadığını gösterir ve açıp kapatmanı sağlar; ayrıca **Sistem Ayarları → Genel → Giriş Öğeleri**’nde de görünür. Kapatırsan BStoeq onu kendiliğinden yeniden açmaz.
 - **Erişilebilirlik** ve **Tam Disk Erişimi** durumu kendiliğinden okunur. Sistem Ayarları’ndan döndüğünde sayfa yenilenir.
 - **Masaüstü**, **Belgeler** ve **İndirilenler** klasörleri için **Denetle** düğmesine bas. macOS o klasörü daha önce sormadıysa izin penceresini gösterir. Tam Disk Erişimi verildiğinde bu klasörler de verilmiş sayılır.
 - **Uygulama Yönetimi** izninin durumunu macOS bildirmez. Sayfadaki düğme ilgili Sistem Ayarları bölümünü açar.

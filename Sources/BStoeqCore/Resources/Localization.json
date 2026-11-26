@@ -3283,5 +3283,50 @@
     "tr": "Yine de çık",
     "en": "Quit anyway",
     "de": "Trotzdem beenden"
+  },
+  "Arşiv parola korumalı; arşiv yöneticisinde açıldı.": {
+    "tr": "Arşiv parola korumalı; arşiv yöneticisinde açıldı.",
+    "en": "The archive is password-protected; it was opened in the archive manager.",
+    "de": "Das Archiv ist passwortgeschützt; es wurde in der Archivverwaltung geöffnet."
+  },
+  "Görseller aktarılmaz.": {
+    "tr": "Görseller aktarılmaz.",
+    "en": "Pictures are not carried over.",
+    "de": "Bilder werden nicht übernommen."
+  },
+  "BAŞLANGIÇ": {
+    "tr": "BAŞLANGIÇ",
+    "en": "STARTUP",
+    "de": "START"
+  },
+  "Mac’ini açıp oturum açtığında BStoeq menü çubuğunda hazır olsun diye. Sistem Ayarları → Genel → Giriş Öğeleri’nde de görünür.": {
+    "tr": "Mac’ini açıp oturum açtığında BStoeq menü çubuğunda hazır olsun diye. Sistem Ayarları → Genel → Giriş Öğeleri’nde de görünür.",
+    "en": "So BStoeq is ready in the menu bar when you start your Mac and log in. It also appears under System Settings → General → Login Items.",
+    "de": "Damit BStoeq nach dem Start und der Anmeldung in der Menüleiste bereitsteht. Es erscheint auch unter Systemeinstellungen → Allgemein → Anmeldeobjekte."
+  },
+  "Onay bekliyor": {
+    "tr": "Onay bekliyor",
+    "en": "Needs approval",
+    "de": "Wartet auf Freigabe"
+  },
+  "Kapalı": {
+    "tr": "Kapalı",
+    "en": "Off",
+    "de": "Aus"
+  },
+  "Etkin": {
+    "tr": "Etkin",
+    "en": "On",
+    "de": "Aktiv"
+  },
+  "Etkinleştir": {
+    "tr": "Etkinleştir",
+    "en": "Turn On",
+    "de": "Aktivieren"
+  },
+  "Devre dışı bırak": {
+    "tr": "Devre dışı bırak",
+    "en": "Turn Off",
+    "de": "Deaktivieren"
   }
 }

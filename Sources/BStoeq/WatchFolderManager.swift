@@ -29,6 +29,7 @@ import ConvertCore
     private let targetAvailability: (ConversionTarget) -> TargetAvailability
     private let isReady: () -> Bool
     private let outputs: (UUID) -> [URL]?
+    private let partialOutputs: (UUID) -> [URL]
     private let start: Start
     private let settleInterval: TimeInterval
     private let tickInterval: TimeInterval
@@ -52,16 +53,19 @@ import ConvertCore
     ///   - targetAvailability: whether the target can be made here at all, for the rule's state.
     ///   - isReady: false holds files that have arrived (tools not detected yet) until it turns true.
     ///   - outputs: a started job's published items once it has finished, nil while it runs.
+    ///   - partialOutputs: what a job that is still running has published so far. A job publishes each
+    ///     file as it finishes, so a slower file in the same job must not let another rule take the first.
     init(settleInterval: TimeInterval = WatchRules.settleInterval, tickInterval: TimeInterval = 1,
          options: @escaping () -> ConversionOptions,
          availability: @escaping (ConversionTarget, URL) -> TargetAvailability,
          targetAvailability: @escaping (ConversionTarget) -> TargetAvailability,
          isReady: @escaping () -> Bool = { true },
          outputs: @escaping (UUID) -> [URL]? = { _ in [] },
+         partialOutputs: @escaping (UUID) -> [URL] = { _ in [] },
          start: @escaping Start) {
         self.settleInterval = settleInterval; self.tickInterval = tickInterval
         self.options = options; self.availability = availability; self.targetAvailability = targetAvailability
-        self.isReady = isReady; self.outputs = outputs; self.start = start
+        self.isReady = isReady; self.outputs = outputs; self.partialOutputs = partialOutputs; self.start = start
     }
 
     /// The app's wiring: jobs go to the converter as watch jobs, and the states follow its tool detection.
@@ -85,6 +89,7 @@ import ConvertCore
                       // Pushed out of the activities already: the record keeps what was published.
                       return converter.history.first { $0.id == id }?.outputs.map { URL(fileURLWithPath: $0.path) } ?? []
                   },
+                  partialOutputs: { [weak converter] id in converter?.activities.first { $0.id == id }?.outputs ?? [] },
                   start: { [weak converter] files, target, options in
                       converter?.start(files, target: target, origin: .watch, options: options)
                   })
@@ -238,7 +243,7 @@ import ConvertCore
 
     private func tick() {
         jobs.removeAll { id in
-            guard let items = outputs(id) else { return false }
+            guard let items = outputs(id) else { remember(partialOutputs(id)); return false }
             remember(items)
             return true
         }

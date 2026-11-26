@@ -118,13 +118,14 @@ final class ConverterManagerTests: XCTestCase {
         let hold = try write("in/hold.png")
         let files = try ["ok.png", "bad1.png", "bad2.png", "bad3.png", "bad4.png", "skip.png"].map { try write("in/" + $0) }
         let first = try XCTUnwrap(manager.start([hold], target: target("jpg"), origin: .donut(CGPoint(x: 10, y: 20))))
-        let second = try XCTUnwrap(manager.start(files, target: target("jpg"), origin: .page))
-        XCTAssertEqual(manager.activities.map(\.id), [second, first], "Newest first")
-        XCTAssertEqual(manager.activities.map(\.phase), [.waiting, .waiting])
-        XCTAssertEqual(manager.activities.map(\.count), [6, 1])
-
+        XCTAssertEqual(activity(manager, first)?.phase, .waiting)
+        // The first job holds the only slot before the second asks for one; started together, either may win it.
         try await settle("progress") { activity(manager, first)?.fraction == 0.5 }
         XCTAssertEqual(activity(manager, first)?.phase, .running)
+        let second = try XCTUnwrap(manager.start(files, target: target("jpg"), origin: .page))
+        XCTAssertEqual(manager.activities.map(\.id), [second, first], "Newest first")
+        XCTAssertEqual(manager.activities.map(\.count), [6, 1])
+        try await Task.sleep(for: .milliseconds(100))
         XCTAssertEqual(activity(manager, second)?.phase, .waiting, "The only slot is taken")
         XCTAssertNil(activity(manager, second)?.fraction, "Nothing has reported progress")
 

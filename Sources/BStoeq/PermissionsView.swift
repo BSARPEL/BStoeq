@@ -1,6 +1,7 @@
 import AppKit
 import SwiftUI
 import BStoeqCore
+import ServiceManagement
 
 struct PermissionsView: View {
     @ObservedObject var model: AppModel
@@ -17,6 +18,16 @@ struct PermissionsView: View {
                 Text(L("Hangi izin ne durumda?")).font(.system(size: 26, weight: .semibold)).tracking(-0.8)
                 Text(L("BStoeq’in kullandığı macOS izinleri ve her birinin şu anki durumu."))
                     .font(.system(size: 12)).foregroundStyle(.secondary)
+            }
+            card(L("BAŞLANGIÇ")) {
+                row("power", L("Oturum açıldığında başlat"),
+                    L("Mac’ini açıp oturum açtığında BStoeq menü çubuğunda hazır olsun diye. Sistem Ayarları → Genel → Giriş Öğeleri’nde de görünür."),
+                    state: model.loginEnabled ? .granted : model.loginNeedsApproval ? .unknown : .denied,
+                    unknown: L("Onay bekliyor"), granted: L("Etkin"), denied: L("Kapalı"), identifier: "login-item") {
+                    if model.loginNeedsApproval { Button(L("Sistem Ayarlarını aç")) { SMAppService.openSystemSettingsLoginItems() } }
+                    else if model.loginEnabled { Button(L("Devre dışı bırak")) { model.setLogin(false) } }
+                    else { Button(L("Etkinleştir")) { model.setLogin(true) } }
+                }
             }
             card(L("MENÜ ÇUBUĞU")) {
                 row("accessibility", L("Erişilebilirlik"),
@@ -61,15 +72,15 @@ struct PermissionsView: View {
                 Spacer(minLength: 0)
             }.padding(12).background(Palette.accent.opacity(0.065), in: RoundedRectangle(cornerRadius: 9))
         }
-        .onAppear { permissions.refresh() }
+        .onAppear { permissions.refresh(); model.refreshLoginState() }
         // Coming back from System Settings is when an answer may have changed.
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-            permissions.refresh()
+            permissions.refresh(); model.refreshLoginState()
         }
     }
 
     private func row<Actions: View>(_ symbol: String, _ title: String, _ subtitle: String, state: PermissionState,
-                                    unknown: String = "", identifier: String,
+                                    unknown: String = "", granted: String? = nil, denied: String? = nil, identifier: String,
                                     @ViewBuilder actions: () -> Actions) -> some View {
         HStack(spacing: 14) {
             Image(systemName: symbol).font(.system(size: 17)).foregroundStyle(Palette.accent)
@@ -80,14 +91,14 @@ struct PermissionsView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             Spacer(minLength: 10)
-            badge(state, unknown: unknown).accessibilityIdentifier("permission-\(identifier)")
+            badge(state, unknown: unknown, granted: granted, denied: denied).accessibilityIdentifier("permission-\(identifier)")
             actions().controlSize(.small)
         }.padding(.horizontal, 17).padding(.vertical, 13)
     }
 
-    private func badge(_ state: PermissionState, unknown: String) -> some View {
+    private func badge(_ state: PermissionState, unknown: String, granted: String? = nil, denied: String? = nil) -> some View {
         let color: Color = state == .granted ? .green : state == .denied ? .orange : .secondary
-        let text = state == .granted ? L("Verildi") : state == .denied ? L("Verilmedi") : unknown
+        let text = state == .granted ? granted ?? L("Verildi") : state == .denied ? denied ?? L("Verilmedi") : unknown
         return HStack(spacing: 5) {
             Image(systemName: state == .granted ? "checkmark.circle.fill" : state == .denied ? "xmark.circle.fill" : "questionmark.circle")
                 .font(.system(size: 10)).accessibilityHidden(true)

@@ -75,6 +75,10 @@ struct ConversionActivity: Identifiable, Equatable {
     private var detectionGeneration = 0
     private var jobs: [UUID: Task<Void, Never>] = [:]
     private var archiveControls: [UUID: JobControl] = [:]
+    /// Files of the page's own jobs still running: pressing Convert again must not convert them twice.
+    private var pageSources: [UUID: Set<String>] = [:]
+    /// Archive names chosen for jobs still running: two quick ZIPs of one folder must not both pick "Arşiv.zip".
+    private var claimedArchives: [UUID: String] = [:]
     /// Requests seen starting, per job: a new one means a new work folder to remember.
     private var starts: [UUID: Int] = [:]
     private var undoing = Set<UUID>()
@@ -192,7 +196,7 @@ struct ConversionActivity: Identifiable, Equatable {
         let job = ConversionJob(sources: sources, target: target, options: options ?? settings().options, nameSuffix: suffix)
         insert(ConversionActivity(id: job.id, origin: origin, count: job.distinctSources.count,
                                   targetTitle: target.title, titleIsKey: target.titleIsKey))
-        if origin == .page { problem = nil }
+        if origin == .page { problem = nil; pageSources[job.id] = Set(sources.map(\.standardizedFileURL.path)) }
         let id = job.id
         jobs[id] = Task { [weak self] in
             await self?.awaitDetection()
@@ -205,8 +209,14 @@ struct ConversionActivity: Identifiable, Equatable {
     }
 
     /// The page's button: `pending`, `targetID` and the draft fields.
+    /// Some waiting file is already being converted by a page job.
+    var isConvertingPending: Bool {
+        let running = pageSources.values.reduce(into: Set<String>()) { $0.formUnion($1) }
+        return pending.contains { running.contains($0.standardizedFileURL.path) }
+    }
+
     func startPending() {
-        guard !pending.isEmpty, let targetID, let target = TargetCatalog.target(id: targetID) else { return }
+        guard !pending.isEmpty, !isConvertingPending, let targetID, let target = TargetCatalog.target(id: targetID) else { return }
         var options = settings().options
         options.imageResize = draftResize; options.videoMaxHeight = draftMaxHeight; options.removeAudio = draftRemoveAudio
         guard start(pending, target: target, origin: .page, options: options) != nil else { return }
@@ -253,6 +263,14 @@ struct ConversionActivity: Identifiable, Equatable {
         activity.converted = outcomes.filter { if case .converted = $0 { true } else { false } }.count
         activity.failed = outcomes.filter { if case .failed = $0 { true } else { false } }.count
         activity.skipped = outcomes.filter { if case .skipped = $0 { true } else { false } }.count
+        // Each file is published as it finishes; what is already on disk is known before the job ends.
+        var published: [URL] = []
+        for slot in state.finished.keys.sorted() {
+            if case .converted(let urls)? = state.finished[slot] {
+                for url in urls where !published.contains(url) { published.append(url) }
+            }
+        }
+        activity.outputs = published
         if activity != activities[index] { activities[index] = activity }
         if state.started.count > starts[id] ?? 0 {
             starts[id] = state.started.count
@@ -262,7 +280,7 @@ struct ConversionActivity: Identifiable, Equatable {
 
     private func finish(_ result: ConversionResult, origin: ConversionActivity.Origin, submitted: [URL]) {
         let id = result.job.id
-        jobs[id] = nil; starts[id] = nil
+        jobs[id] = nil; starts[id] = nil; pageSources[id] = nil
         var problems: [ConversionActivity.Problem] = []
         for (source, outcome) in zip(result.sources, result.outcomes) {
             switch outcome {
@@ -389,19 +407,30 @@ struct ConversionActivity: Identifiable, Equatable {
         var options = ArchiveOptions()
         options.format = action == .zip ? .zip : .sevenZip
         let format = options
-        // `create` refuses a destination that exists, so a free name is chosen first.
-        let destination = OutputNaming.available(named: OutputNaming.cleaned(base), extension: action == .zip ? "zip" : "7z", in: parent)
-        let work: ArchiveWork = { service, control, output in
-            try await service.create(files: files, at: destination, options: format, control: control, output: output)
+        // `create` refuses a destination that exists, so a free name is chosen first; one that another
+        // archive job of this app has chosen and not written yet counts as taken too.
+        let ext = action == .zip ? "zip" : "7z", name = OutputNaming.cleaned(base)
+        let claimed = Set(claimedArchives.values)
+        var destination = OutputNaming.available(named: name, extension: ext, in: parent)
+        var number = 2
+        while claimed.contains(destination.path) {
+            destination = OutputNaming.available(named: "\(name) \(number)", extension: ext, in: parent)
+            number += 1
         }
-        runArchive(action, steps: [(files, work)], origin: origin)
+        let chosen = destination
+        let work: ArchiveWork = { service, control, output in
+            try await service.create(files: files, at: chosen, options: format, control: control, output: output)
+        }
+        runArchive(action, steps: [(files, work)], origin: origin, claim: chosen.path)
     }
 
     private typealias ArchiveWork = @Sendable (ArchiveService, JobControl, @escaping @Sendable (String) -> Void) async throws -> [URL]
 
     /// Steps run one after another; each has its sources and either publishes items or fails for all of them.
-    private func runArchive(_ action: DonutAction, steps: [(sources: [URL], work: ArchiveWork)], origin: ConversionActivity.Origin) {
+    private func runArchive(_ action: DonutAction, steps: [(sources: [URL], work: ArchiveWork)], origin: ConversionActivity.Origin,
+                            claim: String? = nil) {
         let id = UUID(), count = steps.reduce(0) { $0 + $1.sources.count }
+        if let claim { claimedArchives[id] = claim }
         var activity = ConversionActivity(id: id, origin: origin, count: count, targetTitle: action.title, titleIsKey: action.titleIsKey)
         activity.phase = .running
         insert(activity)
@@ -416,7 +445,7 @@ struct ConversionActivity: Identifiable, Equatable {
         archiveControls[id] = control
         let relay = Relay { [weak self] state in self?.receive(state, for: id) }
         Task { [weak self] in
-            var outputs: [URL] = [], failures: [(URL, UserMessage)] = [], converted = 0, cancelled = false
+            var outputs: [URL] = [], failures: [(URL, UserMessage)] = [], converted = 0, cancelled = false, locked = false
             for (number, step) in steps.enumerated() {
                 guard !cancelled else { break }
                 let output: @Sendable (String) -> Void = { text in
@@ -431,7 +460,9 @@ struct ConversionActivity: Identifiable, Equatable {
                     switch error {
                     case ArchiveError.cancelled: cancelled = true
                     // Nobody here can ask for a password; the archive manager can.
-                    case ArchiveError.password: if let archive = step.sources.first { self?.onOpenArchive?(archive) }
+                    case ArchiveError.password:
+                        locked = true
+                        if let archive = step.sources.first { self?.onOpenArchive?(archive) }
                     default:
                         let message = Self.message(for: error)
                         failures += step.sources.map { ($0, message) }
@@ -439,13 +470,14 @@ struct ConversionActivity: Identifiable, Equatable {
                 }
             }
             self?.concludeArchive(id, action: action, origin: origin, sources: steps.flatMap(\.sources), outputs: outputs,
-                                  converted: converted, failures: failures, cancelled: cancelled)
+                                  converted: converted, failures: failures, cancelled: cancelled,
+                                  notices: locked ? [UserMessage("Arşiv parola korumalı; arşiv yöneticisinde açıldı.")] : [])
         }
     }
 
     private func concludeArchive(_ id: UUID, action: DonutAction, origin: ConversionActivity.Origin, sources: [URL], outputs: [URL],
-                                 converted: Int, failures: [(URL, UserMessage)], cancelled: Bool) {
-        archiveControls[id] = nil
+                                 converted: Int, failures: [(URL, UserMessage)], cancelled: Bool, notices: [UserMessage] = []) {
+        archiveControls[id] = nil; claimedArchives[id] = nil
         var record: ConversionRecord?
         if converted + failures.count > 0 {
             let problems = failures.map { ConversionRecord.Problem(source: $0.0.path, key: $0.1.key, detail: $0.1.detail, failed: true) }
@@ -456,7 +488,7 @@ struct ConversionActivity: Identifiable, Equatable {
                                       converted: converted, failures: failures.count, skipped: 0, wasCancelled: cancelled)
         }
         conclude(id, converted: converted, failed: failures.count, skipped: 0, cancelled: cancelled, outputs: outputs,
-                 problems: failures.map { .init(name: $0.0.lastPathComponent, message: $0.1, failed: true) }, notices: [], record: record)
+                 problems: failures.map { .init(name: $0.0.lastPathComponent, message: $0.1, failed: true) }, notices: notices, record: record)
     }
 
     /// ArchiveCore speaks in codes and raw 7-Zip output; only the code or the last line reaches the user.
@@ -534,7 +566,20 @@ struct ConversionActivity: Identifiable, Equatable {
         if record.targetID.hasPrefix("action."), let action = DonutAction(rawValue: String(record.targetID.dropFirst("action.".count))) {
             perform(action, on: sources, origin: .page)
         } else if let target = TargetCatalog.target(id: record.targetID) {
-            start(sources, target: target, origin: .page)
+            var options = settings().options
+            if record.origin == .watch {
+                // A watched folder's file never goes to the Trash, and its result belongs in the rule's results folder.
+                options.trashOriginals = false
+                let folder = record.outputs.first.map { (($0.path as NSString).deletingLastPathComponent as NSString).lastPathComponent }
+                options.location = .subfolder(folder.flatMap { OutputLocation.isSafeName($0) ? $0 : nil } ?? localize("Dönüştürülenler"))
+            }
+            guard start(sources, target: target, origin: .page, options: options) != nil else { return }
+        } else { return }
+        // These files are in a new job now; the old record no longer offers them again.
+        let retried = Set(sources.map(\.path))
+        if let index = history.firstIndex(where: { $0.id == record.id }) {
+            history[index].problems.removeAll { $0.failed && retried.contains($0.source) }
+            saveHistory()
         }
     }
 

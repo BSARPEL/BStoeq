@@ -225,7 +225,10 @@ public struct MediaConverter: Converter {
             let total = Double(max(file.length, 1))
             while file.framePosition < file.length {
                 try context.checkCancelled()
-                try file.read(into: buffer)
+                do { try file.read(into: buffer) } catch let error as NSError where error.code == Int(kAudioFileEndOfFileError) && file.framePosition > 0 {
+                    // Some compressed files (AC-3) announce more frames than they hold: their real end comes early.
+                    break
+                }
                 if buffer.frameLength == 0 { break }
                 try out.write(from: buffer)
                 meter.report(Double(file.framePosition) / total)
@@ -475,15 +478,23 @@ public struct MediaConverter: Converter {
                                                  AVVideoTransferFunctionKey: AVVideoTransferFunction_ITU_R_709_2,
                                                  AVVideoYCbCrMatrixKey: AVVideoYCbCrMatrix_ITU_R_709_2]
 
-    /// Decoded to float PCM at the rate and channel count the encoder gets: AAC takes 8 to 48 kHz,
-    /// everything here is at most stereo.
+    /// Decoded to float PCM at the rate and channel count the encoder gets: AAC takes 8 to 48 kHz and at
+    /// most stereo; lossless targets keep the source's channels (up to 8) and its bit depth (16 or 24).
     private static func soundLane(_ track: AVAssetTrack, _ native: NativeSource, _ sound: Sound) -> Lane {
-        let channels = min(max(native.channels, 1), 2)
+        let lossless = sound == .alac || sound == .wav || sound == .aiff
+        let channels = min(max(native.channels, 1), lossless ? 8 : 2)
+        let depth = native.bits > 16 ? 24 : 16
         let source = native.sampleRate > 0 ? native.sampleRate : 44_100
         var rate = source
         if case .aac = sound { rate = aacRate(source) } else if case .ringtone = sound { rate = aacRate(source) }
         var layout = AudioChannelLayout()
-        layout.mChannelLayoutTag = channels == 1 ? kAudioChannelLayoutTag_Mono : kAudioChannelLayoutTag_Stereo
+        // Apple Lossless takes only the layouts its format defines for 3 to 8 channels; PCM takes any.
+        let alacLayouts: [Int: AudioChannelLayoutTag] = [3: kAudioChannelLayoutTag_MPEG_3_0_B, 4: kAudioChannelLayoutTag_MPEG_4_0_B,
+                                                         5: kAudioChannelLayoutTag_MPEG_5_0_D, 6: kAudioChannelLayoutTag_MPEG_5_1_D,
+                                                         7: kAudioChannelLayoutTag_AAC_6_1, 8: kAudioChannelLayoutTag_MPEG_7_1_B]
+        layout.mChannelLayoutTag = channels == 1 ? kAudioChannelLayoutTag_Mono : channels == 2 ? kAudioChannelLayoutTag_Stereo
+            : sound == .alac ? alacLayouts[channels] ?? kAudioChannelLayoutTag_Stereo
+            : kAudioChannelLayoutTag_DiscreteInOrder | AudioChannelLayoutTag(channels)
         let common: [String: Any] = [AVSampleRateKey: rate, AVNumberOfChannelsKey: channels,
                                      AVChannelLayoutKey: Data(bytes: &layout, count: MemoryLayout<AudioChannelLayout>.size)]
         let reader = common.merging([AVFormatIDKey: kAudioFormatLinearPCM, AVLinearPCMBitDepthKey: 32, AVLinearPCMIsFloatKey: true,
@@ -494,9 +505,9 @@ public struct MediaConverter: Converter {
             writer = [common.merging([AVFormatIDKey: kAudioFormatMPEG4AAC,
                                       AVEncoderBitRateKey: aacBitrate(kbps * 1000, rate: rate, channels: channels)]) { $1 }]
         case .alac:
-            writer = [common.merging([AVFormatIDKey: kAudioFormatAppleLossless, AVEncoderBitDepthHintKey: native.bits >= 24 ? 24 : 16]) { $1 }]
+            writer = [common.merging([AVFormatIDKey: kAudioFormatAppleLossless, AVEncoderBitDepthHintKey: depth]) { $1 }]
         default:
-            writer = [common.merging([AVFormatIDKey: kAudioFormatLinearPCM, AVLinearPCMBitDepthKey: 16, AVLinearPCMIsFloatKey: false,
+            writer = [common.merging([AVFormatIDKey: kAudioFormatLinearPCM, AVLinearPCMBitDepthKey: depth, AVLinearPCMIsFloatKey: false,
                                       AVLinearPCMIsBigEndianKey: sound == .aiff, AVLinearPCMIsNonInterleaved: false]) { $1 }]
         }
         return Lane(track: track, kind: .audio, reader: reader, writer: writer)
@@ -653,7 +664,11 @@ public struct MediaConverter: Converter {
                         if format.id == "ogg" || format.id == "opus", subtype != kAudioFormatOpus, subtype != 0x766F_7262 /* 'vorb' */ { return nil }
                         source.audio = track; source.audioDecodable = decodable
                         if let basic = CMAudioFormatDescriptionGetStreamBasicDescription(description)?.pointee {
-                            source.sampleRate = basic.mSampleRate; source.channels = Int(basic.mChannelsPerFrame); source.bits = Int(basic.mBitsPerChannel)
+                            source.sampleRate = basic.mSampleRate; source.channels = Int(basic.mChannelsPerFrame)
+                            // A lossless compressed track has no bits per channel; its flags say what it was made from.
+                            source.bits = basic.mBitsPerChannel > 0 ? Int(basic.mBitsPerChannel)
+                                : (basic.mFormatID == kAudioFormatAppleLossless || basic.mFormatID == kAudioFormatFLAC)
+                                    ? [1: 16, 2: 20, 3: 24, 4: 32][Int(basic.mFormatFlags)] ?? 0 : 0
                         }
                     }
                 }

@@ -100,6 +100,9 @@ public enum TextEncoding {
             return String(data: data, encoding: .utf8) ?? String(data: data, encoding: .windowsCP1254)
                 ?? String(data: data, encoding: .windowsCP1252)
         }
+        // Some Windows tools pad a file with NULs at its end: valid UTF-8 before them is that text, not UTF-16.
+        if let end = data.lastIndex(where: { $0 != 0 }), !data[..<end].contains(0),
+           let text = String(data: data[...end], encoding: .utf8) { return text }
         guard data.count % 2 == 0 else { return nil }
         // Mostly Latin text has its zero bytes on one side of the pairs: that side tells the byte order.
         var even = 0, odd = 0

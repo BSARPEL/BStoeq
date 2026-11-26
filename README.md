@@ -4,7 +4,7 @@
 
 BStoeq 2.2 is a menu bar app for macOS 27 on Apple Silicon. Use it to arrange menu bar icons, open or create archives, convert files where they are, see what takes up disk space, find duplicate files, uninstall apps together with their data, and manage YouTube downloads. The interface is available in Turkish, English and German.
 
-[Download for Mac (DMG)](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.dmg) · [Automatic setup with media tools](#automatic-setup) · [Installer package](#building-an-installer-package) · [File converter](#converting-files) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
+[Download for Mac (DMG)](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.1/BStoeq-macOS.dmg) · [Automatic setup with media tools](#automatic-setup) · [Installer package](#building-an-installer-package) · [File converter](#converting-files) · [Archive features](#archives) · [Disk space and cleanup](#disk-space-and-cleanup) · [Duplicate files and uninstalling apps](#duplicate-files-and-uninstalling-apps)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/archive-workspace-dark.png">
@@ -21,19 +21,19 @@ Each release offers the same app in three forms. Pick one; none of them needs Xc
 
 | File | How to install |
 |---|---|
-| [**BStoeq-macOS.dmg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.dmg) | Open it and drag **BStoeq** onto the **Applications** folder beside it. |
-| [**BStoeq-macOS.pkg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.pkg) | Double-click it and follow the installer. It asks for an administrator password. |
-| [**BStoeq-macOS.zip**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.0/BStoeq-macOS.zip) | Open it in Finder and move **BStoeq.app** to the **Applications** folder. |
+| [**BStoeq-macOS.dmg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.1/BStoeq-macOS.dmg) | Open it and drag **BStoeq** onto the **Applications** folder beside it. |
+| [**BStoeq-macOS.pkg**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.1/BStoeq-macOS.pkg) | Double-click it and follow the installer. It asks for an administrator password. |
+| [**BStoeq-macOS.zip**](https://github.com/BSARPEL/BStoeq/releases/download/v2.2.1/BStoeq-macOS.zip) | Open it in Finder and move **BStoeq.app** to the **Applications** folder. |
 
 1. If you are updating, quit BStoeq from the menu bar first.
-2. Before opening the download, you can check it in Terminal, for example `shasum -a 256 ~/Downloads/BStoeq-macOS.dmg`, and compare the result with the SHA-256 on the release page. [Release and verification summary](https://github.com/BSARPEL/BStoeq/releases/tag/v2.2.0)
+2. Before opening the download, you can check it in Terminal, for example `shasum -a 256 ~/Downloads/BStoeq-macOS.dmg`, and compare the result with the SHA-256 on the release page. [Release and verification summary](https://github.com/BSARPEL/BStoeq/releases/tag/v2.2.1)
 3. Open BStoeq from the **Applications** folder.
 
 This package is signed locally (*ad hoc*) and is not notarized by Apple. If the first launch only warns that the developer cannot be verified, and you trust the source and have checked the SHA-256 digest, you can use **System Settings → Privacy & Security → Open Anyway**. [Apple’s guide to opening apps for the first time](https://support.apple.com/102445)
 
 ### Automatic setup
 
-**To install the ready-made app and the download tools together**, download the source archive of this repository with **Code → Download ZIP**. Open the archive in Finder and double-click **BStoeq Kur.command** in the resulting `BStoeq-main` folder. The setup runs in Terminal. It downloads the published `v2.2.0` ZIP, checks its SHA-256 digest, installs any missing media tools and places the app in the **Applications** folder. Full Xcode is not needed. [Download the installer files (main branch ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
+**To install the ready-made app and the download tools together**, download the source archive of this repository with **Code → Download ZIP**. Open the archive in Finder and double-click **BStoeq Kur.command** in the resulting `BStoeq-main` folder. The setup runs in Terminal. It downloads the published `v2.2.1` ZIP, checks its SHA-256 digest, installs any missing media tools and places the app in the **Applications** folder. Full Xcode is not needed. [Download the installer files (main branch ZIP)](https://github.com/BSARPEL/BStoeq/archive/refs/heads/main.zip)
 
 To start the same process from Terminal, type `cd` followed by a space, drag the project folder into Terminal, press Return and run the command below.
 
@@ -153,6 +153,7 @@ Apple’s apps and BStoeq are not listed. An open app is not removed. If another
 
 The **Settings → Permissions** page shows the macOS permissions BStoeq uses and the state of each. Every permission is optional. Hiding icons needs none of them.
 
+- **Open at login:** BStoeq adds itself to your login items the first time it is opened from the Applications folder, so it is in the menu bar after every restart. The page shows whether it is on and turns it on or off; it also appears under **System Settings → General → Login Items**. If you turn it off, BStoeq never turns it back on by itself.
 - The state of **Accessibility** and **Full Disk Access** is read automatically. The page refreshes when you come back from System Settings.
 - For the **Desktop**, **Documents** and **Downloads** folders, press **Check**. If macOS has not asked about that folder before, it shows its permission prompt. Granting Full Disk Access covers these folders too.
 - macOS does not report the state of the **App Management** permission. The button on the page opens the matching section of System Settings.

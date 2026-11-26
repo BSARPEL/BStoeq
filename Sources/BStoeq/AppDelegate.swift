@@ -14,6 +14,7 @@ import ConvertCore
     private lazy var donut = DonutController(manager: model.converter, model: model)
     private lazy var cards = ConversionCardsController(manager: model.converter, model: model)
     private var readyForDocuments = false
+    private var appliedWatchRules: [WatchRule]?
     private var pendingDocuments: [URL] = []
     private var statusItem: NSStatusItem!
     private var settingsWindow: NSWindow?
@@ -22,6 +23,7 @@ import ConvertCore
     private var localClickMonitor: Any?
     private var localKeyMonitor: Any?
     private var recordingObserver: NSObjectProtocol?
+    private var mountObserver: NSObjectProtocol?
     private func L(_ key: String) -> String { model.L(key) }
     private let hoverMonitor = HoverMonitor()
     private let revealPanel = RevealPanelController()
@@ -36,6 +38,7 @@ import ConvertCore
             NSApp.terminate(nil); return
         }
         NSApp.setActivationPolicy(.accessory)
+        model.setUpLoginItemOnce()
         NSApp.servicesProvider = services
         NSUpdateDynamicServices()
         installMainMenu()
@@ -135,6 +138,10 @@ import ConvertCore
         model.converter.onOpenConverter = { [weak self] urls in self?.openConverter(urls) }
         model.converter.onOpenArchive = { [weak self] url in self?.archives.open([url]) }
         model.converter.refreshTools()
+        // A watched folder on a disk that comes back is watched again.
+        mountObserver = NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.didMountNotification, object: nil, queue: .main) { [weak self] _ in
+            MainActor.assumeIsolated { self?.model.watch.refreshStates() }
+        }
         _ = cards
         // Give the status-item scene its image before applying a menu-bar restriction.
         updateStatus(); model.start()
@@ -210,7 +217,8 @@ import ConvertCore
         hoverMonitor.setEnabled(!model.arrangingMenuBar && model.preferences.revealOnHover && model.trusted)
         let converter = model.preferences.converter
         donut.setEnabled(converter.donutEnabled && !model.arrangingMenuBar, trigger: converter.trigger, finderOnly: converter.finderOnly)
-        model.watch.apply(converter.watch)
+        // Every preference change and every menu-bar toggle comes through here; rules rarely change.
+        if converter.watch != appliedWatchRules { appliedWatchRules = converter.watch; model.watch.apply(converter.watch) }
         revealPanel.sync(model: model)
         guard let button = statusItem?.button else { return }
         let symbol = model.arrangingMenuBar ? "arrow.left.and.right" : model.expanded ? (model.panelPresented ? "chevron.up" : "chevron.right") : model.preferences.icon
@@ -357,6 +365,7 @@ import ConvertCore
         if let localClickMonitor { NSEvent.removeMonitor(localClickMonitor) }
         if let localKeyMonitor { NSEvent.removeMonitor(localKeyMonitor) }
         if let recordingObserver { NotificationCenter.default.removeObserver(recordingObserver) }
+        if let mountObserver { NSWorkspace.shared.notificationCenter.removeObserver(mountObserver) }
         if let statusItem { NSStatusBar.system.removeStatusItem(statusItem) }
     }
     private func installMainMenu() {

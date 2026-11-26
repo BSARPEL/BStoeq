@@ -492,7 +492,9 @@ public struct ConversionEngine: Sendable {
                 Self.ledger.withLock { folders in folders.removeAll { $0 == place.work } }
             }
             if let ended { return Delivery(outcome: ended) }
-            return self.deliver(written, as: name, from: unit, target: target, options: options, to: place, made: made, moveToTrash: moveToTrash)
+            // A converter's remark means the result is not the whole file ("only the first 30 s"): the original stays.
+            return self.deliver(written, as: name, from: unit, target: target, options: options, to: place, made: made,
+                                keepOriginals: !remarks.isEmpty, moveToTrash: moveToTrash)
         }
         if case .converted = delivery.outcome {
             for remark in remarks where !delivery.notices.contains(remark) { delivery.notices.append(remark) }
@@ -503,7 +505,8 @@ public struct ConversionEngine: Sendable {
     /// Checks what the converter wrote, publishes it and, where that is asked for, moves the originals to
     /// the Trash. Blocking.
     private func deliver(_ written: [URL], as name: String, from unit: Unit, target: ConversionTarget, options: ConversionOptions,
-                         to place: Place, made: OSAllocatedUnfairLock<[URL]>, moveToTrash: (URL) throws -> Void) -> Delivery {
+                         to place: Place, made: OSAllocatedUnfairLock<[URL]>, keepOriginals: Bool,
+                         moveToTrash: (URL) throws -> Void) -> Delivery {
         guard let files = Self.checked(written, in: place.work) else {
             return Delivery(outcome: .failed(ConversionFailure("Dönüştürme boş bir dosya üretti.")))
         }
@@ -538,7 +541,7 @@ public struct ConversionEngine: Sendable {
         }
 
         var trashed = false
-        for (source, format) in zip(unit.sources, unit.formats) where Self.trashesOriginal(target, source: format, options: options) {
+        for (source, format) in zip(unit.sources, unit.formats) where !keepOriginals && Self.trashesOriginal(target, source: format, options: options) {
             var status = stat()
             guard source.standardizedFileURL.path != published.standardizedFileURL.path, lstat(source.path, &status) == 0 else { continue }
             do { try moveToTrash(source); trashed = true } catch {

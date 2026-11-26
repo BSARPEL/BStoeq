@@ -38,7 +38,9 @@ final class DocumentConverterTests: XCTestCase {
         for source in ["doc", "docx", "odt"] {
             XCTAssertEqual(converter.note(for: try fixture.target("pdf"), source: try XCTUnwrap(FormatRegistry.format(id: source))), caveat)
         }
-        for source in ["rtf", "rtfd", "html", "txt", "md"] {
+        XCTAssertEqual(converter.note(for: try fixture.target("pdf"), source: try XCTUnwrap(FormatRegistry.format(id: "md"))),
+                       "Görseller aktarılmaz.", "Markdown pictures keep only their alt text")
+        for source in ["rtf", "rtfd", "html", "txt"] {
             XCTAssertNil(converter.note(for: try fixture.target("pdf"), source: try XCTUnwrap(FormatRegistry.format(id: source))))
         }
         XCTAssertNil(converter.note(for: try fixture.target("png"), source: try XCTUnwrap(FormatRegistry.format(id: "docx"))), "No caveat for a pair that is not offered")

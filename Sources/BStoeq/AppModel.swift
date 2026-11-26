@@ -55,6 +55,8 @@ struct BarApp: Identifiable {
     @Published var search = ""
     @Published var searchFocusRequest = 0
     @Published var loginEnabled = SMAppService.mainApp.status == .enabled
+    /// macOS asks the user to approve the login item in System Settings before it runs.
+    @Published private(set) var loginNeedsApproval = SMAppService.mainApp.status == .requiresApproval
     let engine: MenuBarEngine
     let menuLayout = MenuBarLayoutController()
     let downloads: MediaDownloadManager
@@ -429,13 +431,23 @@ struct BarApp: Identifiable {
         NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!)
     }
     func refreshLoginState() {
-        let enabled = SMAppService.mainApp.status == .enabled
-        if loginEnabled != enabled { loginEnabled = enabled }
+        let status = SMAppService.mainApp.status
+        if loginEnabled != (status == .enabled) { loginEnabled = status == .enabled }
+        if loginNeedsApproval != (status == .requiresApproval) { loginNeedsApproval = status == .requiresApproval }
+    }
+    /// A menu-bar utility is meant to be there after a restart: the first launch of an installed copy adds
+    /// it to the login items, once. Turning it off later in Settings or System Settings is never undone.
+    func setUpLoginItemOnce() {
+        let key = "loginItemSetUp"
+        guard !defaults.bool(forKey: key) else { return refreshLoginState() }
+        defaults.set(true, forKey: key)
+        if SMAppService.mainApp.status != .enabled { try? SMAppService.mainApp.register() }
+        refreshLoginState()
     }
     func setLogin(_ enabled: Bool) {
         do {
             if enabled { try SMAppService.mainApp.register() } else { try SMAppService.mainApp.unregister() }
-            loginEnabled = SMAppService.mainApp.status == .enabled
+            refreshLoginState()
             if SMAppService.mainApp.status == .requiresApproval {
                 notice = UserMessage("Oturum açılışında başlatmak için Sistem Ayarları’nda BStoeq’e izin ver.")
                 SMAppService.openSystemSettingsLoginItems()
